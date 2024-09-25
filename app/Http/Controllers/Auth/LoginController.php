@@ -22,6 +22,10 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function adminLogin()
+    {
+        return view('auth.adminLogin');
+    }
 
     public function loginAction(Request $request)
     {
@@ -41,12 +45,14 @@ class LoginController extends Controller
         }
     }
 
+
+
     public function logout(Request $request){
         
             Auth::guard('web')->logout();
 
             $request->session()->invalidate();
             
-            return redirect()->route('login');
+            return redirect()->route('adminLogin');
     }
 }
