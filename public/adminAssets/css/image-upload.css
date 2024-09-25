@@ -1,0 +1,40 @@
+.upload-container {
+    text-align: center;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 50px;
+    width: 100%;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: #aaa;
+}
+
+.upload-area p {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+}
+
+#browseText, #browseEditText {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#previewImage {
+    margin-top: 20px;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}

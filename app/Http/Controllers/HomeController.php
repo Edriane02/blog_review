@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function ___construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function home(){
+            return view('dashboard.home');
+        }
+        
+    public function adminHome(){
+        return view('dashboard.index');
+    }
+
+   
+}

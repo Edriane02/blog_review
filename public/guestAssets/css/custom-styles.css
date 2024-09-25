@@ -1,0 +1,108 @@
+.heading-text-home {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 3.5em;
+    margin-bottom: -0.5em;
+}
+
+.heading-text-home-sub {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 5em;
+    margin-bottom: 0.5em;
+}
+
+.description-home {
+    font-size: 16px;
+}
+
+.cta {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 2em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.cta-desc {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
+
+.btn-outline-primary {
+    border-color: #212529;
+    color: #212529;
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.widget-title-custom {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 3em;
+    margin-bottom: 0.2em;
+}
+
+.widget-title-latest {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+}
+
+.fancy-underline {
+    background-image: linear-gradient(120deg, #EDE574,#E1F5C4 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 90%;
+    transition: background-size 0.25s ease-in;
+    font-family: "Playfair Display", serif;
+}
+
+.fancy-underline:hover {
+    background-size: 100% 88% !important;
+}
+
+.img-store-hover {
+    transition: transform 0.3s ease; /* Smooth transition for the grow effect */
+}
+
+.img-store-hover:hover {
+    transform: scale(1.1); /* Grow the image on hover */
+}
+
+
+
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .heading-text-home {
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .heading-text-home-sub {
+      font-size: 3.3em;
+      text-align: center;
+    }
+
+    .description-home {
+      text-align: center;
+    }
+
+    .entry-main-content p {
+      font-size:1.0em;
+  }
+}
