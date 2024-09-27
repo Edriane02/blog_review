@@ -55,6 +55,11 @@ Route::controller(HomeController::class)->group(function(){
 
 });
 
+Route::controller(AdminController::class)->group(function(){
+    Route::get('admin/posts', 'allPosts')->name('posts');
+
+});
+
 
 
 
