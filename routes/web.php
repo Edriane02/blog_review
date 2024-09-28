@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Models\Reviewer;
@@ -56,6 +57,11 @@ Route::controller(AdminController::class)->group(function(){
 });
 
 
+Route::controller(AdminController::class)->group(function(){
+    Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
+    Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
+});
+
 Route::controller(ReviewerController::class)->group(function(){
     Route::get('admin/reviewer', 'reviewerPage')->middleware('auth', 'isAdmin')->name('reviewer');
     Route::post('admin/add-reviewer', 'addReviewer')->middleware('auth', 'isAdmin')->name('addReviewer');
@@ -63,10 +69,13 @@ Route::controller(ReviewerController::class)->group(function(){
     Route::delete('admin/reviewer/destroy/{id}', 'deleteReviewer')->middleware('auth')->name('deleteReviewer');
 });
 
-Route::controller(AdminController::class)->group(function(){
-    Route::get('admin/posts', 'allPosts')->name('posts');
-
+Route::controller(TagController::class)->group(function(){
+    Route::get('admin/tags', 'tagsPage')->middleware('auth', 'isAdmin')->name('tags');
+    Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
+    Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
+    Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
 });
+
 
 
 
