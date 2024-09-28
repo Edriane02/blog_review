@@ -63,6 +63,11 @@ Route::controller(ReviewerController::class)->group(function(){
     Route::delete('admin/reviewer/destroy/{id}', 'deleteReviewer')->middleware('auth')->name('deleteReviewer');
 });
 
+Route::controller(AdminController::class)->group(function(){
+    Route::get('admin/posts', 'allPosts')->name('posts');
+
+});
+
 
 
 
