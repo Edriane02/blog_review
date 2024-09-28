@@ -334,17 +334,8 @@
                             </div>
                         </div>
 
-                        <div class="pagination-area mb-30 wow fadeInUp animated">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-start">
-                                    <li class="page-item"><a class="page-link" href="#"><i class="elegant-icon arrow_left"></i></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><i class="elegant-icon arrow_right"></i></a></li>
-                                </ul>
-                            </nav>
+                        <div>
+                            <center><a class="see-more-btn" href="latest-reviews.html">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
                         </div>
 
             <br />
@@ -352,7 +343,7 @@
             <div class="">
                     <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                         <div class="widget-header-2 position-relative mb-30">
-                            <h5 class="mt-5 mb-30">Browse by Genre</h5>
+                            <h5 class="mt-5 mb-30">Browse by Tags</h5>
                         </div>
                         <div class="tagcloud mt-50">
                             <a class="tag-cloud-link" href="category-results.html">Fiction</a>

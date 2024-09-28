@@ -55,6 +55,20 @@
     margin-bottom: 0.2em;
 }
 
+.contact-us-title {
+    font-family: "Playfair Display", serif;
+    color: #212529;
+    font-weight: 400;
+    font-size: 4em;
+}
+
+.about-us-title {
+    font-family: "Playfair Display", serif;
+    color: #212529;
+    font-weight: 400;
+    font-size: 4em;
+}
+
 .widget-title-latest {
     font-family: "Playfair Display", serif;
     font-weight: 400;
@@ -83,6 +97,31 @@
     transform: scale(1.1); /* Grow the image on hover */
 }
 
+.font-medium-custom {
+    font-size: 1.5em;
+}
+
+.custom-about-us {
+    font-family: "Playfair Display", serif;
+    color: #212529;
+    font-weight: 400;
+    font-size: 3em;
+}
+
+.contact-us-today-btn {
+    font-family: "Playfair Display", serif;
+    color: #212529;
+    font-weight: 400;
+    font-size: 4em;
+}
+
+.see-more-btn {
+    font-family: "Playfair Display", serif;
+    color: #212529;
+    font-weight: 400;
+    font-size: 3em;
+}
+
 
 
 
@@ -104,5 +143,23 @@
 
     .entry-main-content p {
       font-size:1.0em;
-  }
+    }
+
+    .see-more-btn {
+      font-family: "Playfair Display", serif;
+      color: #212529;
+      font-size: 2.1em;
+    }
+
+    .contact-us-title {
+      font-family: "Playfair Display", serif;
+      color: #212529;
+      font-size: 3.3em;
+    }
+
+    .about-us-title {
+      font-family: "Playfair Display", serif;
+      color: #212529;
+      font-size: 3.3em;
+    }
 }
