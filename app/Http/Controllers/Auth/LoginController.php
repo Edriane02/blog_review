@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email'=>$email,'password'=>$password]))
          {
-             return redirect()->route('index');
+             return redirect()->route('dashboard');
         }else{
             return back()->with('error', 'Wrong Email or Password');
         }
