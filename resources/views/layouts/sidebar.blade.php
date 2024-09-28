@@ -8,6 +8,27 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     <!-- App favicon -->
+
+    <link rel="shortcut icon" href="/adminAssets/images/favicon.ico">
+
+    <!-- plugin css -->
+    <link href="/adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="/adminAssets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/adminAssets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/adminAssets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <!-- DataTables -->
+    <link href="/adminAssets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/adminAssets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+
+    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="shortcut icon" href="/adminAssets/images/favicon.ico">
 
     <!-- plugin css -->
@@ -33,10 +54,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
+
+
+    <!-- Image file upload CSS -->
+    <link href="assets/css/image-upload.css" rel="stylesheet" type="text/css" />
+
     <link href="/adminAssets/css/custom-styles.css" rel="stylesheet" type="text/css" />
 
     <!-- Image file upload CSS -->
     <link href="/adminAssets/css/image-upload.css" rel="stylesheet" type="text/css" />
+    <link href="/adminAssets/css/custom-styles.css" rel="stylesheet" type="text/css" />
+
+   
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -46,7 +75,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <header id="page-topbar">
+    <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
 
@@ -183,6 +212,32 @@
     <!-- END layout-wrapper -->
 
     <!-- JAVASCRIPT -->
+
+    <script src="/adminAssets/libs/jquery/jquery.min.js"></script>
+    <script src="/adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/adminAssets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/adminAssets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/adminAssets/libs/node-waves/waves.min.js"></script>
+
+
+    <!-- Required datatable js -->
+    <script src="/adminAssets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/adminAssets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="/adminAssets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/adminAssets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="/adminAssets/js/pages/datatables.init.js"></script>
+
+    <!-- Image file upload JS -->
+    <script src="/adminAssets/js/image-upload.js"></script>
+
+    <!-- apexcharts -->
+    <!-- <script src="/adminAssets/libs/apexcharts/apexcharts.min.js"></script> -->
+
+    <!-- Plugins js-->
     <script src="/adminAssets/libs/jquery/jquery.min.js"></script>
     <script src="/adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/adminAssets/libs/metismenu/metisMenu.min.js"></script>
@@ -207,6 +262,7 @@
     <!-- <script src="/adminAssets/libs/apexcharts/apexcharts.min.js"></script> -->
 
     <!-- Plugins js-->
+
     <script src="/adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="/adminAssets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/adminAssets/js/pages/dashboard.init.js"></script>

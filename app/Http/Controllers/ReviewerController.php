@@ -12,8 +12,13 @@ class ReviewerController extends Controller
 {
     public function reviewerPage()
     {
-        return view('admin-pages.reviewer');
+        $reviewer = Reviewer::all();
+
+        return view('admin-pages.reviewer', compact('reviewer'));
+
+        
     }
+
 
     public function addReviewer(Request $request)
     {
