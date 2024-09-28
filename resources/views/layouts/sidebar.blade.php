@@ -8,12 +8,8 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     <!-- App favicon -->
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    <link rel="shortcut icon" href="../adminAssets/images/favicon.ico">
-=======
+
     <link rel="shortcut icon" href="/adminAssets/images/favicon.ico">
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
 
     <!-- plugin css -->
     <link href="/adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
@@ -30,9 +26,9 @@
     <link href="/adminAssets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Responsive datatable examples -->
-<<<<<<< HEAD
+
     <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-=======
+
     <link rel="shortcut icon" href="/adminAssets/images/favicon.ico">
 
     <!-- plugin css -->
@@ -51,10 +47,6 @@
 
     <!-- Responsive datatable examples -->
     <link href="/adminAssets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
->>>>>>> Stashed changes
-=======
-    <link href="/adminAssets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
 
     <!-- Custom Font (Quote) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,24 +54,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    <link href="../adminAssets/css/custom-styles.css" rel="stylesheet" type="text/css" />
+
 
     <!-- Image file upload CSS -->
     <link href="assets/css/image-upload.css" rel="stylesheet" type="text/css" />
-=======
+
     <link href="/adminAssets/css/custom-styles.css" rel="stylesheet" type="text/css" />
 
     <!-- Image file upload CSS -->
     <link href="/adminAssets/css/image-upload.css" rel="stylesheet" type="text/css" />
->>>>>>> Stashed changes
-=======
     <link href="/adminAssets/css/custom-styles.css" rel="stylesheet" type="text/css" />
 
-    <!-- Image file upload CSS -->
-    <link href="/adminAssets/css/image-upload.css" rel="stylesheet" type="text/css" />
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
+   
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -89,7 +75,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <header id="page-topbar">
+    <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
 
@@ -97,47 +83,19 @@
                  <div class="navbar-brand-box">
                     <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                            <img src="../adminAssets/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="../adminAssets/images/logo-dark.png" alt="" height="35">
-=======
                             <img src="/adminAssets/images/logo-sm.png" alt="" height="22">
                         </span>
                         <span class="logo-lg">
                             <img src="/adminAssets/images/logo-dark.png" alt="" height="35">
->>>>>>> Stashed changes
-=======
-                            <img src="/adminAssets/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/adminAssets/images/logo-dark.png" alt="" height="35">
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
                         </span>
                     </a>
 
                     <a href="index.html" class="logo logo-light">
                         <span class="logo-sm">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                            <img src="../adminAssets/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="../adminAssets/images/logo-light.png" alt="" height="20">
-=======
                             <img src="/adminAssets/images/logo-sm.png" alt="" height="22">
                         </span>
                         <span class="logo-lg">
                             <img src="/adminAssets/images/logo-light.png" alt="" height="20">
->>>>>>> Stashed changes
-=======
-                            <img src="/adminAssets/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/adminAssets/images/logo-light.png" alt="" height="20">
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
                         </span>
                     </a>
                 </div>
@@ -150,15 +108,7 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                            <img class="rounded-circle header-profile-user" src="../adminAssets/images/users/avatar-7.jpg"
-=======
                             <img class="rounded-circle header-profile-user" src="/adminAssets/images/users/avatar-7.jpg"
->>>>>>> Stashed changes
-=======
-                            <img class="rounded-circle header-profile-user" src="/adminAssets/images/users/avatar-7.jpg"
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
                                 alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ms-1">James</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -262,20 +212,13 @@
     <!-- END layout-wrapper -->
 
     <!-- JAVASCRIPT -->
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    <script src="../adminAssets/libs/jquery/jquery.min.js"></script>
-    <script src="../adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../adminAssets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="../adminAssets/libs/simplebar/simplebar.min.js"></script>
-    <script src="../adminAssets/libs/node-waves/waves.min.js"></script>
-=======
+
     <script src="/adminAssets/libs/jquery/jquery.min.js"></script>
     <script src="/adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/adminAssets/libs/metismenu/metisMenu.min.js"></script>
     <script src="/adminAssets/libs/simplebar/simplebar.min.js"></script>
     <script src="/adminAssets/libs/node-waves/waves.min.js"></script>
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
+
 
     <!-- Required datatable js -->
     <script src="/adminAssets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -295,12 +238,6 @@
     <!-- <script src="/adminAssets/libs/apexcharts/apexcharts.min.js"></script> -->
 
     <!-- Plugins js-->
-<<<<<<< HEAD
-    <script src="../adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="../adminAssets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../adminAssets/js/pages/dashboard.init.js"></script>
-    <script src="../adminAssets/js/app.js"></script>
-=======
     <script src="/adminAssets/libs/jquery/jquery.min.js"></script>
     <script src="/adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/adminAssets/libs/metismenu/metisMenu.min.js"></script>
@@ -325,16 +262,11 @@
     <!-- <script src="/adminAssets/libs/apexcharts/apexcharts.min.js"></script> -->
 
     <!-- Plugins js-->
-=======
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
+
     <script src="/adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="/adminAssets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/adminAssets/js/pages/dashboard.init.js"></script>
     <script src="/adminAssets/js/app.js"></script>
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> 08dab014f179493b1f968a7c5f4c61beb89ddae3
 
 </body>
 </html>
