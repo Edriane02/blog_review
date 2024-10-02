@@ -9,10 +9,13 @@ use App\Models\BookTag;
 
 class TagController extends Controller
 {
-    
+
     public function tagsPage()
     {
-        return view('admin-pages.tags');
+
+        $tags = Tags::all();
+
+        return view('admin-pages.tags', compact('tags'));
     }
 
     public function addTag(Request $request)
@@ -21,30 +24,30 @@ class TagController extends Controller
         $request->validate([
             'tag' => 'required|string|max:255',
         ]);
-    
+
         DB::beginTransaction();
-    
+
         try {
-            // Check if reviewer already exists
+            // Check if tag already exists
             $existingtag = Tags::where('tag', $request->tag)
-                                ->first();
-    
+                ->first();
+
             if ($existingtag) {
                 DB::rollBack();
                 return back()->with('error', 'Tag already exists.');
             }
-           
-    
-            // Create a new reviewer record
+
+
+            // Create a new tag record
             $tag = new Tags;
             $tag->tag = $request->tag;
             $tag->save();
-    
+
             DB::commit();
-            return back()->with('success', 'Reviewer successfully added.');
+            return back()->with('success', 'Tag successfully added.');
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'An error occurred while adding the reviewer: ' . $e->getMessage());
+            return back()->with('error', 'An error occurred while adding the tag: ' . $e->getMessage());
         }
     }
 
@@ -59,10 +62,10 @@ class TagController extends Controller
         DB::beginTransaction();
 
         try {
-            // Check if another reviewer with the same name (but different ID) already exists
+            // Check if another tag with the same name (but different ID) already exists
             $existingtag = Tags::where('tag', $request->tag)
-                                        ->where('id', '!=', $request->id)
-                                        ->first();
+                ->where('id', '!=', $request->id)
+                ->first();
 
             if ($existingtag) {
                 DB::rollBack();
@@ -73,15 +76,15 @@ class TagController extends Controller
             $tag = Tags::findOrFail($request->id);
 
 
-            // Update the reviewer information
+            // Update tag information
             $tag->update([
-                'tag' => $request->tag   
+                'tag' => $request->tag
             ]);
 
             // Commit the transaction
             DB::commit();
 
-            return back()->with('success', 'Tag updated successfully');
+            return back()->with('success', 'Tag updated successfully.');
 
         } catch (\Exception $e) {
             // Roll back in case of error
@@ -91,12 +94,12 @@ class TagController extends Controller
     }
 
     public function deleteTag(string $id)
-    {        
+    {
         $tag = Tags::findOrFail($id);
         $tag->delete();
-    
-      
-        return redirect()->route('tags')->with('success', 'Tag deleted successfully');
+
+
+        return redirect()->route('tags')->with('success', 'Tag deleted successfully.');
     }
-    
+
 }

@@ -15,10 +15,7 @@ class ReviewerController extends Controller
         $reviewer = Reviewer::all();
 
         return view('admin-pages.reviewer', compact('reviewer'));
-
-        
     }
-
 
     public function addReviewer(Request $request)
     {
@@ -28,32 +25,32 @@ class ReviewerController extends Controller
             'reviewer_name' => 'required|string|max:255',
             'bio' => 'nullable|string|max:255',
         ]);
-    
+
         DB::beginTransaction();
-    
+
         try {
             // Check if reviewer already exists
             $existingreviewer = Reviewer::where('reviewer_name', $request->reviewer_name)
-                                ->first();
-    
+                ->first();
+
             if ($existingreviewer) {
                 DB::rollBack();
                 return back()->with('error', 'Reviewer already exists.');
             }
-    
+
             // Handle file upload
             $photoPath = null;
             if ($request->hasFile('photo')) {
                 $photoPath = $request->file('photo')->store('reviewers', 'public'); // Store in 'public/reviewers' directory
             }
-    
+
             // Create a new reviewer record
             $reviewer = new Reviewer;
             $reviewer->photo = $photoPath; // Save the file path in the database
             $reviewer->reviewer_name = $request->reviewer_name;
             $reviewer->bio = $request->bio;
             $reviewer->save();
-    
+
             DB::commit();
             return back()->with('success', 'Reviewer successfully added.');
         } catch (\Exception $e) {
@@ -63,7 +60,7 @@ class ReviewerController extends Controller
     }
 
 
-        public function editReviewer(Request $request)
+    public function editReviewer(Request $request)
     {
         // Validate the incoming request data
         $request->validate([
@@ -77,8 +74,8 @@ class ReviewerController extends Controller
         try {
             // Check if another reviewer with the same name (but different ID) already exists
             $existingreviewer = Reviewer::where('reviewer_name', $request->reviewer_name)
-                                        ->where('id', '!=', $request->id)
-                                        ->first();
+                ->where('id', '!=', $request->id)
+                ->first();
 
             if ($existingreviewer) {
                 DB::rollBack();
@@ -112,7 +109,7 @@ class ReviewerController extends Controller
             // Commit the transaction
             DB::commit();
 
-            return back()->with('success', 'Reviewer updated successfully');
+            return back()->with('success', 'Reviewer updated successfully.');
 
         } catch (\Exception $e) {
             // Roll back in case of error
@@ -122,13 +119,24 @@ class ReviewerController extends Controller
     }
 
     public function deleteReviewer(string $id)
-    {        
-        $reviewer = Reviewer::findOrFail($id);
-        $reviewer->delete();
-    
-      
-        return redirect()->route('reviewer')->with('success', 'Reviewer deleted successfully');
-    }
+    {
+        DB::beginTransaction();
 
-    
+        try {
+            $reviewer = Reviewer::findOrFail($id);
+
+            // Optionally delete the photo from storage if it exists
+            if ($reviewer->photo) {
+                Storage::disk('public')->delete($reviewer->photo);
+            }
+
+            $reviewer->delete();
+            DB::commit();
+
+            return redirect()->route('reviewer')->with('success', 'Reviewer deleted successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'An error occurred while deleting the reviewer: ' . $e->getMessage());
+        }
+    }
 }

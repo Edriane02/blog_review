@@ -101,13 +101,6 @@
                                                     <div class="row">  
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookTitle" class="form-label">Book Title</label>
-                                                                <input type="text" class="form-control" id="bookTitle" placeholder="" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
                                                                 <label for="bookSubtitle" class="form-label">Subtitle (optional)</label>
                                                                 <input type="text" class="form-control" id="bookSubtitle" placeholder="">
                                                             </div>
