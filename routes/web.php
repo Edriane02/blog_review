@@ -21,15 +21,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.home'); // Assuming 'home' is your homepage view
-})->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
         return view('dashboard.index');
     })->middleware('isAdmin')->name('dashboard');
 });
+
 
 
 
