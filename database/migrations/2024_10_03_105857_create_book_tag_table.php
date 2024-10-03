@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('book_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('tag')->nullable(); // Tag name
+            $table->unsignedBigInteger('book_id');
+            $table->string('book_tag')->unique();     
             $table->timestamps();
+
+            // Set up the foreign key constraint  
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('book_tag');
     }
 };

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('post_id');
             $table->string('banner')->nullable(); // Banner (picture)
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
+            $table->string('genre')->nullable();
             $table->integer('pages')->nullable();
             $table->string('publisher')->nullable();
             $table->string('amazon_link')->nullable();

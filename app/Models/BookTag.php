@@ -11,6 +11,11 @@ class BookTag extends Model
     protected $table = 'book_tag';
     protected $fillable = [
         'book_id',
-        'tag_id',
+        'book_tag',
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Books::class, 'book_id');
+    }
 }
