@@ -55,18 +55,18 @@
                 </div>
             </div>
         </div>
-        <div class="header-sticky">
+        <div class="header-sticky nav-background">
             <div class="container align-self-center">
                 <div class="mobile_menu d-lg-none d-block"></div>
                 <div class="main-nav d-none d-lg-block float-left">
                     <nav>
                         <!--Desktop menu-->
                         <ul class="main-menu d-none d-lg-inline font-small">
-                            <li> <a href="{{ route('home') }}">Home</a> </li>
-                            <li> <a href="latest-reviews.html">Latest Reviews</a> </li>
-                            <li> <a href="contact-us.html">Contact Us</a> </li>
-                            <li> <a href="about-us.html">About Us</a> </li>
-                            <li> <a href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('home') }}">Home</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="latest-reviews.html">Latest Reviews</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="contact-us.html">Contact Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="about-us.html">About Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
                         </ul>
                         <!--Mobile menu-->
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
@@ -79,7 +79,7 @@
                     </nav>
                 </div>
                 <div class="float-right header-tools text-muted font-small">
-                    <ul class="header-social-network d-inline-block list-inline mr-15">
+                    <ul class="header-social-network d-inline-block list-inline mr-15 nav-links-color-desktop">
                         Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="#"><i class="elegant-icon social_facebook"></i></a></li>
                     </ul>
                 </div>
