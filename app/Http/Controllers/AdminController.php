@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Books;
+use App\Models\BookTag;
 use App\Models\Reviews;
+use App\Models\Reviewer;
 use App\Models\Tags;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +17,12 @@ class AdminController extends Controller
     }
 
     public function newPost(){
-        return view('admin-pages.newPost');
+
+       
+        $reviewers = Reviewer::all();  // Fetch all reviewers
+        $tags = Tags::all();  // Fetch all tags
+
+        return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
     
@@ -24,19 +31,20 @@ class AdminController extends Controller
     {
         // Validate incoming request
         $request->validate([
-            'post_id' => 'required|integer',
             'banner' => 'nullable|image|max:2048', // Assumes banner is an image
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
+            'genre' => 'nullable|string|max:255',
             'pages' => 'nullable|integer',
             'publisher' => 'nullable|string|max:255',
-            'amazon_link' => 'nullable|url',
-            'barnes_noble_link' => 'nullable|url',
-            'reviews' => 'nullable|array',
-            'reviews.*.reviewer' => 'nullable|string|max:255',
-            'reviews.*.review' => 'nullable|string',
-            'tags' => 'nullable|array',
-            'tags.*' => 'nullable|string|max:255',
+            'amazon_link' => 'nullable|string|max:255',
+            'barnes_noble_link' => 'nullable|string|max:255',
+            'review' => 'nullable|array',
+            'review.*' => 'nullable|string', // Ensure reviews are provided
+            'reviewer' => 'nullable|array',
+            'reviewer.*' => 'nullable|string|max:255', // Reviewers should exist in the DB
+            'book_tag' => 'nullable|array',
+            'book_tag.*' => 'nullable|string|max:255',
         ]);
 
         DB::beginTransaction();
@@ -50,53 +58,42 @@ class AdminController extends Controller
 
             // Insert book record
             $book = Books::create([
-                'post_id' => $request->post_id,
                 'banner' => $bannerPath,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
+                'genre' => $request->genre,
                 'pages' => $request->pages,
                 'publisher' => $request->publisher,
                 'amazon_link' => $request->amazon_link,
                 'barnes_noble_link' => $request->barnes_noble_link,
             ]);
 
-            // Insert reviews related to the book
-            if ($request->has('reviews')) {
-                foreach ($request->reviews as $reviewData) {
-                    if (!empty($reviewData['reviewer']) && !empty($reviewData['review'])) {
-                        Reviews::create([
-                            'book_id' => $book->id,
-                            'reviewer' => $reviewData['reviewer'],
-                            'review' => $reviewData['review'],
-                        ]);
-                    }
+            if ($request->reviewer != null && $request->review != null) {
+                foreach ($request->reviewer as $index => $reviewer) {
+                    Reviews::create([
+                        'book_id' => $book->id,
+                        'reviewer' => $reviewer, // Assuming 'reviewer_id' is the foreign key in Reviews table
+                        'review' => $request->review[$index],
+                    ]);
                 }
             }
 
-            // Insert tags related to the book
-            if ($request->has('tags')) {
-                foreach ($request->tags as $tagName) {
-                    if (!empty($tagName)) {
-                        // Check if the tag already exists
-                        $tag = Tags::firstOrCreate(['tag' => $tagName]);
-
-                        // Attach the tag to the book using the pivot table
-                        $book->tags()->attach($tag->id);
-                    }
-                }
-            }
+            foreach ($request->book_tag as $tag) {
+                BookTag::create([
+                    'book_id' => $book->id,
+                    'book_tag' => $tag,
+                    ]);
+                }       
 
             DB::commit();
 
-            return response()->json([
-                'message' => 'Post uploaded successfully!',
-                'book' => $book,
-            ], 201);
+            return back()->with('success', 'Post successfully uploaded.');
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
+            return back()->with('error', 'An error occurred while uploading the Post: ' . $e->getMessage());
         }
     }
+
 
 
     

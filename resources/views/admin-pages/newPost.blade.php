@@ -27,25 +27,19 @@
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
                         <div class="row justify-content-center">
-                            <div class="col-xl-10">
+                            <div class="col-xl-10"> 
+                                <form method="POST" action="{{ route('uploadPost') }}" enctype="multipart/form-data">
+                                                      @csrf
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title font-size-16 mt-0"></h4>
-
-                                                <!-- Form Start -->
-                                                <form method="POST" action="">
-                                                    @csrf
-                                                    <input class="hidden" name="post_id">
+                                            <h4 class="card-title font-size-16 mt-0"></h4>                                             
+        
                                                     <span class="badge bg-primary mb-2">STEP 1</span>
                                                     <h4>Upload a Post Banner</h4>
                                                     <p class="text-muted">containing the Book Mockup</p>
                                                     <div class="upload-container mb-3" id="uploadContainer">
-                                                        <input type="file" name="banner" id="fileInput" accept="image/*" hidden >
-                                                        <div class="upload-area" id="uploadArea">
-                                                            <h1 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h1>
-                                                            <p>Drag & Drop your image here or <span id="browseText">browse</span></p>
-                                                        </div>
-                                                        <img id="previewImage" class="hidden" alt="Image Preview">
+                                                        <input class="form-control" type="file" name="banner" id="fileInput" accept="image/*"
+                                                            required>
                                                     </div>
 
                                                     <div class="mb-4">
@@ -66,18 +60,17 @@
                                                     <span class="badge bg-primary mb-2">STEP 3</span>
                                                     <h4 class="mb-3">Write Your Review</h4>
                                                     <div class="mb-4">
-                                                        <textarea id="elm1" name="area" required></textarea>
+                                                        <textarea id="elm1" name="review[]"></textarea>
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 4</span>
                                                     <h4 class="mb-3">Add Reviewer</h4>
                                                     <div class="mb-4">
-                                                        <select class="form-control select2">
+                                                        <select class="form-control select2" name="reviewer[]">
                                                             <option>Select Reviewer...</option>
-                                                                <option value="Faustine Sinclair">Faustine Sinclair</option>
-                                                                <option value="Simon Jenkins">Simon Jenkins</option>
-                                                                <option value="Cath Reigo">Cath Reigo</option>
-                                                                <option value="John Doe">John Doe</option>
+                                                            @foreach($reviewers as $reviewer)
+                                                                <option value="{{ $reviewer->id }}">{{ $reviewer->reviewer_name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
@@ -85,14 +78,10 @@
                                                         <span class="badge bg-primary mb-2">STEP 5</span>
                                                         <h4>Add Tags</h4>
                                                         <p class="text-muted">(You can select multiple tags, like Fiction, Mystery, and more...)</p>
-                                                        <select class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose tags..." required>
-                                                            <option value="Fiction">Fiction</option>
-                                                            <option value="Non-Fiction">Non-Fiction</option>
-                                                            <option value="Mystery">Mystery</option>
-                                                            <option value="Comedy">Comedy</option>
-                                                            <option value="Novel">Novel</option>
-                                                            <option value="Biography">Biography</option>
-                                                            <option value="True Crime">True Crime</option>
+                                                        <select class="select2 form-control select2-multiple" name="book_tag[]" multiple="multiple" data-placeholder="Choose tags..." required>
+                                                            @foreach($tags as $tag)
+                                                                <option value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
@@ -102,35 +91,35 @@
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="bookSubtitle" class="form-label">Subtitle (optional)</label>
-                                                                <input type="text" class="form-control" id="bookSubtitle" placeholder="">
+                                                                <input type="text" name="subtitle" class="form-control" id="bookSubtitle" placeholder="">
                                                             </div>
                                                         </div>
                                                     
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="bookAuthor" class="form-label">Author</label>
-                                                                <input type="text" class="form-control" id="bookAuthor" placeholder="" required>
+                                                                <input type="text" name="author" class="form-control" id="bookAuthor" placeholder="" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="bookPublisher" class="form-label">Publisher</label>
-                                                                <input type="text" class="form-control" id="bookPublisher" placeholder="" required>
+                                                                <input type="text" name="publisher" class="form-control" id="bookPublisher" placeholder="" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="bookPages" class="form-label">Pages</label>
-                                                                <input type="text" class="form-control" id="bookPages" placeholder="" required>
+                                                                <input type="text" name="pages" class="form-control" id="bookPages" placeholder="" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-4">
                                                                 <label for="bookGenre" class="form-label">Genre</label>
-                                                                <input type="text" class="form-control" id="bookGenre" placeholder="" required>
+                                                                <input type="text" name="genre" class="form-control" id="bookGenre" placeholder="" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -140,21 +129,21 @@
                                                         <h4 class="mb-3">Add Online Store Links of the Book</h4>
                                                         <div class="mb-3">
                                                             <label for="amazon-s-link">Amazon Link</label>
-                                                            <input class="form-control" type="text" value="" placeholder="Paste the link here..." id="amazon-s-link">
+                                                            <input class="form-control" name="amazon_link" type="text" value="" placeholder="Paste the link here..." id="amazon-s-link">
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="barnes-s-link">Barnes & Noble Link</label>
-                                                            <input class="form-control" type="text" value="" placeholder="Paste the link here..." id="barnes-s-link">
+                                                            <input class="form-control" name="barnes_noble_link" type="text" value="" placeholder="Paste the link here..." id="barnes-s-link">
                                                         </div>
                                                     </div>
-                                                    <br />
+                                                    <br/>
                                                     <div>
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light mb-3">Publish</button>
                                                     </div>           
-                                                </form>
-                                                <!-- Form End -->
-                                        </div>
+                                                </div>
+                                            </form>
+                                            <!-- Form End -->
                                     </div>
                                 </div>
                         </div>
