@@ -12,7 +12,6 @@
                          <div class="col-sm-6">
                              <div class="page-title">
                                 <h2 class="page-title-custom">All Posts | Content Management System</h2>
-                                <p class="page-title-custom">Dashboard</p> 
                              </div>
                          </div>
                      </div>

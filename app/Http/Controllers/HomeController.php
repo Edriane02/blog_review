@@ -13,13 +13,20 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function home(){
+    public function home()
+{
+    // Get all books with 'Featured Review' tag
+    $featuredBooks = Books::whereHas('bookTag', function ($query) {
+                            $query->where('book_tag', 'Featured Review');})
+                            ->with(['bookTag', 'reviewer'])
+                            ->orderBy('created_at')
+                            ->get();
 
-        $books = Books::with(['bookTag', 'reviewer'])->get();
-                                        
+    // Get the latest 3 reviews
+    $latestBooks = Books::latest()->take(3)->with(['bookTag', 'reviewer'])->get();
 
-            return view('dashboard.home', compact('books'));
-        }
+    return view('dashboard.home', compact('featuredBooks', 'latestBooks'));
+}
         
     public function adminHome(){
         return view('dashboard.index');

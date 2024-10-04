@@ -39,9 +39,10 @@
 
 
         <div class="loop-grid mb-30">
+        @if($featuredBooks->count() > 0)
             <div class="row">
-                @if($books->count() > 0)
-                    @foreach($books as $book)
+                
+                    @foreach($featuredBooks as $book)
                         <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                             <div class="post-card-1 border-radius-10 hover-up">
                                 <div class="post-thumb thumb-overlay img-hover-slide position-relative"
@@ -60,10 +61,13 @@
                                 </div>
                                 <div class="post-content p-30">
                                     <div class="entry-meta meta-0 font-small mb-10">
-                                        @foreach($book->bookTag as $tags)
-                                            <a href="category-results.html"><span
-                                                    class="post-cat text-info">{{ $tags->book_tag }}</span></a>
-                                        @endforeach
+                                    @foreach($book->bookTag as $tag)
+                                @if($tag->book_tag !== 'Featured Review')
+                                    <a href="category-results.html">
+                                        <span class="post-cat text-info">{{ $tag->book_tag }}</span>
+                                    </a>
+                                @endif
+                            @endforeach
                                     </div>
                                     <div class="d-flex post-card-content">
                                         <h5 class="post-title mb-20 font-weight-900">
@@ -72,19 +76,20 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('F j, Y') }}</span>
+                                            <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </article>
                     @endforeach
-                @else
-                    <p>No reviews found.</p>
-                @endif
+                
 
 
             </div>
+            @else
+                    <h5 class="text-center text-muted">No featured reviews found.</h5>
+                @endif
         </div>
     </div>
 
@@ -94,12 +99,14 @@
                 <p class="widget-title-latest">Latest Reviews</p>
             </div>
             <div class="loop-list loop-list-style-1">
+            @if($latestBooks->count() > 0)
+            @foreach($latestBooks as $book)
                 <article class="hover-up-2 transition-normal wow fadeInUp animated">
                     <div class="row mb-40 list-style-2">
                         <div class="col-md-4">
                             <div class="post-thumb position-relative border-radius-5">
                                 <div class="img-hover-slide border-radius-5 position-relative"
-                                    style="background-image: url(guestAssets/imgs/sample-book-1.jpg)">
+                                style="background-image: url({{ asset('storage/' . $book->banner) }})">
                                     <a class="img-link" href="single-post.html"></a>
                                 </div>
                                 <ul class="social-share">
@@ -115,100 +122,31 @@
                         </div>
                         <div class="col-md-8 align-self-center">
                             <div class="post-content">
-                                <div class="entry-meta meta-0 font-small mb-10">
-                                    <a href="category-results.html"><span class="post-cat text-info">Fiction</span></a>
-                                    <a href="category-results.html"><span class="post-cat text-info">Mystery</span></a>
-                                </div>
-                                <h5 class="post-title font-weight-900 mb-20">
-                                    <a href="single-post.html">The Attenuating Puritan</a>
-                                    <br />
-                                    <span style="font-size: 13px;">Authored by Robert McGuiness</span>
-                                </h5>
-                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                    <span class="post-on">23 August 2024</span>
-                                </div>
+                            <div class="entry-meta meta-0 font-small mb-10">
+                                @foreach($book->bookTag as $tag)
+                                    <a href="category-results.html">
+                                        <span class="post-cat text-info">{{ $tag->book_tag }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
+                            <h5 class="post-title font-weight-900 mb-20">
+                                <a href="single-post.html">{{ $book->title }}</a>
+                                <br />
+                                <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                            </h5>
+                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </article>
+                @endforeach
+        @else
+            <h5 class="text-center text-muted">No latest reviews found.</h5>
+            <br /><br /><br />
+        @endif
 
-                <article class="hover-up-2 transition-normal wow fadeInUp animated">
-                    <div class="row mb-40 list-style-2">
-                        <div class="col-md-4">
-                            <div class="post-thumb position-relative border-radius-5">
-                                <div class="img-hover-slide border-radius-5 position-relative"
-                                    style="background-image: url(guestAssets/imgs/sample-book-2.jpg)">
-                                    <a class="img-link" href="single-post.html"></a>
-                                </div>
-                                <ul class="social-share">
-                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                class="elegant-icon social_facebook"></i></a></li>
-                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                class="elegant-icon social_twitter"></i></a></li>
-                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                class="elegant-icon social_pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-8 align-self-center">
-                            <div class="post-content">
-                                <div class="entry-meta meta-0 font-small mb-10">
-                                    <a href="category-results.html"><span
-                                            class="post-cat text-info">Non-Fiction</span></a>
-                                    <a href="category-results.html"><span class="post-cat text-info">Comedy</span></a>
-                                </div>
-                                <h5 class="post-title font-weight-900 mb-20">
-                                    <a href="single-post.html">Repairman</a>
-                                    <br />
-                                    <span style="font-size: 13px;">Authored by Jim Platt</span>
-                                </h5>
-                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                    <span class="post-on">23 August 2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="hover-up-2 transition-normal wow fadeInUp animated">
-                    <div class="row mb-40 list-style-2">
-                        <div class="col-md-4">
-                            <div class="post-thumb position-relative border-radius-5">
-                                <div class="img-hover-slide border-radius-5 position-relative"
-                                    style="background-image: url(guestAssets/imgs/sample-book-3.jpg)">
-                                    <a class="img-link" href="single-post.html"></a>
-                                </div>
-                                <ul class="social-share">
-                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                class="elegant-icon social_facebook"></i></a></li>
-                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                class="elegant-icon social_twitter"></i></a></li>
-                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                class="elegant-icon social_pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-8 align-self-center">
-                            <div class="post-content">
-                                <div class="entry-meta meta-0 font-small mb-10">
-                                    <a href="category-results.html"><span
-                                            class="post-cat text-info">Non-Fiction</span></a>
-                                    <a href="category-results.html"><span class="post-cat text-info">Novel</span></a>
-                                </div>
-                                <h5 class="post-title font-weight-900 mb-20">
-                                    <a href="single-post.html">You Have Time to Die and Go Broke</a>
-                                    <br />
-                                    <span style="font-size: 13px;">Authored by Linda Salerno-Forand</span>
-                                </h5>
-                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                    <span class="post-on">23 August 2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
             </div>
         </div>
 
