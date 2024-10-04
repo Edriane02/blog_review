@@ -113,9 +113,9 @@
                                                         <p class="text-muted">(You can select multiple tags, like Fiction, Mystery, and more...)</p>
                                                         <select class="select2 form-control select2-multiple" name="book_tag[]" multiple="multiple" data-placeholder="Choose tags..." required>
                                                             @foreach($tags as $tag)
-                                                                <option value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                                                <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
                                                             @endforeach
-                                                        </select>
+                                                        </select>   
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 6</span>

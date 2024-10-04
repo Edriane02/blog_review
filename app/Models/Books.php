@@ -27,6 +27,6 @@ class Books extends Model
 
     public function reviewer()
     {
-        return $this->hasMany(Reviewer::class, 'book_id');
+        return $this->hasMany(Reviews::class, 'book_id');
     }
 }

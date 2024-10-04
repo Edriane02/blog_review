@@ -40,8 +40,6 @@
 
         <div class="loop-grid mb-30">
             <div class="row">
-
-                <!-- Loop here -->
                 @if($books->count() > 0)
                     @foreach($books as $book)
                         <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
@@ -62,9 +60,10 @@
                                 </div>
                                 <div class="post-content p-30">
                                     <div class="entry-meta meta-0 font-small mb-10">
-                                        <a href="category-results.html"><span
-                                                class="post-cat text-info">{{ $book->tags }}</span></a>
-
+                                        @foreach($book->bookTag as $tags)
+                                            <a href="category-results.html"><span
+                                                    class="post-cat text-info">{{ $tags->book_tag }}</span></a>
+                                        @endforeach
                                     </div>
                                     <div class="d-flex post-card-content">
                                         <h5 class="post-title mb-20 font-weight-900">
@@ -73,8 +72,7 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('F j, Y') }}
-                                            </span>
+                                            <span class="post-on">{{ $book->created_at->format('F j, Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -84,6 +82,7 @@
                 @else
                     <p>No reviews found.</p>
                 @endif
+
 
             </div>
         </div>

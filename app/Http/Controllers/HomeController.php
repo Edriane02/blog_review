@@ -15,7 +15,8 @@ class HomeController extends Controller
 
     public function home(){
 
-            $books = Books::all();
+        $books = Books::with(['bookTag', 'reviewer'])->get();
+                                        
 
             return view('dashboard.home', compact('books'));
         }
