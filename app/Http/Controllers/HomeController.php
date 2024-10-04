@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Books;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -13,7 +14,10 @@ class HomeController extends Controller
     }
 
     public function home(){
-            return view('dashboard.home');
+
+            $books = Books::all();
+
+            return view('dashboard.home', compact('books'));
         }
         
     public function adminHome(){
