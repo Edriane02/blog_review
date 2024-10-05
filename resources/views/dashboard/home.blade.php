@@ -47,7 +47,7 @@
                             <div class="post-card-1 border-radius-10 hover-up">
                                 <div class="post-thumb thumb-overlay img-hover-slide position-relative"
                                     style="background-image: url({{ asset('storage/' . $book->banner) }})">
-                                    <a class="img-link" href="single-post.html"></a>
+                                    <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
 
                                     <ul class="social-share">
                                         <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="d-flex post-card-content">
                                         <h5 class="post-title mb-20 font-weight-900">
-                                            <a href="single-post.html">{{ $book->title }}</a>
+                                            <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                             <br />
                                             <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
                                         </h5>
@@ -107,7 +107,7 @@
                             <div class="post-thumb position-relative border-radius-5">
                                 <div class="img-hover-slide border-radius-5 position-relative"
                                 style="background-image: url({{ asset('storage/' . $book->banner) }})">
-                                    <a class="img-link" href="single-post.html"></a>
+                                    <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
                                 </div>
                                 <ul class="social-share">
                                     <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
@@ -130,7 +130,7 @@
                                 @endforeach
                             </div>
                             <h5 class="post-title font-weight-900 mb-20">
-                                <a href="single-post.html">{{ $book->title }}</a>
+                                <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                 <br />
                                 <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
                             </h5>

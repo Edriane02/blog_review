@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
+
 
 
 Route::group(['middleware' => 'auth'], function () {
