@@ -18,7 +18,7 @@
 
                 </div>
                 <div class="col-lg-6 text-right d-none d-lg-block">
-                    <img src="guestAssets/imgs/static/reading.png" alt="">
+                    <img src="{{ asset('guestAssets/imgs/static/reading.png') }}" alt="People reading">
                 </div>
             </div>
             <p class="cta text-center">Interested in a Professional Review of Your Book?</p>
@@ -36,12 +36,10 @@
                 <p class="widget-title-custom">Featured Reviews</p>
             </div>
         </div>
-
-
         <div class="loop-grid mb-30">
-        @if($featuredBooks->count() > 0)
-            <div class="row">
-                
+            @if($featuredBooks->count() > 0)
+                <div class="row">
+
                     @foreach($featuredBooks as $book)
                         <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                             <div class="post-card-1 border-radius-10 hover-up">
@@ -49,7 +47,7 @@
                                     style="background-image: url({{ asset('storage/' . $book->banner) }})">
                                     <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
 
-                                    <ul class="social-share">
+                                    <!-- <ul class="social-share">
                                         <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
                                         <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
                                                     class="elegant-icon social_facebook"></i></a></li>
@@ -57,17 +55,17 @@
                                                     class="elegant-icon social_twitter"></i></a></li>
                                         <li><a class="pt" href="#" target="_blank" title="Pin it"><i
                                                     class="elegant-icon social_pinterest"></i></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                                 <div class="post-content p-30">
                                     <div class="entry-meta meta-0 font-small mb-10">
-                                    @foreach($book->bookTag as $tag)
-                                @if($tag->book_tag !== 'Featured Review')
-                                    <a href="category-results.html">
-                                        <span class="post-cat text-info">{{ $tag->book_tag }}</span>
-                                    </a>
-                                @endif
-                            @endforeach
+                                        @foreach($book->bookTag as $tag)
+                                            @if($tag->book_tag !== 'Featured Review')
+                                                <a href="category-results.html">
+                                                    <span class="post-cat text-info">{{ $tag->book_tag }}</span>
+                                                </a>
+                                            @endif
+                                        @endforeach
                                     </div>
                                     <div class="d-flex post-card-content">
                                         <h5 class="post-title mb-20 font-weight-900">
@@ -83,13 +81,10 @@
                             </div>
                         </article>
                     @endforeach
-                
-
-
-            </div>
+                </div>
             @else
-                    <h5 class="text-center text-muted">No featured reviews found.</h5>
-                @endif
+                <h5 class="text-center text-muted">No featured reviews found.</h5>
+            @endif
         </div>
     </div>
 
@@ -99,60 +94,59 @@
                 <p class="widget-title-latest">Latest Reviews</p>
             </div>
             <div class="loop-list loop-list-style-1">
-            @if($latestBooks->count() > 0)
-            @foreach($latestBooks as $book)
-                <article class="hover-up-2 transition-normal wow fadeInUp animated">
-                    <div class="row mb-40 list-style-2">
-                        <div class="col-md-4">
-                            <div class="post-thumb position-relative border-radius-5">
-                                <div class="img-hover-slide border-radius-5 position-relative"
-                                style="background-image: url({{ asset('storage/' . $book->banner) }})">
-                                    <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
+                @if($latestBooks->count() > 0)
+                    @foreach($latestBooks as $book)
+                        <article class="hover-up-2 transition-normal wow fadeInUp animated">
+                            <div class="row mb-40 list-style-2">
+                                <div class="col-md-4">
+                                    <div class="post-thumb position-relative border-radius-5">
+                                        <div class="img-hover-slide border-radius-5 position-relative"
+                                            style="background-image: url({{ asset('storage/' . $book->banner) }})">
+                                            <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
+                                        </div>
+                                        <!-- <ul class="social-share">
+                                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
+                                                        class="elegant-icon social_facebook"></i></a></li>
+                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
+                                                        class="elegant-icon social_twitter"></i></a></li>
+                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i
+                                                        class="elegant-icon social_pinterest"></i></a></li>
+                                        </ul> -->
+                                    </div>
                                 </div>
-                                <ul class="social-share">
-                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                class="elegant-icon social_facebook"></i></a></li>
-                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                class="elegant-icon social_twitter"></i></a></li>
-                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                class="elegant-icon social_pinterest"></i></a></li>
-                                </ul>
+                                <div class="col-md-8 align-self-center">
+                                    <div class="post-content">
+                                        <div class="entry-meta meta-0 font-small mb-10">
+                                            @foreach($book->bookTag as $tag)
+                                                <a href="category-results.html">
+                                                    <span class="post-cat text-info">{{ $tag->book_tag }}</span>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                        <h5 class="post-title font-weight-900 mb-20">
+                                            <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
+                                            <br />
+                                            <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                        </h5>
+                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                            <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-8 align-self-center">
-                            <div class="post-content">
-                            <div class="entry-meta meta-0 font-small mb-10">
-                                @foreach($book->bookTag as $tag)
-                                    <a href="category-results.html">
-                                        <span class="post-cat text-info">{{ $tag->book_tag }}</span>
-                                    </a>
-                                @endforeach
-                            </div>
-                            <h5 class="post-title font-weight-900 mb-20">
-                                <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
-                                <br />
-                                <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
-                            </h5>
-                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                @endforeach
-        @else
-            <h5 class="text-center text-muted">No latest reviews found.</h5>
-            <br /><br /><br />
-        @endif
+                        </article>
+                    @endforeach
+                @else
+                    <h5 class="text-center text-muted">No latest reviews found.</h5>
+                    <br /><br /><br />
+                @endif
 
             </div>
         </div>
 
         <div>
-            <center><a class="see-more-btn" href="latest-reviews.html">See more&nbsp;<i
-                        class="bi bi-arrow-right"></i></a></center>
+            <center><a class="see-more-btn" href="latest-reviews.html">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
         </div>
 
         <br />

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
+use App\Http\Controllers\PostsController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,12 @@ Route::controller(TagController::class)->group(function(){
     Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
     Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
+});
+
+Route::controller(PostsController::class)->group(function(){
+    Route::get('admin/posts', 'postsPage')->middleware('auth', 'isAdmin')->name('posts');
+    // edit here
+    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
 });
 
 

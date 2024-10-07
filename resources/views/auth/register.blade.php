@@ -1,3 +1,5 @@
+<!-- GUEST REGISTER -->
+
 @extends('layouts.app')
 @section('title', 'Register')
 
@@ -11,29 +13,29 @@
                             <div class="heading_s1 text-center">
                                 <h3 class="mb-30 font-weight-900">Create an account</h3>
                             </div>
-                            <form method="POST" action="{{ route('registerUser') }}">
+                            <form method="POST" action="{{ route('register') }}">
                                 @csrf
 
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="fname" placeholder="First Name">
+                                    <input type="text" class="form-control" name="fname" placeholder="First Name" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="mname" placeholder="Middle Name">
+                                    <input type="text" class="form-control" name="mname" placeholder="Middle Name" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="lname" placeholder="Last Name">
+                                    <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="suffix" placeholder="Suffix">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="email" placeholder="Email">
+                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" required="" type="password" name="password" placeholder="Password">
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                <input class="form-control" required="" type="password" name="password_confirmation" placeholder="Confirm password">
+                                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password" required>
                                 </div>
                                 <div class="login_footer form-group">
                                     <div class="chek-form">
@@ -49,7 +51,7 @@
                                     <button type="submit" class="button button-contactForm btn-block" id="registerButton">Sign up</button>
                                 </div>
                             </form>
-                            <div class="text-muted text-center">Already have an account? <a style="color: #5869da!important;" href="login.html">Login here</a>.</div>
+                            <div class="text-muted text-center">Already have an account? <a style="color: #5869da!important;" href="{{ route('login') }}">Login here</a>.</div>
                         </div>
                     </div>
                 </div>
@@ -58,4 +60,3 @@
     </main>
 
 @endsection
-   

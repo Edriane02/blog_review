@@ -1,3 +1,5 @@
+<!-- GUEST LOGIN -->
+
 @extends('layouts.app')
 @section('title', 'Login')
 
@@ -10,15 +12,15 @@
                     <div class="login_wrap widget-taber-content p-30 bg-white border-radius-10">
                         <div class="padding_eight_all bg-white">
                             <div class="heading_s1 text-center">
-                                <h3 class="mb-30 font-weight-900">Login</h3>
+                                <h3 class="mb-30 font-weight-900">Log in to Your Account</h3>
                             </div>
                             <form method="POST" action="">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" required="" class="form-control" name="email" placeholder="Your Email">
+                                    <input type="text" class="form-control" name="email" placeholder="Your Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" required="" type="password" name="password" placeholder="Password">
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="login_footer form-group">
                                     <div class="chek-form">
@@ -33,7 +35,7 @@
                                     <button type="submit" class="button button-contactForm btn-block">Login</button>
                                 </div>
                             </form>
-                            <div class="text-muted text-center">Don't have an account? <a style="color: #5869da!important;" href="register.html">Sign up here</a>.</div>
+                            <div class="text-muted text-center">Don't have an account? <a style="color: #5869da!important;" href="{{ route('register') }}">Sign up here</a>.</div>
                         </div>
                     </div>
                 </div>
