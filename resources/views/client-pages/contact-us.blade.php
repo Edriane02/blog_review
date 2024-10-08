@@ -10,7 +10,7 @@
                 <h1 class="contact-us-title text-center mb-50">
                     Contact Us
                 </h1>
-                <center><img src="assets/imgs/static/woman-reading-comp.png" width="500" alt=""></center>
+                <center><img src="{{ asset('guestAssets/imgs/static/woman-reading-comp.png') }}" width="500" alt=""></center>
             </div>
         </div>
         <div class="container single-content">

@@ -24,7 +24,16 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
-
+Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
+Route::get('maintenance', [HomeController::class, 'maintenancePage'])->name('maintenancePage');
+Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientProfile');
+Route::get('edit-profile', [HomeController::class, 'clientEditProfile'])->name('clientEditProfile');
+Route::get('change-password', [HomeController::class, 'clientChangePassword'])->name('clientChangePassword');
+Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
+Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('reviewerAuthorPage');
+Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
+Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
 
 
 Route::group(['middleware' => 'auth'], function () {

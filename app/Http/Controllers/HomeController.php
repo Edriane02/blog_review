@@ -42,6 +42,56 @@ class HomeController extends Controller
         return view('admin-pages.index');
     }
 
+    public function contactUs()
+    {
+        return view('client-pages.contact-us');
+    }
+
+    public function aboutUs()
+    {
+        return view('client-pages.about-us');
+    }
+
+    public function maintenancePage()
+    {
+        return view('client-pages.maintenance');
+    }
+
+    public function clientProfile()
+    {
+        return view('client-pages.profile');
+    }
+
+    public function clientEditProfile()
+    {
+        return view('client-pages.edit-profile');
+    }
+
+    public function clientChangePassword()
+    {
+        return view('client-pages.change-password');
+    }
+
+    public function latestReviewsPage()
+    {
+        return view('client-pages.latest-reviews');
+    }
+
+    public function reviewerAuthorPage()
+    {
+        return view('client-pages.reviewer-author');
+    }
+
+    public function categoryResultsPage()
+    {
+        return view('client-pages.category-results');
+    }
+
+    public function searchResultsPage()
+    {
+        return view('client-pages.search-results');
+    }
+
 
 
 }

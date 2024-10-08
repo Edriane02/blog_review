@@ -134,7 +134,7 @@
     <footer class="pt-50 pb-20">
         <div class="container">
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-small text-muted">© 2024 Professional Book Review</p>
+                <p class="float-md-left font-medium text-muted">© 2024 Professional Book Review</p>
             </div>
         </div>
     </footer>
