@@ -29,7 +29,7 @@ Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
-        return view('dashboard.index');
+        return view('admin-pages.index');
     })->middleware('isAdmin')->name('dashboard');
 });
 

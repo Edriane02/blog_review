@@ -12,6 +12,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
 
+    <link href="{{ asset('adminAssets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- plugin css -->
     <link href="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
 
@@ -210,11 +212,21 @@
     <!-- Image file upload JS -->
     <script src="{{ asset('adminAssets/js/image-upload.js') }}"></script>
 
+    <script src="{{ asset('adminAssets/libs/select2/js/select2.min.js') }}"></script>
+
+    <!--tinymce js-->
+    <script src="{{ asset('adminAssets/libs/tinymce/tinymce.min.js') }}"></script>
+
+    <!-- init js -->
+    <script src="{{ asset('adminAssets/js/pages/form-editor.init.js') }}"></script>
+
     <!-- Plugins js-->
     <script src="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
 
     <script src="{{ asset('adminAssets/libs/dropzone/min/dropzone.min.js') }}"></script>
+
+    <script src="{{ asset('adminAssets/js/pages/form-advanced.init.js') }}"></script>
 
     <script src="{{ asset('adminAssets/js/app.js') }}"></script>
 

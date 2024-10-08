@@ -26,7 +26,7 @@ class HomeController extends Controller
         // Get the latest 3 books with their reviews and reviewers
         $latestBooks = Books::latest()->take(3)->with(['bookTag', 'reviews.reviewer'])->get();
 
-        return view('dashboard.home', compact('featuredBooks', 'latestBooks'));
+        return view('client-pages.home', compact('featuredBooks', 'latestBooks'));
     }
 
     public function viewPost($id)
@@ -34,12 +34,12 @@ class HomeController extends Controller
         // Find the book by ID and load its relations
         $book = Books::with(['bookTag', 'reviews.reviewer'])->findOrFail($id); // Load reviews with their reviewer
 
-        return view('dashboard.viewpost', compact('book'));
+        return view('client-pages.view-post', compact('book'));
     }
 
     public function adminHome()
     {
-        return view('dashboard.index');
+        return view('admin-pages.index');
     }
 
 

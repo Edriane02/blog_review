@@ -100,7 +100,7 @@
                 <div class="author-info">
                     <span style="font-weight: 700;">Reviewed by</span>
                     <h4 class="font-weight-bold mb-20"><span class="vcard author"><span class="fn"><a href="author.html"
-                                    title="" rel="author">Faustine Sinclair</a></span></span>
+                                    title="" rel="author">[reviewer name here]</a></span></span>
                     </h4>
                     <div class="author-description text-muted">I am a professional book reviewer with a deep passion for
                         literature and a keen eye for detail. With years of experience in the literary world, I offer
@@ -112,5 +112,31 @@
         </article>
     </div>
 </main>
+
+<!-- Browse by Tags -->
+<div class="site-bottom pt-50 pb-50">
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="">
+                    <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">Browse by Tags</h5>
+                        </div>
+                        <div class="tagcloud mt-50">
+                            <a class="tag-cloud-link" href="category-results.html">Fiction</a>
+                            <a class="tag-cloud-link" href="category-results.html">Non-Fiction</a>
+                            <a class="tag-cloud-link" href="category-results.html">Mystery</a>
+                            <a class="tag-cloud-link" href="category-results.html">Comedy</a>
+                            <a class="tag-cloud-link" href="category-results.html">Novel</a>
+                            <a class="tag-cloud-link" href="category-results.html">Biography</a>
+                            <a class="tag-cloud-link" href="category-results.html">True Crime</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!--container-->
+    </div>
+<!-- end Browse by Tags -->
 
 @endsection

@@ -17,6 +17,13 @@ class PostsController extends Controller
         return view('admin-pages.posts', compact('posts'));
     }
 
+
+    // NOTES:
+    // Incomplete delete function, will not delete its relations to other tables
+    // `books`, `book_tag`
+    // I assume it will only delete the entry on `reviews` table
+    // What should it do: DELETE from `books`, `books_tag`, and `reviews`
+    // Also delete the uploaded image banner
     public function deletePost(string $id)
     {
         $post = Reviews::findOrFail($id);
