@@ -54,17 +54,11 @@ Route::controller(RegisterController::class)->group(function(){
 
 Route::controller(LoginController::class)->group(function(){
 
-    Route::get('login', 'login')->name('login');
+    Route::get('user/login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('loginAction');
     Route::get('logout', 'logout')->name('logout');
     Route::get('admin/login', 'adminLogin')->name('adminLogin');
 
-
-});
-
-Route::controller(AdminController::class)->group(function(){
-    Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
-    Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
 
 });
 
