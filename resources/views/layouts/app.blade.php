@@ -7,7 +7,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title') | Professional Book Review</title>
-    <meta name="description" content="">
+    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="author" content="Professional Book Review" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
     <!-- Site CSS  -->

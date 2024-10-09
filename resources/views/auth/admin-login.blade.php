@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <title>Login | Professional Book Review CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="author" content="Professional Book Review" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
 
