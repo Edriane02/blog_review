@@ -23,7 +23,7 @@ class AdminController extends Controller
         $reviewers = Reviewer::all();  // Fetch all reviewers
         $tags = Tags::all();  // Fetch all tags
 
-        return view('admin-pages.new-post', compact('reviewers', 'tags'));
+        return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
     public function uploadPost(Request $request)
@@ -93,16 +93,28 @@ class AdminController extends Controller
         }
     }
 
+    
+    public function editPost($id){
 
-    public function editPost(){
+        $books = Books::with('reviews', 'bookTag')->findOrFail($id);
+        $reviewers = Reviewer::all();  // Fetch all reviewers
+        $tags = Tags::all();
 
-        return view('admin-pages.editPost');
+        return view('admin-pages.editPost', compact('books', 'reviewers', 'tags'));
     } 
     
 
     public function updatePost(){
 
         
+    }
+
+    public function deletePost(string $id)
+    {
+        $books = Books::with(['reviews', 'bookTag'])->findOrFail($id);
+        $books->delete();
+
+        return redirect()->route('posts')->with('success', 'Post deleted successfully.');
     }
     
 

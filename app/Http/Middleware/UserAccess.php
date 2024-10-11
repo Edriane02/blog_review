@@ -28,7 +28,7 @@ class UserAccess
                 return response()->json(['You do not have permission to access for this page.']);
             }
         } else {
-            return redirect('/login');
+            return redirect('login');
         }
     }
 }
