@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('book_tag', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('book_id');
-            $table->string('book_tag')->unique();     
+            $table->string('book_tag');     
             $table->timestamps();
 
             // Set up the foreign key constraint  

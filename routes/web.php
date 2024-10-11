@@ -47,7 +47,6 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('logout', 'logout')->name('logout');
     Route::get('admin/login', 'adminLogin')->name('adminLogin');
 
-
 });
 
 Route::controller(AdminController::class)->group(function(){
@@ -61,6 +60,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
     Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
     Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
+    Route::get('admin/post/edit', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
 });
 
 Route::controller(ReviewerController::class)->group(function(){

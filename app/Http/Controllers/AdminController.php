@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function allPosts(){
-        return view('admin-pages.posts');
+        $books = Books::with(['reviews', 'bookTag'])->get();
+                         
+        return view('admin-pages.posts', compact('books'));
     }
 
     public function newPost(){
@@ -90,12 +92,21 @@ class AdminController extends Controller
             return back()->with('success', 'Post successfully uploaded.');
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'An error occurred while uploading the Post: ' . $e->getMessage());
+            return back()->with('error', 'An error occurred while uploading the post: ' . $e->getMessage());
         }
     }
 
 
+    public function editPost(){
 
+        return view('admin-pages.editPost');
+    } 
+    
+
+    public function updatePost(){
+
+        
+    }
     
 
 }
