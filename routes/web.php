@@ -65,12 +65,8 @@ Route::controller(LoginController::class)->group(function(){
 Route::controller(AdminController::class)->group(function(){
     Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
     Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
-<<<<<<< HEAD
-    Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost'); 
-=======
     Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
     Route::get('admin/post/edit', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
->>>>>>> CFranlin
 });
 
 Route::controller(ReviewerController::class)->group(function(){
