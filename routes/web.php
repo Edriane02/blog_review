@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
+use App\Http\Controllers\PostsController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +23,22 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
+Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
+Route::get('maintenance', [HomeController::class, 'maintenancePage'])->name('maintenancePage');
+Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientProfile');
+Route::get('edit-profile', [HomeController::class, 'clientEditProfile'])->name('clientEditProfile');
+Route::get('change-password', [HomeController::class, 'clientChangePassword'])->name('clientChangePassword');
+Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
+Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('reviewerAuthorPage');
+Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
+Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
 
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
-        return view('dashboard.index');
+        return view('admin-pages.index');
     })->middleware('isAdmin')->name('dashboard');
 });
 
@@ -42,25 +54,23 @@ Route::controller(RegisterController::class)->group(function(){
 
 Route::controller(LoginController::class)->group(function(){
 
-    Route::get('login', 'login')->name('login');
+    Route::get('user/login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('loginAction');
     Route::get('logout', 'logout')->name('logout');
     Route::get('admin/login', 'adminLogin')->name('adminLogin');
 
 });
 
-Route::controller(AdminController::class)->group(function(){
-    Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
-    Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
-
-});
-
 
 Route::controller(AdminController::class)->group(function(){
     Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
     Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
+<<<<<<< HEAD
+    Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost'); 
+=======
     Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
     Route::get('admin/post/edit', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
+>>>>>>> CFranlin
 });
 
 Route::controller(ReviewerController::class)->group(function(){
@@ -75,6 +85,12 @@ Route::controller(TagController::class)->group(function(){
     Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
     Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
+});
+
+Route::controller(PostsController::class)->group(function(){
+    Route::get('admin/posts', 'postsPage')->middleware('auth', 'isAdmin')->name('posts');
+    // edit here
+    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
 });
 
 

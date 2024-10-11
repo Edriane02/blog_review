@@ -20,14 +20,11 @@ class AdminController extends Controller
 
     public function newPost(){
 
-       
         $reviewers = Reviewer::all();  // Fetch all reviewers
         $tags = Tags::all();  // Fetch all tags
 
-        return view('admin-pages.newPost', compact('reviewers', 'tags'));
+        return view('admin-pages.new-post', compact('reviewers', 'tags'));
     }
-
-    
 
     public function uploadPost(Request $request)
     {

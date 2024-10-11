@@ -19,4 +19,14 @@ class Reviews extends Model
     {
         return $this->belongsTo(Books::class, 'book_id');
     }
+
+    public function reviewer()
+{
+    return $this->belongsTo(Reviewer::class, 'reviewer'); // The second parameter is the foreign key
+}
+
+
+
+
+
 }

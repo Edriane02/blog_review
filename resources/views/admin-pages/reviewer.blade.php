@@ -82,7 +82,7 @@
                                                     <td>
                                                         <img class="rounded-circle reviewer-profile"
                                                             src="{{ asset('storage/' . $reviewers->photo) }}"
-                                                            alt="Reviewer Avatar">
+                                                            alt="Reviewer's photo">
                                                     </td>
                                                     <td>
                                                         <strong>{{ $reviewers->reviewer_name }}</strong>
@@ -200,7 +200,7 @@
                                     <p><strong>Upload/Replace Reviewer's Photo (Optional)</strong></p>
                                     <center>
                                         <img class="rounded-circle mb-3" src="{{ asset('storage/' . $reviewers->photo) }}"
-                                            width="200" alt="Reviewer Photo">
+                                            width="200" alt="Reviewer's photo">
                                     </center>
                                     <div class="upload-container mb-3" id="uploadContainer">
                                         <input class="form-control" type="file" name="photo" id="fileInput"

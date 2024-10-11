@@ -1,3 +1,5 @@
+<!-- CMS DASHBOARD -->
+
 @extends('layouts.sidebar')
 @section('title', 'Dashboard')
 
@@ -24,7 +26,7 @@
                     <div class="page-content-wrapper">
                         <br /><br />
                         <center>
-                            <img class="image-responsive" src="adminAssets/images/dashboard_reading.svg" width="500">
+                            <img class="image-responsive" src="{{ asset('adminAssets/images/dashboard_reading.svg') }}" width="500" alt="People reading">
                             <br /><br />
                             <p style="font-family: 'Libre Baskerville', serif; font-size: 30px;">A book is a dream that you hold in your hand.</p>
                         </center>

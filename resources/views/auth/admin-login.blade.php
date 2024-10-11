@@ -5,17 +5,26 @@
     <meta charset="utf-8" />
     <title>Login | Professional Book Review CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="author" content="Professional Book Review" />
+
+    <meta property="og:title" content="Professional Book Review"/>
+    <meta property="og:type" content="website"/>
+    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
+    <meta property="og:site_name" content="Professional Book Review Service"/>
+    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
+
     <!-- App favicon -->
-    <link rel="shortcut icon" href="adminAssets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
 
     <!-- Bootstrap Css -->
-    <link href="../adminAssets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="../adminAssets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('adminAssets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="../adminAssets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 <body class="authentication-bg bg-primary">
@@ -29,7 +38,7 @@
                                 <div class="px-2 py-3">
                                     <div class="text-center">
                                         <a href="index.html">
-                                            <img src="../adminAssets/images/logo-dark.png" height="40" alt="logo">
+                                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" height="40" alt="logo">
                                         </a>
                                         <h5 class="text-primary mb-2 mt-4">Welcome to Professional Book Review CMS!</h5>
                                         <p class="text-muted">Sign in to continue.</p>
@@ -79,12 +88,12 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="../adminAssets/libs/jquery/jquery.min.js"></script>
-    <script src="../adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../adminAssets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="../adminAssets/libs/simplebar/simplebar.min.js"></script>
-    <script src="../adminAssets/libs/node-waves/waves.min.js"></script>
-    <script src="../adminAssets/js/app.js"></script>
+    <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('adminAssets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('adminAssets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('adminAssets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('adminAssets/js/app.js') }}"></script>
 
 </body>
 </html>
