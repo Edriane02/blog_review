@@ -10,15 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
 
-    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="description"
+        content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords"
+        content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
     <meta name="author" content="Professional Book Review" />
 
-    <meta property="og:title" content="Professional Book Review"/>
-    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Professional Book Review" />
+    <meta property="og:type" content="website" />
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Professional Book Review Service"/>
-    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:site_name" content="Professional Book Review Service" />
+    <meta property="og:description"
+        content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
 
     <!-- Site CSS  -->
@@ -59,12 +62,14 @@
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-md-3 col-xs-6">
-                        <a href="{{ route('home') }}"><img class="logo" src="{{ asset('guestAssets/imgs/theme/logo.png') }}"
-                                alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo"
+                                src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
-                        <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
-                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="#">Contact Us Today!</a>
+                        <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i
+                                    class="elegant-icon icon_search mr-5"></i>Search</span></button>
+                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="#">Contact Us
+                            Today!</a>
                     </div>
                 </div>
             </div>
@@ -74,27 +79,29 @@
                 <div class="mobile_menu d-lg-none d-block"></div>
                 <div class="main-nav d-none d-lg-block float-left">
                     <nav>
-                        <!--Desktop menu-->
+                        <!-- Desktop menu -->
                         <ul class="main-menu d-none d-lg-inline font-small">
                             <li> <a class="nav-links-color-desktop" href="{{ route('home') }}">Home</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="latest-reviews.html">Latest Reviews</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="contact-us.html">Contact Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="about-us.html">About Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('contactUs') }}">Contact Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('aboutUs') }}">About Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
                         </ul>
-                        <!--Mobile menu-->
+                        <!-- Mobile menu -->
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
                             <li> <a href="{{ route('home') }}">Home</a> </li>
-                            <li> <a href="latest-reviews.html">Latest Reviews</a> </li>
-                            <li> <a href="contact-us.html">Contact Us</a> </li>
-                            <li> <a href="about-us.html">About Us</a> </li>
-                            <li> <a href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            <li> <a href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a href="{{ route('contactUs') }}">Contact Us</a> </li>
+                            <li> <a href="{{ route('aboutUs') }}">About Us</a> </li>
+                            <li> <a href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="float-right header-tools text-muted font-small">
                     <ul class="header-social-network d-inline-block list-inline mr-15 nav-links-color-desktop">
-                        Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="javascript:void(0);"><i class="elegant-icon social_facebook"></i></a></li>
+                        Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center"
+                                target="_blank" href="javascript:void(0);"><i
+                                    class="elegant-icon social_facebook"></i></a></li>
                     </ul>
                 </div>
                 <div class="clearfix"></div>

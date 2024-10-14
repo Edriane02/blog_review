@@ -74,7 +74,10 @@ class HomeController extends Controller
 
     public function latestReviewsPage()
     {
-        return view('client-pages.latest-reviews');
+        // Get the latest 10 books
+        $latestBooks = Books::latest()->take(10)->with(['bookTag'])->get();
+
+        return view('client-pages.latest-reviews', compact('latestBooks'));
     }
 
     public function reviewerAuthorPage()
