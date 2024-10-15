@@ -25,7 +25,7 @@
             <p class="cta-desc text-muted text-center">We enhance credibility, increase exposure, and boost sales,
                 helping your book stand out and reach a wider audience.</p>
             <div class="button-container">
-                <a href="#" class="btn btn-outline-primary">Request a Review</a>
+                <a href="{{ route('contactUs') }}" class="btn btn-outline-primary">Request a Review</a>
             </div>
         </div>
     </div>
@@ -146,7 +146,7 @@
         </div>
 
         <div>
-            <center><a class="see-more-btn" href="latest-reviews.html">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
+            <center><a class="see-more-btn" href="{{ route('latestReviewsPage') }}">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
         </div>
 
         <br />

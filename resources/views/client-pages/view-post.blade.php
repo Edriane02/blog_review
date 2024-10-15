@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="single-social-share clearfix wow fadeIn animated">
+            <!-- <div class="single-social-share clearfix wow fadeIn animated">
                 <ul class="header-social-network d-inline-block list-inline float-md-left mt-md-0 mt-4">
                     <li class="list-inline-item text-muted"><span>Share this: </span></li>
                     <li class="list-inline-item"><a class="social-icon fb text-xs-center" href="javascript:void(0);"><i
@@ -90,7 +90,7 @@
                     <li class="list-inline-item"><a class="social-icon tw text-xs-center" href="javascript:void(0);"><i
                                 class="elegant-icon social_twitter "></i></a></li>
                 </ul>
-            </div>
+            </div> -->
 
             <!--author box-->
             <div class="author-bio p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">

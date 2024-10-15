@@ -7,7 +7,7 @@
         <!--archive header-->
         <div class="archive-header pt-50">
             <div class="container">
-                <h2 class="font-weight-900">Latest Reviews</h2>
+                <h2 class="font-weight-900">Latest Book Reviews</h2>
                 <div class="breadcrumb">
                     Browse our latest reviews to find your next great read.
                 </div>
@@ -67,7 +67,7 @@
 
                             </div>
                         </div>
-                        <div class="pagination-area mb-30 wow fadeInUp animated">
+                        <!-- <div class="pagination-area mb-30 wow fadeInUp animated">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-start">
                                     <li class="page-item"><a class="page-link" href="#"><i class="elegant-icon arrow_left"></i></a></li>
@@ -78,7 +78,7 @@
                                     <li class="page-item"><a class="page-link" href="#"><i class="elegant-icon arrow_right"></i></a></li>
                                 </ul>
                             </nav>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
