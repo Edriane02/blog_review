@@ -49,12 +49,9 @@
 
                                     <!-- <ul class="social-share">
                                         <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                    class="elegant-icon social_facebook"></i></a></li>
-                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                    class="elegant-icon social_twitter"></i></a></li>
-                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                    class="elegant-icon social_pinterest"></i></a></li>
+                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
                                     </ul> -->
                                 </div>
                                 <div class="post-content p-30">
@@ -106,12 +103,9 @@
                                         </div>
                                         <!-- <ul class="social-share">
                                             <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                        class="elegant-icon social_facebook"></i></a></li>
-                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                        class="elegant-icon social_twitter"></i></a></li>
-                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                        class="elegant-icon social_pinterest"></i></a></li>
+                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
                                         </ul> -->
                                     </div>
                                 </div>
@@ -157,13 +151,16 @@
                     <h5 class="mt-5 mb-30">Browse by Tags</h5>
                 </div>
                 <div class="tagcloud mt-50">
-                    <a class="tag-cloud-link" href="category-results.html">Fiction</a>
-                    <a class="tag-cloud-link" href="category-results.html">Non-Fiction</a>
-                    <a class="tag-cloud-link" href="category-results.html">Mystery</a>
-                    <a class="tag-cloud-link" href="category-results.html">Comedy</a>
-                    <a class="tag-cloud-link" href="category-results.html">Novel</a>
-                    <a class="tag-cloud-link" href="category-results.html">Biography</a>
-                    <a class="tag-cloud-link" href="category-results.html">True Crime</a>
+                    @if($tags->count() > 0)
+                        @foreach($tags as $tag)
+                            <!-- Tag id number: {{ $tag->id }} -->
+                            <a class="tag-cloud-link" href="category-results.html">{{ $tag->tag }}</a>
+                        @endforeach
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            No tags found.
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

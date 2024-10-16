@@ -62,11 +62,10 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-10"> 
                                 <form method="POST" action="{{ route('uploadPost') }}" enctype="multipart/form-data">
-                                                      @csrf
+                                    @csrf
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title font-size-16 mt-0"></h4>                                             
-        
+                                            <h4 class="card-title font-size-16 mt-0"></h4>
                                                     <span class="badge bg-primary mb-2">STEP 1</span>
                                                     <h4>Upload a Post Banner</h4>
                                                     <p class="text-muted">containing the Book Mockup</p>
@@ -183,6 +182,5 @@
                     </div>
                 </div> <!-- container-fluid -->
             </div>
-            
 
 @endsection

@@ -17,12 +17,12 @@
                                 <h4 class="font-weight-900">Hello, Simon Jenkins!</h4>
                                 <p class="text-muted">simonjenkins@gmail.com</p>
                             </div>
-                            <div class="text-muted text-center">Want to edit your profile? <a style="color: #5869da!important;" href="edit-profile.html">Click here</a>.</div>
+                            <div class="text-muted text-center">Want to edit your profile? <a style="color: #5869da!important;" href="{{ route('clientEditProfile') }}">Click here</a>.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+</main>
 
 @endsection

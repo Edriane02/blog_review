@@ -123,13 +123,16 @@
                     <div class="col-12 font-small suggested-area">
                         <h5 class="suggested font-heading mb-20 text-muted"> <strong>Suggested tags:</strong></h5>
                         <ul class="list-inline d-inline-block">
-                            <li class="list-inline-item"><a href="category-results.html">Fiction</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Non-Fiction</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Mystery</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Comedy</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Novel</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Biography</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">True Crime</a></li>
+                            @if($tags->count() > 0)
+                                @foreach($tags as $tag)
+                                    <!-- Tag id number: {{ $tag->id }} -->
+                                    <li class="list-inline-item"><a href="category-results.html">{{ $tag->tag }}</a></li>
+                                @endforeach
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    No tags found.
+                                </div>
+                            @endif
                         </ul>
                     </div>
                 </div>

@@ -26,8 +26,8 @@
                                     <button type="submit" class="button button-contactForm btn-block mb-4" id="registerButton">Save Changes</button>
                                 </div>
                             </form>
-                            <div class="text-muted text-center mb-3">Want to change your password? <a style="color: #5869da!important;" href="change-password.html">Click here</a>.</div>
-                            <div class="text-muted text-center"><a style="color: #5869da!important;" href="profile.html">← Go back</a></div>
+                            <div class="text-muted text-center mb-3">Want to change your password? <a style="color: #5869da!important;" href="{{ route('clientChangePassword') }}">Click here</a>.</div>
+                            <div class="text-muted text-center"><a style="color: #5869da!important;" href="{{ route('clientProfile') }}">← Go back</a></div>
                         </div>
                     </div>
                 </div>

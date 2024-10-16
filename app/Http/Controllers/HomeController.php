@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Books;
+use App\Models\Tags;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -15,6 +16,9 @@ class HomeController extends Controller
 
     public function home()
     {
+        // For "Browse by Tags" section
+        $tags = Tags::all();
+
         // Get all books with 'Featured Review' tag
         $featuredBooks = Books::whereHas('bookTag', function ($query) {
             $query->where('book_tag', 'Featured Review');
@@ -26,15 +30,18 @@ class HomeController extends Controller
         // Get the latest 3 books with their reviews and reviewers
         $latestBooks = Books::latest()->take(3)->with(['bookTag', 'reviews.reviewer'])->get();
 
-        return view('client-pages.home', compact('featuredBooks', 'latestBooks'));
+        return view('client-pages.home', compact('featuredBooks', 'latestBooks', 'tags'));
     }
 
     public function viewPost($id)
     {
+        // For "Browse by Tags" section
+        $tags = Tags::all();
+
         // Find the book by ID and load its relations
         $book = Books::with(['bookTag', 'reviews.reviewer'])->findOrFail($id); // Load reviews with their reviewer
 
-        return view('client-pages.view-post', compact('book'));
+        return view('client-pages.view-post', compact('book', 'tags'));
     }
 
     public function adminHome()
@@ -44,56 +51,87 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('client-pages.contact-us');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.contact-us', compact('tags'));
     }
 
     public function aboutUs()
     {
-        return view('client-pages.about-us');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.about-us', compact('tags'));
     }
 
     public function maintenancePage()
     {
-        return view('client-pages.maintenance');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.maintenance', compact('tags'));
     }
 
     public function clientProfile()
     {
-        return view('client-pages.profile');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.profile', compact('tags'));
     }
 
     public function clientEditProfile()
     {
-        return view('client-pages.edit-profile');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.edit-profile', compact('tags'));
     }
 
     public function clientChangePassword()
     {
-        return view('client-pages.change-password');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.change-password', compact('tags'));
     }
 
     public function latestReviewsPage()
     {
+        // // For search: tag suggestion
+        $tags = Tags::all();
         // Get the latest 10 books
         $latestBooks = Books::latest()->take(10)->with(['bookTag'])->get();
 
-        return view('client-pages.latest-reviews', compact('latestBooks'));
+        return view('client-pages.latest-reviews', compact('latestBooks', 'tags'));
     }
 
     public function reviewerAuthorPage()
     {
-        return view('client-pages.reviewer-author');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.reviewer-author', compact('tags'));
     }
 
     public function categoryResultsPage()
     {
-        return view('client-pages.category-results');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.category-results', compact('tags'));
     }
 
     public function searchResultsPage()
     {
-        return view('client-pages.search-results');
+        // For search: tag suggestion
+        $tags = Tags::all();
+
+        return view('client-pages.search-results', compact('tags'));
     }
+
+    
 
 
 

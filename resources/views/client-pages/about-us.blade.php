@@ -13,7 +13,7 @@
             <figure class="image mb-30 m-auto text-center border-radius-10">
                 <img class="border-radius-10" src="{{ asset('guestAssets/imgs/static/contact-us-bg-comp.jpg') }}" alt="" />
             </figure>
-            <!--figure-->
+            <!--end figure-->
 
             <article class="entry-wraper">
                 <h3 class="custom-about-us">About Us</h3>
@@ -34,6 +34,5 @@
         <br /><br /><br /><br /><br /><br />
         <!--container-->
     </main>
-
 
 @endsection

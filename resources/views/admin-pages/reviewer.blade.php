@@ -177,8 +177,6 @@
             </div><!-- /.modal -->
             <!-- End of Add New Reviewer Modal -->
 
-
-
             @foreach ($reviewer as $reviewers)
                 <!-- Edit Reviewer Modal -->
                 <div class="modal fade" data-bs-backdrop="static" id="editReviewerModal-{{ $reviewers->id }}" tabindex="-1"
