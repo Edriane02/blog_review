@@ -18,6 +18,7 @@ class TagController extends Controller
         return view('admin-pages.tags', compact('tags'));
     }
 
+    // ==== WORKING/TESTED ===== //
     public function addTag(Request $request)
     {
         // Validate incoming request
@@ -51,7 +52,7 @@ class TagController extends Controller
         }
     }
 
-
+    // ==== WORKING/TESTED ===== //
     public function editTag(Request $request)
     {
         // Validate the incoming request data
@@ -93,6 +94,7 @@ class TagController extends Controller
         }
     }
 
+    // ==== WORKING/TESTED ===== //
     public function deleteTag(string $id)
     {
         $tag = Tags::findOrFail($id);

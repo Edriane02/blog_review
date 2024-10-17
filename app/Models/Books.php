@@ -13,6 +13,7 @@ class Books extends Model
         'banner',
         'title',
         'subtitle',
+        'book_author',
         'genre',
         'pages',
         'publisher',

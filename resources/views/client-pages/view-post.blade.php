@@ -13,17 +13,15 @@
                 <div class="col-md-6">
                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
                         <p style="font-size: 13px;" class="mb-5">
-                            <a class="author-avatar" href="#"><img class="img-circle" src="assets/imgs/ex-profile.jpg" alt="Reviewer's photo"></a>
-                            Reviewed by <span class="author-name font-weight-bold">
-                                @foreach($book->reviews as $review)
-                                    @php
-                                        $reviewer = $review->reviewer; // This is an integer (reviewer ID)
-                                        // Fetch the actual reviewer object
-                                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
-                                    @endphp
-                                    {{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}
-                                @endforeach
-                            </span>
+                        @foreach($book->reviews as $review)
+                            @php
+                                $reviewer = $review->reviewer; // This is an integer (reviewer ID)
+                                // Fetch the actual reviewer object
+                                $actualReviewer = \App\Models\Reviewer::find($reviewer);
+                            @endphp
+                                <a class="author-avatar" href="#"><img class="img-circle" src="{{ asset('storage/' . $actualReviewer->photo) }}" alt="Reviewer's photo"></a>
+                                Reviewed by <span class="author-name font-weight-bold">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
+                        @endforeach
                         </p>
                         <span class="mr-10">{{ $book->created_at->format('d F Y') }}</span>
                     </div>
@@ -34,21 +32,24 @@
         <figure class="image mb-30 m-auto text-center border-radius-10">
             <img class="border-radius-10" src="{{ asset('storage/' . $book->banner) }}" alt="Post banner" />
         </figure>
+        <br />
         <!--figure-->
         <article class="entry-wraper mb-50">
+            <!-- <div class="entry-main-content dropcap wow fadeIn animated"> -->
             <div class="entry-main-content dropcap wow fadeIn animated">
                 @foreach($book->reviews as $review)
                     {!! $review->review !!}
                 @endforeach
             </div>
+            <br /><br />
 
             <!-- Book Information Card -->
             <div class="p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
                 <p>
                     <span style="font-size: 17px; font-weight: 700;">Book Information</span><br />
                     <span><strong>Title:</strong> {{ $book->title }}</span><br />
-                    <span><strong>Subtitle:</strong> N/A</span><br />
-                    <span><strong>Author:</strong> {{ $book->author }}</span><br />
+                    <span><strong>Subtitle:</strong> {{ $book->subtitle }}</span><br />
+                    <span><strong>Author:</strong> {{ $book->book_author }}</span><br />
                     <span><strong>Publisher:</strong> {{ $book->publisher }}</span><br />
                     <span><strong>Pages:</strong> {{ $book->pages }}</span><br />
                     <span><strong>Genre:</strong> {{ $book->genre }}</span>
@@ -89,17 +90,22 @@
 
             <!--author box-->
             <div class="author-bio p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
+                @foreach($book->reviews as $review)
+                    @php
+                        $reviewer = $review->reviewer; // This is an integer (reviewer ID)
+                        // Fetch the actual reviewer object
+                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
+                    @endphp
                 <div class="author-image mb-30">
-                    <a href="author.html"><img src="assets/imgs/ex-profile.jpg" alt="Reviewer's photo" class="avatar"></a>
+                    <a href="author.html"><img src="{{ asset('storage/' . $actualReviewer->photo) }}" alt="Reviewer's photo" class="avatar"></a>
                 </div>
                 <div class="author-info">
                     <span style="font-weight: 700;">Reviewed by</span>
-                    <h4 class="font-weight-bold mb-20"><span class="vcard author"><span class="fn"><a href="author.html" title="" rel="author">[reviewer name here]</a></span></span>
+                    <h4 class="font-weight-bold mb-20"><span class="vcard author"><span class="fn">
+                        <a href="author.html" title="" rel="author">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</a></span></span>
                     </h4>
-                    <div class="author-description text-muted">I am a professional book reviewer with a deep passion for
-                        literature and a keen eye for detail. With years of experience in the literary world, I offer
-                        insightful and thoughtful critiques across various genres, helping readers discover their next
-                        great read.</div>
+                    <div class="author-description text-muted">{{ optional($actualReviewer)->bio ?? 'No bio yet.' }}</div>
+                @endforeach
                     <a href="author.html" class="author-bio-link mb-md-0 mb-3">View All Reviews</a>
                 </div>
             </div>
@@ -130,10 +136,10 @@
                     @endif
                 </div>
             </div>
-        </div>
+            </div>
         </div>
         <!--container-->
-    </div>
+</div>
 <!-- end Browse by Tags -->
 
 @endsection

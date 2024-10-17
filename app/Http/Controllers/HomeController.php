@@ -24,7 +24,7 @@ class HomeController extends Controller
             $query->where('book_tag', 'Featured Review');
         })
             ->with(['bookTag', 'reviews.reviewer']) // Use 'reviews' instead of 'reviewer'
-            ->orderBy('created_at')
+            ->orderBy('id', 'desc')
             ->get();
 
         // Get the latest 3 books with their reviews and reviewers

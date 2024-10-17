@@ -68,7 +68,7 @@
                                         <h5 class="post-title mb-20 font-weight-900">
                                             <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                             <br />
-                                            <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                            <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                             <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
@@ -121,7 +121,7 @@
                                         <h5 class="post-title font-weight-900 mb-20">
                                             <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                             <br />
-                                            <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                            <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                             <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>

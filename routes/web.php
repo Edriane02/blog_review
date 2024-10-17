@@ -61,8 +61,7 @@ Route::controller(AdminController::class)->group(function(){
     // Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
     Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
     Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
-    Route::get('admin/post/edit', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
-    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
+    Route::get('admin/post/edit/{id}', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
 });
 
 Route::controller(PostsController::class)->group(function(){

@@ -143,8 +143,10 @@
                         <form method="POST" action="{{ route('addReviewer') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
+                                <!-- Required field indicator -->
+                                <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
                                 <!-- Form Start -->
-                                <p><strong>Upload Reviewer's Photo</strong></p>
+                                <p><strong>Upload Reviewer's Photo <span class="text-danger">*</span></strong></p>
                                 <div class="upload-container mb-3" id="uploadContainer">
                                     <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*"
                                         required>
@@ -152,7 +154,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="revname">Reviewer Name</label>
+                                    <label for="revname">Reviewer Name <span class="text-danger">*</span></label>
                                     <input class="form-control" name="reviewer_name" type="text"
                                         placeholder="Enter name..." id="revname" required>
                                 </div>
@@ -160,7 +162,7 @@
                                 <div class="mb-3">
                                     <label for="aboutme">About Me</label>
                                     <textarea rows="6" name="bio" id="aboutme" class="form-control"
-                                        placeholder="Enter reviewer's bio here..." required></textarea>
+                                        placeholder="Enter reviewer's bio here..."></textarea>
                                 </div>
                             </div>
 
@@ -191,11 +193,13 @@
                             <form method="POST" action="{{ route('editReviewer') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-body">
+                                    <!-- Required field indicator -->
+                                    <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
 
                                     <!-- Hidden ID -->
                                     <input type="hidden" name="id" value="{{ $reviewers->id }}">
                                     <!-- Form Start -->
-                                    <p><strong>Upload/Replace Reviewer's Photo (Optional)</strong></p>
+                                    <p><strong>Upload/Replace Reviewer's Photo</strong></p>
                                     <center>
                                         <img class="rounded-circle mb-3" src="{{ asset('storage/' . $reviewers->photo) }}"
                                             width="200" alt="Reviewer's photo">
@@ -206,7 +210,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="revname-{{ $reviewers->id }}">Reviewer Name</label>
+                                        <label for="revname-{{ $reviewers->id }}">Reviewer Name <span class="text-danger">*</span></label>
                                         <input class="form-control" name="reviewer_name" type="text"
                                             value="{{ $reviewers->reviewer_name }}" id="revname-{{ $reviewers->id }}"
                                             placeholder="Enter reviewer's name" required>
