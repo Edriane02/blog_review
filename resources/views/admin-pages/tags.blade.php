@@ -136,10 +136,12 @@
                         <form method="POST" action="{{ route('addTag') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
+                                <!-- Required field indicator -->
+                                <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
 
                                 <!-- Form Start -->
                                 <div class="mb-3">
-                                    <label for="dname">Tag Name</label>
+                                    <label for="dname">Tag Name <span class="text-danger">*</span></label>
                                     <input class="form-control" name="tag" type="text" placeholder="Enter tag name..."
                                         id="dname" required>
                                 </div>
@@ -169,12 +171,15 @@
                             <form method="POST" action="{{ route('editTag') }}">
                                 @csrf
                                 <div class="modal-body">
+                                <!-- Required field indicator -->
+                                <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
 
                                     <!-- Hidden ID -->
                                     <input type="hidden" name="id" value="{{ $tag->id }}">
                                     <!-- Form Start -->
                                     <div class="mb-3">
-                                        <label for="dname">Tag Name</label>
+                                        <label for="dname">Tag Name <span class="text-danger">*</span>
+                                        </label>
                                         <input class="form-control" name="tag" type="text" value="{{ $tag->tag }}"
                                             id="dname" required>
                                     </div>

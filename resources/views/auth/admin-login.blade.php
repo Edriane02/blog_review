@@ -41,7 +41,7 @@
                                             <img src="{{ asset('adminAssets/images/logo-dark.png') }}" height="40" alt="logo">
                                         </a>
                                         <h5 class="text-primary mb-2 mt-4">Welcome to Professional Book Review CMS!</h5>
-                                        <p class="text-muted">Sign in to continue.</p>
+                                        <p class="text-muted">Sign in to continue</p>
                                     </div>
 
                                     <form method="POST" action="{{ route('loginAction') }}">

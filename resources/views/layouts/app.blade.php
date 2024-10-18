@@ -14,11 +14,11 @@
     <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
     <meta name="author" content="Professional Book Review" />
 
-    <meta property="og:title" content="Professional Book Review"/>
-    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Professional Book Review" />
+    <meta property="og:type" content="website" />
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Professional Book Review Service"/>
-    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:site_name" content="Professional Book Review Service" />
+    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
 
     <!-- Site CSS  -->
@@ -59,12 +59,11 @@
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-md-3 col-xs-6">
-                        <a href="{{ route('home') }}"><img class="logo" src="{{ asset('guestAssets/imgs/theme/logo.png') }}"
-                                alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
                         <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
-                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="#">Contact Us Today!</a>
+                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="{{ route('contactUs') }}">Contact Us Today!</a>
                     </div>
                 </div>
             </div>
@@ -74,27 +73,27 @@
                 <div class="mobile_menu d-lg-none d-block"></div>
                 <div class="main-nav d-none d-lg-block float-left">
                     <nav>
-                        <!--Desktop menu-->
+                        <!-- Desktop menu -->
                         <ul class="main-menu d-none d-lg-inline font-small">
                             <li> <a class="nav-links-color-desktop" href="{{ route('home') }}">Home</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="latest-reviews.html">Latest Reviews</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="contact-us.html">Contact Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="about-us.html">About Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('contactUs') }}">Contact Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('aboutUs') }}">About Us</a> </li>
+                            <li> <a class="nav-links-color-desktop" href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
                         </ul>
-                        <!--Mobile menu-->
+                        <!-- Mobile menu -->
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
                             <li> <a href="{{ route('home') }}">Home</a> </li>
-                            <li> <a href="latest-reviews.html">Latest Reviews</a> </li>
-                            <li> <a href="contact-us.html">Contact Us</a> </li>
-                            <li> <a href="about-us.html">About Us</a> </li>
-                            <li> <a href="login.html">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            <li> <a href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a href="{{ route('contactUs') }}">Contact Us</a> </li>
+                            <li> <a href="{{ route('aboutUs') }}">About Us</a> </li>
+                            <li> <a href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="float-right header-tools text-muted font-small">
                     <ul class="header-social-network d-inline-block list-inline mr-15 nav-links-color-desktop">
-                        Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="javascript:void(0);"><i class="elegant-icon social_facebook"></i></a></li>
+                        <!-- Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="#"><i class="elegant-icon social_facebook"></i></a></li> -->
                     </ul>
                 </div>
                 <div class="clearfix"></div>
@@ -110,8 +109,7 @@
                         <p class="text-center"><span class="search-text-bg">Search</span></p>
                         <form action="search-results.html" class="search-header">
                             <div class="input-group w-100">
-                                <input type="text" id="search-bar" class="form-control"
-                                    placeholder="Search for book title or author">
+                                <input type="text" id="search-bar" class="form-control" placeholder="Search for book title or author">
                                 <div class="input-group-append">
                                     <button class="btn btn-search bg-white" type="submit">
                                         <i class="elegant-icon icon_search"></i>
@@ -125,13 +123,16 @@
                     <div class="col-12 font-small suggested-area">
                         <h5 class="suggested font-heading mb-20 text-muted"> <strong>Suggested tags:</strong></h5>
                         <ul class="list-inline d-inline-block">
-                            <li class="list-inline-item"><a href="category-results.html">Fiction</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Non-Fiction</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Mystery</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Comedy</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Novel</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">Biography</a></li>
-                            <li class="list-inline-item"><a href="category-results.html">True Crime</a></li>
+                            @if($tags->count() > 0)
+                                @foreach($tags as $tag)
+                                    <!-- Tag id number: {{ $tag->id }} -->
+                                    <li class="list-inline-item"><a href="category-results.html">{{ $tag->tag }}</a></li>
+                                @endforeach
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    No tags found.
+                                </div>
+                            @endif
                         </ul>
                     </div>
                 </div>

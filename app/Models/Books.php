@@ -13,6 +13,7 @@ class Books extends Model
         'banner',
         'title',
         'subtitle',
+        'book_author',
         'genre',
         'pages',
         'publisher',
@@ -25,11 +26,7 @@ class Books extends Model
         return $this->hasMany(BookTag::class, 'book_id');
     }
 
-<<<<<<< HEAD
-    public function reviews() // Change this method to 'reviews'
-=======
     public function reviews()
->>>>>>> CFranlin
     {
         return $this->hasMany(Reviews::class, 'book_id'); // Ensure the method name matches the relationship
     }

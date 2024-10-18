@@ -19,7 +19,7 @@
 
                 <h3 class="mt-30">Email Us</h3>
                 <hr class="wp-block-separator is-style-wide">
-                <p class="font-medium-custom">You can contact us directly at <a href="mailto:sales@stories.com">sales@stories.com</a>.</p>
+                <p class="font-medium-custom">You can contact us directly at <a href="mailto:sales@professionalreview.com">sales@professionalreview.com</a>.</p>
 
                 <!-- Contact Form -->
                 <h3 class="mt-30">Send us a message</h3>

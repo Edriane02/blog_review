@@ -23,9 +23,10 @@ class AdminController extends Controller
         $reviewers = Reviewer::all();  // Fetch all reviewers
         $tags = Tags::all();  // Fetch all tags
 
-        return view('admin-pages.new-post', compact('reviewers', 'tags'));
+        return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
+    // ==== WORKING/TESTED ===== //
     public function uploadPost(Request $request)
     {
         // Validate incoming request
@@ -33,6 +34,7 @@ class AdminController extends Controller
             'banner' => 'nullable|image|max:2048', // Assumes banner is an image
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
+            'book_author' => 'nullable|string|max:255', // Added missing column `book_author`
             'genre' => 'nullable|string|max:255',
             'pages' => 'nullable|integer',
             'publisher' => 'nullable|string|max:255',
@@ -60,6 +62,7 @@ class AdminController extends Controller
                 'banner' => $bannerPath,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
+                'book_author' => $request->book_author,
                 'genre' => $request->genre,
                 'pages' => $request->pages,
                 'publisher' => $request->publisher,
@@ -93,10 +96,14 @@ class AdminController extends Controller
         }
     }
 
+    
+    public function editPost($id){
 
-    public function editPost(){
+        $books = Books::with('reviews', 'bookTag')->findOrFail($id);
+        $reviewers = Reviewer::all();  // Fetch all reviewers
+        $tags = Tags::all();
 
-        return view('admin-pages.editPost');
+        return view('admin-pages.editPost', compact('books', 'reviewers', 'tags'));
     } 
     
 

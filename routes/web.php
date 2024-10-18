@@ -35,15 +35,11 @@ Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('rev
 Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
 
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
         return view('admin-pages.index');
     })->middleware('isAdmin')->name('dashboard');
 });
-
-
-
 
 Route::controller(RegisterController::class)->group(function(){
 
@@ -54,23 +50,24 @@ Route::controller(RegisterController::class)->group(function(){
 
 Route::controller(LoginController::class)->group(function(){
 
-    Route::get('user/login', 'login')->name('login');
+    Route::get('/login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('loginAction');
     Route::get('logout', 'logout')->name('logout');
     Route::get('admin/login', 'adminLogin')->name('adminLogin');
 
 });
 
-
 Route::controller(AdminController::class)->group(function(){
-    Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
+    // Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
     Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
-<<<<<<< HEAD
-    Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost'); 
-=======
     Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
-    Route::get('admin/post/edit', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
->>>>>>> CFranlin
+    Route::get('admin/post/edit/{id}', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
+});
+
+Route::controller(PostsController::class)->group(function(){
+    Route::get('admin/posts', 'postsPage')->middleware('auth', 'isAdmin')->name('posts');
+    // edit here
+    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
 });
 
 Route::controller(ReviewerController::class)->group(function(){
@@ -86,14 +83,4 @@ Route::controller(TagController::class)->group(function(){
     Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
 });
-
-Route::controller(PostsController::class)->group(function(){
-    Route::get('admin/posts', 'postsPage')->middleware('auth', 'isAdmin')->name('posts');
-    // edit here
-    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
-});
-
-
-
-
 
