@@ -31,19 +31,19 @@ class AdminController extends Controller
     {
         // Validate incoming request
         $request->validate([
-            'banner' => 'nullable|image|max:2048', // Assumes banner is an image
+            'banner' => 'nullable|image',
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
-            'book_author' => 'nullable|string|max:255', // Added missing column `book_author`
+            'book_author' => 'nullable|string|max:255',
             'genre' => 'nullable|string|max:255',
-            'pages' => 'nullable|integer',
+            'pages' => 'nullable|string|max:255',
             'publisher' => 'nullable|string|max:255',
-            'amazon_link' => 'nullable|string|max:255',
-            'barnes_noble_link' => 'nullable|string|max:255',
+            'amazon_link' => 'nullable|string',
+            'barnes_noble_link' => 'nullable|string',
             'review' => 'nullable|array',
-            'review.*' => 'nullable|string', // Ensure reviews are provided
+            'review.*' => 'nullable|string',
             'reviewer' => 'nullable|array',
-            'reviewer.*' => 'nullable|string|max:255', // Reviewers should exist in the DB
+            'reviewer.*' => 'nullable|string|max:255',
             'book_tag' => 'nullable|array',
             'book_tag.*' => 'nullable|string|max:255',
         ]);
@@ -89,7 +89,7 @@ class AdminController extends Controller
 
             DB::commit();
 
-            return back()->with('success', 'Post successfully uploaded.');
+            return redirect()->route('posts')->with('success', 'Post successfully uploaded.');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred while uploading the post: ' . $e->getMessage());
@@ -107,10 +107,92 @@ class AdminController extends Controller
     } 
     
 
-    public function updatePost(){
+    // ==== WORKING/TESTED ===== //
+    public function updatePost(Request $request, $id)
+{
+    // Validate incoming request
+    $request->validate([
+        'banner' => 'nullable|image',
+        'title' => 'required|string|max:255',
+        'subtitle' => 'nullable|string|max:255',
+        'book_author' => 'nullable|string|max:255',
+        'genre' => 'nullable|string|max:255',
+        'pages' => 'nullable|string|max:255',
+        'publisher' => 'nullable|string|max:255',
+        'amazon_link' => 'nullable|string',
+        'barnes_noble_link' => 'nullable|string',
+        'review' => 'nullable|array',
+        'review.*' => 'nullable|string',
+        'reviewer' => 'nullable|array',
+        'reviewer.*' => 'nullable|string|max:255',
+        'book_tag' => 'nullable|array',
+        'book_tag.*' => 'nullable|string|max:255',
+    ]);
 
-        
+    DB::beginTransaction();
+
+    try {
+        // Find the existing book by ID
+        $book = Books::findOrFail($id);
+
+        // Handle file upload if a new banner is present
+        if ($request->hasFile('banner')) {
+            // Delete the old banner if exists
+            if ($book->banner) {
+                // Storage::disk('public')->delete($book->banner);
+                \Storage::disk('public')->delete($book->banner);
+            }
+            $book->banner = $request->file('banner')->store('banners', 'public');
+        }
+
+        // Update the book record
+        $book->update([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'book_author' => $request->book_author,
+            'genre' => $request->genre,
+            'pages' => $request->pages,
+            'publisher' => $request->publisher,
+            'amazon_link' => $request->amazon_link,
+            'barnes_noble_link' => $request->barnes_noble_link,
+        ]);
+
+        // Delete old reviews and add new ones if provided
+        if ($request->reviewer != null && $request->review != null) {
+            // Delete old reviews for this book
+            Reviews::where('book_id', $book->id)->delete();
+
+            foreach ($request->reviewer as $index => $reviewer) {
+                Reviews::create([
+                    'book_id' => $book->id,
+                    'reviewer' => $reviewer, // Assuming 'reviewer_id' is the foreign key in Reviews table
+                    'review' => $request->review[$index],
+                ]);
+            }
+        }
+
+        // Delete old book tags and add new ones
+        if ($request->book_tag != null) {
+            // Delete old tags for this book
+            BookTag::where('book_id', $book->id)->delete();
+
+            foreach ($request->book_tag as $tag) {
+                BookTag::create([
+                    'book_id' => $book->id,
+                    'book_tag' => $tag,
+                ]);
+            }
+        }
+
+        DB::commit();
+
+        return redirect()->route('posts')->with('success', 'Post successfully updated.');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->with('error', 'An error occurred while updating the post: ' . $e->getMessage());
     }
+}
+
     
 
 }

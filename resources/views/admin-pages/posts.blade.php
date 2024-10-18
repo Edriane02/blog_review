@@ -43,7 +43,7 @@
                      <div class="row align-items-center">
                          <div class="col-sm-6">
                              <div class="page-title">
-                                <h2 class="page-title-custom">All Posts | Content Management System</h2>
+                                <h1 class="page-title-custom">All Posts</h1>
                              </div>
                          </div>
 
@@ -94,7 +94,7 @@
                                                                 <td class="align-middle">
                                                                     <div class="d-flex">
                                                                         <!-- Edit button -->
-                                                                        <a href="{{ route('editPost', $post->id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                        <a href="{{ route('editPost', $post->book_id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
                                                                             <i class="bi bi-pencil-square"></i>
                                                                         </a>&nbsp;
                                                                         <!-- Delete button -->
