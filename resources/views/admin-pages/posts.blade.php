@@ -85,7 +85,7 @@
                                                         @endforeach 
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ route('editPost') }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                <a href="{{  route('editPost', $book->id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
                                                                     <i class="bi bi-pencil-square"></i>
                                                                 </a>&nbsp;
 
