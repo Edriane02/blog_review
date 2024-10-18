@@ -75,6 +75,46 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+<<<<<<< HEAD
+                                                    @if($books->count() > 0)
+                                                                @foreach($books as $book)
+                                                    <tr>
+                                                        <td class="post-date">{{ $book->created_at->format('F j, Y') }}</td>
+                                                        <td class="post-title"><strong>{{ $book->title }}</strong></td>
+                                                        @foreach($book->reviews as $review)
+                                                        <td class="post-reviewer">{{ $review->reviewer }}</td>
+                                                        @endforeach 
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <a href="{{  route('editPost', $book->id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                    <i class="bi bi-pencil-square"></i>
+                                                                </a>&nbsp;
+
+                                                                <!-- Delete Button -->
+                                                                <form id="delete-form-{{ $book->id }}"
+                                                                    action="{{ route('deletePost', $book->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                                        onclick="confirmDelete({{ $book->id }})">
+                                                                        <i class="bi bi-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center">
+                                                                        <div class="alert alert-info" role="alert">
+                                                                            No reviewers found.
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+                                                    </tbody>
+=======
                                                     @if($posts->count() > 0)
                                                         @foreach($posts as $post)
                                                             <tr>
@@ -121,6 +161,7 @@
                                                         </tr>
                                                     @endif
                                                 </tbody>
+>>>>>>> 8450bf32d4cbfd36d4b25e966f72f5cac66e5f95
                                             </table>
             
                                         </div>
