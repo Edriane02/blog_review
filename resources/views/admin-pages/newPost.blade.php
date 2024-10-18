@@ -62,13 +62,14 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-10"> 
                                 <form method="POST" action="{{ route('uploadPost') }}" enctype="multipart/form-data">
-                                                      @csrf
+                                    @csrf
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title font-size-16 mt-0"></h4>                                             
-        
+                                            <!-- Required field indicator -->
+                                            <p style="font-size: 12px;" class="mb-3"><span class="text-danger">*</span> Indicates required field.</p>
+                                            <h4 class="card-title font-size-16 mt-0"></h4>
                                                     <span class="badge bg-primary mb-2">STEP 1</span>
-                                                    <h4>Upload a Post Banner</h4>
+                                                    <h4>Upload a Post Banner <span class="text-danger">*</span></h4>
                                                     <p class="text-muted">containing the Book Mockup</p>
                                                     <div class="upload-container mb-3" id="uploadContainer">
                                                         <input class="form-control" type="file" name="banner" id="fileInput" accept="image/*"
@@ -77,39 +78,39 @@
 
                                                     <div class="mb-4">
                                                         <div class="alert alert-info" role="alert">
-                                                            <strong><i class="bi bi-info-circle"></i>&nbsp;&nbsp;Recommended image size:</strong> 1000x600.
+                                                            <strong><i class="bi bi-info-circle"></i>&nbsp;&nbsp;Recommended image size in pixels (WxH):</strong> 1000x600.
                                                         </div>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <span class="badge bg-primary mb-3">STEP 2</span>
-                                                        <h4>Add Book Title</h4>
+                                                        <h4>Add Book Title <span class="text-danger">*</span></h4>
                                                         <p class="text-muted">This will appear at the top of the post page and will serve as the review title.</p>
                                                         <div class="mb-3">  
-                                                            <input class="form-control" name="title" type="text" value="" placeholder="Enter book title here..." id="book-review-title">
+                                                            <input class="form-control" name="title" type="text" value="" placeholder="Enter book title here..." id="book-review-title" required>
                                                         </div>
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 3</span>
-                                                    <h4 class="mb-3">Write Your Review</h4>
+                                                    <h4 class="mb-3">Write Your Review <span class="text-danger">*</span></h4>
                                                     <div class="mb-4">
                                                         <textarea id="elm1" name="review[]"></textarea>
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 4</span>
-                                                    <h4 class="mb-3">Add Reviewer</h4>
+                                                    <h4 class="mb-3">Add Reviewer <span class="text-danger">*</span></h4>
                                                     <div class="mb-4">
-                                                        <select class="form-control select2" name="reviewer[]">
+                                                        <select class="form-control select2" name="reviewer[]" required>
                                                             <option>Select Reviewer...</option>
                                                             @foreach($reviewers as $reviewer)
-                                                                <option value="{{ $reviewer->revewer_name }}">{{ $reviewer->reviewer_name }}</option>
+                                                            <option value="{{ $reviewer->id }}">{{ $reviewer->reviewer_name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
 
                                                     <div class="mb-4">
                                                         <span class="badge bg-primary mb-2">STEP 5</span>
-                                                        <h4>Add Tags</h4>
+                                                        <h4>Add Tags <span class="text-danger">*</span></h4>
                                                         <p class="text-muted">(You can select multiple tags, like Fiction, Mystery, and more...)</p>
                                                         <select class="select2 form-control select2-multiple" name="book_tag[]" multiple="multiple" data-placeholder="Choose tags..." required>
                                                             @foreach($tags as $tag)
@@ -123,36 +124,36 @@
                                                     <div class="row">  
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookSubtitle" class="form-label">Subtitle (optional)</label>
+                                                                <label for="bookSubtitle" class="form-label">Subtitle</label>
                                                                 <input type="text" name="subtitle" class="form-control" id="bookSubtitle" placeholder="">
                                                             </div>
                                                         </div>
                                                     
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookAuthor" class="form-label">Author</label>
-                                                                <input type="text" name="author" class="form-control" id="bookAuthor" placeholder="" required>
+                                                                <label for="bookAuthor" class="form-label">Author <span class="text-danger">*</span></label>
+                                                                <input type="text" name="book_author" class="form-control" id="bookAuthor" placeholder="" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookPublisher" class="form-label">Publisher</label>
-                                                                <input type="text" name="publisher" class="form-control" id="bookPublisher" placeholder="" required>
+                                                                <label for="bookPublisher" class="form-label">Publisher <span class="text-danger">*</span></label>
+                                                                <input type="text" name="publisher" class="form-control" id="bookPublisher" placeholder="">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookPages" class="form-label">Pages</label>
+                                                                <label for="bookPages" class="form-label">Pages <span class="text-danger">*</span></label>
                                                                 <input type="text" name="pages" class="form-control" id="bookPages" placeholder="" required>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="mb-4">
-                                                                <label for="bookGenre" class="form-label">Genre</label>
-                                                                <input type="text" name="genre" class="form-control" id="bookGenre" placeholder="" required>
+                                                                <label for="bookGenre" class="form-label">Genre <span class="text-danger">*</span></label>
+                                                                <input type="text" name="genre" class="form-control" id="bookGenre" placeholder="(e.g. Fiction, Mystery, ...etc.)" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -183,6 +184,5 @@
                     </div>
                 </div> <!-- container-fluid -->
             </div>
-            
 
 @endsection

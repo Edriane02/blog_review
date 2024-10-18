@@ -25,7 +25,7 @@
             <p class="cta-desc text-muted text-center">We enhance credibility, increase exposure, and boost sales,
                 helping your book stand out and reach a wider audience.</p>
             <div class="button-container">
-                <a href="#" class="btn btn-outline-primary">Request a Review</a>
+                <a href="{{ route('contactUs') }}" class="btn btn-outline-primary">Request a Review</a>
             </div>
         </div>
     </div>
@@ -49,12 +49,9 @@
 
                                     <!-- <ul class="social-share">
                                         <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                    class="elegant-icon social_facebook"></i></a></li>
-                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                    class="elegant-icon social_twitter"></i></a></li>
-                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                    class="elegant-icon social_pinterest"></i></a></li>
+                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
                                     </ul> -->
                                 </div>
                                 <div class="post-content p-30">
@@ -71,7 +68,7 @@
                                         <h5 class="post-title mb-20 font-weight-900">
                                             <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                             <br />
-                                            <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                            <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                             <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
@@ -106,12 +103,9 @@
                                         </div>
                                         <!-- <ul class="social-share">
                                             <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                        class="elegant-icon social_facebook"></i></a></li>
-                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                        class="elegant-icon social_twitter"></i></a></li>
-                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                        class="elegant-icon social_pinterest"></i></a></li>
+                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
+                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
+                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
                                         </ul> -->
                                     </div>
                                 </div>
@@ -127,7 +121,7 @@
                                         <h5 class="post-title font-weight-900 mb-20">
                                             <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                             <br />
-                                            <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                            <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                             <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
@@ -146,7 +140,7 @@
         </div>
 
         <div>
-            <center><a class="see-more-btn" href="latest-reviews.html">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
+            <center><a class="see-more-btn" href="{{ route('latestReviewsPage') }}">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
         </div>
 
         <br />
@@ -157,13 +151,16 @@
                     <h5 class="mt-5 mb-30">Browse by Tags</h5>
                 </div>
                 <div class="tagcloud mt-50">
-                    <a class="tag-cloud-link" href="category-results.html">Fiction</a>
-                    <a class="tag-cloud-link" href="category-results.html">Non-Fiction</a>
-                    <a class="tag-cloud-link" href="category-results.html">Mystery</a>
-                    <a class="tag-cloud-link" href="category-results.html">Comedy</a>
-                    <a class="tag-cloud-link" href="category-results.html">Novel</a>
-                    <a class="tag-cloud-link" href="category-results.html">Biography</a>
-                    <a class="tag-cloud-link" href="category-results.html">True Crime</a>
+                    @if($tags->count() > 0)
+                        @foreach($tags as $tag)
+                            <!-- Tag id number: {{ $tag->id }} -->
+                            <a class="tag-cloud-link" href="category-results.html">{{ $tag->tag }}</a>
+                        @endforeach
+                    @else
+                        <div class="alert alert-info" role="alert">
+                            No tags found.
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

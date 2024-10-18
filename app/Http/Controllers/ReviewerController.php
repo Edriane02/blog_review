@@ -17,6 +17,7 @@ class ReviewerController extends Controller
         return view('admin-pages.reviewer', compact('reviewer'));
     }
 
+    // ==== WORKING/TESTED ===== //
     public function addReviewer(Request $request)
     {
         // Validate incoming request
@@ -60,6 +61,7 @@ class ReviewerController extends Controller
     }
 
 
+    // ==== WORKING/TESTED ===== //
     public function editReviewer(Request $request)
     {
         // Validate the incoming request data
@@ -118,6 +120,7 @@ class ReviewerController extends Controller
         }
     }
 
+    // ==== WORKING/TESTED ===== //
     public function deleteReviewer(string $id)
     {
         DB::beginTransaction();

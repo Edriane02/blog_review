@@ -13,7 +13,7 @@
             <figure class="image mb-30 m-auto text-center border-radius-10">
                 <img class="border-radius-10" src="{{ asset('guestAssets/imgs/static/contact-us-bg-comp.jpg') }}" alt="" />
             </figure>
-            <!--figure-->
+            <!--end figure-->
 
             <article class="entry-wraper">
                 <h3 class="custom-about-us">About Us</h3>
@@ -28,12 +28,11 @@
                     We believe in the power of stories to transform and connect us. Our dedicated team goes beyond surface-level analysis to offer nuanced evaluations that highlight the unique qualities of each book. Whether you’re an emerging author or a seasoned writer, our reviews are crafted to resonate with your target audience and amplify your book’s reach.
                     </p>
                 <br />
-                <center><a class="contact-us-today-btn" href="contact-us.html">Contact Us Today&nbsp;<i class="bi bi-arrow-right"></i></a></center>
+                <center><a class="contact-us-today-btn" href="{{ route('contactUs') }}">Contact Us Today&nbsp;<i class="bi bi-arrow-right"></i></a></center>
             </article>
         </div>
         <br /><br /><br /><br /><br /><br />
         <!--container-->
     </main>
-
 
 @endsection

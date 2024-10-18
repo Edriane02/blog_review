@@ -74,14 +74,11 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-            
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
                             </div> <!-- end row -->
                         </div>
-
-                        
                     </div>
                 </div> <!-- container-fluid -->
             </div>

@@ -33,7 +33,7 @@
                                     <button type="submit" class="button button-contactForm btn-block mb-4" id="registerButton">Change Password</button>
                                 </div>
                             </form>
-                            <div class="text-muted text-center"><a style="color: #5869da!important;" href="edit-profile.html">← Go back</a></div>
+                            <div class="text-muted text-center"><a style="color: #5869da!important;" href="{{ route('clientEditProfile') }}">← Go back</a></div>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,6 @@
 
 @section('contents')
 
-
 <main class="bg-grey">
         <!--archive header-->
         <div class="archive-header pt-50">

@@ -26,6 +26,7 @@ class AdminController extends Controller
         return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
+    // ==== WORKING/TESTED ===== //
     public function uploadPost(Request $request)
     {
         // Validate incoming request
@@ -33,6 +34,7 @@ class AdminController extends Controller
             'banner' => 'nullable|image|max:2048', // Assumes banner is an image
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
+            'book_author' => 'nullable|string|max:255', // Added missing column `book_author`
             'genre' => 'nullable|string|max:255',
             'pages' => 'nullable|integer',
             'publisher' => 'nullable|string|max:255',
@@ -60,6 +62,7 @@ class AdminController extends Controller
                 'banner' => $bannerPath,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
+                'book_author' => $request->book_author,
                 'genre' => $request->genre,
                 'pages' => $request->pages,
                 'publisher' => $request->publisher,
@@ -107,14 +110,6 @@ class AdminController extends Controller
     public function updatePost(){
 
         
-    }
-
-    public function deletePost(string $id)
-    {
-        $books = Books::with(['reviews', 'bookTag'])->findOrFail($id);
-        $books->delete();
-
-        return redirect()->route('posts')->with('success', 'Post deleted successfully.');
     }
     
 

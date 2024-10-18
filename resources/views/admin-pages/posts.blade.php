@@ -5,8 +5,8 @@
 
 <div class="page-content">
 
-<!-- SweetAlert Dialogs start -->
-@if ($errors->any())
+    <!-- SweetAlert Dialogs start -->
+    @if ($errors->any())
         <script>
             Swal.fire({
                 icon: 'error',
@@ -69,12 +69,13 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Date Posted</th>
-                                                    <th>Title</th>
+                                                    <th>Post Title</th>
                                                     <th>Reviewed by</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+<<<<<<< HEAD
                                                     @if($books->count() > 0)
                                                                 @foreach($books as $book)
                                                     <tr>
@@ -113,6 +114,54 @@
                                                                 </tr>
                                                             @endif
                                                     </tbody>
+=======
+                                                    @if($posts->count() > 0)
+                                                        @foreach($posts as $post)
+                                                            <tr>
+                                                                <td class="align-middle">{{ $post->created_at->format('M d, Y') }}</td>
+                                                                <td class="align-middle">
+                                                                    <strong>{{ optional($post->book)->title ?? 'Unknown Title' }}</strong><br />
+                                                                    <span class="text-muted" style="font-size: 12px;">Authored by {{ optional($post->book)->book_author ?? 'Unknown Author' }}</span>
+                                                                </td>
+                                                                <td class="align-middle">
+                                                                    @php
+                                                                        $reviewer = $post->reviewer; // This is an integer (reviewer ID)
+                                                                        // Fetch the actual reviewer object
+                                                                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
+                                                                    @endphp
+                                                                    {{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}
+                                                                </td>
+                                                                <td class="align-middle">
+                                                                    <div class="d-flex">
+                                                                        <!-- Edit button -->
+                                                                        <a href="{{ route('editPost', $post->id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                            <i class="bi bi-pencil-square"></i>
+                                                                        </a>&nbsp;
+                                                                        <!-- Delete button -->
+                                                                        <form id="delete-form-{{ $post->id }}"
+                                                                            action="{{ route('deletePost', $post->id) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn btn-sm btn-danger"
+                                                                                onclick="confirmDelete({{ $post->id }})">
+                                                                                <i class="bi bi-trash"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">
+                                                                <div class="alert alert-info" role="alert">
+                                                                    No posts found.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                </tbody>
+>>>>>>> 8450bf32d4cbfd36d4b25e966f72f5cac66e5f95
                                             </table>
             
                                         </div>
@@ -120,10 +169,6 @@
                                 </div> <!-- end col -->
                             </div> <!-- end row -->
                         </div>
-
-                        
-
-                        
                     </div>
                 </div> <!-- container-fluid -->
             </div>

@@ -39,12 +39,12 @@
                                 </div>
                                 <div class="login_footer form-group">
                                     <div class="chek-form">
-                                        <div class="custome-checkbox">
+                                        <!-- <div class="custome-checkbox">
                                             <input class="form-check-input" type="checkbox" name="checkbox" id="agreeCheckbox">
                                             <label class="form-check-label" for="agreeCheckbox">
                                                 <span>I agree to <a style="color: #5869da;" href="#">Terms & Policy</a>.</span>
                                             </label>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="form-group">

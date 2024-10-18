@@ -51,10 +51,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
         <!-- End Log In page -->
     </div>
