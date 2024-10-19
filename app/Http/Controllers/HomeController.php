@@ -131,7 +131,36 @@ class HomeController extends Controller
         return view('client-pages.search-results', compact('tags'));
     }
 
-    
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('query'); // Get the search query from the form
+        $tags = Tags::all(); // Fetch all available tags for suggestions
+
+        // Search for books by title or author name and paginate the results (10 per page)
+        $books = Books::where('title', 'LIKE', "%{$searchQuery}%")
+                        ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
+                        ->paginate(2); // Fetch 10 results per page
+
+        return view('client-pages.search-results', compact('books', 'tags', 'searchQuery'));
+    }
+
+    public function categorySearch($tagId)
+    {
+        // Get the selected tag
+        $tag = Tags::findOrFail($tagId);
+
+        // Get books associated with the selected tag using a relationship
+        $books = Books::whereHas('bookTag', function($query) use ($tag) {
+            $query->where('book_tag', $tag->tag); // Assuming 'book_tag' is the field in 'book_tag' table
+        })->paginate(1);
+
+        // Get all tags for the suggestion list
+        $tags = Tags::all();
+        
+
+        // Pass data to the view
+        return view('client-pages.category-results', compact('books', 'tags', 'tag'));
+    }
 
 
 

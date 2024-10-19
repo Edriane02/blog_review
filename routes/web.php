@@ -34,6 +34,9 @@ Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name
 Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('reviewerAuthorPage');
 Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/category/{tagId}', [HomeController::class, 'categorySearch'])->name('categorySearch');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {

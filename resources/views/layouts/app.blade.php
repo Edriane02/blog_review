@@ -107,9 +107,9 @@
                 <div class="row mb-20">
                     <div class="col-12 align-self-center main-search-form-cover m-auto">
                         <p class="text-center"><span class="search-text-bg">Search</span></p>
-                        <form action="search-results.html" class="search-header">
+                        <form action="{{ route('search') }}" method="GET" class="search-header">
                             <div class="input-group w-100">
-                                <input type="text" id="search-bar" class="form-control" placeholder="Search for book title or author">
+                                <input type="text" name="query" id="search-bar" class="form-control" placeholder="Search for book title or author">
                                 <div class="input-group-append">
                                     <button class="btn btn-search bg-white" type="submit">
                                         <i class="elegant-icon icon_search"></i>
@@ -125,8 +125,10 @@
                         <ul class="list-inline d-inline-block">
                             @if($tags->count() > 0)
                                 @foreach($tags as $tag)
-                                    <!-- Tag id number: {{ $tag->id }} -->
-                                    <li class="list-inline-item"><a href="category-results.html">{{ $tag->tag }}</a></li>
+                                    <li class="list-inline-item">
+                                        <!-- Clicking a tag will filter books by that tag -->
+                                        <a href="{{ route('category.search', ['tag' => $tag->id]) }}">{{ $tag->tag }}</a>
+                                    </li>
                                 @endforeach
                             @else
                                 <div class="alert alert-info" role="alert">
@@ -136,6 +138,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
