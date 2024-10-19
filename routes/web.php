@@ -57,18 +57,20 @@ Route::controller(LoginController::class)->group(function(){
 
 });
 
-Route::controller(AdminController::class)->group(function(){
-    // Route::get('admin/posts', 'allPosts')->middleware('auth', 'isAdmin')->name('posts');
-    Route::get('admin/post/new', 'newPost')->middleware('auth', 'isAdmin')->name('newPost');
-    Route::post('admin/upload-post', 'uploadPost')->middleware('auth', 'isAdmin')->name('uploadPost');
-    Route::get('admin/post/edit/{id}', 'editPost')->middleware('auth', 'isAdmin')->name('editPost');
+Route::middleware(['auth', 'isAdmin'])->group(function() {
+    Route::controller(AdminController::class)->group(function() {
+        Route::get('admin/post/new', 'newPost')->name('newPost');
+        Route::post('admin/upload-post', 'uploadPost')->name('uploadPost');
+        Route::get('admin/post/edit/{id}', 'editPost')->name('editPost');
+        Route::put('admin/post/update/{id}', 'updatePost')->name('updatePost');
+    });
+
+    Route::controller(PostsController::class)->group(function() {
+        Route::get('admin/posts', 'postsPage')->name('posts');
+        Route::delete('admin/post/destroy/{id}', 'deletePost')->name('deletePost');
+    });
 });
 
-Route::controller(PostsController::class)->group(function(){
-    Route::get('admin/posts', 'postsPage')->middleware('auth', 'isAdmin')->name('posts');
-    // edit here
-    Route::delete('admin/post/destroy/{id}', 'deletePost')->middleware('auth')->name('deletePost');
-});
 
 Route::controller(ReviewerController::class)->group(function(){
     Route::get('admin/reviewer', 'reviewerPage')->middleware('auth', 'isAdmin')->name('reviewer');

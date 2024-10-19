@@ -19,7 +19,9 @@
                                 // Fetch the actual reviewer object
                                 $actualReviewer = \App\Models\Reviewer::find($reviewer);
                             @endphp
-                                <a class="author-avatar" href="#"><img class="img-circle" src="{{ asset('storage/' . $actualReviewer->photo) }}" alt="Reviewer's photo"></a>
+                                <a class="author-avatar" href="#">
+                                    <img class="img-circle" src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo">
+                                </a>
                                 Reviewed by <span class="author-name font-weight-bold">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
                         @endforeach
                         </p>
@@ -97,7 +99,9 @@
                         $actualReviewer = \App\Models\Reviewer::find($reviewer);
                     @endphp
                 <div class="author-image mb-30">
-                    <a href="author.html"><img src="{{ asset('storage/' . $actualReviewer->photo) }}" alt="Reviewer's photo" class="avatar"></a>
+                <a href="author.html">
+                    <img src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo" class="avatar">
+                </a>
                 </div>
                 <div class="author-info">
                     <span style="font-weight: 700;">Reviewed by</span>

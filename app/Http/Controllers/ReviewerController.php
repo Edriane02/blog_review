@@ -22,9 +22,10 @@ class ReviewerController extends Controller
     {
         // Validate incoming request
         $request->validate([
-            'photo' => 'nullable|image|max:2048', // Assumes photo is an image
+            // 'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image',
             'reviewer_name' => 'required|string|max:255',
-            'bio' => 'nullable|string|max:255',
+            'bio' => 'nullable|string',
         ]);
 
         DB::beginTransaction();
@@ -66,9 +67,9 @@ class ReviewerController extends Controller
     {
         // Validate the incoming request data
         $request->validate([
-            'photo' => 'nullable|image|max:2048', // Check if the uploaded file is an image and within size limit
+            'photo' => 'nullable|image',
             'reviewer_name' => 'required|string|max:255',
-            'bio' => 'nullable|string|max:255',
+            'bio' => 'nullable|string',
         ]);
 
         DB::beginTransaction();

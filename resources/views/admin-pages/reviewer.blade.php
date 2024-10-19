@@ -81,7 +81,7 @@
                                                 <tr>
                                                     <td>
                                                         <img class="rounded-circle reviewer-profile"
-                                                            src="{{ asset('storage/' . $reviewers->photo) }}"
+                                                            src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
                                                             alt="Reviewer's photo">
                                                     </td>
                                                     <td>
@@ -146,10 +146,9 @@
                                 <!-- Required field indicator -->
                                 <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
                                 <!-- Form Start -->
-                                <p><strong>Upload Reviewer's Photo <span class="text-danger">*</span></strong></p>
+                                <p><strong>Upload Reviewer's Photo</strong></p>
                                 <div class="upload-container mb-3" id="uploadContainer">
-                                    <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*"
-                                        required>
+                                    <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*">
 
                                 </div>
 
@@ -162,7 +161,7 @@
                                 <div class="mb-3">
                                     <label for="aboutme">About Me</label>
                                     <textarea rows="6" name="bio" id="aboutme" class="form-control"
-                                        placeholder="Enter reviewer's bio here..."></textarea>
+                                        placeholder="Enter bio here..."></textarea>
                                 </div>
                             </div>
 
@@ -199,9 +198,9 @@
                                     <!-- Hidden ID -->
                                     <input type="hidden" name="id" value="{{ $reviewers->id }}">
                                     <!-- Form Start -->
-                                    <p><strong>Upload/Replace Reviewer's Photo</strong></p>
+                                    <p><strong>Upload Reviewer's Photo</strong></p>
                                     <center>
-                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . $reviewers->photo) }}"
+                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
                                             width="200" alt="Reviewer's photo">
                                     </center>
                                     <div class="upload-container mb-3" id="uploadContainer">
@@ -213,13 +212,13 @@
                                         <label for="revname-{{ $reviewers->id }}">Reviewer Name <span class="text-danger">*</span></label>
                                         <input class="form-control" name="reviewer_name" type="text"
                                             value="{{ $reviewers->reviewer_name }}" id="revname-{{ $reviewers->id }}"
-                                            placeholder="Enter reviewer's name" required>
+                                            placeholder="Enter name..." required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="aboutme-{{ $reviewers->id }}">About Me</label>
                                         <textarea rows="6" name="bio" id="aboutme-{{ $reviewers->id }}" class="form-control"
-                                            placeholder="" required>{{ $reviewers->bio }}</textarea>
+                                            placeholder="Enter bio here...">{{ $reviewers->bio }}</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
