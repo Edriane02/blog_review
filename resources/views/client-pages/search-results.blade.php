@@ -7,9 +7,9 @@
         <!--archive header-->
         <div class="archive-header pt-50">
             <div class="container">
-                <h2 class="font-weight-900">Search results</h2>
+                <h2 class="font-weight-900">Search</h2>
                 <div class="breadcrumb">
-                    We found {{ $books->total() }} professional reviews for <strong>"{{ $searchQuery }}"</strong>
+                    Showing {{ $books->total() }} results for <strong>"{{ e($searchQuery) }}"</strong>
                 </div>
                 <div class="bt-1 border-color-1 mt-30 mb-50"></div>
             </div>
@@ -21,8 +21,7 @@
                         <div class="post-module-3">
                             <div class="loop-list loop-list-style-1">
                             @if($books->isEmpty())
-                                
-                                <div class="alert alert-info" role="alert">No results found.</div>
+                                <div class="alert alert-info" role="alert"><h6><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No results found. Try another.</h6></div>
                             @else
                             @foreach($books as $book)
                                 <article class="hover-up-2 transition-normal wow fadeInUp animated">
@@ -63,11 +62,12 @@
                                 @endif
                             </div>
                         </div>
+
                         <!-- Pagination -->
-                    <!-- Pagination -->
-<div class="pagination-area mb-30 wow fadeInUp animated">
-    {{ $books->appends(['query' => request('query')])->links('pagination::bootstrap-4') }}
-</div>
+                        <div class="pagination-area mb-30 wow fadeInUp animated">
+                            {{ $books->appends(['query' => request('query')])->links('pagination::bootstrap-4') }}
+                        </div>
+
                     </div>
                 </div>
             </div>

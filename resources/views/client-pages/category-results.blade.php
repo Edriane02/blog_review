@@ -22,17 +22,16 @@
                         <div class="post-module-3">
                             <div class="loop-list loop-list-style-1">
                             @if($books->isEmpty())
-                <p>No results found for this category.</p>
-            @else
-            @foreach($books as $book)
-            <article class="hover-up-2 transition-normal wow fadeInUp animated">
+                                <div class="alert alert-info" role="alert"><h6><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No results found for this tag. Try another.</h6></div>
+                            @else
+                            @foreach($books as $book)
+                                <article class="hover-up-2 transition-normal wow fadeInUp animated">
                                     <div class="row mb-40 list-style-2">
                                         <div class="col-md-4">
                                             <div class="post-thumb position-relative border-radius-5">
                                                 <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url('{{ asset('storage/' . $book->banner) }}');">
-                                                    <a class="img-link" href="single-post.html"></a>
+                                                    <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                         <div class="col-md-8 align-self-center">
@@ -43,7 +42,7 @@
                                                     @endforeach
                                                 </div>
                                                 <h5 class="post-title font-weight-900 mb-20">
-                                                    <a href="single-post.html">{{ $book->title }}</a>
+                                                    <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                                     <br />
                                                     <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                                 </h5>
@@ -54,14 +53,14 @@
                                         </div>
                                     </div>
                                 </article>
-                                @endforeach
-                                @endif
+                            @endforeach
+                            @endif
                             </div>
                         </div>
                         <!-- Pagination -->
-                    <div class="pagination-area mb-30 wow fadeInUp animated">
-                        {{ $books->links('pagination::bootstrap-4') }}
-                    </div>
+                        <div class="pagination-area mb-30 wow fadeInUp animated">
+                            {{ $books->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
                 </div>
             </div>

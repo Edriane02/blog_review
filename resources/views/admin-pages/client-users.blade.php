@@ -5,18 +5,51 @@
 
 <div class="page-content">
 
+<!-- SweetAlert Dialogs start -->
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops... Something went wrong!',
+            html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
+        });
+    </script>
+@endif
+
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}',
+        });
+    </script>
+@endif
+<!-- SweetAlert Dialogs end -->
+
                 <!-- start page title -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
-                        <div class="col-sm-6">
+                        <div class="">
                             <div class="page-title">
                                 <h1 class="page-title-custom">Users (Client)</h1>
+                                <p>This page shows a list of all users who have created an account on this website. This is <b>NOT</b> a list of users with access to manage the CMS.<br />To manage users with access to the CMS, please go to <b>Designation</b> instead.</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <a class="btn btn-success waves-effect waves-light" href="add-user.html">Add New User</a>
+                                
                             </div>
                         </div>
                      </div>
@@ -82,5 +115,27 @@
                     </div>
                 </div> <!-- container-fluid -->
             </div>
+
+<!-- Delete SweetAlert Dialog start -->
+<script>
+    function confirmDelete(tagId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form
+                document.getElementById('delete-form-' + tagId).submit();
+            }
+        });
+    }
+</script>
+<!-- Delete SweetAlert Dialog end -->
 
 @endsection

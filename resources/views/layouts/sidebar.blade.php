@@ -123,6 +123,13 @@
                         <li class="menu-title">Menu</li>
 
                         <li>
+                            <a href="{{ route('home') }}" target="_blank" class="waves-effect">
+                                <i class="dripicons-web"></i>
+                                <span>Go to Website</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="{{ route('dashboard') }}" class="waves-effect">
                                 <i class="dripicons-home"></i>
                                 <span>Dashboard</span>
@@ -158,7 +165,7 @@
                         </li>
 
                         <li>
-                            <a href="client-users.html" class="waves-effect">
+                            <a href="{{ route('client-users') }}" class="waves-effect">
                                 <i class="dripicons-user-group"></i>
                                 <span>Users (Client)</span>
                             </a>

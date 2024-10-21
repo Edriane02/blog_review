@@ -25,7 +25,7 @@
             <p class="cta-desc text-muted text-center">We enhance credibility, increase exposure, and boost sales,
                 helping your book stand out and reach a wider audience.</p>
             <div class="button-container">
-                <a href="{{ route('contactUs') }}" class="btn btn-outline-primary">Request a Review</a>
+                <a href="{{ route('contactUs') }}" class="btn btn-outline-primary btn-lg">Request a Review</a>
             </div>
         </div>
     </div>
@@ -153,8 +153,7 @@
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)
                         @foreach($tags as $tag)
-                            <!-- Tag id number: {{ $tag->id }} -->
-                            <a class="tag-cloud-link" href="category-results.html">{{ $tag->tag }}</a>
+                            <a class="tag-cloud-link" href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
                         @endforeach
                     @else
                         <div class="alert alert-info" role="alert">

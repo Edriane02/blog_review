@@ -99,8 +99,9 @@ class HomeController extends Controller
 
     public function latestReviewsPage()
     {
-        // // For search: tag suggestion
+        // For search: tag suggestion
         $tags = Tags::all();
+
         // Get the latest 10 books
         $latestBooks = Books::latest()->take(10)->with(['bookTag'])->get();
 
@@ -151,12 +152,11 @@ class HomeController extends Controller
 
         // Get books associated with the selected tag using a relationship
         $books = Books::whereHas('bookTag', function($query) use ($tag) {
-            $query->where('book_tag', $tag->tag); // Assuming 'book_tag' is the field in 'book_tag' table
-        })->paginate(1);
+            $query->where('book_tag', $tag->tag);
+        })->paginate(1); // Fetch 10 results per page
 
         // Get all tags for the suggestion list
         $tags = Tags::all();
-        
 
         // Pass data to the view
         return view('client-pages.category-results', compact('books', 'tags', 'tag'));

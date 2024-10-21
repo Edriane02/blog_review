@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Book Review')
+@section('title', $book->title)
 
 @section('contents')
 
@@ -130,8 +130,7 @@
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)
                         @foreach($tags as $tag)
-                            <!-- Tag id number: {{ $tag->id }} -->
-                            <a class="tag-cloud-link" href="category-results.html">{{ $tag->tag }}</a>
+                            <a class="tag-cloud-link" href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
                         @endforeach
                     @else
                         <div class="alert alert-info" role="alert">

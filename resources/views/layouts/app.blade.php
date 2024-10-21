@@ -16,7 +16,6 @@
 
     <meta property="og:title" content="Professional Book Review" />
     <meta property="og:type" content="website" />
-    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
     <meta property="og:site_name" content="Professional Book Review Service" />
     <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
@@ -100,6 +99,7 @@
             </div>
         </div>
     </header>
+
     <!--Start search form-->
     <div class="main-search-form">
         <div class="container">
@@ -119,15 +119,16 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="row mt-80 text-center">
                     <div class="col-12 font-small suggested-area">
-                        <h5 class="suggested font-heading mb-20 text-muted"> <strong>Suggested tags:</strong></h5>
+                        <h5 class="suggested font-heading mb-20 text-muted"> <strong>Browse by tags:</strong></h5>
                         <ul class="list-inline d-inline-block">
                             @if($tags->count() > 0)
                                 @foreach($tags as $tag)
                                     <li class="list-inline-item">
                                         <!-- Clicking a tag will filter books by that tag -->
-                                        <a href="{{ route('category.search', ['tag' => $tag->id]) }}">{{ $tag->tag }}</a>
+                                        <a href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
                                     </li>
                                 @endforeach
                             @else
@@ -138,7 +139,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
