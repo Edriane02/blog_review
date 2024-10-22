@@ -32,7 +32,8 @@ Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientPro
 Route::get('edit-profile', [HomeController::class, 'clientEditProfile'])->name('clientEditProfile');
 Route::get('change-password', [HomeController::class, 'clientChangePassword'])->name('clientChangePassword');
 Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
-Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('reviewerAuthorPage');
+Route::get('/reviewer/{id}/reviews', [HomeController::class, 'reviewerReviews'])->name('reviewerReviews');
+
 Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');

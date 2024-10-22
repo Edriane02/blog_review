@@ -44,6 +44,20 @@ class HomeController extends Controller
         return view('client-pages.view-post', compact('book', 'tags'));
     }
 
+    public function reviewerReviews($reviewerId)
+    {
+        // Fetch the reviewer by ID
+        $reviewer = \App\Models\Reviewer::findOrFail($reviewerId);
+
+        // Get all reviews by this reviewer
+        $reviews = \App\Models\Reviews::with('book') // Load the related books for each review
+            ->where('reviewer', $reviewerId)
+            ->paginate(10); // 10 results per page
+
+        return view('client-pages.reviewer-author', compact('reviewer', 'reviews'));
+    }
+
+
     public function adminHome()
     {
         return view('admin-pages.index');
@@ -140,7 +154,7 @@ class HomeController extends Controller
         // Search for books by title or author name and paginate the results (10 per page)
         $books = Books::where('title', 'LIKE', "%{$searchQuery}%")
                         ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
-                        ->paginate(2); // Fetch 10 results per page
+                        ->paginate(10); // Fetch 10 results per page
 
         return view('client-pages.search-results', compact('books', 'tags', 'searchQuery'));
     }
@@ -153,7 +167,7 @@ class HomeController extends Controller
         // Get books associated with the selected tag using a relationship
         $books = Books::whereHas('bookTag', function($query) use ($tag) {
             $query->where('book_tag', $tag->tag);
-        })->paginate(1); // Fetch 10 results per page
+        })->paginate(10); // Fetch 10 results per page
 
         // Get all tags for the suggestion list
         $tags = Tags::all();

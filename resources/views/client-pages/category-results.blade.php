@@ -38,7 +38,7 @@
                                             <div class="post-content">
                                                 <div class="entry-meta meta-0 font-small mb-10">
                                                 @foreach($book->bookTag as $tag)
-                                                    <a href="category-results.html"><span class="post-cat text-info">{{ $tag->book_tag }}</span></a>
+                                                    <span class="post-cat text-info">{{ $tag->book_tag }}</span>
                                                     @endforeach
                                                 </div>
                                                 <h5 class="post-title font-weight-900 mb-20">

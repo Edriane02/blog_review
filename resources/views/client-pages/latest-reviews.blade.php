@@ -41,15 +41,13 @@
                                             <div class="post-content">
                                                 <div class="entry-meta meta-0 font-small mb-10">
                                                 @foreach($book->bookTag as $tag)
-                                                    <a href="category-results.html">
-                                                        <span class="post-cat text-info">{{ $tag->book_tag }}</span>
-                                                    </a>
+                                                    <span class="post-cat text-info">{{ $tag->book_tag }}</span>
                                                 @endforeach
                                                 </div>
                                                 <h5 class="post-title font-weight-900 mb-20">
                                                 <a href="{{ route('viewPost', $book->id) }}">{{ $book->title }}</a>
                                                     <br />
-                                                    <span style="font-size: 13px;">Authored by {{ $book->title }}</span>
+                                                    <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                                 </h5>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                                     <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
@@ -60,7 +58,7 @@
                                 </article>
                                 @endforeach
                             @else
-                                <h5 class="text-center text-muted">No latest reviews found.</h5>
+                                <h5 class="text-muted"><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No latest reviews found.</h5>
                                 <br /><br /><br />
                             @endif
 
