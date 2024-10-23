@@ -41,7 +41,7 @@ class DesignationController extends Controller
             $designation->save();
 
             DB::commit();
-            return back()->with('success', 'designation successfully added.');
+            return back()->with('success', 'Designation successfully added.');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred while adding the designation: ' . $e->getMessage());

@@ -100,6 +100,10 @@ Route::controller(TagController::class)->group(function(){
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
 });
 
+Route::controller(ClientUsersController::class)->group(function(){
+    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');
+});
+
 Route::controller(DesignationController::class)->group(function(){
     Route::get('management/designation', 'designation')->middleware('auth', 'isAdmin')->name('designation');
     Route::post('management/add-designation', 'newDesignation')->middleware('auth', 'isAdmin')->name('addDesignation');

@@ -40,7 +40,7 @@
                                         <img src="{{ asset('adminAssets/images/static/maintenance.svg') }}" width="250">
                                         <h4 class="mb-4 mt-5">Coming Soon!</h4>
                                         <p class="mb-4 mx-auto">Stay tuned for what's next!</p>
-                                        <a class="btn btn-primary waves-effect waves-light" href="index.html"><i class="mdi mdi-home"></i> Back to Dashboard</a>
+                                        <a class="btn btn-primary waves-effect waves-light" href="{{ route('dashboard') }}"><i class="mdi mdi-home"></i> Back to Dashboard</a>
                                     </div>
                                 </div>
                             </div>
