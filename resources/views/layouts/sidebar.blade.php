@@ -165,11 +165,7 @@
                         </li>
 
                         <li>
-<<<<<<< HEAD
                             <a href="{{ route('designation' )}}" class="waves-effect">
-=======
-                            <a href="{{ route('client-users') }}" class="waves-effect">
->>>>>>> ef16086d0924b3879c81dace2f81831f34ba4fcc
                                 <i class="dripicons-user-group"></i>
                                 <span>Designation</span>
                             </a>
