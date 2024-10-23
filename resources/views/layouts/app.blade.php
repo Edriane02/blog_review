@@ -16,7 +16,6 @@
 
     <meta property="og:title" content="Professional Book Review" />
     <meta property="og:type" content="website" />
-    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
     <meta property="og:site_name" content="Professional Book Review Service" />
     <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
@@ -100,6 +99,7 @@
             </div>
         </div>
     </header>
+
     <!--Start search form-->
     <div class="main-search-form">
         <div class="container">
@@ -107,9 +107,9 @@
                 <div class="row mb-20">
                     <div class="col-12 align-self-center main-search-form-cover m-auto">
                         <p class="text-center"><span class="search-text-bg">Search</span></p>
-                        <form action="search-results.html" class="search-header">
+                        <form action="{{ route('search') }}" method="GET" class="search-header">
                             <div class="input-group w-100">
-                                <input type="text" id="search-bar" class="form-control" placeholder="Search for book title or author">
+                                <input type="text" name="query" id="search-bar" class="form-control" placeholder="Search for book title or author">
                                 <div class="input-group-append">
                                     <button class="btn btn-search bg-white" type="submit">
                                         <i class="elegant-icon icon_search"></i>
@@ -119,14 +119,17 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="row mt-80 text-center">
                     <div class="col-12 font-small suggested-area">
-                        <h5 class="suggested font-heading mb-20 text-muted"> <strong>Suggested tags:</strong></h5>
+                        <h5 class="suggested font-heading mb-20 text-muted"> <strong>Browse by tags:</strong></h5>
                         <ul class="list-inline d-inline-block">
                             @if($tags->count() > 0)
                                 @foreach($tags as $tag)
-                                    <!-- Tag id number: {{ $tag->id }} -->
-                                    <li class="list-inline-item"><a href="category-results.html">{{ $tag->tag }}</a></li>
+                                    <li class="list-inline-item">
+                                        <!-- Clicking a tag will filter books by that tag -->
+                                        <a href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
+                                    </li>
                                 @endforeach
                             @else
                                 <div class="alert alert-info" role="alert">

@@ -9,16 +9,14 @@ use App\Models\BookTag;
 
 class TagController extends Controller
 {
-
     public function tagsPage()
     {
-
         $tags = Tags::all();
 
         return view('admin-pages.tags', compact('tags'));
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function addTag(Request $request)
     {
         // Validate incoming request
@@ -38,7 +36,6 @@ class TagController extends Controller
                 return back()->with('error', 'Tag already exists.');
             }
 
-
             // Create a new tag record
             $tag = new Tags;
             $tag->tag = $request->tag;
@@ -52,7 +49,7 @@ class TagController extends Controller
         }
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function editTag(Request $request)
     {
         // Validate the incoming request data
@@ -76,7 +73,6 @@ class TagController extends Controller
             // Find the existing tag
             $tag = Tags::findOrFail($request->id);
 
-
             // Update tag information
             $tag->update([
                 'tag' => $request->tag
@@ -94,14 +90,14 @@ class TagController extends Controller
         }
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function deleteTag(string $id)
     {
         $tag = Tags::findOrFail($id);
         $tag->delete();
 
-
         return redirect()->route('tags')->with('success', 'Tag deleted successfully.');
     }
+
 
 }

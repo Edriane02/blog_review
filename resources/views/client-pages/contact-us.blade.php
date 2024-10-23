@@ -16,13 +16,14 @@
         <div class="container single-content">
             <div class="entry-wraper mt-50">
                 <p class="font-large">We are <strong>Stories Inc.</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
+                <br />
 
-                <h3 class="mt-30">Email Us</h3>
+                <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
                 <hr class="wp-block-separator is-style-wide">
-                <p class="font-medium-custom">You can contact us directly at <a href="mailto:sales@professionalreview.com">sales@professionalreview.com</a>.</p>
+                <p class="font-medium-custom">You can contact us directly at <a style="color: #4379F2;" href="mailto:sales@professionalreview.com">sales@professionalreview.com</a></p>
 
                 <!-- Contact Form -->
-                <h3 class="mt-30">Send us a message</h3>
+                <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
                 <hr class="wp-block-separator is-style-wide">
                 <form class="form-contact comment_form" action="#" id="commentForm">
                     <div class="row">

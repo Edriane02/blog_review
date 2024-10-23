@@ -44,6 +44,20 @@ class HomeController extends Controller
         return view('client-pages.view-post', compact('book', 'tags'));
     }
 
+    public function reviewerReviews($reviewerId)
+    {
+        // Fetch the reviewer by ID
+        $reviewer = \App\Models\Reviewer::findOrFail($reviewerId);
+
+        // Get all reviews by this reviewer
+        $reviews = \App\Models\Reviews::with('book') // Load the related books for each review
+            ->where('reviewer', $reviewerId)
+            ->paginate(10); // 10 results per page
+
+        return view('client-pages.reviewer-author', compact('reviewer', 'reviews'));
+    }
+
+
     public function adminHome()
     {
         return view('admin-pages.index');
@@ -99,8 +113,9 @@ class HomeController extends Controller
 
     public function latestReviewsPage()
     {
-        // // For search: tag suggestion
+        // For search: tag suggestion
         $tags = Tags::all();
+
         // Get the latest 10 books
         $latestBooks = Books::latest()->take(10)->with(['bookTag'])->get();
 
@@ -131,7 +146,35 @@ class HomeController extends Controller
         return view('client-pages.search-results', compact('tags'));
     }
 
-    
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('query'); // Get the search query from the form
+        $tags = Tags::all(); // Fetch all available tags for suggestions
+
+        // Search for books by title or author name and paginate the results (10 per page)
+        $books = Books::where('title', 'LIKE', "%{$searchQuery}%")
+                        ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
+                        ->paginate(10); // Fetch 10 results per page
+
+        return view('client-pages.search-results', compact('books', 'tags', 'searchQuery'));
+    }
+
+    public function categorySearch($tagId)
+    {
+        // Get the selected tag
+        $tag = Tags::findOrFail($tagId);
+
+        // Get books associated with the selected tag using a relationship
+        $books = Books::whereHas('bookTag', function($query) use ($tag) {
+            $query->where('book_tag', $tag->tag);
+        })->paginate(10); // Fetch 10 results per page
+
+        // Get all tags for the suggestion list
+        $tags = Tags::all();
+
+        // Pass data to the view
+        return view('client-pages.category-results', compact('books', 'tags', 'tag'));
+    }
 
 
 

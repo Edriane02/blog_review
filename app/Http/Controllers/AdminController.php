@@ -26,7 +26,7 @@ class AdminController extends Controller
         return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function uploadPost(Request $request)
     {
         // Validate incoming request
@@ -96,7 +96,6 @@ class AdminController extends Controller
         }
     }
 
-    
     public function editPost($id){
 
         $books = Books::with('reviews', 'bookTag')->findOrFail($id);
@@ -107,7 +106,7 @@ class AdminController extends Controller
     } 
     
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function updatePost(Request $request, $id)
 {
     // Validate incoming request
@@ -139,7 +138,6 @@ class AdminController extends Controller
         if ($request->hasFile('banner')) {
             // Delete the old banner if exists
             if ($book->banner) {
-                // Storage::disk('public')->delete($book->banner);
                 \Storage::disk('public')->delete($book->banner);
             }
             $book->banner = $request->file('banner')->store('banners', 'public');
@@ -165,7 +163,7 @@ class AdminController extends Controller
             foreach ($request->reviewer as $index => $reviewer) {
                 Reviews::create([
                     'book_id' => $book->id,
-                    'reviewer' => $reviewer, // Assuming 'reviewer_id' is the foreign key in Reviews table
+                    'reviewer' => $reviewer,
                     'review' => $request->review[$index],
                 ]);
             }
