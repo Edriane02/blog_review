@@ -165,20 +165,20 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('client-users') }}" class="waves-effect">
+                            <a href="{{ route('designation' )}}" class="waves-effect">
                                 <i class="dripicons-user-group"></i>
-                                <span>Users (Client)</span>
+                                <span>Designation</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="dripicons-toggles"></i>
-                                <span>Designation</span>
+                                <span>Users</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="all-users.html">All Users</a></li>
-                                <li><a href="add-user.html">Add New User</a></li>
+                                <li><a href="all-users.html">Admin</a></li>
+                                <li><a href="add-user.html">Client</a></li>
                             </ul>
                         </li>
                     </ul>
