@@ -3,7 +3,6 @@
 
 @section('contents')
 
-
 <main class="bg-grey pt-80 pb-50">
         <div class="container">
             <div class="row justify-content-center">
@@ -16,17 +15,17 @@
                             <form method="post">
                                 <div class="form-group">
                                 <label><strong>Enter Your Old Password</strong></label>
-                                    <input class="form-control" required="" type="password" name="old_password" placeholder="Old password">
+                                    <input class="form-control" type="password" name="old_password" placeholder="Old password" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label><strong>Create a New Password</strong></label>
-                                    <input class="form-control" required="" type="password" name="new_password" placeholder="New password">
+                                    <input class="form-control" type="password" name="new_password" placeholder="New password" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label><strong>Confirm New Password</strong></label>
-                                    <input class="form-control" required="" type="password" name="confirm_new_password" placeholder="Confirm new password">
+                                    <input class="form-control" type="password" name="confirm_new_password" placeholder="Confirm new password" required>
                                 </div>
                                 
                                 <div class="form-group">
@@ -40,6 +39,6 @@
             </div>
         </div>
         <br />
-    </main>
+</main>
 
 @endsection

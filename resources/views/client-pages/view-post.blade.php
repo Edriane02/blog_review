@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Book Review')
+@section('title', $book->title)
 
 @section('contents')
 
@@ -74,12 +74,12 @@
             </div>
 
             <div class="entry-bottom mt-50 mb-30 wow fadeIn animated">
-                <div class="tags">
-                    <span>Tags: </span>
-                    @foreach($book->bookTag as $tag)
-                        <a href="#" rel="tag">{{ $tag->book_tag }}</a>
-                    @endforeach
-                </div>
+            <div class="tags">
+                <span>🏷️ Tags: </span>
+                @foreach($book->bookTag as $key => $tag)
+                    <span><i>{{ $tag->book_tag }}{{ $key != $book->bookTag->count() - 1 ? ',' : '' }}</i></span>
+                @endforeach
+            </div>
             </div>
 
             <!-- <div class="single-social-share clearfix wow fadeIn animated">
@@ -99,18 +99,18 @@
                         $actualReviewer = \App\Models\Reviewer::find($reviewer);
                     @endphp
                 <div class="author-image mb-30">
-                <a href="author.html">
+                <a href="{{ route('reviewerReviews', $actualReviewer->id) }}">
                     <img src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo" class="avatar">
                 </a>
                 </div>
                 <div class="author-info">
                     <span style="font-weight: 700;">Reviewed by</span>
                     <h4 class="font-weight-bold mb-20"><span class="vcard author"><span class="fn">
-                        <a href="author.html" title="" rel="author">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</a></span></span>
+                        <a href="{{ route('reviewerReviews', $actualReviewer->id) }}" title="" rel="author">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</a></span></span>
                     </h4>
                     <div class="author-description text-muted">{{ optional($actualReviewer)->bio ?? 'No bio yet.' }}</div>
                 @endforeach
-                    <a href="author.html" class="author-bio-link mb-md-0 mb-3">View All Reviews</a>
+                    <a href="{{ route('reviewerReviews', $actualReviewer->id) }}" class="author-bio-link mb-md-0 mb-3">View All Reviews</a>
                 </div>
             </div>
         </article>
@@ -130,8 +130,7 @@
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)
                         @foreach($tags as $tag)
-                            <!-- Tag id number: {{ $tag->id }} -->
-                            <a class="tag-cloud-link" href="category-results.html">{{ $tag->tag }}</a>
+                            <a class="tag-cloud-link" href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
                         @endforeach
                     @else
                         <div class="alert alert-info" role="alert">

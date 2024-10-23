@@ -7,6 +7,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ClientUsersController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,13 @@ Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientPro
 Route::get('edit-profile', [HomeController::class, 'clientEditProfile'])->name('clientEditProfile');
 Route::get('change-password', [HomeController::class, 'clientChangePassword'])->name('clientChangePassword');
 Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
-Route::get('reviewer', [HomeController::class, 'reviewerAuthorPage'])->name('reviewerAuthorPage');
+Route::get('/reviewer/{id}/reviews', [HomeController::class, 'reviewerReviews'])->name('reviewerReviews');
+
 Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/category/{tagId}', [HomeController::class, 'categorySearch'])->name('categorySearch');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
@@ -86,3 +91,6 @@ Route::controller(TagController::class)->group(function(){
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
 });
 
+Route::controller(ClientUsersController::class)->group(function(){
+    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');
+});

@@ -17,7 +17,7 @@ class ReviewerController extends Controller
         return view('admin-pages.reviewer', compact('reviewer'));
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function addReviewer(Request $request)
     {
         // Validate incoming request
@@ -61,8 +61,7 @@ class ReviewerController extends Controller
         }
     }
 
-
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function editReviewer(Request $request)
     {
         // Validate the incoming request data
@@ -88,7 +87,7 @@ class ReviewerController extends Controller
             // Find the existing reviewer
             $reviewer = Reviewer::findOrFail($request->id);
 
-            // Handle photo upload (optional)
+            // Handle photo upload
             if ($request->hasFile('photo')) {
                 // If the reviewer already has a photo, delete the old one
                 if ($reviewer->photo) {
@@ -121,7 +120,7 @@ class ReviewerController extends Controller
         }
     }
 
-    // ==== WORKING/TESTED ===== //
+    // ===== WORKING/TESTED ===== //
     public function deleteReviewer(string $id)
     {
         DB::beginTransaction();
@@ -129,7 +128,7 @@ class ReviewerController extends Controller
         try {
             $reviewer = Reviewer::findOrFail($id);
 
-            // Optionally delete the photo from storage if it exists
+            // Delete the photo from storage if it exists
             if ($reviewer->photo) {
                 Storage::disk('public')->delete($reviewer->photo);
             }
@@ -143,4 +142,6 @@ class ReviewerController extends Controller
             return back()->with('error', 'An error occurred while deleting the reviewer: ' . $e->getMessage());
         }
     }
+
+
 }
