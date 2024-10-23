@@ -19,7 +19,7 @@ class UserAccess
         if(Auth::check()) {
             $user = Auth::user();
 
-            if($user->userProfile->designationType->designation == 'admin' || $user->userProfile->designationType->designation == 'editor') {
+            if($user->adminUserProfile->designationType->designation == 'admin' || $user->adminUserProfile->designationType->designation == 'editor') {
                 
                 return $next($request);
                 

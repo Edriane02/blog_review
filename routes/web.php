@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ClientRegisterController;
+use App\Http\Controllers\Auth\AdminRegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\DesignationController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +43,14 @@ Route::group(['middleware' => 'auth'], function () {
     })->middleware('isAdmin')->name('dashboard');
 });
 
-Route::controller(RegisterController::class)->group(function(){
+Route::controller(AdminRegisterController::class)->group(function(){
+
+    Route::get('admin/register', 'registerAdmin')->name('registerAdmin');
+    Route::post('admin/register', 'registerUserAdmin')->name('registerUserAdmin');
+
+});
+
+Route::controller(ClientRegisterController::class)->group(function(){
 
     Route::get('/register', 'register')->name('register');
     Route::post('/register', 'registerUser')->name('registerUser');
@@ -84,5 +93,12 @@ Route::controller(TagController::class)->group(function(){
     Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
     Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
+});
+
+Route::controller(DesignationController::class)->group(function(){
+    Route::get('management/designation', 'designation')->middleware('auth', 'isAdmin')->name('designation');
+    Route::post('management/add-designation', 'newDesignation')->middleware('auth', 'isAdmin')->name('addDesignation');
+    Route::post('management/edit-designation', 'editDesignation')->middleware('auth', 'isAdmin')->name('editDesignation');
+    Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth', 'isAdmin')->name('deleteDesignation');
 });
 

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserProfile extends Model
+class AdminUserProfile extends Model
 {
     use HasFactory;
 
-    protected $table = 'user_profiles';
+    protected $table = 'admin_user_profiles';
     protected $fillable = [
         'user_id',
         'fname',
@@ -19,9 +19,9 @@ class UserProfile extends Model
         'user_type_id'
     ];
 
-    public function user()
+    public function adminUser()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id'); 
+        return $this->belongsTo(AdminUser::class, 'user_id', 'user_id'); 
     }
 
     public function designationType()

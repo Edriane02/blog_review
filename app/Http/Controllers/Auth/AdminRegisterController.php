@@ -5,19 +5,19 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\UserProfile;
-use App\Models\User;
+use App\Models\AdminUserProfile;
+use App\Models\AdminUser;
 use Illuminate\Support\Facades\Hash;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
-class RegisterController extends Controller
+class AdminRegisterController extends Controller
 {
-    public function register()
+    public function registerAdmin()
     {
         return view('auth.register');
     }
 
-    public function registerUser(Request $request)
+    public function registerUserAdmin(Request $request)
     {
         $request->validate([
             'fname' => 'required|string|max:255',
@@ -33,13 +33,13 @@ class RegisterController extends Controller
         try {
             $userId = IdGenerator::generate(['table' => 'users', 'length' => 10, 'prefix' => '09']);
 
-            $user = User::create([
+            $user = AdminUser::create([
                 'user_id' => $userId,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
 
-            UserProfile::create([
+            AdminUserProfile::create([
                 'user_id' => $user->user_id,
                 'fname' => $request->fname,
                 'mname' => $request->mname,
@@ -50,7 +50,7 @@ class RegisterController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'User registered successfully!');
+            return redirect()->back()->with('success', 'Admin registered successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());
