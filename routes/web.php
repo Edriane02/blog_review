@@ -8,6 +8,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClientUsersController;
 use App\Http\Controllers\DesignationController;
 use App\Models\Reviewer;
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
 Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('maintenance', [HomeController::class, 'maintenancePage'])->name('maintenancePage');
 Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientProfile');
@@ -40,7 +42,6 @@ Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('ca
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/category/{tagId}', [HomeController::class, 'categorySearch'])->name('categorySearch');
-
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {

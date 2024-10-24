@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class DesignationController extends Controller
 {
-    //
-
     public function designation(){
         $designations = Designation::all();
 

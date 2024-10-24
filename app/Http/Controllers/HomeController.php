@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Books;
 use App\Models\Tags;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 
 class HomeController extends Controller
 {
@@ -174,6 +177,39 @@ class HomeController extends Controller
 
         // Pass data to the view
         return view('client-pages.category-results', compact('books', 'tags', 'tag'));
+    }
+
+    public function submitContactForm(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|string|max:20',
+            'message' => 'required|string|max:1000',
+        ]);
+
+        // Check if a contact with the same email or phone number already exists
+        $existingContact = Contact::where('email', $request->email)
+            ->orWhere('phone_number', $request->phone_number)
+            ->first();
+
+        if ($existingContact) {
+            throw ValidationException::withMessages([
+                'email' => 'A contact with this email or phone number already exists.',
+            ]);
+        }
+
+        DB::transaction(function () use ($request) {
+            Contact::create([
+                'full_name' => $request->full_name,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'message' => $request->message,
+            ]);
+        });
+
+        return back()->with('success', 'Your message has been sent successfully.');
     }
 
 
