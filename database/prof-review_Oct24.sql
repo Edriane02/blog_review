@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2024 at 01:57 PM
+-- Generation Time: Oct 24, 2024 at 02:37 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -143,6 +143,31 @@ INSERT INTO `book_tag` (`id`, `book_id`, `book_tag`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_us`
+--
+
+DROP TABLE IF EXISTS `contact_us`;
+CREATE TABLE IF NOT EXISTS `contact_us` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `full_name`, `email`, `phone_number`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'Simon Jensen', 'simon@google.com', '031903903901', 'Hello test test', '2024-10-24 21:36:13', '2024-10-24 21:36:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `des_types`
 --
 
@@ -197,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -215,7 +240,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2024_09_27_063019_create_books_table', 9),
 (27, '2024_09_27_070035_create_reviews_table', 9),
 (28, '2024_10_03_105857_create_book_tag_table', 9),
-(29, '2024_10_05_052628_change_reviewer_column_in_reviews_table', 10);
+(29, '2024_10_05_052628_change_reviewer_column_in_reviews_table', 10),
+(30, '2024_10_24_114640_create_contact_us_table', 11);
 
 -- --------------------------------------------------------
 
