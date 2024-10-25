@@ -186,7 +186,7 @@ class HomeController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone_number' => 'required|string|max:20',
-            'message' => 'required|string|max:1000',
+            'message' => 'required|string|max:1024',
         ]);
 
         // Check if a contact with the same email or phone number already exists

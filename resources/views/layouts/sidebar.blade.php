@@ -172,6 +172,13 @@
                         </li>
 
                         <li>
+                            <a href="{{ route('messages') }}" class="waves-effect">
+                                <i class="dripicons-message"></i>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="dripicons-toggles"></i>
                                 <span>Designation</span>

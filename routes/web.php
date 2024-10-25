@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ClientRegisterController;
 use App\Http\Controllers\Auth\AdminRegisterController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
@@ -99,6 +100,11 @@ Route::controller(TagController::class)->group(function(){
     Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
     Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
     Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
+});
+
+Route::controller(MessagesController::class)->group(function(){
+    Route::get('admin/messages', 'messagesPage')->middleware('auth', 'isAdmin')->name('messages');
+    Route::delete('admin/message/destroy/{id}', 'deleteMessage')->middleware('auth')->name('deleteMessage');
 });
 
 Route::controller(ClientUsersController::class)->group(function(){

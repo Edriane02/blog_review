@@ -53,7 +53,7 @@
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
                 <hr class="wp-block-separator is-style-wide">
-                <p class="font-medium-custom">You can contact us directly at <a style="color: #4379F2;" href="mailto:sales@professionalreview.com">sales@professionalreview.com</a></p>
+                <p class="font-medium-custom">You can contact us directly at: <a style="color: #4379F2;" href="mailto:sales@professionalreview.com">sales@professionalreview.com</a></p>
 
                 <!-- Contact Form -->
                 <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Message *" required>{{ old('message') }}</textarea>
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="11" placeholder="Message *" required>{{ old('message') }}</textarea>
                                 <small id="messageHelp" class="form-text text-muted">Maximum 1000 characters.</small>
                                 @error('message')
                                     <p style="color: red;">{{ $message }}</p>
@@ -109,11 +109,16 @@
     <script>
         const messageField = document.getElementById('message');
         const messageHelp = document.getElementById('messageHelp');
+        const maxChars = 1000;
 
         messageField.addEventListener('input', function() {
-            const remaining = 1000 - messageField.value.length;
-            messageHelp.textContent = `Maximum 1000 characters. You have ${remaining} characters left.`;
+            if (messageField.value.length > maxChars) {
+                messageField.value = messageField.value.slice(0, maxChars);
+            }
+            const remaining = maxChars - messageField.value.length;
+            messageHelp.textContent = `Maximum of 1000 characters. You have ${remaining} characters left.`;
         });
     </script>
+
 
 @endsection
