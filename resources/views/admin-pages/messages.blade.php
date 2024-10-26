@@ -43,13 +43,12 @@
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h1 class="page-title-custom">Messages from Contact form</h1>
+                        <h1 class="page-title-custom">Messages</h1>
+                        <p>This page shows messages submitted through the website's <b>contact form</b>.</p>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end d-sm-block">
-                        <!-- <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
-                            data-bs-target=".addTagModal">Add New Tag</button> -->
                     </div>
                 </div>
             </div>
@@ -64,7 +63,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
@@ -83,13 +81,12 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{!! $message->created_at->format('M d, Y') . '<br>' . $message->created_at->format('h:i A') !!}</td>
-                                                    <td><strong>{{ $message->full_name }}</strong><br />{{ $message->email }}</td>
+                                                    <td><strong>{{ $message->full_name }}</strong><br /><span style="font-size: 12px;">{{ $message->email }}</span></td>
                                                     <td>{{ $message->phone_number }}</td>
                                                     <td>{{ Str::limit($message->message, 50) }}</td>
                                                     <td>
                                                         <div class="d-flex">
                                                             <!-- Edit Button -->
-                                                            <!-- Disable the edit button if tag is "Featured Review" -->
                                                             <button type="button"
                                                                 class="btn btn-primary btn-sm waves-effect waves-light"
                                                                 data-bs-toggle="modal"
@@ -135,7 +132,6 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
 
@@ -143,7 +139,7 @@
                                 <!-- Message start -->
                                 <div class="card shadow-sm p-3 mb-4">
                                     <div class="card-header">
-                                        <h5 class="mb-0">Message Details</h5>
+                                        <h5 class="mb-0"><i class="bi bi-envelope-paper"></i>&nbsp;&nbsp;Message Details</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="mb-3">
@@ -178,23 +174,19 @@
                                 <!-- Message end -->
                             </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary waves-effect"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
-                            
-                            <!-- Form End -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                            </div>
+
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-                <!-- End of Edit Tag Modal -->
             @endforeach
 
         </div>
     </div> <!-- container-fluid -->
 </div>
 
-<!-- Delete SweetAlert Dialog start -->
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable({
@@ -214,6 +206,7 @@
         });
     }
 
+    // SweetAlert delete dialog
     function confirmDelete(messageId) {
         Swal.fire({
             title: 'Are you sure?',
@@ -231,7 +224,7 @@
             }
         });
     }
+
 </script>
-<!-- Delete SweetAlert Dialog end -->
 
 @endsection

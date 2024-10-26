@@ -184,11 +184,12 @@
                                 <span>Designation</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('designation' )}}">Roles</a></li>
+                                <li><a href="{{ route('designation')}}">Roles</a></li>
                                 <li><a href="all-users.html">All Users</a></li>
                                 <li><a href="add-user.html">Add New User</a></li>
                             </ul>
                         </li>
+
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -201,14 +202,15 @@
     @yield('contents')
 
         <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            © <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS
-                        </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        ©
+                        <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         </div>
         <!-- end main content-->
 

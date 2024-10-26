@@ -9,7 +9,6 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClientUsersController;
 use App\Http\Controllers\DesignationController;
 use App\Models\Reviewer;

@@ -4,38 +4,38 @@
 @section('contents')
 
 <main class="bg-grey pb-30">
+
 <!-- SweetAlert Dialogs start -->
 @if ($errors->any())
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops... Something went wrong!',
-                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}',
-            });
-        </script>
-    @endif
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops... Something went wrong!',
+            html: '{!! implode("", $errors->all("<li>:message</li>")) !!}',
+        });
+    </script>
+@endif
 
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-            });
-        </script>
-    @endif
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
 
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: '{{ session('error') }}',
-            });
-        </script>
-    @endif
-    <!-- SweetAlert Dialogs end -->
-
+@if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}',
+        });
+    </script>
+@endif
+<!-- SweetAlert Dialogs end -->
 
         <div class="mb-50">
             <div class="container">
@@ -59,7 +59,6 @@
                 <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
                 <hr class="wp-block-separator is-style-wide">
 
-                
                 <form class="form-contact comment_form" action="{{ route('contact.submit') }}" method="POST" id="contact-form">
                     @csrf
                     <div class="row">
@@ -119,6 +118,5 @@
             messageHelp.textContent = `Maximum of 1000 characters. You have ${remaining} characters left.`;
         });
     </script>
-
 
 @endsection
