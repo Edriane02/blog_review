@@ -14,7 +14,7 @@ class AdminRegisterController extends Controller
 {
     public function registerAdmin()
     {
-        return view('auth.register');
+        return view('auth.admin-register');
     }
 
     public function registerUserAdmin(Request $request)
@@ -31,7 +31,7 @@ class AdminRegisterController extends Controller
         DB::beginTransaction();
 
         try {
-            $userId = IdGenerator::generate(['table' => 'users', 'length' => 10, 'prefix' => '09']);
+            $userId = IdGenerator::generate(['table' => 'admin_users', 'length' => 10, 'prefix' => '09']);
 
             $user = AdminUser::create([
                 'user_id' => $userId,
@@ -50,7 +50,7 @@ class AdminRegisterController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'Admin registered successfully!');
+            return redirect()->route('designation')->with('success', 'Admin registered successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());
