@@ -137,7 +137,6 @@
 
                             <div class="modal-body">
                                 <!-- Message start -->
-                                <div class="card shadow-sm p-3 mb-4">
                                     <div class="card-header">
                                         <h5 class="mb-0"><i class="bi bi-envelope-paper"></i>&nbsp;&nbsp;Message Details</h5>
                                     </div>
@@ -170,7 +169,6 @@
                                             <p class="text-muted">{!! nl2br(e($message->message)) !!}</p>
                                         </div>
                                     </div>
-                                </div>
                                 <!-- Message end -->
                             </div>
 
