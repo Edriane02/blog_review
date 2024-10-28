@@ -1,5 +1,5 @@
 @extends('layouts.sidebar')
-@section('title', 'All Users')
+@section('title', 'Client Users')
 
 @section('contents')
 
@@ -10,7 +10,12 @@
                      <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="page-title">
-                                <h1 class="page-title-custom">All Users</h1>
+                                <h1 class="page-title-custom">Client Users</h1>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="float-end d-sm-block">
+                                <a class="btn btn-success waves-effect waves-light" href="add-user.html">Add New Client</a>
                             </div>
                         </div>
                      </div>

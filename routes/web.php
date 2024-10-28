@@ -9,7 +9,7 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\ClientUsersController;
+use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\DesignationController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
@@ -106,9 +106,7 @@ Route::controller(MessagesController::class)->group(function(){
     Route::delete('admin/message/destroy/{id}', 'deleteMessage')->middleware('auth')->name('deleteMessage');
 });
 
-Route::controller(ClientUsersController::class)->group(function(){
-    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');
-});
+
 
 Route::controller(DesignationController::class)->group(function(){
     Route::get('management/designation', 'designation')->middleware('auth', 'isAdmin')->name('designation');
@@ -117,3 +115,8 @@ Route::controller(DesignationController::class)->group(function(){
     Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth', 'isAdmin')->name('deleteDesignation');
 });
 
+Route::controller(UserManagementController::class)->group(function(){
+    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');    
+    Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth', 'isAdmin')->name('admin-users');
+    Route::get('admin/all-users', 'allUsersPage')->middleware('auth', 'isAdmin')->name('all-users');
+});
