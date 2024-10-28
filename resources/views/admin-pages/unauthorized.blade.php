@@ -40,7 +40,7 @@
                                         <h1 class="error-page"><span>Oops!</span></h1>
                                         <h4 class="mb-4 mt-5">Unauthorized</h4>
                                         <p class="mb-4 mx-auto">Sorry, you don't have permission to access this page.</p>
-                                        <a class="btn btn-primary waves-effect waves-light" href="index.html"><i class="mdi mdi-home"></i> Back to Dashboard</a>
+                                        <a class="btn btn-primary waves-effect waves-light" href="{{ route('dashboard') }}"><i class="mdi mdi-home"></i> Back to Dashboard</a>
                                     </div>
                                 </div>
                             </div>
