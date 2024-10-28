@@ -31,7 +31,7 @@ class ClientRegisterController extends Controller
         DB::beginTransaction();
 
         try {
-            $userId = IdGenerator::generate(['table' => 'users', 'length' => 10, 'prefix' => '09']);
+            $userId = IdGenerator::generate(['table' => 'client_users', 'length' => 10, 'prefix' => '09']);
 
             $user = ClientUser::create([
                 'user_id' => $userId,
@@ -49,7 +49,7 @@ class ClientRegisterController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'User registered successfully!');
+            return redirect()->back()->with('success', 'Admin registered successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());
