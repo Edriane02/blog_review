@@ -1,5 +1,5 @@
 @extends('layouts.sidebar')
-@section('title', 'Designation')
+@section('title', 'Designation Roles')
 
 @section('contents')
 
@@ -43,7 +43,7 @@
                      <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="page-title">
-                                <h1 class="page-title-custom">Designation</h1>
+                                <h1 class="page-title-custom">Designation Roles</h1>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -68,44 +68,44 @@
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Designation</th>
+                                                    <th>Role</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                        @foreach($designations as $designation)
-                                                <tr>
-                                                    <td>
-                                                        {{ $designation->id }}
-                                                    </td>
-                                                    <td>
-                                                        <strong>{{ $designation->designation }}</strong><br />
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <!-- Edit Button -->
-                                                            <button type="button"
-                                                                class="btn btn-primary btn-sm waves-effect waves-light"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#editDesignationModal-{{ $designation->id }}">
-                                                                <i class="bi bi-pencil-square"></i>
-                                                            </button>&nbsp;
+                                                @foreach($designations as $designation)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $designation->id }}
+                                                        </td>
+                                                        <td>
+                                                            <strong>{{ $designation->designation }}</strong><br />
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <!-- Edit Button -->
+                                                                <button type="button"
+                                                                    class="btn btn-primary btn-sm waves-effect waves-light"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#editDesignationModal-{{ $designation->id }}">
+                                                                    <i class="bi bi-pencil-square"></i>
+                                                                </button>&nbsp;
 
-                                                            <!-- Delete Button -->
-                                                            <form id="delete-form-{{ $designation->id }}"
-                                                                action="{{ route('deleteDesignation', $designation->id) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="button" class="btn btn-sm btn-danger"
-                                                                    onclick="confirmDelete({{ $designation->id }})">
-                                                                    <i class="bi bi-trash"></i>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                        @endforeach
+                                                                <!-- Delete Button -->
+                                                                <form id="delete-form-{{ $designation->id }}"
+                                                                    action="{{ route('deleteDesignation', $designation->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                                        onclick="confirmDelete({{ $designation->id }})">
+                                                                        <i class="bi bi-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -113,7 +113,6 @@
                                 </div> <!-- end col -->
                             </div> <!-- end row -->
                         </div>
-
 
                          <!-- Add New Designation Modal -->
                             <div class="modal fade addDesignationModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
@@ -128,13 +127,11 @@
                                         <form method="POST" action="{{ route('addDesignation') }}" enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-body">
-
                                                 <div class="mb-3">
-                                                    <label for="revname"> Designation <span class="text-danger">*</span></label>
+                                                    <label for="revname">Designation <span class="text-danger">*</span></label>
                                                     <input class="form-control" name="designation" type="text"
                                                         placeholder="Enter designation..." id="revname" required>
                                                 </div>
-
                                             </div>
 
                                             <div class="modal-footer">
@@ -192,11 +189,9 @@
                                 </div><!-- /.modal -->
                                 <!-- End of Edit Designation Modal -->
                             @endforeach
-
                     </div>
                 </div> <!-- container-fluid -->
             </div>
-
 
 <script>
     document.getElementById('browseText').addEventListener('click', function () {
