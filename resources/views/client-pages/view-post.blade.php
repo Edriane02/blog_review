@@ -6,12 +6,19 @@
 <main class="bg-grey pb-30">
     <div class="container single-content">
         <div class="entry-header entry-header-style-1 mb-50 pt-50">
-            <h1 class="entry-title mb-50 font-weight-900">
+            <p class="custom-small-heading text-muted text-center">BOOK REVIEW</p>
+            <h1 class="entry-title font-weight-900 entry-title-custom-font text-center">
                 {{ $book->title }}
             </h1>
-            <div class="row">
-                <div class="col-md-6">
+            <p class="text-center text-muted">by {{ $book->book_author }}</p>
+            
+                <!-- Headline / Review title -->
+                @foreach($book->reviews as $review)
+                <h2 class="font-weight-900 text-center"><i>{{ $review->review_title }}</i></h2>
+                @endforeach
+                <center>
                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
+                        
                         <p style="font-size: 13px;" class="mb-5">
                         @foreach($book->reviews as $review)
                             @php
@@ -19,16 +26,18 @@
                                 // Fetch the actual reviewer object
                                 $actualReviewer = \App\Models\Reviewer::find($reviewer);
                             @endphp
-                                <a class="author-avatar" href="#">
+                                <!-- <a class="author-avatar" href="#">
                                     <img class="img-circle" src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo">
-                                </a>
-                                Reviewed by <span class="author-name font-weight-bold">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
+                                </a> -->
+                                Reviewed by <span class="author-name">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
                         @endforeach
                         </p>
-                        <span class="mr-10">{{ $book->created_at->format('d F Y') }}</span>
+                        <span class="mr-10">{{ $book->created_at->format('M d, Y') }}</span>
+                        
                     </div>
-                </div>
-            </div>
+                    </center>
+                
+            
         </div>
         <!--end single header-->
         <figure class="image mb-30 m-auto text-center border-radius-10">
@@ -43,7 +52,7 @@
                     {!! $review->review !!}
                 @endforeach
             </div>
-            <br /><br />
+            
 
             <!-- Book Information Card -->
             <div class="p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
@@ -57,6 +66,7 @@
                     <span><strong>Genre:</strong> {{ $book->genre }}</span>
                 </p>
 
+                <p class="mb-2" style="font-size: 17px; font-weight: 700;">Shop Now</p>
                 <!-- Links for purchase -->
                 <div class="row">
                     <div class="col-auto mr-0">
@@ -75,7 +85,7 @@
 
             <div class="entry-bottom mt-50 mb-30 wow fadeIn animated">
             <div class="tags">
-                <span>🏷️ Tags: </span>
+                <span><i class="bi bi-tags"></i> Tags: </span>
                 @foreach($book->bookTag as $key => $tag)
                     <span><i>{{ $tag->book_tag }}{{ $key != $book->bookTag->count() - 1 ? ',' : '' }}</i></span>
                 @endforeach
@@ -125,7 +135,7 @@
             <div class="">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
-                    <h5 class="mt-5 mb-30">Browse by Tags</h5>
+                    <h5 class="mt-5 mb-30">Discover Books</h5>
                 </div>
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)

@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="loop-grid mb-30">
-            @if($featuredBooks->count() > 9999)
+            @if($featuredBooks->count() > 0)
                 <div class="row">
 
                     @foreach($featuredBooks as $book)
@@ -62,7 +62,7 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
+                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                 <p class="widget-title-latest">Latest Reviews</p>
             </div>
             <div class="loop-list loop-list-style-1">
-                @if($latestBooks->count() > 9999)
+                @if($latestBooks->count() > 0)
                     @foreach($latestBooks as $book)
                         <article class="hover-up-2 transition-normal wow fadeInUp animated">
                             <div class="row mb-40 list-style-2">
@@ -110,7 +110,7 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
+                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
         <div class="">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
-                    <h5 class="mt-5 mb-30">Browse by Tags</h5>
+                    <h5 class="mt-5 mb-30">Discover Books</h5>
                 </div>
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)

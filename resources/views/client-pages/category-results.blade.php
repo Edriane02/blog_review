@@ -47,7 +47,7 @@
                                                     <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                                 </h5>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">{{ $book->created_at->format('j F Y') }}</span>
+                                                    <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
                                                 </div>
                                             </div>
                                         </div>
