@@ -79,15 +79,23 @@
         <div class="header-sticky nav-background">
             <div class="container align-self-center">
                 <div class="mobile_menu d-lg-none d-block"></div>
-                <div class="main-nav d-none d-lg-block float-left">
+                <div class="main-nav d-none d-lg-block">
                     <nav>
                         <!-- Desktop menu -->
-                        <ul class="main-menu d-none d-lg-inline font-small">
+                        <ul class="main-menu d-none d-lg-inline font-small float-left">
                             <li> <a class="nav-links-color-desktop" href="{{ route('home') }}">Home</a> </li>
                             <li> <a class="nav-links-color-desktop" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
                             <li> <a class="nav-links-color-desktop" href="{{ route('contactUs') }}">Contact Us</a> </li>
                             <li> <a class="nav-links-color-desktop" href="{{ route('aboutUs') }}">About Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+                            
+                        </ul>
+                        <ul class="main-menu d-none d-lg-inline font-small float-right">
+                            <li> 
+                                <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('login') }}">
+                                    <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
+                                    Log in to Your Account <i class="bi bi-box-arrow-in-right ml-1"></i>
+                                </a> 
+                            </li>
                         </ul>
                         <!-- Mobile menu -->
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
@@ -100,9 +108,7 @@
                     </nav>
                 </div>
                 <div class="float-right header-tools text-muted font-small">
-                    <ul class="header-social-network d-inline-block list-inline mr-15 nav-links-color-desktop">
-                        <!-- Follow us:&nbsp;&nbsp;<li class="list-inline-item"><a class="social-icon fb text-xs-center" target="_blank" href="#"><i class="elegant-icon social_facebook"></i></a></li> -->
-                    </ul>
+                    <ul class="header-social-network d-inline-block list-inline mr-15 nav-links-color-desktop"></ul>
                 </div>
                 <div class="clearfix"></div>
             </div>

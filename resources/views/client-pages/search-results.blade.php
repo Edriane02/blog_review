@@ -20,7 +20,11 @@
                     <div class="col-lg-8">
                         <div class="post-module-3">
                             <div class="loop-list loop-list-style-1">
-                            @if($books->isEmpty())
+                            @if(isset($errorMessage))
+                                <div class="alert alert-warning" role="alert">
+                                    <h6><i class="bi bi-exclamation-triangle"></i>&nbsp;&nbsp;{{ $errorMessage }}</h6>
+                                </div>
+                            @elseif($books->isEmpty())
                                 <div class="alert alert-info" role="alert"><h6><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No results found. Try another.</h6></div>
                             @else
                             @foreach($books as $book)
@@ -31,12 +35,6 @@
                                                 <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url('{{ asset('storage/' . $book->banner) }}');">
                                                     <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
                                                 </div>
-                                                <!-- <ul class="social-share">
-                                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
-                                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
-                                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
-                                                </ul> -->
                                             </div>
                                         </div>
                                         <div class="col-md-8 align-self-center">

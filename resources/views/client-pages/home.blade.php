@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="loop-grid mb-30">
-            @if($featuredBooks->count() > 0)
+            @if($featuredBooks->count() > 9999)
                 <div class="row">
 
                     @foreach($featuredBooks as $book)
@@ -46,13 +46,6 @@
                                 <div class="post-thumb thumb-overlay img-hover-slide position-relative"
                                     style="background-image: url({{ asset('storage/' . $book->banner) }})">
                                     <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
-
-                                    <!-- <ul class="social-share">
-                                        <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                        <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
-                                        <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
-                                        <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
-                                    </ul> -->
                                 </div>
                                 <div class="post-content p-30">
                                     <div class="entry-meta meta-0 font-small mb-10">
@@ -78,7 +71,10 @@
                     @endforeach
                 </div>
             @else
-                <h5 class="text-center text-muted"><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No featured reviews found.</h5>
+            <center>
+                <img class="mb-3" src="{{ asset('guestAssets/imgs/static/featured.svg') }}" width="300">
+                <h5 class="text-muted">No featured reviews — yet.</h5>
+            </center>
             @endif
         </div>
     </div>
@@ -89,7 +85,7 @@
                 <p class="widget-title-latest">Latest Reviews</p>
             </div>
             <div class="loop-list loop-list-style-1">
-                @if($latestBooks->count() > 0)
+                @if($latestBooks->count() > 9999)
                     @foreach($latestBooks as $book)
                         <article class="hover-up-2 transition-normal wow fadeInUp animated">
                             <div class="row mb-40 list-style-2">
@@ -99,12 +95,6 @@
                                             style="background-image: url({{ asset('storage/' . $book->banner) }})">
                                             <a class="img-link" href="{{ route('viewPost', $book->id) }}"></a>
                                         </div>
-                                        <!-- <ul class="social-share">
-                                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
-                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
-                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
-                                        </ul> -->
                                     </div>
                                 </div>
                                 <div class="col-md-8 align-self-center">
@@ -128,7 +118,10 @@
                         </article>
                     @endforeach
                 @else
-                    <h5 class="text-center text-muted"><i class="bi bi-emoji-frown"></i>&nbsp;&nbsp;No latest reviews found.</h5>
+                <center>
+                    <img class="mb-3" src="{{ asset('guestAssets/imgs/static/latest.svg') }}" width="300">
+                    <h5 class="text-muted">No latest reviews — yet.</h5>
+                </center>
                     <br /><br /><br />
                 @endif
 

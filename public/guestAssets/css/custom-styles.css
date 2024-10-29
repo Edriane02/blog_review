@@ -130,6 +130,12 @@
     background-color: #4379F2;
 }
 
+.profile-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 
 /* Media query for small screens */

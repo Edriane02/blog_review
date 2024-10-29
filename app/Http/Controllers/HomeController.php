@@ -154,6 +154,16 @@ class HomeController extends Controller
         $searchQuery = $request->input('query'); // Get the search query from the form
         $tags = Tags::all(); // Fetch all available tags for suggestions
 
+        // Check if the search query is empty
+        if (empty($searchQuery)) {
+            return view('client-pages.search-results', [
+                'errorMessage' => 'It looks like the search box was empty. Try entering a keyword.',
+                'books' => Books::whereRaw('0=1')->paginate(10),
+                'tags' => $tags,
+                'searchQuery' => $searchQuery
+            ]);
+        }
+
         // Search for books by title or author name and paginate the results (10 per page)
         $books = Books::where('title', 'LIKE', "%{$searchQuery}%")
                         ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
