@@ -11,7 +11,7 @@ class TagController extends Controller
 {
     public function tagsPage()
     {
-        $tags = Tags::all();
+        $tags = Tags::orderBy('created_at', 'desc')->get();
 
         return view('admin-pages.tags', compact('tags'));
     }

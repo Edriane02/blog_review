@@ -15,7 +15,6 @@
                         in-depth reviews that capture the essence of each book, helping you discover new worlds and
                         perspectives. Enhance your marketing with our expert reviews, tailored for both new and
                         established authors, to get your book noticed and boost sales instantly.</p>
-
                 </div>
                 <div class="col-lg-6 text-right d-none d-lg-block">
                     <img src="{{ asset('guestAssets/imgs/static/reading.png') }}" alt="People reading">
@@ -39,7 +38,6 @@
         <div class="loop-grid mb-30">
             @if($featuredBooks->count() > 0)
                 <div class="row">
-
                     @foreach($featuredBooks as $book)
                         <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                             <div class="post-card-1 border-radius-10 hover-up">
@@ -129,11 +127,14 @@
         </div>
 
         <div>
-            <center><a class="see-more-btn" href="{{ route('latestReviewsPage') }}">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
+            @if($latestBooks->count() > 0)
+                <center><a class="see-more-btn" href="{{ route('latestReviewsPage') }}">See more&nbsp;<i class="bi bi-arrow-right"></i></a></center>
+            @else
+                &nbsp;
+            @endif
         </div>
 
-        <br />
-        <br />
+        <br /><br />
         <div class="">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
