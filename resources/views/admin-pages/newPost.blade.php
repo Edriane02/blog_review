@@ -138,8 +138,8 @@
                                                     
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
-                                                                <label for="bookAuthor" class="form-label">Author <span class="text-danger">*</span></label>
-                                                                <input type="text" name="book_author" class="form-control" id="bookAuthor" placeholder="" required>
+                                                                <label for="bookAuthor" class="form-label">Author(s) <span class="text-danger">*</span></label>
+                                                                <input type="text" name="book_author" class="form-control" id="bookAuthor" placeholder="(e.g. Author 1, Author 2, ...)" required>
                                                             </div>
                                                         </div>
 

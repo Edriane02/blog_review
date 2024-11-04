@@ -4,6 +4,37 @@
 @section('contents')
 
 <div class="page-content">
+<!-- SweetAlert Dialogs start -->
+@if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops... Something went wrong!',
+                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
+            });
+        </script>
+    @endif
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: '{{ session('error') }}',
+            });
+        </script>
+    @endif
+    <!-- SweetAlert Dialogs end -->
 
                 <!-- start page title -->
                 <div class="page-title-box">
@@ -25,13 +56,13 @@
                             <div class="col-xl-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title font-size-16 mt-0">🌟 Hello, James!</h4>
+                                        <h4 class="card-title font-size-16 mt-0">🌟 Hello, {{ $adminProfile->fname }}!</h4>
                                         <center>
-                                            <img class="img-thumbnail rounded-circle" src="{{ asset('adminAssets/images/users/avatar-7.jpg') }}" width="180">
+                                            <img class="img-thumbnail rounded-circle" src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" width="180">
                                             <br /><br />
-                                            <h3>James Raphael</h3>
-                                            <p style="margin-bottom: 0.5em;" class="text-muted">james.raphael@bookmarcalliance.com</p>
-                                            <span style="font-size: 12px;" class="badge badge-soft-primary">Administrator</span>
+                                            <h3>{{ $adminProfile->fname . ' ' . $adminProfile->lname }}</h3>
+                                            <p style="margin-bottom: 0.5em;" class="text-muted">{{ Auth::user()->email }}</p>
+                                            <!-- <span style="font-size: 12px;" class="badge badge-soft-primary">[role]</span> -->
                                             <br /><br /><br />
 
                                             <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-3" data-bs-toggle="modal" data-bs-target=".editProfileModal"><i class="bi bi-pencil"></i> Edit Profile</button>
@@ -48,29 +79,40 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="#">
-                                                                <div class="upload-container mb-3" id="uploadContainer">
-                                                                    <input type="file" id="fileInput" accept="image/*" hidden required>
-                                                                    <div class="upload-area" id="uploadArea">
-                                                                        <h1 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h1>
-                                                                        <p>Drag & Drop your image here or <span id="browseText">browse</span></p>
-                                                                    </div>
-                                                                        <img id="previewImage" class="hidden" alt="Image Preview">
+                                                            <form method="POST" action="{{ route('updateProfile') }}">
+                                                                @csrf
+                                                                <div class="mb-4">
+                                                                    <p class="text-muted"><strong>User ID:</strong> {{ $adminProfile->user_id }}</p>
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="dname">Display Name</label>
-                                                                    <input class="form-control" type="text" value="James Raphael" placeholder="Enter name" id="dname">
+                                                                    <label for="first_name">First Name <span class="text-danger">*</span></label>
+                                                                    <input class="form-control" type="text" name="first_name" value="{{ $adminProfile->fname }}" placeholder="" id="first_name" required>
                                                                 </div>
 
                                                                 <div class="mb-3">
-                                                                    <label for="dname">Email</label>
-                                                                    <input class="form-control" type="email" value="james.raphael@bookmarcalliance.com" placeholder="Enter email" id="email">
+                                                                    <label for="middle_name">Middle Name</label>
+                                                                    <input class="form-control" type="text" name="middle_name" value="{{ $adminProfile->mname }}" placeholder="" id="middle_name">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="last_name">Last Name <span class="text-danger">*</span></label>
+                                                                    <input class="form-control" type="text" name="last_name" value="{{ $adminProfile->lname }}" placeholder="" id="last_name">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="suffix">Suffix</label>
+                                                                    <input class="form-control" type="text" name="suffix" value="{{ $adminProfile->suffix }}" placeholder="" id="suffix">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                                                    <input class="form-control" type="email" name="email" value="{{ Auth::user()->email }}" placeholder="" id="email" required>
                                                                 </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
                                                                 </div>
                                                             </form>
                                                 </div><!-- /.modal-content -->

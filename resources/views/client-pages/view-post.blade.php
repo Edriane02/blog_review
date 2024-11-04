@@ -7,14 +7,14 @@
     <div class="container single-content">
         <div class="entry-header entry-header-style-1 mb-50 pt-50">
             <p class="custom-small-heading text-muted text-center">BOOK REVIEW</p>
-            <h1 class="entry-title font-weight-900 entry-title-custom-font text-center">
+            <h1 class="entry-title font-weight-500 entry-title-custom-font text-center">
                 {{ $book->title }}
             </h1>
             <p class="text-center text-muted">by {{ $book->book_author }}</p>
             
                 <!-- Headline / Review title -->
                 @foreach($book->reviews as $review)
-                <h2 class="font-weight-900 text-center"><i>{{ $review->review_title }}</i></h2>
+                <h2 class="font-weight-500 text-center"><i>{{ $review->review_title }}</i></h2>
                 @endforeach
                 <center>
                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
@@ -22,9 +22,9 @@
                         <p style="font-size: 13px;" class="mb-5">
                         @foreach($book->reviews as $review)
                             @php
-                                $reviewer = $review->reviewer; // This is an integer (reviewer ID)
-                                // Fetch the actual reviewer object
-                                $actualReviewer = \App\Models\Reviewer::find($reviewer);
+    $reviewer = $review->reviewer; // This is an integer (reviewer ID)
+    // Fetch the actual reviewer object
+    $actualReviewer = \App\Models\Reviewer::find($reviewer);
                             @endphp
                                 <!-- <a class="author-avatar" href="#">
                                     <img class="img-circle" src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo">
@@ -60,7 +60,13 @@
                     <span style="font-size: 17px; font-weight: 700;">Book Information</span><br />
                     <span><strong>Title:</strong> {{ $book->title }}</span><br />
                     <span><strong>Subtitle:</strong> {{ $book->subtitle }}</span><br />
-                    <span><strong>Author:</strong> {{ $book->book_author }}</span><br />
+                    @php
+                        $authors = explode(',', $book->book_author);
+                        $authorLabel = count($authors) > 1 ? 'Authors' : 'Author';
+                    @endphp
+                    
+                    <span><strong>{{ $authorLabel }}:</strong> {{ implode(', ', $authors) }}</span>
+                    <br />
                     <span><strong>Publisher:</strong> {{ $book->publisher }}</span><br />
                     <span><strong>Pages:</strong> {{ $book->pages }}</span><br />
                     <span><strong>Genre:</strong> {{ $book->genre }}</span>
@@ -104,9 +110,9 @@
             <div class="author-bio p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
                 @foreach($book->reviews as $review)
                     @php
-                        $reviewer = $review->reviewer; // This is an integer (reviewer ID)
-                        // Fetch the actual reviewer object
-                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
+    $reviewer = $review->reviewer; // This is an integer (reviewer ID)
+    // Fetch the actual reviewer object
+    $actualReviewer = \App\Models\Reviewer::find($reviewer);
                     @endphp
                 <div class="author-image mb-30">
                 <a href="{{ route('reviewerReviews', $actualReviewer->id) }}">

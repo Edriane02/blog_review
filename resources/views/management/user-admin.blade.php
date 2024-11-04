@@ -151,7 +151,7 @@
 
                                                     <div class="mb-3">
                                                         <label for="suffix">Suffix</label>
-                                                        <input class="form-control" type="text" name="suffix" placeholder="Enter Suffix" id="email">
+                                                        <input class="form-control" type="text" name="suffix" placeholder="Enter Suffix" id="suffix">
                                                     </div>
 
                                                     <div class="mb-3">

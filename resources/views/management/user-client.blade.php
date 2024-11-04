@@ -104,9 +104,9 @@
                                                 @endforeach
                                                     @else
                                                         <tr>
-                                                            <td colspan="3" class="text-center">
+                                                            <td colspan="4" class="text-center">
                                                                 <div class="alert alert-info" role="alert">
-                                                                    No Clients found.
+                                                                    No clients found.
                                                                 </div>
                                                             </td>
                                                         </tr>

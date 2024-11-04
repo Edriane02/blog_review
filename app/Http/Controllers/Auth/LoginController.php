@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AdminUserProfile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -38,7 +39,21 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email'=>$email,'password'=>$password]))
          {
-             return redirect()->route('dashboard');
+            // Retrieve the user's profile
+            $profile = AdminUserProfile::where('user_id', Auth::user()->user_id)->first();
+
+            if ($profile) {
+                // Store full name in the session
+                session([
+                    'admin_fname' => $profile->fname,
+                    'admin_lname' => $profile->lname,
+                ]);                
+
+            } else {
+                return back()->with('error', 'Profile not found for this user.');
+            }
+
+            return redirect()->route('dashboard');
         }else{
             return back()->with('error', 'Wrong Email or Password');
         }

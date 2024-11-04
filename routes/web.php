@@ -78,6 +78,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
         Route::post('admin/upload-post', 'uploadPost')->name('uploadPost');
         Route::get('admin/post/edit/{id}', 'editPost')->name('editPost');
         Route::put('admin/post/update/{id}', 'updatePost')->name('updatePost');
+
+        // Profile management
+        Route::get('admin/profile', 'profilePage')->name('profilePage');
+        Route::post('admin/update-profile', 'updateProfile')->name('updateProfile');
     });
 
     Route::controller(PostsController::class)->group(function() {
@@ -85,6 +89,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
         Route::delete('admin/post/destroy/{id}', 'deletePost')->name('deletePost');
     });
 });
+
+Route::get('admin/unauthorized', [AdminController::class, 'unauthorizedPage'])->name('unauthorizedPage');
 
 
 Route::controller(ReviewerController::class)->group(function(){

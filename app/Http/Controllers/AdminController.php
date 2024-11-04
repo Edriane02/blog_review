@@ -8,6 +8,9 @@ use App\Models\BookTag;
 use App\Models\Reviews;
 use App\Models\Reviewer;
 use App\Models\Tags;
+use App\Models\AdminUser;
+use App\Models\AdminUserProfile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -192,6 +195,52 @@ class AdminController extends Controller
     } catch (\Exception $e) {
         DB::rollBack();
         return back()->with('error', 'An error occurred while updating the post: ' . $e->getMessage());
+    }
+}
+
+public function unauthorizedPage(){
+                     
+    return view('admin-pages.unauthorized');
+}
+
+public function profilePage(){
+    $adminProfile = AdminUserProfile::where('id', Auth::id())->first();
+
+    return view('admin-pages.profile', compact('adminProfile'));
+}
+
+public function updateProfile(Request $request)
+{
+    $request->validate([
+        'first_name' => 'required|string|max:255',
+        'middle_name' => 'string|max:255',
+        'last_name' => 'required|string|max:255',
+        'suffix' => 'string|max:255',
+        'email' => 'required|email|unique:admin_users,email,' . auth()->user()->id,
+    ]);
+
+    DB::beginTransaction();
+
+    try {
+        // Update admin user email
+        $adminUser = AdminUser::where('id', auth()->id())->first();
+        $adminUser->email = $request->email;
+        $adminUser->save();
+
+        // Update admin user profile
+        $adminUserProfile = AdminUserProfile::where('user_id', $adminUser->user_id)->first();
+        $adminUserProfile->fname = $request->first_name;
+        $adminUserProfile->mname = $request->middle_name;
+        $adminUserProfile->lname = $request->last_name;
+        $adminUserProfile->suffix = $request->suffix;
+        $adminUserProfile->save();
+
+        DB::commit();
+
+        return back()->with('success', 'Profile updated successfully!');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->with('error', 'An error occurred: ' . $e->getMessage());
     }
 }
 
