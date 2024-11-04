@@ -69,6 +69,7 @@
                                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Tag Name</th>
                                             <th>Action</th>
                                         </tr>
@@ -77,6 +78,7 @@
                                         @if($tags->count() > 0)
                                             @foreach($tags as $tag)
                                                 <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td class="tag-title">{{ $tag->tag }}</td>
                                                     <td>
                                                         <div class="d-flex">

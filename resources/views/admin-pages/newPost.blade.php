@@ -84,10 +84,10 @@
 
                                                     <div class="mb-3">
                                                         <span class="badge bg-primary mb-3">STEP 2</span>
-                                                        <h4>Add Book Title <span class="text-danger">*</span></h4>
-                                                        <p class="text-muted">This will appear at the top of the post page and will serve as the review title.</p>
+                                                        <h4>Add Review Title or Headline <span class="text-danger">*</span></h4>
+                                                        <p class="text-muted">This will appear at the top of the post page.</p>
                                                         <div class="mb-3">  
-                                                            <input class="form-control" name="title" type="text" value="" placeholder="Enter book title here..." id="book-review-title" required>
+                                                            <input class="form-control" name="review_title" type="text" id="book-review-title" required>
                                                         </div>
                                                     </div>
 
@@ -121,7 +121,14 @@
 
                                                     <span class="badge bg-primary mb-2">STEP 6</span>
                                                     <h4 class="mb-3">Input Book Information</h4>
-                                                    <div class="row">  
+                                                    <div class="row"> 
+                                                        <div class="col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="bookTitle" class="form-label">Book Title <span class="text-danger">*</span></label>
+                                                                <input type="text" name="title" class="form-control" id="bookTitle" placeholder="" required>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="bookSubtitle" class="form-label">Subtitle</label>

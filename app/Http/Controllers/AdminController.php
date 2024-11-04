@@ -40,6 +40,7 @@ class AdminController extends Controller
             'publisher' => 'nullable|string|max:255',
             'amazon_link' => 'nullable|string',
             'barnes_noble_link' => 'nullable|string',
+            'review_title' => 'nullable|string|max:255',
             'review' => 'nullable|array',
             'review.*' => 'nullable|string',
             'reviewer' => 'nullable|array',
@@ -75,6 +76,7 @@ class AdminController extends Controller
                     Reviews::create([
                         'book_id' => $book->id,
                         'reviewer' => $reviewer, // Assuming 'reviewer_id' is the foreign key in Reviews table
+                        'review_title' => $request->review_title,
                         'review' => $request->review[$index],
                     ]);
                 }
@@ -120,6 +122,7 @@ class AdminController extends Controller
         'publisher' => 'nullable|string|max:255',
         'amazon_link' => 'nullable|string',
         'barnes_noble_link' => 'nullable|string',
+        'review_title' => 'nullable|string|max:255',
         'review' => 'nullable|array',
         'review.*' => 'nullable|string',
         'reviewer' => 'nullable|array',
@@ -164,6 +167,7 @@ class AdminController extends Controller
                 Reviews::create([
                     'book_id' => $book->id,
                     'reviewer' => $reviewer,
+                    'review_title' => $request->review_title,
                     'review' => $request->review[$index],
                 ]);
             }
