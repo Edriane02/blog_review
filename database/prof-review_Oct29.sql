@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 24, 2024 at 02:37 PM
+-- Generation Time: Oct 29, 2024 at 02:15 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `book_author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `book_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `genre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pages` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `publisher` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `books`
@@ -108,7 +108,8 @@ INSERT INTO `books` (`id`, `banner`, `title`, `subtitle`, `book_author`, `genre`
 (13, 'banners/Qa0hzZc0owWyAEng01xI0mdpMt0tSSzd9ImYY3PP.jpg', 'Test book title', 'The First Editionsd', 'Julies Me', 'Mystery, Fiction', '9999', 'BMA', 'https://www.amazon.com/', 'https://www.barnesandnoble.com/', '2024-10-17 18:59:12', '2024-10-17 18:59:12'),
 (14, 'banners/sapANMDQAobegmuU5hcp3xuNxqEEZVT2Z3o8OyBE.jpg', 'The Attenuating Puritan', NULL, 'Robert McGuiness', 'Fiction, Mystery', '124', 'Robert McGuiness', NULL, NULL, '2024-10-17 20:25:54', '2024-10-17 20:25:54'),
 (15, 'banners/8vuUgBbBLkKU9FWgD7DbFNn1e1ARylBJVBYULSvt.jpg', 'Repairmanedit', 'The Second Editionedit', 'Mark Merkleyedit', 'Fiction, Mystery, Othersedit', '299edit', 'BMA testedit', 'https://www.amazon.com/#edit', 'https://www.barnesandnoble.com/#edit', '2024-10-18 18:13:55', '2024-10-18 18:31:43'),
-(16, 'banners/eAlK54D0uVTrhEHq1JSESInO33aXvJojULjbJQci.jpg', 'Bad Witch', 'The Ninth Edition', 'Royce Adams', 'Fiction, Mystery, Crime', '199999', 'Royce Pubs', 'https://www.amazon.com/Raid-Rairarubia-W-Royce-Adams-ebook/dp/B0DGB169FP?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.-Hxrq2OOIxp8pfDjOvNnEVPgPU8-qUwj30qTXOEvzvgZedgyr79b9r9niUZ5r1GiBp-lyP2S0ofZn5cbo24FoY_sGKzPPXDDEr0oge0wKnq2_-ZWQtcWyrODaa494a015feprtLFfKpx3-Dh3ZyCNdKkl3rrQqAq58YO5Vrg9RhVr6KCHo2DVXp3sooR1iItUdrPUWr-nc0oOchmK33eC6WWg8C9RxC_dOCzqJLGdN8.D8UUW-eSJbFxobNzNfV-ws4If3pUodRrmeh-2jGTpJk&dib_tag=AUTHOR', 'https://www.amazon.com/Raid-Rairarubia-W-Royce-Adams-ebook/dp/B0DGB169FP?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.-Hxrq2OOIxp8pfDjOvNnEVPgPU8-qUwj30qTXOEvzvgZedgyr79b9r9niUZ5r1GiBp-lyP2S0ofZn5cbo24FoY_sGKzPPXDDEr0oge0wKnq2_-ZWQtcWyrODaa494a015feprtLFfKpx3-Dh3ZyCNdKkl3rrQqAq58YO5Vrg9RhVr6KCHo2DVXp3sooR1iItUdrPUWr-nc0oOchmK33eC6WWg8C9RxC_dOCzqJLGdN8.D8UUW-eSJbFxobNzNfV-ws4If3pUodRrmeh-2jGTpJk&dib_tag=AUTHOR', '2024-10-18 20:23:15', '2024-10-18 20:23:15');
+(16, 'banners/eAlK54D0uVTrhEHq1JSESInO33aXvJojULjbJQci.jpg', 'Bad Witch', 'The Ninth Edition', 'Royce Adams', 'Fiction, Mystery, Crime', '199999', 'Royce Pubs', 'https://www.amazon.com/Raid-Rairarubia-W-Royce-Adams-ebook/dp/B0DGB169FP?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.-Hxrq2OOIxp8pfDjOvNnEVPgPU8-qUwj30qTXOEvzvgZedgyr79b9r9niUZ5r1GiBp-lyP2S0ofZn5cbo24FoY_sGKzPPXDDEr0oge0wKnq2_-ZWQtcWyrODaa494a015feprtLFfKpx3-Dh3ZyCNdKkl3rrQqAq58YO5Vrg9RhVr6KCHo2DVXp3sooR1iItUdrPUWr-nc0oOchmK33eC6WWg8C9RxC_dOCzqJLGdN8.D8UUW-eSJbFxobNzNfV-ws4If3pUodRrmeh-2jGTpJk&dib_tag=AUTHOR', 'https://www.amazon.com/Raid-Rairarubia-W-Royce-Adams-ebook/dp/B0DGB169FP?ref_=ast_author_dp&dib=eyJ2IjoiMSJ9.-Hxrq2OOIxp8pfDjOvNnEVPgPU8-qUwj30qTXOEvzvgZedgyr79b9r9niUZ5r1GiBp-lyP2S0ofZn5cbo24FoY_sGKzPPXDDEr0oge0wKnq2_-ZWQtcWyrODaa494a015feprtLFfKpx3-Dh3ZyCNdKkl3rrQqAq58YO5Vrg9RhVr6KCHo2DVXp3sooR1iItUdrPUWr-nc0oOchmK33eC6WWg8C9RxC_dOCzqJLGdN8.D8UUW-eSJbFxobNzNfV-ws4If3pUodRrmeh-2jGTpJk&dib_tag=AUTHOR', '2024-10-18 20:23:15', '2024-10-18 20:23:15'),
+(18, 'banners/23dZXuPQA3bk0Vg3Ubv4UMfJOfYmDK5mNwmEd5OT.png', 'Illustrative Imagen', 'The Great edition', 'Mark Testings', 'Mystery, Fiction', '99999', 'Mark Pubs', NULL, NULL, '2024-10-29 19:16:39', '2024-10-29 19:16:39');
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `book_tag` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `book_tag_book_id_foreign` (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `book_tag`
@@ -135,10 +136,49 @@ INSERT INTO `book_tag` (`id`, `book_id`, `book_tag`, `created_at`, `updated_at`)
 (34, 15, 'Fiction', '2024-10-18 18:31:43', '2024-10-18 18:31:43'),
 (37, 16, 'Mystery', '2024-10-18 20:51:57', '2024-10-18 20:51:57'),
 (38, 16, 'Featured Review', '2024-10-18 20:51:57', '2024-10-18 20:51:57'),
-(42, 14, 'Fiction', '2024-10-18 21:51:20', '2024-10-18 21:51:20'),
-(43, 14, 'Mystery', '2024-10-18 21:51:20', '2024-10-18 21:51:20'),
-(44, 14, 'Featured Review', '2024-10-18 21:51:20', '2024-10-18 21:51:20'),
-(47, 13, 'Featured Review', '2024-10-22 18:20:42', '2024-10-22 18:20:42');
+(47, 13, 'Featured Review', '2024-10-22 18:20:42', '2024-10-22 18:20:42'),
+(48, 18, 'Fiction', '2024-10-29 19:16:39', '2024-10-29 19:16:39'),
+(49, 18, 'Mystery', '2024-10-29 19:16:39', '2024-10-29 19:16:39'),
+(50, 14, 'Fiction', '2024-10-29 19:29:44', '2024-10-29 19:29:44'),
+(51, 14, 'Mystery', '2024-10-29 19:29:44', '2024-10-29 19:29:44'),
+(52, 14, 'Featured Review', '2024-10-29 19:29:44', '2024-10-29 19:29:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_users`
+--
+
+DROP TABLE IF EXISTS `client_users`;
+CREATE TABLE IF NOT EXISTS `client_users` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `welcome_valid_until` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_user_profiles`
+--
+
+DROP TABLE IF EXISTS `client_user_profiles`;
+CREATE TABLE IF NOT EXISTS `client_user_profiles` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `suffix` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -156,14 +196,19 @@ CREATE TABLE IF NOT EXISTS `contact_us` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `contact_us`
 --
 
 INSERT INTO `contact_us` (`id`, `full_name`, `email`, `phone_number`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'Simon Jensen', 'simon@google.com', '031903903901', 'Hello test test', '2024-10-24 21:36:13', '2024-10-24 21:36:13');
+(1, 'Simon Jensen', 'simon@google.com', '031903903901', 'Hello test test', '2024-10-24 21:36:13', '2024-10-24 21:36:13'),
+(5, 'Billie Eilish', 'billie@umg.com', '012939429046', 'Hello, I am interested in your service, and I would be happy if we can negotiate at the same time i want to learn more about how you guys work. Thanks!', '2024-10-26 19:08:24', '2024-10-26 19:08:24'),
+(3, 'johnny', 'example@google.com', '02939293813', 'Lsss', '2024-10-25 20:04:40', '2024-10-25 20:04:40'),
+(4, 'anxiety', 'eedefer@example.com', '01983923845902', 'Lorem ipsum odor amet, consectetuer adipiscing elit. Mauris nam dis adipiscing ligula lacus dictum ligula mollis. Sollicitudin egestas curae at sodales accumsan gravida enim morbi cursus. Sapien elit efficitur feugiat fusce nulla. Purus platea eros neque sit egestas risus. Aptent montes congue, aliquet adipiscing eleifend pretium accumsan. Habitasse consectetur curabitur sociosqu duis justo curabitur. Justo enim laoreet enim hendrerit habitant orci. Integer maecenas finibus risus id cursus. Primis justo cras eget parturient, id vivamus maximus.\r\n\r\nPotenti aliquet habitant facilisis finibus quis. Aptent ut fermentum placerat volutpat curabitur. Tempus fusce nam mauris lobortis donec quam. Enim pharetra semper ultricies accumsan fusce lacus. Erat rutrum dui nam massa vestibulum porttitor primis ornare torquent. Morbi senectus turpis at laoreet velit tristique sem. Convallis ullamcorper hac euismod volutpat massa. Mi condimentum sapien vehicula curabitur faucibus rhoncus. Sollicitudin venen', '2024-10-25 20:06:00', '2024-10-25 20:06:00'),
+(6, 'rtjefjwerjktg', 'rtrtrttrtrt@eample.com', '030489304584', 'heyy', '2024-10-28 20:42:16', '2024-10-28 20:42:16'),
+(7, 'test name', 'namename@mail.com', '012939399824', 'hey! hey!1', '2024-10-28 20:51:32', '2024-10-28 20:51:32');
 
 -- --------------------------------------------------------
 
@@ -320,22 +365,24 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `book_id` bigint UNSIGNED DEFAULT NULL,
   `reviewer` bigint UNSIGNED NOT NULL,
+  `review_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `review` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `reviews_book_id_foreign` (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `reviews`
 --
 
-INSERT INTO `reviews` (`id`, `book_id`, `reviewer`, `review`, `created_at`, `updated_at`) VALUES
-(19, 15, 18, '<p>hey hey heyedit</p>', '2024-10-18 18:31:43', '2024-10-18 18:31:43'),
-(21, 16, 20, '<p>Lorem ipsume dolor sit amet</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Test bold</strong></p>\r\n<p><em>Test italic</em></p>', '2024-10-18 20:51:57', '2024-10-18 20:51:57'),
-(23, 14, 19, '<p>Robert McGuiness&rsquo; The Attenuating Puritan is a profound exploration of faith, resilience, and the human condition, presented through the lens of an altruistic hero whose journey is as much spiritual as it is physical. This novel is not merely a story but a contemplative experience that invites readers to reflect on their own beliefs and values as they accompany the protagonist on his quest for purity and redemption.<br /><br />The narrative is rich in symbolism and allegory, portraying the hero as a modern-day pilgrim, burdened by the impurities of the world yet unyielding in his pursuit of a return to Edenic splendor. McGuiness paints a vivid picture of a man who embodies purity in both word and deed, yet is constantly aware of the ancestral toxins that threaten to taint his soul. The protagonist\'s unwavering conviction and dedication to his noble quest are both inspiring and humbling, reminding us of the importance of perseverance in the face of adversity.<br /><br />One of the most compelling aspects of The Attenuating Puritan is its exploration of the concept of attenuation. Each breath, each action, and each sacrifice made by the protagonist is a step towards a higher, more divine state of being. McGuiness masterfully weaves this theme throughout the narrative, creating a sense of progression that is both subtle and powerful. The hero&rsquo;s journey is not just about overcoming external obstacles but also about mastering the mind and body, emerging as a symbol of triumph and resilience.<br /><br />The novel also delves into contemporary issues, subtly addressing the dangers of environmental degradation and the loss of innocence in a world increasingly tainted by industrial pollutants and chemicals. Through the protagonist&rsquo;s crusade against these modern evils, McGuiness raises important questions about the future of humanity and the role of purity in a world that often seems beyond redemption.<br /><br />In conclusion, The Attenuating Puritan is a thought-provoking and spiritually enriching novel that challenges readers to confront their own reflections and consider the state of their own souls. McGuiness&rsquo; writing is both poetic and profound, offering a tale that is as much about the journey within as it is about the journey through the world. This book is a must-read for those who seek not just entertainment, but also enlightenment and a deeper understanding of the human experience.</p>', '2024-10-18 21:51:20', '2024-10-18 21:51:20'),
-(26, 13, 18, '<p>Test review body</p>', '2024-10-22 18:20:42', '2024-10-22 18:20:42');
+INSERT INTO `reviews` (`id`, `book_id`, `reviewer`, `review_title`, `review`, `created_at`, `updated_at`) VALUES
+(19, 15, 18, 'headline here 19', '<p>hey hey heyedit</p>', '2024-10-18 18:31:43', '2024-10-18 18:31:43'),
+(21, 16, 20, 'headline here 21', '<p>Lorem ipsume dolor sit amet</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Test bold</strong></p>\r\n<p><em>Test italic</em></p>', '2024-10-18 20:51:57', '2024-10-18 20:51:57'),
+(26, 13, 18, 'headline here 26', '<p>Test review body</p>', '2024-10-22 18:20:42', '2024-10-22 18:20:42'),
+(27, 18, 17, 'Headline test', '<p>review test nmewe</p>', '2024-10-29 19:16:39', '2024-10-29 19:16:39'),
+(28, 14, 19, 'A Profound Journey of Faith, Resilience, and the Pursuit of Purity in a Modern World', '<p>Robert McGuiness&rsquo; The Attenuating Puritan is a profound exploration of faith, resilience, and the human condition, presented through the lens of an altruistic hero whose journey is as much spiritual as it is physical. This novel is not merely a story but a contemplative experience that invites readers to reflect on their own beliefs and values as they accompany the protagonist on his quest for purity and redemption.<br /><br />The narrative is rich in symbolism and allegory, portraying the hero as a modern-day pilgrim, burdened by the impurities of the world yet unyielding in his pursuit of a return to Edenic splendor. McGuiness paints a vivid picture of a man who embodies purity in both word and deed, yet is constantly aware of the ancestral toxins that threaten to taint his soul. The protagonist\'s unwavering conviction and dedication to his noble quest are both inspiring and humbling, reminding us of the importance of perseverance in the face of adversity.<br /><br />One of the most compelling aspects of The Attenuating Puritan is its exploration of the concept of attenuation. Each breath, each action, and each sacrifice made by the protagonist is a step towards a higher, more divine state of being. McGuiness masterfully weaves this theme throughout the narrative, creating a sense of progression that is both subtle and powerful. The hero&rsquo;s journey is not just about overcoming external obstacles but also about mastering the mind and body, emerging as a symbol of triumph and resilience.<br /><br />The novel also delves into contemporary issues, subtly addressing the dangers of environmental degradation and the loss of innocence in a world increasingly tainted by industrial pollutants and chemicals. Through the protagonist&rsquo;s crusade against these modern evils, McGuiness raises important questions about the future of humanity and the role of purity in a world that often seems beyond redemption.<br /><br />In conclusion, The Attenuating Puritan is a thought-provoking and spiritually enriching novel that challenges readers to confront their own reflections and consider the state of their own souls. McGuiness&rsquo; writing is both poetic and profound, offering a tale that is as much about the journey within as it is about the journey through the world. This book is a must-read for those who seek not just entertainment, but also enlightenment and a deeper understanding of the human experience.</p>', '2024-10-29 19:29:44', '2024-10-29 19:29:44');
 
 -- --------------------------------------------------------
 

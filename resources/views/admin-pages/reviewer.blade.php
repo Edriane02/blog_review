@@ -68,6 +68,7 @@
                                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Photo</th>
                                             <th>Name</th>
                                             <th>Action</th>
@@ -77,6 +78,7 @@
                                         @if($reviewer->count() > 0)
                                             @foreach($reviewer as $reviewers)
                                                 <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         <img class="rounded-circle reviewer-profile"
                                                             src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"

@@ -130,6 +130,11 @@
     background-color: #4379F2;
 }
 
+.custom-small-heading {
+    letter-spacing: 1px;
+}
+
+
 .profile-image {
     width: 25px;
     height: 25px;

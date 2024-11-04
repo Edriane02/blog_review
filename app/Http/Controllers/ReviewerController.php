@@ -12,7 +12,7 @@ class ReviewerController extends Controller
 {
     public function reviewerPage()
     {
-        $reviewer = Reviewer::all();
+        $reviewer = Reviewer::orderBy('created_at', 'desc')->get();
 
         return view('admin-pages.reviewer', compact('reviewer'));
     }

@@ -64,12 +64,12 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-            
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>Date Posted</th>
-                                                    <th>Post Title</th>
+                                                    <th>Book Title</th>
                                                     <th>Reviewed by</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -78,6 +78,7 @@
                                                     @if($posts->count() > 0)
                                                         @foreach($posts as $post)
                                                             <tr>
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 <td class="align-middle">{{ $post->created_at->format('M d, Y') }}</td>
                                                                 <td class="align-middle">
                                                                     <strong>{{ optional($post->book)->title ?? 'Unknown Title' }}</strong><br />
