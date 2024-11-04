@@ -119,4 +119,8 @@ Route::controller(UserManagementController::class)->group(function(){
     Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');    
     Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth', 'isAdmin')->name('admin-users');
     Route::get('admin/all-users', 'allUsersPage')->middleware('auth', 'isAdmin')->name('all-users');
+    Route::post('admin/new-client-user', 'newClientUser')->middleware('auth', 'isAdmin')->name('new-client-user');
+    Route::post('admin/new-admin-user', 'newAdminUser')->middleware('auth', 'isAdmin')->name('new-admin-user');
+    Route::delete('admin/client-users/destroy/{id}', 'deleteClientUser')->middleware('auth')->name('deleteClientUser');
+    Route::delete('admin/admin-users/destroy/{id}', 'deleteAdminUser')->middleware('auth')->name('deleteAdminUser');
 });

@@ -28,4 +28,14 @@ class AdminUserProfile extends Model
     {
         return $this->belongsTo(Designation::class, 'user_type_id', 'id');
     }
+
+    public function fullName()
+    {
+        
+        if (!empty($this->suffix)) {
+            return $this->fname . ' ' . $this->mname . ' ' . $this->lname. ' ' . $this->suffix;
+        } else {
+            return $this->fname . ' ' . $this->mname . ' ' . $this->lname;
+        }
+    }
 }
