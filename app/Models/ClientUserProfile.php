@@ -23,4 +23,14 @@ class ClientUserProfile extends Model
         return $this->belongsTo(ClientUser::class, 'user_id', 'user_id'); 
     }
 
+    public function fullName()
+    {
+        
+        if (!empty($this->suffix)) {
+            return $this->fname . ' ' . $this->mname . ' ' . $this->lname. ' ' . $this->suffix;
+        } else {
+            return $this->fname . ' ' . $this->mname . ' ' . $this->lname;
+        }
+    }
+
 }

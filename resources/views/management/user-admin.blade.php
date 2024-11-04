@@ -4,6 +4,37 @@
 @section('contents')
 
 <div class="page-content">
+     <!-- SweetAlert Dialogs start -->
+     @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops... Something went wrong!',
+                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
+            });
+        </script>
+    @endif
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: '{{ session('error') }}',
+            });
+        </script>
+    @endif
+
                 <!-- start page title -->
                 <div class="page-title-box">
                     <div class="container-fluid">
@@ -15,7 +46,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <a class="btn btn-success waves-effect waves-light" href="add-user.html">Add New Admin</a>
+                                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+                                    data-bs-target=".newAdminModal">Add New Admin</button>
                             </div>
                         </div>
                      </div>
@@ -33,7 +65,7 @@
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
-                                                    <th>Photo</th>
+                                                    <th>ID</th>
                                                     <th>Name & Email</th>
                                                     <th>Role</th>
                                                     <th>Action</th>
@@ -41,37 +73,41 @@
                                                 </thead>
                                                 <tbody>
 
-                                                <!-- Sample data -->
+                                             @if($admin->count() > 0)
+                                                @foreach($admin as $admins)
                                                 <tr>
                                                     <td>
-                                                        <img class="rounded-circle reviewer-profile" src="assets/images/users/avatar-7.jpg" alt="">
+                                                        {{ $admins->user_id }}
                                                     </td>
                                                     <td>
-                                                        <strong>James Raphael</strong><br />
-                                                        <span class="admin-user-email text-muted">jamesraphael@example.com</span>
-                                                    <td><strong>Administrator</strong></td>
+                                                        <strong>{{ $admins->fullName()}}</strong><br />
+                                                        <span class="admin-user-email text-muted">{{ $admins->adminUser->email }}</span>
+                                                    <td><strong>{{ $admins->designationType->designation }}</strong></td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <!-- Condition here: Shouldn't delete the primary admin -->
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this user?')) { /* Add delete action here */ }" disabled><i class="bi bi-trash"></i></button>
+                                                            <form id="delete-form-{{ $admins->id }}"
+                                                                action="{{ route('deleteAdminUser', $admins->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="button" class="btn btn-sm btn-danger"
+                                                                    onclick="confirmDelete({{ $admins->id }})">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <img class="rounded-circle reviewer-profile" src="../assets/imgs/ex-profile.jpg" alt="">
-                                                    </td>
-                                                    <td>
-                                                        <strong>Faustine Sinclair</strong><br />
-                                                        <span class="admin-user-email text-muted">faustinesinclair@example.com</span>
-                                                    <td><strong>Poster</strong></td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this user?')) { /* Add delete action here */ }"><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @endforeach
+                                                    @else
+                                                        <tr>
+                                                            <td colspan="3" class="text-center">
+                                                                <div class="alert alert-info" role="alert">
+                                                                    No Admins found.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 </tbody>
                                             </table>
 
@@ -80,8 +116,106 @@
                                 </div> <!-- end col -->
                             </div> <!-- end row -->
                         </div>
+
+
+                        <!-- Add New Admin Modal -->
+                        <div class="modal fade newAdminModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+                            aria-labelledby="newAdminModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title mt-0" id="newAdminModalLabel">Add New Client</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <form method="POST" action="{{ route('new-admin-user') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+
+                                
+
+                                                    <div class="mb-3">
+                                                        <label for="fname">First Name</label>
+                                                        <input class="form-control" type="text" name="fname" placeholder="Enter First Name" id="fname">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="mname">Middle Name</label>
+                                                        <input class="form-control" type="text" name="mname" placeholder="Enter Middle Name" id="mname">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="lname">Last Name</label>
+                                                        <input class="form-control" type="text" name="lname" placeholder="Enter Last Name" id="lname">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="suffix">Suffix</label>
+                                                        <input class="form-control" type="text" name="suffix" placeholder="Enter Suffix" id="email">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="email">Email</label>
+                                                        <input class="form-control" type="email" name="email" placeholder="Enter email" id="email">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label>Role</label>
+                                                            <select class="form-select" name="des_type">
+                                                                <option value="">Select...</option>
+                                                                @foreach($designation as $designations)
+                                                                    <option value="{{ $designations->id }}">{{ $designations->designation }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="password">Password</label>
+                                                        <input class="form-control" type="password" name="password" placeholder="Type a password" id="password">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="password">Password</label>
+                                                        <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password" id="password">
+                                                    </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary waves-effect"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Add Admin</button>
+                                        </div>
+                                    </form>
+                                    <!-- Form End -->
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        <!-- End of Add New Admin Modal -->
+
+
                     </div>
                 </div> <!-- container-fluid -->
             </div>
+
+            <!-- Delete SweetAlert Dialog start -->
+<script>
+    function confirmDelete(adminId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form
+                document.getElementById('delete-form-' + adminId).submit();
+            }
+        });
+    }
+</script>
+<!-- Delete SweetAlert Dialog end -->
 
 @endsection
