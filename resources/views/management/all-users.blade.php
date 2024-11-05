@@ -28,7 +28,6 @@
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
-                                                    <th>Photo</th>
                                                     <th>Name & Email</th>
                                                     <th>Role</th>
                                                     <th>Action</th>
@@ -38,9 +37,6 @@
 
                                                 <!-- Sample data -->
                                                 <tr>
-                                                    <td>
-                                                        <img class="rounded-circle reviewer-profile" src="assets/images/users/avatar-7.jpg" alt="">
-                                                    </td>
                                                     <td>
                                                         <strong>James Raphael</strong><br />
                                                         <span class="admin-user-email text-muted">jamesraphael@example.com</span>
@@ -54,9 +50,6 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td>
-                                                        <img class="rounded-circle reviewer-profile" src="../assets/imgs/ex-profile.jpg" alt="">
-                                                    </td>
                                                     <td>
                                                         <strong>Faustine Sinclair</strong><br />
                                                         <span class="admin-user-email text-muted">faustinesinclair@example.com</span>

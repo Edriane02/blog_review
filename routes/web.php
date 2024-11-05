@@ -82,6 +82,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
         // Profile management
         Route::get('admin/profile', 'profilePage')->name('profilePage');
         Route::post('admin/update-profile', 'updateProfile')->name('updateProfile');
+        Route::get('admin/change-password', 'changePasswordPage')->name('changePasswordPage');
+        Route::post('admin/change-password', 'changePassword')->name('changePassword');
+
     });
 
     Route::controller(PostsController::class)->group(function() {

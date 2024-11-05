@@ -67,7 +67,7 @@
 
                                             <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-3" data-bs-toggle="modal" data-bs-target=".editProfileModal"><i class="bi bi-pencil"></i> Edit Profile</button>
                                             <br />
-                                            <a style="color: #495057; font-weight: 700; font-size: 0.9em;" href="change-password.html"><i class="bi bi-gear-fill"></i> Change Account Password</a>
+                                            <a style="color: #495057; font-weight: 700; font-size: 0.9em;" href="{{ route('changePasswordPage') }}"><i class="bi bi-gear-fill"></i> Change Account Password</a>
                                         </center>
                                             
                                         <!-- Edit Profile Modal -->

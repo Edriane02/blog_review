@@ -11,6 +11,7 @@ use App\Models\Tags;
 use App\Models\AdminUser;
 use App\Models\AdminUserProfile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -244,6 +245,41 @@ public function updateProfile(Request $request)
     }
 }
 
+public function changePasswordPage(){
     
+
+    return view('admin-pages.change-password');
+}
+
+public function changePassword(Request $request)
+{
+    $request->validate([
+        'current_password' => 'required|string',
+        'new_password' => 'required|string|min:8|confirmed',
+    ]);
+
+    $adminUser = auth()->user(); // Get the currently authenticated admin
+
+    // Check if the provided current password matches the one in the database
+    if (!Hash::check($request->current_password, $adminUser->password)) {
+        return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+    }
+
+    DB::beginTransaction();
+
+    try {
+        // Update with the new password
+        $adminUser->password = Hash::make($request->new_password);
+        $adminUser->save();
+
+        DB::commit();
+        return redirect()->route('changePasswordPage')->with('success', 'Password changed successfully!');
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->withErrors(['error' => 'An error occurred while updating the password.']);
+    }
+}
+
 
 }

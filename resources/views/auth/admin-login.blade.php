@@ -26,8 +26,42 @@
     <!-- App Css-->
     <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+    <!-- SweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="authentication-bg bg-primary">
+    <!-- SweetAlert Dialogs start -->
+@if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops... Something went wrong!',
+                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
+            });
+        </script>
+    @endif
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: '{{ session('error') }}',
+            });
+        </script>
+    @endif
+    <!-- SweetAlert Dialogs end -->
     <div class="home-center">
         <div class="home-desc-center">
             <div class="container">
@@ -86,6 +120,7 @@
         </div>
         <!-- End Log In page -->
     </div>
+    
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>

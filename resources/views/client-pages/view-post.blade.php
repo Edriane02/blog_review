@@ -29,7 +29,7 @@
                                 <!-- <a class="author-avatar" href="#">
                                     <img class="img-circle" src="{{ asset('storage/' . ($actualReviewer->photo ?? 'static/default_photo.jpg')) }}" alt="Reviewer's photo">
                                 </a> -->
-                                Reviewed by <span class="author-name">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
+                                <i class="bi bi-check-circle"></i>&nbsp;Reviewed by <span class="author-name">{{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}</span>
                         @endforeach
                         </p>
                         <span class="mr-10">{{ $book->created_at->format('M d, Y') }}</span>

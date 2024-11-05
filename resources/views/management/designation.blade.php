@@ -49,7 +49,7 @@
                         <div class="col-sm-6">
                             <div class="float-end d-sm-block">
                                 <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
-                                data-bs-target=".addDesignationModal">Add New Designation</button>  
+                                data-bs-target=".addDesignationModal">Add New Role</button>  
                             </div>
                         </div>
                      </div>
@@ -130,15 +130,14 @@
                                                 <div class="mb-3">
                                                     <label for="revname">Designation <span class="text-danger">*</span></label>
                                                     <input class="form-control" name="designation" type="text"
-                                                        placeholder="Enter designation..." id="revname" required>
+                                                        placeholder="Enter role..." id="revname" required>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary waves-effect"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add
-                                                    Designation</button>
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add role</button>
                                             </div>
                                         </form>
                                         <!-- Form End -->
@@ -172,7 +171,7 @@
                                                         <label for="revname-{{ $designation->id }}">Designation <span class="text-danger">*</span></label>
                                                         <input class="form-control" name="designation" type="text"
                                                             value="{{ $designation->designation }}" id="revname-{{ $designation->id }}"
-                                                            placeholder="Enter designation..." required>
+                                                            placeholder="Enter role..." required>
                                                     </div>
 
                                                 </div>
