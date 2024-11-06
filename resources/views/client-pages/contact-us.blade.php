@@ -4,38 +4,7 @@
 @section('contents')
 
 <main class="bg-grey pb-30">
-
-<!-- SweetAlert Dialogs start -->
-@if ($errors->any())
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops... Something went wrong!',
-            html: '{!! implode("", $errors->all("<li>:message</li>")) !!}',
-        });
-    </script>
-@endif
-
-@if (session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: '{{ session('success') }}',
-        });
-    </script>
-@endif
-
-@if (session('error'))
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error!',
-            text: '{{ session('error') }}',
-        });
-    </script>
-@endif
-<!-- SweetAlert Dialogs end -->
+@include('partials.sweetalert')
 
         <div class="mb-50">
             <div class="container">

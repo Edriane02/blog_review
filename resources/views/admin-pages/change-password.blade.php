@@ -4,37 +4,7 @@
 @section('contents')
 
 <div class="page-content">
-<!-- SweetAlert Dialogs start -->
-@if ($errors->any())
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops... Something went wrong!',
-                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
-            });
-        </script>
-    @endif
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: '{{ session('error') }}',
-            });
-        </script>
-    @endif
-    <!-- SweetAlert Dialogs end -->
+@include('partials.sweetalert')
 
                 <!-- start page title -->
                 <div class="page-title-box">
@@ -72,7 +42,7 @@
                                                     <div class="mb-3">
                                                         <label for="new_password">New Password</label>
                                                         <div class="input-group">
-                                                        <input class="form-control" type="password" name="new_password" placeholder="Type a password" id="new_password" required>
+                                                        <input class="form-control" type="password" name="new_password" placeholder="Type a password" id="new_password" minlength="8" required>
                                                             <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">
                                                             <i id="togglePasswordIcon" class="bi bi-eye-slash"></i>
                                                         </button>
@@ -82,12 +52,12 @@
 
                                                     <div class="mb-3">
                                                         <label for="new_password_confirmation">Confirm New Password</label>
-                                                        <input class="form-control" type="password" name="new_password_confirmation" placeholder="Type a password" id="new_password_confirmation" required>
+                                                        <input class="form-control" type="password" name="new_password_confirmation" placeholder="Type a password" id="new_password_confirmation" minlength="8" required>
                                                     </div>
 
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
-                                                        <a href="{{ route('profilePage') }}" class="btn btn-secondary">Back</a>
+                                                        <a href="{{ route('profilePage') }}" class="btn btn-secondary">Go back</a>
                                                     </div>
 
                                                 </form>
@@ -97,7 +67,7 @@
                                 </div>
                         </div>
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
             <script>

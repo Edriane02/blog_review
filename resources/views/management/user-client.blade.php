@@ -4,37 +4,7 @@
 @section('contents')
 
 <div class="page-content">
-    <!-- SweetAlert Dialogs start -->
-    @if ($errors->any())
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops... Something went wrong!',
-                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
-            });
-        </script>
-    @endif
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: '{{ session('error') }}',
-            });
-        </script>
-    @endif
-    <!-- SweetAlert Dialogs end -->
+@include('partials.sweetalert')
 
                 <!-- start page title -->
                 <div class="page-title-box">
@@ -120,7 +90,6 @@
                             </div> <!-- end row -->
                         </div>
 
-
                         <!-- Add New Client Modal -->
                         <div class="modal fade newClientModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
                             aria-labelledby="newClientModalLabel" aria-hidden="true">
@@ -187,26 +156,6 @@
                 </div> <!-- container-fluid -->
             </div>
 
-            <!-- Delete SweetAlert Dialog start -->
-<script>
-    function confirmDelete(clientId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it',
-            cancelButtonText: 'Cancel'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Submit the form
-                document.getElementById('delete-form-' + clientId).submit();
-            }
-        });
-    }
-</script>
-<!-- Delete SweetAlert Dialog end -->
+@include('partials.swal-confirm-delete')
 
 @endsection

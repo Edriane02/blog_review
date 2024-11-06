@@ -4,38 +4,7 @@
 @section('contents')
 
 <div class="page-content">
-
-    <!-- SweetAlert Dialogs start -->
-    @if ($errors->any())
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops... Something went wrong!',
-                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
-            });
-        </script>
-    @endif
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: '{{ session('error') }}',
-            });
-        </script>
-    @endif
-    <!-- SweetAlert Dialogs end -->
+@include('partials.sweetalert')
 
     <!-- start page title -->
     <div class="page-title-box">
@@ -86,7 +55,7 @@
                                                     <td>{{ Str::limit($message->message, 50) }}</td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <!-- Edit Button -->
+                                                            <!-- Edit button -->
                                                             <button type="button"
                                                                 class="btn btn-primary btn-sm waves-effect waves-light"
                                                                 data-bs-toggle="modal"
@@ -94,7 +63,7 @@
                                                                 <i class="bi bi-eye"></i>
                                                             </button>&nbsp;
 
-                                                            <!-- Delete Button -->
+                                                            <!-- Delete button -->
                                                             <form id="delete-form-{{ $message->id }}"
                                                                 action="{{ route('deleteMessage', $message->id) }}" method="POST">
                                                                 @csrf
@@ -176,9 +145,9 @@
                                 <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
                             </div>
 
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div><!-- /.modal -->
+                        </div> <!-- /.modal-content -->
+                    </div> <!-- /.modal-dialog -->
+                </div> <!-- /.modal -->
             @endforeach
 
         </div>
@@ -204,7 +173,7 @@
         });
     }
 
-    // SweetAlert delete dialog
+    // SweetAlert custom delete dialog
     function confirmDelete(messageId) {
         Swal.fire({
             title: 'Are you sure?',
