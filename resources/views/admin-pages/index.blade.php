@@ -33,7 +33,7 @@
                     your hand.</p>
             </center>
         </div>
-    </div> <!-- container-fluid -->
+    </div> <!-- /.container-fluid -->
 </div>
 
 @endsection

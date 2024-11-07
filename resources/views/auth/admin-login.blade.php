@@ -26,8 +26,13 @@
     <!-- App Css-->
     <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+    <!-- SweetAlert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="authentication-bg bg-primary">
+@include('partials.sweetalert')
+
     <div class="home-center">
         <div class="home-desc-center">
             <div class="container">
@@ -86,6 +91,7 @@
         </div>
         <!-- End Log In page -->
     </div>
+    
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>

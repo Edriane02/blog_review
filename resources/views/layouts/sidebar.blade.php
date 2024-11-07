@@ -97,16 +97,16 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="/adminAssets/images/users/avatar-7.jpg"
-                                alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1">James</span>
+                            <img class="rounded-circle header-profile-user" src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1">{{ session('admin_fname') . ' ' . session('admin_lname') }}
+                            </span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <!-- item-->
-                            <a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
+                            <!-- item -->
+                            <a class="dropdown-item" href="{{ route('profilePage') }}"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Logout</a>
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-exit-to-app font-size-16 align-middle me-1 text-danger"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -164,12 +164,14 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="{{ route('messages') }}" class="waves-effect">
-                                <i class="dripicons-message"></i>
-                                <span>Messages</span>
-                            </a>
-                        </li>
+                        {{-- @if(auth()->user() && auth()->user()->role == 'admin') --}}
+                            <li>
+                                <a href="{{ route('messages') }}" class="waves-effect">
+                                    <i class="dripicons-message"></i>
+                                    <span>Messages</span>
+                                </a>
+                            </li>
+                        {{-- @endif --}}
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">

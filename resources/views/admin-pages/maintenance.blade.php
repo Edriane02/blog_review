@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Log In page -->
+        <!-- End Log in page -->
     </div>
 
     <!-- JAVASCRIPT -->

@@ -8,6 +8,10 @@ use App\Models\BookTag;
 use App\Models\Reviews;
 use App\Models\Reviewer;
 use App\Models\Tags;
+use App\Models\AdminUser;
+use App\Models\AdminUserProfile;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -195,6 +199,87 @@ class AdminController extends Controller
     }
 }
 
+public function unauthorizedPage(){
+                     
+    return view('admin-pages.unauthorized');
+}
+
+public function profilePage(){
+    $adminProfile = AdminUserProfile::where('id', Auth::id())->first();
+
+    return view('admin-pages.profile', compact('adminProfile'));
+}
+
+public function updateProfile(Request $request)
+{
+    $request->validate([
+        'first_name' => 'required|string|max:255',
+        'middle_name' => 'string|max:255',
+        'last_name' => 'required|string|max:255',
+        'suffix' => 'string|max:255',
+        'email' => 'required|email|unique:admin_users,email,' . auth()->user()->id,
+    ]);
+
+    DB::beginTransaction();
+
+    try {
+        // Update admin user email
+        $adminUser = AdminUser::where('id', auth()->id())->first();
+        $adminUser->email = $request->email;
+        $adminUser->save();
+
+        // Update admin user profile
+        $adminUserProfile = AdminUserProfile::where('user_id', $adminUser->user_id)->first();
+        $adminUserProfile->fname = $request->first_name;
+        $adminUserProfile->mname = $request->middle_name;
+        $adminUserProfile->lname = $request->last_name;
+        $adminUserProfile->suffix = $request->suffix;
+        $adminUserProfile->save();
+
+        DB::commit();
+
+        return back()->with('success', 'Profile updated successfully!');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->with('error', 'An error occurred: ' . $e->getMessage());
+    }
+}
+
+public function changePasswordPage(){
     
+
+    return view('admin-pages.change-password');
+}
+
+public function changePassword(Request $request)
+{
+    $request->validate([
+        'current_password' => 'required|string',
+        'new_password' => 'required|string|min:8|confirmed',
+    ]);
+
+    $adminUser = auth()->user(); // Get the currently authenticated admin
+
+    // Check if the provided current password matches the one in the database
+    if (!Hash::check($request->current_password, $adminUser->password)) {
+        return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+    }
+
+    DB::beginTransaction();
+
+    try {
+        // Update with the new password
+        $adminUser->password = Hash::make($request->new_password);
+        $adminUser->save();
+
+        DB::commit();
+        return redirect()->route('changePasswordPage')->with('success', 'Password changed successfully!');
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return back()->withErrors(['error' => 'An error occurred while updating the password.']);
+    }
+}
+
 
 }

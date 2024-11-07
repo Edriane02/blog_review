@@ -37,10 +37,11 @@
                             <div class="card-body">
                                 <div class="px-2 py-3">
                                     <div class="text-center p-5">
-                                        <h1 class="error-page"><span>Oops!</span></h1>
-                                        <h4 class="mb-4 mt-5">Unauthorized</h4>
+                                        <h1 style="font-size: 6em;" class="error-page"><span>Oops!</span></h1>
+                                        <h4 class="mb-4 mt-5"><strong>Unauthorized</strong></h4>
                                         <p class="mb-4 mx-auto">Sorry, you don't have permission to access this page.</p>
                                         <a class="btn btn-primary waves-effect waves-light" href="{{ route('dashboard') }}"><i class="mdi mdi-home"></i> Back to Dashboard</a>
+                                        <a class="btn btn-danger waves-effect waves-light" href="{{ route('logout') }}">Logout</a>
                                     </div>
                                 </div>
                             </div>

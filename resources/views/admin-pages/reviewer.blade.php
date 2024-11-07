@@ -4,38 +4,7 @@
 @section('contents')
 
 <div class="page-content">
-
-    <!-- SweetAlert Dialogs start -->
-    @if ($errors->any())
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops... Something went wrong!',
-                html: '{!! implode("", $errors->all("<li>:message</li>")) !!}', // This compiles the error messages into list items
-            });
-        </script>
-    @endif
-
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: '{{ session('error') }}',
-            });
-        </script>
-    @endif
-    <!-- SweetAlert Dialogs end -->
+@include('partials.sweetalert')
 
     <!-- start page title -->
     <div class="page-title-box">
@@ -200,7 +169,7 @@
                                     <!-- Form Start -->
                                     <p><strong>Upload Reviewer's Photo</strong></p>
                                     <center>
-                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
+                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'default_photo_resized.jpg')) }}"
                                             width="200" alt="Reviewer's photo">
                                     </center>
                                     <div class="upload-container mb-3" id="uploadContainer">
@@ -245,26 +214,6 @@
     });
 </script>
 
-<!-- Delete SweetAlert Dialog start -->
-<script>
-    function confirmDelete(reviewerId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it',
-            cancelButtonText: 'Cancel'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Submit the form
-                document.getElementById('delete-form-' + reviewerId).submit();
-            }
-        });
-    }
-</script>
-<!-- Delete SweetAlert Dialog end -->
+@include('partials.swal-confirm-delete')
 
 @endsection
