@@ -30,9 +30,8 @@
                 <br />
                 <center><a class="contact-us-today-btn" href="{{ route('contactUs') }}">Contact Us Today&nbsp;<i class="bi bi-arrow-right"></i></a></center>
             </article>
-        </div>
+        </div> <!-- /.container -->
         <br /><br /><br /><br /><br /><br />
-        <!--container-->
     </main>
 
 @endsection
