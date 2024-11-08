@@ -30,7 +30,12 @@
                                         <center>
                                             <img class="img-thumbnail rounded-circle" src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" width="180">
                                             <br /><br />
-                                            <h3>{{ $adminProfile->fname . ' ' . $adminProfile->lname }}</h3>
+                                            <h3>
+                                                {{ $adminProfile->fname }}
+                                                @if($adminProfile->mname) {{ $adminProfile->mname }} @endif
+                                                {{ $adminProfile->lname }}
+                                                @if($adminProfile->suffix) {{ $adminProfile->suffix }} @endif
+                                            </h3>
                                             <p style="margin-bottom: 0.5em;" class="text-muted">{{ Auth::user()->email }}</p>
                                             <!-- <span style="font-size: 12px;" class="badge badge-soft-primary">[role]</span> -->
                                             <br /><br /><br />

@@ -7,7 +7,7 @@
         <!--archive header-->
         <div class="archive-header pt-50">
             <div class="container">
-                <h2 class="font-weight-900">Reviewed books by <span class="text-primary">{{ $reviewer->reviewer_name }}</span></h2>
+                <h3 class="font-weight-900">Reviewed books by {{ $reviewer->reviewer_name }}</h3>
                 <div class="breadcrumb mb-25">
                     Showing {{ $reviews->total() }} results
                 </div>
