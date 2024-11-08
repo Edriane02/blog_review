@@ -118,18 +118,18 @@ Route::controller(MessagesController::class)->group(function(){
 
 
 Route::controller(DesignationController::class)->group(function(){
-    Route::get('management/designation', 'designation')->middleware('auth', 'isAdmin')->name('designation');
-    Route::post('management/add-designation', 'newDesignation')->middleware('auth', 'isAdmin')->name('addDesignation');
-    Route::post('management/edit-designation', 'editDesignation')->middleware('auth', 'isAdmin')->name('editDesignation');
-    Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth', 'isAdmin')->name('deleteDesignation');
+    Route::get('management/designation', 'designation')->middleware('auth', 'isManagement')->name('designation');
+    Route::post('management/add-designation', 'newDesignation')->middleware('auth', 'isManagement')->name('addDesignation');
+    Route::post('management/edit-designation', 'editDesignation')->middleware('auth', 'isManagement')->name('editDesignation');
+    Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth', 'isManagement')->name('deleteDesignation');
 });
 
 Route::controller(UserManagementController::class)->group(function(){
-    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isAdmin')->name('client-users');    
-    Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth', 'isAdmin')->name('admin-users');
-    Route::get('admin/all-users', 'allUsersPage')->middleware('auth', 'isAdmin')->name('all-users');
-    Route::post('admin/new-client-user', 'newClientUser')->middleware('auth', 'isAdmin')->name('new-client-user');
-    Route::post('admin/new-admin-user', 'newAdminUser')->middleware('auth', 'isAdmin')->name('new-admin-user');
+    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isManagement')->name('client-users');    
+    Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth', 'isManagement')->name('admin-users');
+    Route::get('admin/all-users', 'allUsersPage')->middleware('auth', 'isManagement')->name('all-users');
+    Route::post('admin/new-client-user', 'newClientUser')->middleware('auth', 'isManagement')->name('new-client-user');
+    Route::post('admin/new-admin-user', 'newAdminUser')->middleware('auth', 'isManagement')->name('new-admin-user');
     Route::delete('admin/client-users/destroy/{id}', 'deleteClientUser')->middleware('auth')->name('deleteClientUser');
     Route::delete('admin/admin-users/destroy/{id}', 'deleteAdminUser')->middleware('auth')->name('deleteAdminUser');
 });

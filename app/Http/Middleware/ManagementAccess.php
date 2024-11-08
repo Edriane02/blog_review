@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class UserAccess
+class ManagementAccess
 {
     /**
      * Handle an incoming request.
@@ -19,7 +19,7 @@ class UserAccess
         if(Auth::check()) {
             $user = Auth::user();
 
-            if($user->adminUserProfile->designationType->designation == true) {
+            if($user->adminUserProfile->designationType->designation == 'management') {
                 
                 return $next($request);
                 
