@@ -5,15 +5,14 @@
 
 <main class="bg-grey pb-30">
         <div class="container">
-                <h1>&nbsp;</h1> <!-- some space -->
+                <br /><br /><br />
                 <h1 class="about-us-title text-center mb-50">
                     <span class="fancy-underline">Maximize Your Book's Reach</span>
                 </h1>
-            <!--end single header-->
+
             <figure class="image mb-30 m-auto text-center border-radius-10">
                 <img class="border-radius-10" src="{{ asset('guestAssets/imgs/static/contact-us-bg-comp.jpg') }}" alt="" />
             </figure>
-            <!--end figure-->
 
             <article class="entry-wraper">
                 <h3 class="custom-about-us">About Us</h3>

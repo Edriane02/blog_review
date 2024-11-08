@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-    <!-- start page title -->
+    <!-- Page title start -->
     <div class="page-title-box">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <!-- end page title -->
+    <!-- Page title end -->
 
     <div class="container-fluid">
         <div class="page-content-wrapper">
@@ -51,7 +51,7 @@
                                                     <td class="tag-title">{{ $tag->tag }}</td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <!-- Edit Button -->
+                                                            <!-- Edit button -->
                                                             <!-- Disable the edit button if tag is "Featured Review" -->
                                                             <button type="button"
                                                                 class="btn btn-primary btn-sm waves-effect waves-light"
@@ -61,7 +61,7 @@
                                                                 <i class="bi bi-pencil-square"></i>
                                                             </button>&nbsp;
 
-                                                            <!-- Delete Button -->
+                                                            <!-- Delete button -->
                                                             <form id="delete-form-{{ $tag->id }}"
                                                                 action="{{ route('deleteTag', $tag->id) }}" method="POST">
                                                                 @csrf
@@ -90,11 +90,11 @@
                                 </table>
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                    </div> <!-- /.col-12 -->
+                </div> <!-- /.row -->
             </div>
 
-            <!-- Add New Tag Modal -->
+            <!-- Add new tag modal -->
             <div class="modal fade addTagModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
                 aria-labelledby="addTagModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -104,13 +104,13 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
+                        <!-- Form start -->
                         <form method="POST" action="{{ route('addTag') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-body">
                                 <!-- Required field indicator -->
                                 <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
 
-                                <!-- Form Start -->
                                 <div class="mb-3">
                                     <label for="dname">Tag Name <span class="text-danger">*</span></label>
                                     <input class="form-control" name="tag" type="text" placeholder="Enter tag name..."
@@ -123,14 +123,14 @@
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Add Tag</button>
                             </div>
                         </form>
-                        <!-- Form End -->
+                        <!-- Form end -->
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <!-- End of Add New Tag Modal -->
+            <!-- Add new tag modal end -->
 
             @foreach ($tags as $tag)
-                <!-- Edit Tag Modal -->
+                <!-- Edit tag modal start -->
                 <div class="modal fade" data-bs-backdrop="static" id="editTagModal-{{ $tag->id }}" tabindex="-1"
                     role="dialog" aria-labelledby="editTagModalLabel-{{ $tag->id }}" aria-hidden="true">
                     <div class="modal-dialog">
@@ -147,7 +147,7 @@
 
                                     <!-- Hidden ID -->
                                     <input type="hidden" name="id" value="{{ $tag->id }}">
-                                    <!-- Form Start -->
+                                    <!-- Form start -->
                                     <div class="mb-3">
                                         <label for="dname">Tag Name <span class="text-danger">*</span>
                                         </label>
@@ -162,15 +162,15 @@
                                         changes</button>
                                 </div>
                             </form>
-                            <!-- Form End -->
+                            <!-- Form end -->
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-                <!-- End of Edit Tag Modal -->
+                <!-- Edit tag modal end -->
             @endforeach
 
         </div>
-    </div> <!-- container-fluid -->
+    </div> <!-- /.container-fluid -->
 </div>
 
 @include('partials.swal-confirm-delete')

@@ -19,11 +19,11 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
 
-    <!-- Bootstrap Css -->
+    <!-- Bootstrap CSS -->
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
+    <!-- Icons CSS -->
     <link href="{{ asset('adminAssets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
+    <!-- App CSS-->
     <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
@@ -53,18 +53,15 @@
                 </div>
             </div>
         </div>
-        <!-- End Log in page -->
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
     <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/metismenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/node-waves/waves.min.js') }}"></script>
-
     <script src="{{ asset('adminAssets/js/app.js') }}"></script>
 
 </body>
-
 </html>

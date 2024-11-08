@@ -7,12 +7,12 @@
     <div class="container single-content">
         <div class="entry-header entry-header-style-1 mb-50 pt-50">
             <p class="custom-small-heading text-muted text-center">BOOK REVIEW</p>
-            <h1 class="entry-title font-weight-500 entry-title-custom-font text-center">
+            <h1 class="entry-title font-weight-900 entry-title-custom-font text-center">
                 {{ $book->title }}
             </h1>
             <p class="text-center text-muted">by {{ $book->book_author }}</p>
                 @foreach($book->reviews as $review)
-                    <h2 class="font-weight-500 text-center"><i>{{ $review->review_title }}</i></h2>
+                    <h2 class="font-weight-900 text-center"><i>{{ $review->review_title }}</i></h2>
                 @endforeach
                 <center>
                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
@@ -144,6 +144,5 @@
             </div>
     </div> <!-- /.container -->
 </div>
-<!-- /Browse by Tags -->
 
 @endsection

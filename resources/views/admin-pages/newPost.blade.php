@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -24,12 +24,13 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
                         <div class="row justify-content-center">
-                            <div class="col-xl-10"> 
+                            <div class="col-xl-10">
+                                <!-- Form start -->
                                 <form method="POST" action="{{ route('uploadPost') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card">
@@ -41,8 +42,7 @@
                                                     <h4>Upload a Post Banner <span class="text-danger">*</span></h4>
                                                     <p class="text-muted">containing the Book Mockup</p>
                                                     <div class="upload-container mb-3" id="uploadContainer">
-                                                        <input class="form-control" type="file" name="banner" id="fileInput" accept="image/*"
-                                                            required>
+                                                        <input class="form-control" type="file" name="banner" id="fileInput" accept="image/*" required>
                                                     </div>
 
                                                     <div class="mb-4">
@@ -153,12 +153,12 @@
                                                     </div>           
                                                 </div>
                                             </form>
-                                            <!-- Form End -->
+                                            <!-- Form end -->
                                     </div>
                                 </div>
                         </div>
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
 @endsection

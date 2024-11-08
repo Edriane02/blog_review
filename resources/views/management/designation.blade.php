@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -23,7 +23,7 @@
                      </div>
                     </div>
                 </div>
-                <!-- end page title -->
+                <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -74,8 +74,8 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                </div> <!-- /.col-12 -->
+                            </div> <!-- /.row -->
                         </div>
 
                          <!-- Add New Designation Modal -->
@@ -101,7 +101,7 @@
                                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Add role</button>
                                             </div>
                                         </form>
-                                        <!-- Form End -->
+                                        <!-- Form end -->
 
                                     </div> <!-- /.modal-content -->
                                 </div> <!-- /.modal-dialog -->
@@ -118,7 +118,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
 
-                                            <!-- Form Start -->
+                                            <!-- Form start -->
                                             <form method="POST" action="{{ route('editDesignation') }}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body">
@@ -139,7 +139,7 @@
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
                                                 </div>
                                             </form>
-                                            <!-- Form End -->
+                                            <!-- Form end -->
 
                                         </div> <!-- /.modal-content -->
                                     </div> <!-- /.modal-dialog -->
@@ -147,7 +147,7 @@
                                 <!-- End of Edit Designation Modal -->
                             @endforeach
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
 <script>

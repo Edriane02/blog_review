@@ -7,7 +7,7 @@
 
 <div class="page-content">
 
-    <!-- start page title -->
+    <!-- Page title start -->
     <div class="page-title-box">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -20,17 +20,15 @@
             </div>
         </div>
     </div>
-    <!-- end page title -->
+    <!-- Page title end -->
 
     <div class="container-fluid">
         <div class="page-content-wrapper">
             <br /><br /><br />
             <center>
-                <img class="image-responsive mt-5" src="{{ asset('adminAssets/images/dashboard_reading.svg') }}"
-                    width="400" alt="People reading">
+                <img class="image-responsive mt-5" src="{{ asset('adminAssets/images/dashboard_reading.svg') }}" width="400" alt="People reading">
                 <br /><br />
-                <p style="font-family: 'Libre Baskerville', serif; font-size: 17px;">A book is a dream that you hold in
-                    your hand.</p>
+                <p style="font-family: 'Libre Baskerville', serif; font-size: 17px;">A book is a dream that you hold in your hand.</p>
             </center>
         </div>
     </div> <!-- /.container-fluid -->

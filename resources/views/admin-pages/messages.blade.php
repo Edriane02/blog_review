@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-    <!-- start page title -->
+    <!-- Page title start -->
     <div class="page-title-box">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <!-- end page title -->
+    <!-- Page title end -->
 
     <div class="container-fluid">
         <div class="page-content-wrapper">
@@ -90,12 +90,12 @@
                                 </table>
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                    </div> <!-- /.col-12 -->
+                </div> <!-- /.row -->
             </div>
 
             @foreach ($messages as $message)
-                <!-- View Message Modal -->
+                <!-- View message modal -->
                 <div class="modal fade" data-bs-backdrop="static" id="viewMessageModal-{{ $message->id }}" tabindex="-1"
                     role="dialog" aria-labelledby="viewMessageModalLabel-{{ $message->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -151,7 +151,7 @@
             @endforeach
 
         </div>
-    </div> <!-- container-fluid -->
+    </div> <!-- /.container-fluid -->
 </div>
 
 <script>

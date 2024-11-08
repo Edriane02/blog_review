@@ -8,7 +8,7 @@
 
         <div class="mb-50">
             <div class="container">
-                <h1>&nbsp;</h1> <!-- some space -->
+                <br /><br /><br />
                 <h1 class="contact-us-title text-center mb-50">
                     Contact Us
                 </h1>
@@ -24,7 +24,6 @@
                 <hr class="wp-block-separator is-style-wide">
                 <p class="font-medium-custom">You can contact us directly at: <a style="color: #4379F2;" href="mailto:sales@professionalreview.com">sales@professionalreview.com</a></p>
 
-                <!-- Contact Form -->
                 <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
                 <hr class="wp-block-separator is-style-wide">
 
@@ -58,7 +57,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <textarea class="form-control w-100" name="message" id="message" cols="30" rows="11" placeholder="Message *" required>{{ old('message') }}</textarea>
-                                <small id="messageHelp" class="form-text text-muted">Maximum 1000 characters.</small>
+                                <small id="messageHelp" class="form-text text-muted">Maximum of 1000 characters.</small>
                                 @error('message')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror
@@ -70,8 +69,7 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <!--container-->
+        </div> <!-- /.container -->
     </main>
 
     <script>

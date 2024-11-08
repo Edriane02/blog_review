@@ -10,11 +10,11 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="/adminAssets/images/favicon.ico">
 
-    <!-- Bootstrap Css -->
+    <!-- Bootstrap CSS -->
     <link href="/adminAssets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
+    <!-- Icons CSS -->
     <link href="/adminAssets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
+    <!-- App CSS -->
     <link href="/adminAssets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
@@ -35,7 +35,7 @@
                                         <!-- NOTE: Register only one admin account. -->
                                     </div>
 
-                                    <!-- Form Start -->
+                                    <!-- Form start -->
                                     <form method="POST"  action="{{ route('registerUserAdmin') }}">
                                         @csrf
                                         <div class="form-group">
@@ -63,7 +63,8 @@
                                             <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
                                         </div>
                                     </form>
-                                    <!-- Form End -->
+                                    <!-- Form end -->
+
                                 </div>
                             </div>
                         </div>
@@ -75,16 +76,15 @@
                 </div>
             </div>
         </div>
-        <!-- End Log In page -->
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
     <script src="/adminAssets/libs/jquery/jquery.min.js"></script>
     <script src="/adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/adminAssets/libs/metismenu/metisMenu.min.js"></script>
     <script src="/adminAssets/libs/simplebar/simplebar.min.js"></script>
     <script src="/adminAssets/libs/node-waves/waves.min.js"></script>
-
     <script src="/adminAssets/js/app.js"></script>
+
 </body>
 </html>

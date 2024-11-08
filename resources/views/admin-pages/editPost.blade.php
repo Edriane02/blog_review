@@ -6,8 +6,8 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-    <!-- start page title -->
-    <div class="page-title-box">
+                <!-- Page title start -->
+                <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
                          <div class="col-sm-6">
@@ -24,7 +24,7 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -87,7 +87,6 @@
                                                         </div>
                                                     @endforeach
 
-
                                                     <div class="mb-4">
                                                         <span class="badge bg-primary mb-2">STEP 5</span>
                                                         <h4>Add Tags <span class="text-danger">*</span></h4>
@@ -101,7 +100,6 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-
 
                                                     <span class="badge bg-primary mb-2">STEP 6</span>
                                                     <h4 class="mb-3">Input Book Information</h4>
@@ -172,7 +170,5 @@
                         </div>
                     </div>
                 </div> <!-- /.container-fluid -->
-            </div>
-                                                            
-            <!-- End Page-content -->
+            </div> <!-- /.page-content -->
 @endsection
