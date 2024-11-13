@@ -4,7 +4,7 @@
 @section('contents')
 
 <main class="bg-grey">
-        <!--archive header-->
+        <!-- Archive header -->
         <div class="archive-header pt-50">
             <div class="container">
                 <h3 class="font-weight-900">Reviewed books by {{ $reviewer->reviewer_name }}</h3>
@@ -14,7 +14,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <!--author box-->
+                        <!-- Author box -->
                         <div class="author-bio mb-50 bg-white p-30 border-radius-10">
                             <div class="author-image mb-30">
                                 <img src="{{ asset('storage/' . ($reviewer->photo ?? 'static/default_photo.jpg')) }}" alt="" class="avatar">
@@ -22,7 +22,7 @@
                             <div class="author-info">
                                 <h3 class="font-weight-900"><span class="vcard author"><span class="fn">{{ $reviewer->reviewer_name }}</span></span>
                                 </h3>
-                                <h5 class="text-muted">About Me</h5>
+                                <h5 class="text-muted">About</h5>
                                 <div class="author-description text-muted">{{ optional($reviewer)->bio ?? 'No bio yet.' }}</div>
                             </div>
                         </div>

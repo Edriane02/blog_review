@@ -4,7 +4,7 @@
 @section('contents')
 
 <main>
-        <!--archive header-->
+        <!-- Archive header -->
         <div class="archive-header pt-50">
             <div class="container">
                 <h2 class="font-weight-900">Search</h2>

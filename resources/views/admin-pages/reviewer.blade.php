@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-    <!-- start page title -->
+    <!-- Page title start -->
     <div class="page-title-box">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <!-- end page title -->
+    <!-- Page title end -->
 
     <div class="container-fluid">
         <div class="page-content-wrapper">
@@ -58,7 +58,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <!-- Edit Button -->
+                                                            <!-- Edit button -->
                                                             <button type="button"
                                                                 class="btn btn-primary btn-sm waves-effect waves-light"
                                                                 data-bs-toggle="modal"
@@ -66,7 +66,7 @@
                                                                 <i class="bi bi-pencil-square"></i>
                                                             </button>&nbsp;
 
-                                                            <!-- Delete Button -->
+                                                            <!-- Delete button -->
                                                             <form id="delete-form-{{ $reviewers->id }}"
                                                                 action="{{ route('deleteReviewer', $reviewers->id) }}"
                                                                 method="POST">
@@ -83,7 +83,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="3" class="text-center">
+                                                <td colspan="4" class="text-center">
                                                     <div class="alert alert-info" role="alert">
                                                         No reviewers found.
                                                     </div>
@@ -95,11 +95,11 @@
 
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                    </div> <!-- /.col-12 -->
+                </div> <!-- /.row -->
             </div>
 
-            <!-- Add New Reviewer Modal -->
+            <!-- Add new reviewer modal -->
             <div class="modal fade addReviewerModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
                 aria-labelledby="addReviewerModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -114,11 +114,10 @@
                             <div class="modal-body">
                                 <!-- Required field indicator -->
                                 <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
-                                <!-- Form Start -->
+                                <!-- Form start -->
                                 <p><strong>Upload Reviewer's Photo</strong></p>
                                 <div class="upload-container mb-3" id="uploadContainer">
                                     <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*">
-
                                 </div>
 
                                 <div class="mb-3">
@@ -128,7 +127,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="aboutme">About Me</label>
+                                    <label for="aboutme">About</label>
                                     <textarea rows="6" name="bio" id="aboutme" class="form-control"
                                         placeholder="Enter bio here..."></textarea>
                                 </div>
@@ -141,14 +140,14 @@
                                     Reviewer</button>
                             </div>
                         </form>
-                        <!-- Form End -->
+                        <!-- Form end -->
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <!-- End of Add New Reviewer Modal -->
+            <!-- Add new reviewer modal end -->
 
             @foreach ($reviewer as $reviewers)
-                <!-- Edit Reviewer Modal -->
+                <!-- Edit reviewer modal start -->
                 <div class="modal fade" data-bs-backdrop="static" id="editReviewerModal-{{ $reviewers->id }}" tabindex="-1"
                     aria-labelledby="editReviewerLabel-{{ $reviewers->id }}" aria-hidden="true">
                     <div class="modal-dialog">
@@ -166,10 +165,11 @@
 
                                     <!-- Hidden ID -->
                                     <input type="hidden" name="id" value="{{ $reviewers->id }}">
-                                    <!-- Form Start -->
+
+                                    <!-- Form start -->
                                     <p><strong>Upload Reviewer's Photo</strong></p>
                                     <center>
-                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'default_photo_resized.jpg')) }}"
+                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
                                             width="200" alt="Reviewer's photo">
                                     </center>
                                     <div class="upload-container mb-3" id="uploadContainer">
@@ -185,7 +185,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="aboutme-{{ $reviewers->id }}">About Me</label>
+                                        <label for="aboutme-{{ $reviewers->id }}">About</label>
                                         <textarea rows="6" name="bio" id="aboutme-{{ $reviewers->id }}" class="form-control"
                                             placeholder="Enter bio here...">{{ $reviewers->bio }}</textarea>
                                     </div>
@@ -197,15 +197,15 @@
                                         changes</button>
                                 </div>
                             </form>
-                            <!-- Form End -->
+                            <!-- Form end -->
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-                <!-- End of Edit Reviewer Modal -->
+                <!-- Edit reviewer modal end -->
             @endforeach
 
         </div>
-    </div> <!-- container-fluid -->
+    </div> <!-- /.container-fluid -->
 </div>
 
 <script>

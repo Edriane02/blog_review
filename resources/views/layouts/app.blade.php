@@ -56,7 +56,7 @@
     <div class="preloader text-center">
         <div class="circle"></div>
     </div>
-    <!--Offcanvas sidebar-->
+    <!-- Offcanvas sidebar -->
     <aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
         <button class="off-canvas-close"><i class="elegant-icon icon_close"></i></button>
     </aside>
@@ -115,7 +115,7 @@
         </div>
     </header>
 
-    <!--Start search form-->
+    <!-- Start search form -->
     <div class="main-search-form">
         <div class="container">
             <div class=" pt-50 pb-50 ">
@@ -142,7 +142,6 @@
                             @if($tags->count() > 0)
                                 @foreach($tags as $tag)
                                     <li class="list-inline-item">
-                                        <!-- Clicking a tag will filter books by that tag -->
                                         <a href="{{ route('categorySearch', ['tagId' => $tag->id]) }}">{{ $tag->tag }}</a>
                                     </li>
                                 @endforeach
@@ -160,7 +159,7 @@
 
     @yield('contents')
 
-    <!-- Footer Start-->
+    <!-- Footer start -->
     <footer class="pt-50 pb-20">
         <div class="container">
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
@@ -168,7 +167,7 @@
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
+    <!-- Footer end -->
     <div class="dark-mark"></div>
 
     <!-- Custom JS -->
@@ -179,7 +178,7 @@
         });
     </script>
 
-    <!-- Vendor JS-->
+    <!-- Vendor JS -->
     <script src="{{ asset('guestAssets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
     <script src="{{ asset('guestAssets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('guestAssets/js/vendor/popper.min.js') }}"></script>

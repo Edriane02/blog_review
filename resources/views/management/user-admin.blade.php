@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -24,7 +24,7 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -84,8 +84,8 @@
 
                                         </div>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                </div> <!-- /.col -->
+                            </div> <!-- /.row -->
                         </div>
 
 
@@ -102,9 +102,6 @@
                                     <form method="POST" action="{{ route('new-admin-user') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-body">
-
-                                
-
                                                     <div class="mb-3">
                                                         <label for="fname">First Name</label>
                                                         <input class="form-control" type="text" name="fname" placeholder="Enter First Name" id="fname">
@@ -156,15 +153,13 @@
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">Add Admin</button>
                                         </div>
                                     </form>
-                                    <!-- Form End -->
+                                    <!-- Form end -->
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
                         <!-- End of Add New Admin Modal -->
-
-
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
 @include('partials.swal-confirm-delete')

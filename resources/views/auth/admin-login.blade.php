@@ -19,11 +19,11 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
 
-    <!-- Bootstrap Css -->
+    <!-- Bootstrap CSS -->
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
+    <!-- Icons CSS -->
     <link href="{{ asset('adminAssets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
+    <!-- App CSS -->
     <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
     <!-- SweetAlert 2 -->
@@ -49,9 +49,10 @@
                                         <p class="text-muted">Sign in to continue</p>
                                     </div>
 
+                                    <!-- Form start -->
                                     <form method="POST" action="{{ route('loginAction') }}">
                                         @csrf
-                                    <!-- Form Start -->
+
                                         <div class="mb-3">
                                             <label for="useremail">Email</label>
                                             <input type="text" name="email" class="form-control" id="useremail" placeholder="Enter email" required>
@@ -76,24 +77,23 @@
                                             <a href="auth-recoverpw.html" class="text-muted">Forgot password?</a>
                                         </div>
                                     </form>
-                                    <!-- Form End -->
+                                    <!-- Form end -->
                                 </div>
                             </div>
                         </div>
 
                         <div class="mt-5 text-center text-white">
-                            <!-- <p>Don't have an account?<a href="auth-register.html" class="fw-bold text-white"> Register</a> </p> -->
+                            <!-- <p>Don't have an account?<a href="#" class="fw-bold text-white"> Register</a> </p> -->
                             <p>© <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Log In page -->
     </div>
     
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
     <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/metismenu/metisMenu.min.js') }}"></script>

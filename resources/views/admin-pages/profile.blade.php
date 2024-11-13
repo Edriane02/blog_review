@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -18,7 +18,7 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -37,7 +37,7 @@
                                                 @if($adminProfile->suffix) {{ $adminProfile->suffix }} @endif
                                             </h3>
                                             <p style="margin-bottom: 0.5em;" class="text-muted">{{ Auth::user()->email }}</p>
-                                            <!-- <span style="font-size: 12px;" class="badge badge-soft-primary">[role]</span> -->
+                                            <!-- <span style="font-size: 12px;" class="badge badge-soft-primary">[Role]</span> -->
                                             <br /><br /><br />
 
                                             <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-3" data-bs-toggle="modal" data-bs-target=".editProfileModal"><i class="bi bi-pencil"></i> Edit Profile</button>
@@ -45,7 +45,7 @@
                                             <a style="color: #495057; font-weight: 700; font-size: 0.9em;" href="{{ route('changePasswordPage') }}"><i class="bi bi-gear-fill"></i> Change Account Password</a>
                                         </center>
                                             
-                                        <!-- Edit Profile Modal -->
+                                        <!-- Edit profile modal -->
                                         <div class="modal fade editProfileModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">

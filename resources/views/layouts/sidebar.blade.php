@@ -23,19 +23,19 @@
 
     <link href="{{ asset('adminAssets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- plugin css -->
+    <!-- Plugin css -->
     <link href="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('adminAssets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- Bootstrap Css -->
+    <!-- Bootstrap CSS -->
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
+    <!-- Icons CSS -->
     <link href="{{ asset('adminAssets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
+    <!-- App CSS -->
     <link href="{{ asset('adminAssets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
-    <!-- Custom Font (Quote) -->
+    <!-- Custom font (Quote) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -44,7 +44,6 @@
     <link href="{{ asset('adminAssets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('adminAssets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- Responsive datatable examples -->
     <link href="{{ asset('adminAssets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Custom CSS -->
@@ -68,7 +67,7 @@
             <div class="navbar-header">
                 <div class="d-flex">
 
-                <!-- LOGO -->
+                <!-- Logo -->
                  <div class="navbar-brand-box">
                     <a href="{{ route('dashboard') }}" class="logo logo-dark">
                         <span class="logo-sm">
@@ -103,7 +102,6 @@
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <!-- item -->
                             <a class="dropdown-item" href="{{ route('profilePage') }}"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-exit-to-app font-size-16 align-middle me-1 text-danger"></i> Logout</a>
@@ -116,9 +114,9 @@
         <!-- ========== Left Sidebar Start ========== -->
         <div class="vertical-menu">
             <div data-simplebar class="h-100">
-                <!--- Sidemenu -->
+                <!--- Side menu -->
                 <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
+                    <!-- Left menu start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title">Menu</li>
 
@@ -198,7 +196,7 @@
                 <!-- Sidebar -->
             </div>
         </div>
-        <!-- Left Sidebar End -->
+        <!-- Left sidebar end -->
 
     <div class="main-content">
 
@@ -215,27 +213,26 @@
             </div>
         </footer>
         </div>
-        <!-- end main content-->
+        <!-- End main content -->
 
     </div>
-    <!-- END layout-wrapper -->
+    <!-- End layout-wrapper -->
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
     <script src="{{ asset('adminAssets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/metismenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/node-waves/waves.min.js') }}"></script>
 
-    <!-- Required datatable js -->
+    <!-- Required DataTable JS -->
     <script src="{{ asset('adminAssets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <!-- Responsive examples -->
     <script src="{{ asset('adminAssets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
 
-    <!-- Datatable init js -->
+    <!-- Datatable init JS -->
     <script src="{{ asset('adminAssets/js/pages/datatables.init.js') }}"></script>
 
     <!-- Image file upload JS -->
@@ -243,13 +240,13 @@
 
     <script src="{{ asset('adminAssets/libs/select2/js/select2.min.js') }}"></script>
 
-    <!--tinymce js-->
+    <!-- TinyMCE JS -->
     <script src="{{ asset('adminAssets/libs/tinymce/tinymce.min.js') }}"></script>
 
-    <!-- init js -->
+    <!-- Init JS -->
     <script src="{{ asset('adminAssets/js/pages/form-editor.init.js') }}"></script>
 
-    <!-- Plugins js-->
+    <!-- Plugins JS -->
     <script src="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('adminAssets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
 

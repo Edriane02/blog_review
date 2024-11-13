@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -18,7 +18,7 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -31,7 +31,7 @@
                                                 <p class="text-muted text-center"><i class="bi bi-person-circle"></i>&nbsp;{{ auth()->user()->email }}</p>
                                                 <br /><br />
 
-                                                <!-- Form Start -->
+                                                <!-- Form start -->
                                                 <form method="POST" action="{{ route('changePassword') }}">
                                                     @csrf
                                                     <div class="mb-3">
@@ -61,7 +61,7 @@
                                                     </div>
 
                                                 </form>
-                                                <!-- Form End -->
+                                                <!-- Form end -->
                                         </div>
                                     </div>
                                 </div>

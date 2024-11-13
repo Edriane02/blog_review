@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title end -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -17,14 +17,12 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="float-end d-sm-block">
-                                
-                            </div>
+                            <div class="float-end d-sm-block"></div>
                         </div>
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -78,11 +76,11 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                </div> <!-- /.col-12 -->
+                            </div> <!-- /.row -->
                         </div>
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
 @include('partials.swal-confirm-delete')

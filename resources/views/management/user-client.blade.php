@@ -6,7 +6,7 @@
 <div class="page-content">
 @include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
@@ -24,7 +24,7 @@
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->
+                 <!-- Page title end -->
 
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
@@ -86,8 +86,8 @@
 
                                         </div>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                </div> <!-- /.col-12 -->
+                            </div> <!-- /.row -->
                         </div>
 
                         <!-- Add New Client Modal -->
@@ -145,15 +145,13 @@
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">Add Client</button>
                                         </div>
                                     </form>
-                                    <!-- Form End -->
+                                    <!-- Form end -->
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
                         <!-- End of Add New Client Modal -->
-
-
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
 
 @include('partials.swal-confirm-delete')
