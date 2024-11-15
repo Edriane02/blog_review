@@ -15,6 +15,6 @@ class Designation extends Model
     
     public function user()
     {
-        return $this->belongsTo(UserProfile::class, 'user_id', 'id');
+        return $this->belongsTo(AdminUserProfile::class, 'user_id', 'id');
     }
 }

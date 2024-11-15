@@ -16,19 +16,18 @@ class ManagementAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $user = Auth::user();
+            $designation = $user->adminUserProfile->designationType->designation;
 
-            if($user->adminUserProfile->designationType->designation == 'management') {
-                
+            // Check if user is management
+            if ($designation == 'management') {
                 return $next($request);
-                
-            } else {
-
-                return redirect()->route('unauthorizedPage');
             }
-        } else {
-            return redirect('login');
+
+            return redirect()->route('unauthorizedPage');
         }
+
+        return redirect()->route('login');
     }
 }

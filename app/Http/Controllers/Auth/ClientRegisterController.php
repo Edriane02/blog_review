@@ -24,7 +24,7 @@ class ClientRegisterController extends Controller
             'mname' => 'nullable|string|max:255',
             'lname' => 'required|string|max:255',
             'suffix' => 'nullable|string|max:10',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:client_users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -49,7 +49,7 @@ class ClientRegisterController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'Admin registered successfully!');
+            return redirect()->back()->with('success', 'Client registered successfully!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());

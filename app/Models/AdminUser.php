@@ -31,6 +31,6 @@ class AdminUser extends Authenticatable
 
     public function adminUserProfile()
     {
-        return $this->hasOne(AdminUserProfile::class, 'user_id', 'user_id');
+        return $this->belongsTo(AdminUserProfile::class, 'user_id', 'user_id');
     }
 }

@@ -121,7 +121,8 @@ class UserManagementController extends Controller
 
         try {
             $client = ClientUserProfile::findOrFail($id);
-
+                    
+            $client->clientUser()->delete();
             // Delete the photo from storage if it exists
 
             $client->delete();
@@ -141,6 +142,7 @@ class UserManagementController extends Controller
         try {
             $admin = AdminUserProfile::findOrFail($id);
 
+            $admin->adminUser()->delete();
             // Delete the photo from storage if it exists
 
             $admin->delete();

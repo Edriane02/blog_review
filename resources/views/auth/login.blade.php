@@ -14,7 +14,7 @@
                             <div class="heading_s1 text-center">
                                 <h3 class="mb-30 font-weight-900">Log in to Your Account</h3>
                             </div>
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('loginAction')}}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="email" placeholder="Your Email" required>

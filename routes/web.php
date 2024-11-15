@@ -49,13 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     })->middleware('isAdmin')->name('dashboard');
 });
 
-Route::controller(AdminRegisterController::class)->group(function(){
-
-    Route::get('admin/register', 'registerAdmin')->name('registerAdmin');
-    Route::post('admin/register', 'registerUserAdmin')->name('registerUserAdmin');
-
-});
-
 Route::controller(ClientRegisterController::class)->group(function(){
 
     Route::get('/register', 'register')->name('register');
@@ -69,6 +62,8 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('login', 'loginAction')->name('loginAction');
     Route::get('logout', 'logout')->name('logout');
     Route::get('admin/login', 'adminLogin')->name('adminLogin');
+    Route::post('admin/login', 'adminLoginAction')->name('adminLoginAction');
+    Route::get('admin/logout', 'adminLogout')->name('adminLogout');
 
 });
 

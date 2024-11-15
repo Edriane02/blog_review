@@ -42,15 +42,7 @@
 </head>
 
 <body>
-    @if(Session::has('success'))
-        <div class="row-cell dk">
-            {{ Session::get('success') }}
-        </div>
-    @elseif(Session::has('error'))
-        <div class="row-cell dk">
-            {{ Session::get('error') }}
-        </div>
-    @endif
+ @include('partials.sweetalert')
     <div class="scroll-progress primary-bg"></div>
     <!-- Start Preloader -->
     <div class="preloader text-center">

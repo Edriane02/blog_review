@@ -31,6 +31,6 @@ class ClientUser extends Authenticatable
 
     public function clientUserProfile()
     {
-        return $this->hasOne(ClientUserProfile::class, 'user_id', 'user_id');
+        return $this->belongsTo(ClientUserProfile::class, 'user_id', 'user_id');
     }
 }
