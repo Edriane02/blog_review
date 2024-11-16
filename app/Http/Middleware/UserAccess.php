@@ -16,19 +16,18 @@ class UserAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $user = Auth::user();
+            $designation = $user->adminUserProfile->designationType->designation;
 
-            if($user->adminUserProfile->designationType->designation == true) {
-                
+            // Check if user is an admin (excluding management)
+            if ($designation == true) {
                 return $next($request);
-                
-            } else {
-
-                return redirect()->route('unauthorizedPage');
             }
-        } else {
-            return redirect('login');
+
+            return redirect()->route('unauthorizedPage');
         }
+
+        return redirect()->route('home');
     }
 }

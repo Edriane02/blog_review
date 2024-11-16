@@ -50,7 +50,7 @@
                                     </div>
 
                                     <!-- Form start -->
-                                    <form method="POST" action="{{ route('loginAction') }}">
+                                    <form method="POST" action="{{ route('adminLoginAction') }}">
                                         @csrf
 
                                         <div class="mb-3">
