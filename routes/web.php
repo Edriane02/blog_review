@@ -43,7 +43,7 @@ Route::get('search', [HomeController::class, 'searchResultsPage'])->name('search
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/category/{tagId}', [HomeController::class, 'categorySearch'])->name('categorySearch');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin', function () {
         return view('admin-pages.index');
     })->middleware('isAdmin')->name('dashboard');
@@ -67,7 +67,7 @@ Route::controller(LoginController::class)->group(function(){
 
 });
 
-Route::middleware(['auth', 'isAdmin'])->group(function() {
+Route::middleware(['auth:admin', 'isAdmin'])->group(function() {
     Route::controller(AdminController::class)->group(function() {
         Route::get('admin/post/new', 'newPost')->name('newPost');
         Route::post('admin/upload-post', 'uploadPost')->name('uploadPost');
@@ -92,39 +92,39 @@ Route::get('admin/unauthorized', [AdminController::class, 'unauthorizedPage'])->
 
 
 Route::controller(ReviewerController::class)->group(function(){
-    Route::get('admin/reviewer', 'reviewerPage')->middleware('auth', 'isAdmin')->name('reviewer');
-    Route::post('admin/add-reviewer', 'addReviewer')->middleware('auth', 'isAdmin')->name('addReviewer');
-    Route::post('admin/edit-reviewer', 'editReviewer')->middleware('auth', 'isAdmin')->name('editReviewer');
-    Route::delete('admin/reviewer/destroy/{id}', 'deleteReviewer')->middleware('auth')->name('deleteReviewer');
+    Route::get('admin/reviewer', 'reviewerPage')->middleware('auth:admin', 'isAdmin')->name('reviewer');
+    Route::post('admin/add-reviewer', 'addReviewer')->middleware('auth:admin', 'isAdmin')->name('addReviewer');
+    Route::post('admin/edit-reviewer', 'editReviewer')->middleware('auth:admin', 'isAdmin')->name('editReviewer');
+    Route::delete('admin/reviewer/destroy/{id}', 'deleteReviewer')->middleware('auth:admin')->name('deleteReviewer');
 });
 
 Route::controller(TagController::class)->group(function(){
-    Route::get('admin/tags', 'tagsPage')->middleware('auth', 'isAdmin')->name('tags');
-    Route::post('admin/add-tag', 'addTag')->middleware('auth', 'isAdmin')->name('addTag');
-    Route::post('admin/edit-tag', 'editTag')->middleware('auth', 'isAdmin')->name('editTag');
-    Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth')->name('deleteTag');
+    Route::get('admin/tags', 'tagsPage')->middleware('auth:admin', 'isAdmin')->name('tags');
+    Route::post('admin/add-tag', 'addTag')->middleware('auth:admin', 'isAdmin')->name('addTag');
+    Route::post('admin/edit-tag', 'editTag')->middleware('auth:admin', 'isAdmin')->name('editTag');
+    Route::delete('admin/tag/destroy/{id}', 'deleteTag')->middleware('auth:admin')->name('deleteTag');
 });
 
 Route::controller(MessagesController::class)->group(function(){
-    Route::get('admin/messages', 'messagesPage')->middleware('auth', 'isAdmin')->name('messages');
-    Route::delete('admin/message/destroy/{id}', 'deleteMessage')->middleware('auth')->name('deleteMessage');
+    Route::get('admin/messages', 'messagesPage')->middleware('auth:admin', 'isAdmin')->name('messages');
+    Route::delete('admin/message/destroy/{id}', 'deleteMessage')->middleware('auth:admin')->name('deleteMessage');
 });
 
 
 
 Route::controller(DesignationController::class)->group(function(){
-    Route::get('management/designation', 'designation')->middleware('auth', 'isManagement')->name('designation');
-    Route::post('management/add-designation', 'newDesignation')->middleware('auth', 'isManagement')->name('addDesignation');
-    Route::post('management/edit-designation', 'editDesignation')->middleware('auth', 'isManagement')->name('editDesignation');
-    Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth', 'isManagement')->name('deleteDesignation');
+    Route::get('management/designation', 'designation')->middleware('auth:admin', 'isManagement')->name('designation');
+    Route::post('management/add-designation', 'newDesignation')->middleware('auth:admin', 'isManagement')->name('addDesignation');
+    Route::post('management/edit-designation', 'editDesignation')->middleware('auth:admin', 'isManagement')->name('editDesignation');
+    Route::delete('management/designation/destroy/{id}', 'deleteDesignation')->middleware('auth:admin', 'isManagement')->name('deleteDesignation');
 });
 
 Route::controller(UserManagementController::class)->group(function(){
-    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth', 'isManagement')->name('client-users');    
-    Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth', 'isManagement')->name('admin-users');
-    Route::get('admin/all-users', 'allUsersPage')->middleware('auth', 'isManagement')->name('all-users');
-    Route::post('admin/new-client-user', 'newClientUser')->middleware('auth', 'isManagement')->name('new-client-user');
-    Route::post('admin/new-admin-user', 'newAdminUser')->middleware('auth', 'isManagement')->name('new-admin-user');
-    Route::delete('admin/client-users/destroy/{id}', 'deleteClientUser')->middleware('auth')->name('deleteClientUser');
-    Route::delete('admin/admin-users/destroy/{id}', 'deleteAdminUser')->middleware('auth')->name('deleteAdminUser');
+    Route::get('admin/client-users', 'clientUsersPage')->middleware('auth:admin', 'isManagement')->name('client-users');    
+    Route::get('admin/admin-users', 'adminUsersPage')->middleware('auth:admin', 'isManagement')->name('admin-users');
+    Route::get('admin/all-users', 'allUsersPage')->middleware('auth:admin', 'isManagement')->name('all-users');
+    Route::post('admin/new-client-user', 'newClientUser')->middleware('auth:admin', 'isManagement')->name('new-client-user');
+    Route::post('admin/new-admin-user', 'newAdminUser')->middleware('auauth:adminh', 'isManagement')->name('new-admin-user');
+    Route::delete('admin/client-users/destroy/{id}', 'deleteClientUser')->middleware('auth:admin')->name('deleteClientUser');
+    Route::delete('admin/admin-users/destroy/{id}', 'deleteAdminUser')->middleware('auth:admin')->name('deleteAdminUser');
 });
