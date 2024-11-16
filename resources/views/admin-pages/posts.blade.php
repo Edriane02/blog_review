@@ -55,8 +55,7 @@
                                                                 </td>
                                                                 <td class="align-middle">
                                                                     @php
-                                                                        $reviewer = $post->reviewer; // This is an integer (reviewer ID)
-                                                                        // Fetch the actual reviewer object
+                                                                        $reviewer = $post->reviewer;
                                                                         $actualReviewer = \App\Models\Reviewer::find($reviewer);
                                                                     @endphp
                                                                     {{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}

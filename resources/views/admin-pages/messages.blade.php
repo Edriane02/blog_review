@@ -124,7 +124,7 @@
                                             <h6 class="font-weight-bold">Email:</h6>
                                             <p class="text-muted d-inline">
                                                 {{ e($message->email) }}
-                                                <button style="padding: 0.19rem 0.3rem; font-size: 0.62rem;" class="btn btn-secondary btn-sm" onclick="copyEmail('{{ e($message->email) }}', this)"><i class="bi bi-copy"></i> Copy</button>
+                                                <button style="padding: 0.19rem 0.3rem; font-size: 0.62rem;" class="btn btn-secondary btn-sm" onclick="copyEmail('{{ e($message->email) }}', this)"><i class="bi bi-copy"></i> Copy email</button>
                                             </p>
                                         </div>
 
@@ -157,16 +157,16 @@
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable({
-            "order": [[0, "desc"]] // Sort by the first column (Date) in descending order
+            "order": [[0, "desc"]]
         });
     });
 
     // Copy email address
     function copyEmail(email, button) {
         navigator.clipboard.writeText(email).then(function() {
-            button.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+            button.innerHTML = '<i class="bi bi-check-lg"></i> Email copied!';
             setTimeout(() => {
-                button.innerHTML = '<i class="bi bi-copy"></i> Copy';
+                button.innerHTML = '<i class="bi bi-copy"></i> Copy email';
             }, 2000);
         }, function(err) {
             console.error('Could not copy email: ', err);

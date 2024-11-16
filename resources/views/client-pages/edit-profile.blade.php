@@ -12,20 +12,34 @@
                             <div class="heading_s1 text-center">
                                 <h3 class="mb-30 font-weight-900">Edit Profile</h3>
                             </div>
-                            <form method="post">
+                            <form method="POST" action="{{ route('clientUpdateProfile') }}">
+                                @csrf
                                 <div class="form-group">
-                                    <label><strong>Name</strong></label>
-                                    <input type="text" required="" class="form-control" value="Simon Jenkins" name="display_name" placeholder="Name">
+                                    <label for="first_name"><strong>First Name <span class="text-danger">*</span></strong></label>
+                                    <input type="text" id="first_name" class="form-control" value="{{ old('fname', $clientProfile->fname) }}" name="fname" placeholder="First Name *" required>
                                 </div>
                                 <div class="form-group">
-                                    <label><strong>Email</strong></label>
-                                    <input type="email" required="" value="simonjenkins@example.com" class="form-control" name="email" placeholder="Email">
+                                    <label for="middle_name"><strong>Middle Name</strong></label>
+                                    <input type="text" id="middle_name" class="form-control" value="{{ old('mname', $clientProfile->mname) }}" name="mname" placeholder="Middle Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name"><strong>Last Name <span class="text-danger">*</span></strong></label>
+                                    <input type="text" id="last_name" class="form-control" value="{{ old('lname', $clientProfile->lname) }}" name="lname" placeholder="Last Name *" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="suffix"><strong>Suffix</strong></label>
+                                    <input type="text" id="suffix" class="form-control" value="{{ old('suffix', $clientProfile->suffix) }}" name="suffix" placeholder="Suffix">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><strong>Email <span class="text-danger">*</span></strong></label>
+                                    <input type="email" id="email" class="form-control" value="{{ old('email', Auth::user()->email) }}" name="email" placeholder="Email *" required>
                                 </div>
 
                                 <div class="form-group">
                                     <button type="submit" class="button button-contactForm btn-block mb-4" id="registerButton">Save Changes</button>
                                 </div>
                             </form>
+
                             <div class="text-muted text-center mb-3">Want to change your password? <a style="color: #5869da!important;" href="{{ route('clientChangePassword') }}">Click here</a>.</div>
                             <div class="text-muted text-center"><a style="color: #5869da!important;" href="{{ route('clientProfile') }}">← Go back</a></div>
                         </div>

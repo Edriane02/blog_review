@@ -9,18 +9,18 @@
                 <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
-                     <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="page-title">
-                                <h1 class="page-title-custom">Designation Roles</h1>
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <div class="page-title">
+                                    <h1 class="page-title-custom">Designation Roles</h1>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="float-end d-sm-block">
+                                    <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".addDesignationModal">Add New Role</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="float-end d-sm-block">
-                                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".addDesignationModal">Add New Role</button>
-                            </div>
-                        </div>
-                     </div>
                     </div>
                 </div>
                 <!-- Page title end -->

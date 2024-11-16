@@ -168,7 +168,7 @@
                                             </form>
                                 </div>
                         </div>
-                    </div>
+                    </div> <!-- TO CHECK!!! -->
                 </div> <!-- /.container-fluid -->
             </div> <!-- /.page-content -->
 @endsection

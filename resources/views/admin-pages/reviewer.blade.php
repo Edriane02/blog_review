@@ -114,6 +114,7 @@
                             <div class="modal-body">
                                 <!-- Required field indicator -->
                                 <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
+
                                 <!-- Form start -->
                                 <p><strong>Upload Reviewer's Photo</strong></p>
                                 <div class="upload-container mb-3" id="uploadContainer">

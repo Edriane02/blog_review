@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClientUserController;
 use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserManagementController;
@@ -32,11 +33,17 @@ Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs'
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('maintenance', [HomeController::class, 'maintenancePage'])->name('maintenancePage');
-Route::get('profile', [HomeController::class, 'clientProfile'])->name('clientProfile');
-Route::get('edit-profile', [HomeController::class, 'clientEditProfile'])->name('clientEditProfile');
-Route::get('change-password', [HomeController::class, 'clientChangePassword'])->name('clientChangePassword');
 Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
 Route::get('/reviewer/{id}/reviews', [HomeController::class, 'reviewerReviews'])->name('reviewerReviews');
+
+Route::middleware(['middleware' => 'auth:client'])->group(function () {
+    Route::get('/profile', [ClientUserController::class, 'clientProfile'])->name('clientProfile');
+    Route::get('/edit-profile', [ClientUserController::class, 'clientEditProfile'])->name('clientEditProfile');
+    Route::post('/update-profile', [ClientUserController::class, 'clientUpdateProfile'])->name('clientUpdateProfile');
+    Route::get('/change-password', [ClientUserController::class, 'clientChangePassword'])->name('clientChangePassword');
+    Route::post('/update-password', [ClientUserController::class, 'clientChangePwdAction'])->name('clientChangePwdAction');
+});
+
 
 Route::get('category', [HomeController::class, 'categoryResultsPage'])->name('categoryResultsPage');
 Route::get('search', [HomeController::class, 'searchResultsPage'])->name('searchResultsPage');

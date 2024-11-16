@@ -54,7 +54,7 @@ class LoginController extends Controller
                 return back()->with('error', 'Profile not found for this user.');
             }
 
-            return redirect()->route('home');
+            return redirect()->route('clientProfile');
         }else{
             return back()->with('error', 'Wrong Email or Password.');
         }
