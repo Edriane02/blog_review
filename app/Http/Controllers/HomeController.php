@@ -90,30 +90,6 @@ class HomeController extends Controller
         return view('client-pages.maintenance', compact('tags'));
     }
 
-    public function clientProfile()
-    {
-        // For search: tag suggestion
-        $tags = Tags::all();
-
-        return view('client-pages.profile', compact('tags'));
-    }
-
-    public function clientEditProfile()
-    {
-        // For search: tag suggestion
-        $tags = Tags::all();
-
-        return view('client-pages.edit-profile', compact('tags'));
-    }
-
-    public function clientChangePassword()
-    {
-        // For search: tag suggestion
-        $tags = Tags::all();
-
-        return view('client-pages.change-password', compact('tags'));
-    }
-
     public function latestReviewsPage()
     {
         // For search: tag suggestion

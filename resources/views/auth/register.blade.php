@@ -17,25 +17,25 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                                    <input type="text" class="form-control" name="fname" placeholder="First Name *" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="mname" placeholder="Middle Name" required>
+                                    <input type="text" class="form-control" name="mname" placeholder="Middle Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                                    <input type="text" class="form-control" name="lname" placeholder="Last Name *" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="suffix" placeholder="Suffix">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                    <input type="text" class="form-control" name="email" placeholder="Email *" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                    <input class="form-control" type="password" name="password" placeholder="Password *" required>
                                 </div>
                                 <div class="form-group">
-                                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password" required>
+                                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm password *" required>
                                 </div>
                                 <div class="login_footer form-group">
                                     <div class="chek-form">

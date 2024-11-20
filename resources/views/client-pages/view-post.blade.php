@@ -115,7 +115,6 @@
                     </div>
                 @endforeach
             </div>
-
         </article>
     </div>
 </main>

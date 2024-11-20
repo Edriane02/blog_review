@@ -17,8 +17,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end d-sm-block">
-                        <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
-                            data-bs-target=".addTagModal">Add New Tag</button>
+                        <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".addTagModal">Add New Tag</button>
                     </div>
                 </div>
             </div>
@@ -33,9 +32,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-
-                                <table id="datatable" class="table table-bordered dt-responsive nowrap"
-                                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -95,8 +92,7 @@
             </div>
 
             <!-- Add new tag modal -->
-            <div class="modal fade addTagModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
-                aria-labelledby="addTagModalLabel" aria-hidden="true">
+            <div class="modal fade addTagModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="addTagModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -113,13 +109,11 @@
 
                                 <div class="mb-3">
                                     <label for="dname">Tag Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" name="tag" type="text" placeholder="Enter tag name..."
-                                        id="dname" required>
+                                    <input class="form-control" name="tag" type="text" placeholder="Enter tag name..." id="dname" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary waves-effect"
-                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Add Tag</button>
                             </div>
                         </form>
@@ -131,8 +125,7 @@
 
             @foreach ($tags as $tag)
                 <!-- Edit tag modal start -->
-                <div class="modal fade" data-bs-backdrop="static" id="editTagModal-{{ $tag->id }}" tabindex="-1"
-                    role="dialog" aria-labelledby="editTagModalLabel-{{ $tag->id }}" aria-hidden="true">
+                <div class="modal fade" data-bs-backdrop="static" id="editTagModal-{{ $tag->id }}" tabindex="-1" role="dialog" aria-labelledby="editTagModalLabel-{{ $tag->id }}" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -151,15 +144,13 @@
                                     <div class="mb-3">
                                         <label for="dname">Tag Name <span class="text-danger">*</span>
                                         </label>
-                                        <input class="form-control" name="tag" type="text" value="{{ $tag->tag }}"
-                                            id="dname" required>
+                                        <input class="form-control" name="tag" type="text" value="{{ $tag->tag }}" id="dname" required>
                                     </div>
                                 </div>
+
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary waves-effect"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
-                                        changes</button>
+                                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
                                 </div>
                             </form>
                             <!-- Form end -->

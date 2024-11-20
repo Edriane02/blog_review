@@ -37,7 +37,8 @@
                                         <div class="card-body">
                                             <!-- Required field indicator -->
                                             <p style="font-size: 12px;" class="mb-3"><span class="text-danger">*</span> Indicates required field.</p>
-                                            <h4 class="card-title font-size-16 mt-0"></h4>
+
+                                                    <h4 class="card-title font-size-16 mt-0"></h4>
                                                     <span class="badge bg-primary mb-2">STEP 1</span>
                                                     <h4>Upload a Post Banner <span class="text-danger">*</span></h4>
                                                     <p class="text-muted">containing the Book Mockup</p>
@@ -151,14 +152,12 @@
                                                     <div>
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light mb-3">Publish</button>
                                                     </div>           
-                                                </div>
-                                            </form>
-                                            <!-- Form end -->
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
+                                        </div> <!-- /.card-body -->
+                                </form> <!-- Form end -->
+                            </div> <!-- /.col-xl-10 -->
+                        </div> <!-- /.row justify-content-center -->
+                    </div> <!-- /.page-content-wrapper -->
                 </div> <!-- /.container-fluid -->
-            </div>
+</div> <!-- /.page-content -->
 
 @endsection

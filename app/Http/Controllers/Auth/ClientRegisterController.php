@@ -49,7 +49,7 @@ class ClientRegisterController extends Controller
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'Client registered successfully!');
+            return redirect()->route('login')->with('success', 'You have successfully registered!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());

@@ -14,10 +14,12 @@
                             </div>
                             <div class="text-center">
                                 <img src="{{ ('guestAssets/imgs/static/profile-ui.svg') }}" width="300">
-                                <h4 class="font-weight-900">Hello, Simon Jenkins!</h4>
-                                <p class="text-muted">simonjenkins@gmail.com</p>
+                                <h4 class="font-weight-900">Hello, {{ $clientProfile->fname }} {{ $clientProfile->lname }}!</h4>
+                                <p class="text-muted">{{ Auth::user()->email }}</p>
                             </div>
                             <div class="text-muted text-center">Want to edit your profile? <a style="color: #5869da!important;" href="{{ route('clientEditProfile') }}">Click here</a>.</div>
+                            <br />
+                            <center><a class="btn btn-sm btn-danger" href="{{ route('logout') }}">Logout</a></center>
                         </div>
                     </div>
                 </div>
