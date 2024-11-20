@@ -32,7 +32,8 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control" name="full_name" value="{{ old('full_name') }}" id="full_name" type="text" placeholder="Name *" required>
+                                <label for="full_name"><strong>Full Name <span class="text-danger">*</span></strong></label>
+                                <input class="form-control" name="full_name" value="{{ old('full_name') }}" id="full_name" type="text" placeholder="" required>
                                 @error('full_name')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror
@@ -40,7 +41,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="Email *" required>
+                                <label for="email"><strong>Email <span class="text-danger">*</span></strong></label>
+                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="" required>
                                 @error('email')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror
@@ -48,7 +50,8 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="phone_number" value="{{ old('phone_number') }}" id="phone_number" type="number" placeholder="Phone *" required>
+                                <label for="phone_number"><strong>Phone number <span class="text-danger">*</span></strong></label>
+                                <input class="form-control" name="phone_number" value="{{ old('phone_number') }}" id="phone_number" type="number" placeholder="" required>
                                 @error('phone_number')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror
@@ -56,7 +59,8 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="11" placeholder="Message *" required>{{ old('message') }}</textarea>
+                                <label for="message"><strong>Message <span class="text-danger">*</span></strong></label>
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="11" placeholder="" required>{{ old('message') }}</textarea>
                                 <small id="messageHelp" class="form-text text-muted">Maximum of 1000 characters.</small>
                                 @error('message')
                                     <p style="color: red;">{{ $message }}</p>

@@ -19,7 +19,6 @@
                             </div>
                             <div class="text-muted text-center">Want to edit your profile? <a style="color: #5869da!important;" href="{{ route('clientEditProfile') }}">Click here</a>.</div>
                             <br />
-                            <center><a class="btn btn-sm btn-danger" href="{{ route('logout') }}">Logout</a></center>
                         </div>
                     </div>
                 </div>

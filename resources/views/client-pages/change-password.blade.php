@@ -22,11 +22,9 @@
                                 <div class="form-group">
                                     <label for="new_password"><strong>Create a New Password</strong></label>
                                     <div class="input-group">
-                                                        <input class="form-control" type="password" name="new_password" placeholder="New password" id="new_password" minlength="8" required>
-                                                            <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">
-                                                            <i id="togglePasswordIcon" class="bi bi-eye-slash"></i>
-                                                        </button>
-                                                        </div>
+                                        <input class="form-control" type="password" name="new_password" placeholder="New password" id="new_password" minlength="8" required>
+                                        <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()"><i id="togglePasswordIcon" class="bi bi-eye-slash"></i></button>
+                                    </div>
                                     <small class="text-muted">Password should be a minimum of 8 characters.</small>
                                 </div>
 
@@ -49,21 +47,21 @@
 </main>
 
 <script>
-                // Toggle new password visibility
-                function togglePasswordVisibility() {
-                    const passwordInput = document.getElementById("new_password");
-                    const toggleIcon = document.getElementById("togglePasswordIcon");
+    // Toggle new password visibility
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("new_password");
+        const toggleIcon = document.getElementById("togglePasswordIcon");
 
-                    if (passwordInput.type === "password") {
-                        passwordInput.type = "text";
-                        toggleIcon.classList.remove("bi-eye-slash");
-                        toggleIcon.classList.add("bi-eye");
-                    } else {
-                        passwordInput.type = "password";
-                        toggleIcon.classList.remove("bi-eye");
-                        toggleIcon.classList.add("bi-eye-slash");
-                    }
-                }
-            </script>
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("bi-eye-slash");
+            toggleIcon.classList.add("bi-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("bi-eye");
+            toggleIcon.classList.add("bi-eye-slash");
+        }
+    }
+</script>
 
 @endsection
