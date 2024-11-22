@@ -93,7 +93,7 @@ class ClientUserController extends Controller
             'new_password' => 'required|string|min:8|confirmed',
         ]);
 
-        $clientUser = auth()->user(); // Get the currently authenticated admin
+        $clientUser = auth()->user(); // Get the currently authenticated user
 
         // Check if the provided current password matches the one in the database
         if (!Hash::check($request->current_password, $clientUser->password)) {

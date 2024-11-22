@@ -258,7 +258,7 @@ public function changePassword(Request $request)
         'new_password' => 'required|string|min:8|confirmed',
     ]);
 
-    $adminUser = auth()->user(); // Get the currently authenticated admin
+    $adminUser = auth()->user(); // Get the currently authenticated user
 
     // Check if the provided current password matches the one in the database
     if (!Hash::check($request->current_password, $adminUser->password)) {
@@ -268,7 +268,6 @@ public function changePassword(Request $request)
     DB::beginTransaction();
 
     try {
-        // Update with the new password
         $adminUser->password = Hash::make($request->new_password);
         $adminUser->save();
 

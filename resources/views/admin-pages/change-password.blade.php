@@ -30,8 +30,6 @@
                                                 <h3 class="text-center">Change Password</h3>
                                                 <p class="text-muted text-center"><i class="bi bi-person-circle"></i>&nbsp;{{ auth()->user()->email }}</p>
                                                 <br /><br />
-
-                                                <!-- Form start -->
                                                 <form method="POST" action="{{ route('changePassword') }}">
                                                     @csrf
                                                     <div class="mb-3">
@@ -59,9 +57,7 @@
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
                                                         <a href="{{ route('profilePage') }}" class="btn btn-secondary">Go back</a>
                                                     </div>
-
                                                 </form>
-                                                <!-- Form end -->
                                         </div>
                                     </div>
                                 </div>
