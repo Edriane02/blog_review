@@ -82,20 +82,55 @@
                             
                         </ul>
                         <ul class="main-menu d-none d-lg-inline font-small float-right">
-                            <li> 
-                                <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('login') }}">
-                                    <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
-                                    Log in to Your Account <i class="bi bi-box-arrow-in-right ml-1"></i>
-                                </a> 
-                            </li>
+                            @auth('client')
+                                <!-- If the user is logged in -->
+                                <li class="menu-item-has-children">
+                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('clientProfile') }}">
+                                        <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
+                                        {{ session('client_fname') . ' ' . session('client_lname') }}
+                                    </a>
+                                    <ul class="sub-menu font-small">
+                                        <li><a class="text-danger" href="{{ route('logout') }}"><i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;Log out</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <!-- If the user is not logged in -->
+                                <li>
+                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('login') }}">
+                                        <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
+                                        Log in to Your Account <i class="bi bi-box-arrow-in-right ml-1"></i>
+                                    </a>
+                                </li>
+                            @endauth
                         </ul>
+
                         <!-- Mobile menu -->
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
                             <li> <a href="{{ route('home') }}">Home</a> </li>
                             <li> <a href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
                             <li> <a href="{{ route('contactUs') }}">Contact Us</a> </li>
                             <li> <a href="{{ route('aboutUs') }}">About Us</a> </li>
-                            <li> <a href="{{ route('login') }}">Log in to Your Account <i class="bi bi-box-arrow-in-right"></i></a> </li>
+
+                            @auth('client')
+                                <!-- If the user is logged in -->
+                                <li class="menu-item-has-children">
+                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('clientProfile') }}">
+                                        <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
+                                        {{ session('client_fname') . ' ' . session('client_lname') }}
+                                    </a>
+                                    <ul class="sub-menu font-small">
+                                        <li><a class="text-danger" href="{{ route('logout') }}"><i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;Log out</a></li>
+                                    </ul>
+                                </li>
+                            @else
+                                <!-- If the user is not logged in -->
+                                <li>
+                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('login') }}">
+                                        <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
+                                        Log in to Your Account <i class="bi bi-box-arrow-in-right ml-1"></i>
+                                    </a>
+                                </li>
+                            @endauth
                         </ul>
                     </nav>
                 </div>
