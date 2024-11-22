@@ -166,10 +166,14 @@ class UserManagementController extends Controller
         try {
             $admin = AdminUserProfile::findOrFail($id);
 
-            $admin->adminUser()->delete();
-            // Delete the photo from storage if it exists
+            if ($admin->designationType->designation == 'management') {
+                return redirect()->back()->with('error', 'Management users cannot be deleted.');
+            }else{
+                $admin->adminUser()->delete();
+                // Delete the photo from storage if it exists
 
-            $admin->delete();
+                $admin->delete();
+            }
             DB::commit();
 
             return redirect()->route('admin-users')->with('success', 'Admin deleted successfully.');
