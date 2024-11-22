@@ -63,7 +63,7 @@
                                                                 @method('DELETE')
                                                                 <button type="button" class="btn btn-sm btn-danger"
                                                                     onclick="confirmDelete({{ $admins->id }})"
-                                                                    @if($user['role'] === 'management') disabled @endif>
+                                                                    @if($admins->designationType->designation == 'management') disabled @endif>
                                                                     <i class="bi bi-trash"></i>
                                                                 </button>
                                                             </form>
