@@ -162,15 +162,13 @@
                             </a>
                         </li>
 
-                        {{-- @if(auth()->user() && auth()->user()->role == 'admin') --}}
                             <li>
                                 <a href="{{ route('messages') }}" class="waves-effect">
                                     <i class="dripicons-message"></i>
                                     <span>Messages</span>
                                 </a>
                             </li>
-                        {{-- @endif --}}
-
+                        @if(auth()->user()->adminUserProfile->designationType->designation == 'management')
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="dripicons-toggles"></i>
@@ -190,7 +188,7 @@
                                 <li><a href="{{ route('designation')}}">Roles</a></li>
                             </ul>
                         </li>
-
+                        @endif
                     </ul>
                 </div>
                 <!-- Sidebar -->

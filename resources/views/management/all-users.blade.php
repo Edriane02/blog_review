@@ -4,6 +4,7 @@
 @section('contents')
 
 <div class="page-content">
+    @include('partials.sweetalert')
                 <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
@@ -27,49 +28,62 @@
                                         <div class="card-body">
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
-                                                <tr>
-                                                    <th>Name & Email</th>
-                                                    <th>Role</th>
-                                                    <th>Action</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name & Email</th>
+                                                        <th>Role</th>
+                                                        <th>Type</th>
+                                                        <th>Action</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                <!-- Sample data -->
-                                                <tr>
-                                                    <td>
-                                                        <strong>James Raphael</strong><br />
-                                                        <span class="admin-user-email text-muted">jamesraphael@example.com</span>
-                                                    <td><strong>Administrator</strong></td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <!-- Condition here: Shouldn't delete the primary admin -->
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this user?')) { /* Add delete action here */ }" disabled><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <strong>Faustine Sinclair</strong><br />
-                                                        <span class="admin-user-email text-muted">faustinesinclair@example.com</span>
-                                                    <td><strong>Poster</strong></td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this user?')) { /* Add delete action here */ }"><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                    @if($users->count() > 0)
+                                                        @foreach($users as $user)
+                                                            <tr>
+                                                                <td>{{ $user['user_id'] }}</td>
+                                                                <td>
+                                                                    <strong>{{ $user['name'] }}</strong><br />
+                                                                    <span class="text-muted">{{ $user['email'] }}</span>
+                                                                </td>
+                                                                <td><strong>{{ $user['role'] }}</strong></td>
+                                                                <td><strong>{{ $user['type'] }}</strong></td>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                    @if($user['id'])
+                                                                        <form id="delete-form-{{ $user['id'] }}" action="{{ route('deleteUser', $user['id']) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $user['id'] }})"
+                                                                            @if($user['role'] === 'management') disabled @endif>
+                                                                                <i class="bi bi-trash"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    @else
+                                                                        <p class="text-danger">User ID not available for this user.</p>
+                                                                    @endif
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                        <tr>
+                                                            <td colspan="5" class="text-center">
+                                                                <div class="alert alert-info" role="alert">
+                                                                    No users found.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 </tbody>
                                             </table>
-
                                         </div>
                                     </div>
-                                </div> <!-- /.col-12 -->
-                            </div> <!-- /.row -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div> <!-- /.container-fluid -->
             </div>
 
+    @include('partials.swal-confirm-delete')
 @endsection

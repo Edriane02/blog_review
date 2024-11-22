@@ -11,8 +11,12 @@
             cancelButtonText: 'Cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Submit the form
-                document.getElementById('delete-form-' + itemId).submit();
+                const form = document.getElementById('delete-form-' + itemId);
+                if (form) {
+                    form.submit();
+                } else {
+                    console.error('Form not found for item ID:', itemId);
+                }
             }
         });
     }
