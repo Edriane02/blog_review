@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login | Professional Book Review CMS</title>
+    <title>Login | Literary Critical Guild Reviews CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
-    <meta name="author" content="Professional Book Review" />
+    <meta name="author" content="Literary Critical Guild Reviews" />
 
-    <meta property="og:title" content="Professional Book Review"/>
+    <meta property="og:title" content="Literary Critical Guild Reviews"/>
     <meta property="og:type" content="website"/>
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Professional Book Review Service"/>
-    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:site_name" content="Literary Critical Guild Reviews"/>
+    <meta property="og:description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
     <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
 
     <!-- App favicon -->
@@ -45,7 +45,7 @@
                                         <a href="index.html">
                                             <img src="{{ asset('adminAssets/images/logo-dark.png') }}" height="40" alt="logo">
                                         </a>
-                                        <h5 class="text-primary mb-2 mt-4">Welcome to Professional Book Review CMS!</h5>
+                                        <h5 class="text-primary mb-2 mt-4">Welcome to Literary Critical Guild Reviews CMS!</h5>
                                         <p class="text-muted">Sign in to continue</p>
                                     </div>
 
@@ -84,7 +84,7 @@
 
                         <div class="mt-5 text-center text-white">
                             <!-- <p>Don't have an account?<a href="#" class="fw-bold text-white"> Register</a> </p> -->
-                            <p>© <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS</p>
+                            <p>© <script>document.write(new Date().getFullYear())</script> Literary Critical Guild Reviews CMS</p>
                         </div>
                     </div>
                 </div>

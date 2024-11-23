@@ -17,7 +17,7 @@
         </div>
         <div class="container single-content">
             <div class="entry-wraper mt-50">
-                <p class="font-large">We are <strong>Stories Inc.</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
+                <p class="font-large">We are <strong>Literary Critical Guild Reviews</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
                 <br />
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
