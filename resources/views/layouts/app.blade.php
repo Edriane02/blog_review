@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
 
     <meta name="description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critical guild reviews" />
     <meta name="author" content="Literary Critical Guild Reviews" />
 
     <meta property="og:title" content="Literary Critical Guild Reviews" />
@@ -198,12 +198,12 @@
     <div class="dark-mark"></div>
 
     <!-- Custom JS -->
-    <script>
+    <!-- <script>
         document.getElementById('agreeCheckbox').addEventListener('change', function () {
             var button = document.getElementById('registerButton');
             button.disabled = !this.checked;
         });
-    </script>
+    </script> -->
 
     <!-- Vendor JS -->
     <script src="{{ asset('guestAssets/js/vendor/modernizr-3.6.0.min.js') }}"></script>

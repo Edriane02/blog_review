@@ -6,7 +6,7 @@
     <title>Login | Literary Critical Guild Reviews CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critical guild reviews" />
     <meta name="author" content="Literary Critical Guild Reviews" />
 
     <meta property="og:title" content="Literary Critical Guild Reviews"/>
@@ -14,7 +14,7 @@
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
     <meta property="og:site_name" content="Literary Critical Guild Reviews"/>
     <meta property="og:description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
-    <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
+    <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
