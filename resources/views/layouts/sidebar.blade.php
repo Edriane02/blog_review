@@ -207,7 +207,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         ©
-                        <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS
+                        <script>document.write(new Date().getFullYear())</script> Literary Critical Guild Reviews
                     </div>
                 </div>
             </div>

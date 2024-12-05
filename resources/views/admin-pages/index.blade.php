@@ -11,9 +11,9 @@
     <div class="page-title-box">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-sm-6">
+                <div class="">
                     <div class="page-title">
-                        <h2 class="page-title-custom">Professional Book Review | Content Management System</h2>
+                        <h2 class="page-title-custom">Literary Critical Guild Reviews | Content Management System</h2>
                         <p class="page-title-custom">Dashboard</p>
                     </div>
                 </div>
