@@ -42,7 +42,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="email"><strong>Email <span class="text-danger">*</span></strong></label>
-                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="" required>
+                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="" autocomplete="on" required>
                                 @error('email')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror

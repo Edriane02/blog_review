@@ -17,7 +17,7 @@
                             <form method="POST" action="{{ route('loginAction')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="email" placeholder="Your Email" required>
+                                    <input type="text" class="form-control" name="email" placeholder="Your Email" autocomplete="on" required>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" type="password" name="password" placeholder="Password" required>

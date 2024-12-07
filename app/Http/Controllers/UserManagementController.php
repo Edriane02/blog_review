@@ -132,8 +132,7 @@ class UserManagementController extends Controller
 
             DB::commit();
 
-
-            return redirect()->back();
+            return redirect()->route('admin-users')->with('success', 'User added successfully.');
     }
 
 

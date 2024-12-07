@@ -251,6 +251,11 @@ public function changePasswordPage(){
     return view('admin-pages.change-password');
 }
 
+public function maintenancePage(){
+    
+    return view('admin-pages.maintenance');
+}
+
 public function changePassword(Request $request)
 {
     $request->validate([

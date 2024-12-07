@@ -87,6 +87,8 @@ Route::middleware(['auth:admin', 'isAdmin'])->group(function() {
         Route::get('admin/change-password', 'changePasswordPage')->name('changePasswordPage');
         Route::post('admin/change-password', 'changePassword')->name('changePassword');
 
+        Route::get('admin/maintenance', 'maintenancePage')->name('maintenancePage');
+
     });
 
     Route::controller(PostsController::class)->group(function() {
