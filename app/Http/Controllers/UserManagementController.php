@@ -18,8 +18,32 @@ class UserManagementController extends Controller
 {
     public function allUsersPage()
     {
+        // Fetch admin and client users
+        $admins = AdminUserProfile::all();
+        $clients = ClientUserProfile::all();
 
-        return view('management.all-users');
+        // Combine admins and clients into a single collection
+        $users = $admins->map(function ($admin) {
+            return [
+                'id' => $admin->id,
+                'user_id' => $admin->user_id,
+                'name' => $admin->fullName(),
+                'email' => $admin->adminUser->email,
+                'role' => $admin->designationType->designation,
+                'type' => 'Admin', // Identify user type
+            ];
+        })->merge($clients->map(function ($client) {
+            return [
+                'id' => $client->id,
+                'user_id' => $client->user_id,
+                'name' => $client->fullName(),
+                'email' => $client->clientUser->email,
+                'role' => 'client',
+                'type' => 'Client', // Identify user type
+            ];
+        }));
+
+        return view('management.all-users', compact('users'));
     }
 
     public function clientUsersPage()
@@ -142,10 +166,14 @@ class UserManagementController extends Controller
         try {
             $admin = AdminUserProfile::findOrFail($id);
 
-            $admin->adminUser()->delete();
-            // Delete the photo from storage if it exists
+            if ($admin->designationType->designation == 'management') {
+                return redirect()->back()->with('error', 'Management users cannot be deleted.');
+            }else{
+                $admin->adminUser()->delete();
+                // Delete the photo from storage if it exists
 
-            $admin->delete();
+                $admin->delete();
+            }
             DB::commit();
 
             return redirect()->route('admin-users')->with('success', 'Admin deleted successfully.');
@@ -155,5 +183,34 @@ class UserManagementController extends Controller
         }
     }
 
+    public function deleteUser($id)
+        {
+            // Try to find the user in the Admin profiles first
+            $admin = AdminUserProfile::where('id', $id)->first();
+
+            if ($admin) {
+                // Delete the admin user and their related data
+                if ($admin->designationType->designation == 'management') {
+                    return redirect()->back()->with('error', 'Management users cannot be deleted.');
+                }else{
+                    $admin->adminUser()->delete(); // Delete the user in the related `users` table
+                    $admin->delete(); // Delete the admin profile
+                    return redirect()->back()->with('success', 'Admin user deleted successfully.');
+                }
+            }
+
+            // Try to find the user in the Client profiles
+            $client = ClientUserProfile::where('id', $id)->first();
+
+            if ($client) {
+                // Delete the client user and their related data
+                $client->clientUser()->delete(); // Delete the user in the related `users` table
+                $client->delete(); // Delete the client profile
+                return redirect()->back()->with('success', 'Client user deleted successfully.');
+            }
+
+            // If user is not found in either Admin or Client profiles
+            return redirect()->back()->with('error', 'User not found.');
+        }
 
 }
