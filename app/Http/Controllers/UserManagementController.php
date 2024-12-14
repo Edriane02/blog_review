@@ -12,8 +12,6 @@ use App\Models\Designation;
 use Illuminate\Support\Facades\Hash;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
-
-
 class UserManagementController extends Controller
 {
     public function allUsersPage()
@@ -31,6 +29,7 @@ class UserManagementController extends Controller
                 'email' => $admin->adminUser->email,
                 'role' => $admin->designationType->designation,
                 'type' => 'Admin', // Identify user type
+                'created_at' => $admin->created_at,
             ];
         })->merge($clients->map(function ($client) {
             return [
@@ -40,27 +39,28 @@ class UserManagementController extends Controller
                 'email' => $client->clientUser->email,
                 'role' => 'client',
                 'type' => 'Client', // Identify user type
+                'created_at' => $client->created_at,
             ];
-        }));
+        }))->sortByDesc('created_at');
 
         return view('management.all-users', compact('users'));
     }
 
     public function clientUsersPage()
     {
-        $client = ClientUserProfile::all();
-    
+        $client = ClientUserProfile::orderBy('created_at', 'desc')->get();
 
         return view('management.user-client', compact('client'));
     }
 
     public function adminUsersPage()
     {
-        $admin = AdminUserProfile::all();
+        $admin = AdminUserProfile::orderBy('created_at', 'desc')->get();
         $designation = Designation::all();
 
         return view('management.user-admin', compact('admin', 'designation'));
     }
+
 
     public function newClientUser(Request $request)
     {
@@ -94,7 +94,6 @@ class UserManagementController extends Controller
 
             DB::commit();
 
-
             return redirect()->back();
     }
 
@@ -113,7 +112,6 @@ class UserManagementController extends Controller
             }
 
             $userId = IdGenerator::generate(['table' => 'admin_users', 'field' => 'user_id', 'length' => 10, 'prefix' => '09']);
-            
 
             $user = AdminUser::create([
                 'user_id' => $userId,
@@ -134,8 +132,6 @@ class UserManagementController extends Controller
 
             return redirect()->route('admin-users')->with('success', 'User added successfully.');
     }
-
-
 
     // Delete a User (Client)
     public function deleteClientUser(string $id)

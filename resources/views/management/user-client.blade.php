@@ -10,16 +10,13 @@
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
-                        <div class="col-sm-6">
+                        <div>
                             <div class="page-title">
-                                <h1 class="page-title-custom">Client Users</h1>
+                                <h1 class="page-title-custom">Registered Users</h1>
+                                <p>This page shows a list of all users who have signed up for an account on this website.</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="float-end d-sm-block">
-                                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
-                                    data-bs-target=".newClientModal">Add New Client</button>
-                            </div>
                         </div>
                      </div>
                     </div>
@@ -36,6 +33,7 @@
                                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>ID</th>
                                                     <th>Name & Email</th>
                                                     <th>Date Joined</th>
@@ -47,13 +45,14 @@
                                             @if($client->count() > 0)
                                                 @foreach($client as $clients)
                                                 <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         {{ $clients->user_id }}
                                                     </td>
                                                     <td>
                                                         <strong>{{ $clients->fullName() }}</strong><br />
                                                         <span class="admin-user-email text-muted">{{ $clients->clientUser->email }}</span>
-                                                    <td>{{ $clients->created_at->format('j F Y') }}</td>
+                                                    <td>{!! $clients->created_at->format('M d, Y') . '<br>' . $clients->created_at->format('h:i A') !!}</td>
                                                     <td>
                                                         <div class="d-flex">
                                                             
@@ -154,6 +153,26 @@
                 </div> <!-- /.container-fluid -->
             </div>
 
-@include('partials.swal-confirm-delete')
+<script>
+    
+    // SweetAlert custom delete dialog
+    function confirmDelete(messageId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This will delete the user and all their stored information, revoke their access, and you won't be able to undo this action.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form
+                document.getElementById('delete-form-' + messageId).submit();
+            }
+        });
+    }
+</script>
 
 @endsection
