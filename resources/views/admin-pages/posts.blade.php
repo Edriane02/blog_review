@@ -4,117 +4,103 @@
 @section('contents')
 
 <div class="page-content">
+@include('partials.sweetalert')
 
-                <!-- start page title -->
+                <!-- Page title start -->
                 <div class="page-title-box">
                     <div class="container-fluid">
                      <div class="row align-items-center">
                          <div class="col-sm-6">
                              <div class="page-title">
-                                <h2 class="page-title-custom">All Posts | Content Management System</h2>
-                                <p class="page-title-custom">Dashboard</p> 
+                                <h1 class="page-title-custom">All Posts</h1>
                              </div>
                          </div>
+
+                         <div class="col-sm-6">
+                            <div class="float-end d-sm-block">
+                                <a href="{{ route('newPost') }}" type="button" class="btn btn-success waves-effect waves-light">Add New Post</a>
+                            </div>
+                        </div>
                      </div>
                     </div>
                  </div>
-                 <!-- end page title -->    
+                 <!-- Page title end -->
 
-                 <div class="container-fluid">
+                <div class="container-fluid">
                     <div class="page-content-wrapper">
                         <div class="row justify-content-center">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-            
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>Date Posted</th>
-                                                    <th>Title</th>
+                                                    <th>Book Title</th>
                                                     <th>Reviewed by</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                <tr>
-                                                    <td>Sep 6, 2024</td>
-                                                    <td><strong>The Attenuating Puritan</strong></td>
-                                                    <td>Faustine Sinclair</td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="edit-post.html" type="button" class="btn btn-primary btn-sm waves-effect waves-light"><i class="bi bi-pencil-square"></i></a>&nbsp;
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this post?')) { /* Add delete action here */ }"><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                    @if($posts->count() > 0)
+                                                        @foreach($posts as $post)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td class="align-middle">{{ $post->book->created_at->format('M d, Y') }}</td>
+                                                                <td class="align-middle">
+                                                                    <strong>{{ optional($post->book)->title ?? 'Unknown Title' }}</strong><br />
+                                                                    <span class="text-muted" style="font-size: 12px;">Authored by {{ optional($post->book)->book_author ?? 'Unknown Author' }}</span>
+                                                                </td>
+                                                                <td class="align-middle">
+                                                                    @php
+                                                                        $reviewer = $post->reviewer;
+                                                                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
+                                                                    @endphp
+                                                                    {{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}
+                                                                </td>
+                                                                <td class="align-middle">
+                                                                    <div class="d-flex">
+                                                                        <!-- Edit button -->
+                                                                        <a href="{{ route('editPost', $post->book_id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                            <i class="bi bi-pencil-square"></i>
+                                                                        </a>&nbsp;
+                                                                        <!-- Delete button -->
+                                                                        <form id="delete-form-{{ $post->id }}"
+                                                                            action="{{ route('deletePost', $post->id) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="button" class="btn btn-sm btn-danger"
+                                                                                onclick="confirmDelete({{ $post->id }})">
+                                                                                <i class="bi bi-trash"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">
+                                                                <div class="alert alert-info" role="alert">
+                                                                    No posts found.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 </tbody>
                                             </table>
             
                                         </div>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                </div> <!-- /.col-12 -->
+                            </div> <!-- /.row -->
                         </div>
-
-                        <!-- Add New Tag Modal -->
-                        <div class="modal fade addTagModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="addTagModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title mt-0" id="addTagModalLabel">Add New Tag</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <!-- Form Start -->
-                                        <form action="#" method="post">
-                                            <div class="mb-3">
-                                                <label for="dname">Tag Name</label>
-                                                <input class="form-control" type="text" placeholder="Enter tag name..." id="dname">
-                                            </div>
-                                    </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary waves-effect waves-light">Add Tag</button>
-                                            </div>
-                                        </form>
-                                        <!-- Form End -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        <!-- End of Add New Tag Modal -->
-
-                        <!-- Edit Tag Modal -->
-                        <div class="modal fade editTagModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editTagModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title mt-0" id="editTagModalLabel">Edit Tag</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!-- Form Start -->
-                                        <form action="#" method="post">           
-                                            <div class="mb-3">
-                                                <label for="dname">Tag Name</label>
-                                                <input class="form-control" type="text" value="Biography" placeholder="Enter tag name..." id="dname">
-                                            </div>
-                                    </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
-                                            </div>
-                                        </form>
-                                        <!-- Form End -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        <!-- End of Edit Tag Modal -->
                     </div>
-                </div> <!-- container-fluid -->
+                </div> <!-- /.container-fluid -->
             </div>
+
+@include('partials.swal-confirm-delete')
             
 @endsection

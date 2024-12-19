@@ -10,13 +10,24 @@ class Books extends Model
     use HasFactory;
     protected $table = 'books';
     protected $fillable = [
-        'post_id',
         'banner',
         'title',
         'subtitle',
+        'book_author',
+        'genre',
         'pages',
         'publisher',
         'amazon_link',
-        'baernes_noble_link'
+        'barnes_noble_link'
     ];
+
+    public function bookTag()
+    {
+        return $this->hasMany(BookTag::class, 'book_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class, 'book_id'); // Ensure the method name matches the relationship
+    }
 }

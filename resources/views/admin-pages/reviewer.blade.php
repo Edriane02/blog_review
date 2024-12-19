@@ -4,161 +4,217 @@
 @section('contents')
 
 <div class="page-content">
+@include('partials.sweetalert')
 
-                <!-- start page title -->
-                <div class="page-title-box">
-                    <div class="container-fluid">
-                     <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="page-title">
-                                <h1 class="page-title-custom">Reviewers</h1>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="float-end d-sm-block">
-                                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".addReviewerModal">Add New Reviewer</button>
-                            </div>
-                        </div>
-                     </div>
+    <!-- Page title start -->
+    <div class="page-title-box">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="page-title">
+                        <h1 class="page-title-custom">Reviewers</h1>
                     </div>
-                 </div>
-                 <!-- end page title -->
+                </div>
+                <div class="col-sm-6">
+                    <div class="float-end d-sm-block">
+                        <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+                            data-bs-target=".addReviewerModal">Add New Reviewer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page title end -->
 
-                <div class="container-fluid">
-                    <div class="page-content-wrapper">
-                        <div class="row justify-content-center">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-            
-                                            <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                                <thead>
+    <div class="container-fluid">
+        <div class="page-content-wrapper">
+            <div class="row justify-content-center">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if($reviewer->count() > 0)
+                                            @foreach($reviewer as $reviewers)
                                                 <tr>
-                                                    <th>Photo</th>
-                                                    <th>Name</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>
-                                                        <img class="rounded-circle reviewer-profile" src="../assets/imgs/ex-profile.jpg" alt="Header Avatar">
+                                                        <img class="rounded-circle reviewer-profile"
+                                                            src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
+                                                            alt="Reviewer's photo">
                                                     </td>
                                                     <td>
-                                                        <strong>Faustine Sinclair</strong></td>
+                                                        <strong>{{ $reviewers->reviewer_name }}</strong>
+                                                    </td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".editReviewerModal"><i class="bi bi-pencil-square"></i></button>&nbsp;
-                                                            <button class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure you want to delete this reviewer?')) { /* Add delete action here */ }"><i class="bi bi-trash"></i></button>
+                                                            <!-- Edit button -->
+                                                            <button type="button"
+                                                                class="btn btn-primary btn-sm waves-effect waves-light"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editReviewerModal-{{ $reviewers->id }}">
+                                                                <i class="bi bi-pencil-square"></i>
+                                                            </button>&nbsp;
+
+                                                            <!-- Delete button -->
+                                                            <form id="delete-form-{{ $reviewers->id }}"
+                                                                action="{{ route('deleteReviewer', $reviewers->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="button" class="btn btn-sm btn-danger"
+                                                                    onclick="confirmDelete({{ $reviewers->id }})">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                </tbody>
-                                            </table>
-            
-                                        </div>
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="4" class="text-center">
+                                                    <div class="alert alert-info" role="alert">
+                                                        No reviewers found.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
-
-                        <!-- Add New Reviewer Modal -->
-                        <div class="modal fade addReviewerModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="addReviewerModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title mt-0" id="addReviewerModalLabel">Add New Reviewer</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    
-                                    <form method="POST" action="{{ route('addReviewer') }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <!-- Form Start -->
-                                            <p><strong>Upload Reviewer's Photo</strong></p>
-                                            <div class="upload-container mb-3" id="uploadContainer">
-                                                <input type="file" name="photo" id="fileInput" accept="image/*" class="hidden">
-                                                <div class="upload-area" id="uploadArea">
-                                                    <h1 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h1>
-                                                    <p>Drag & Drop your image here or <span id="browseText">browse</span></p>
-                                                </div>
-                                                <img id="previewImage" class="hidden" alt="Image Preview">
-                                            </div>
-    
-                                            <div class="mb-3">
-                                                <label for="revname">Reviewer Name</label>
-                                                <input class="form-control" name="reviewer_name" type="text" placeholder="Enter name..." id="revname">
-                                            </div>
-                                            
-                                            <div class="mb-3">
-                                                <label for="aboutme">About Me</label>
-                                                <textarea rows="6" name="bio" id="aboutme" class="form-control" placeholder="Enter reviewer's bio here..."></textarea>
-                                            </div>
-                                    </div>
-                                    
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add Reviewer</button>
-                                            </div>
-                                        </form>
-                                        <!-- Form End -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        <!-- End of Add New Reviewer Modal -->
-
-                        <!-- Edit Reviewer Modal -->
-                        <div class="modal fade editReviewerModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editReviewerModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title mt-0" id="editReviewerModalLabel">Edit Reviewer's Information</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form method="POST" action="{{ route('editReviewer') }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <!-- Form Start -->
-                                            <p><strong>Upload Reviewer's Photo</strong></p>
-                                            <div class="upload-container mb-3" id="uploadContainer">
-                                                <input type="file" name="photo" id="fileInput" accept="image/*">
-                                                <div class="upload-area" id="uploadArea">
-                                                    <h1 class="text-muted"><i class="bi bi-cloud-arrow-up"></i></h1>
-                                                    <p>Drag & Drop your image here or <span id="browseEditText">browse</span></p>
-                                                </div>
-                                                <img id="previewImage" class="hidden" alt="Image Preview" placeholder="{{ $reviewer->photo }}">
-                                            </div>
-  
-                                            <div class="mb-3">
-                                                <label for="revname">Reviewer Name</label>
-                                                <input class="form-control" name="reviewer_name" type="text" value="Faustine Sinclair" placeholder="{{ $reviewer->reviewer_name }}" id="revname">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="aboutme">About Me</label>
-                                                <textarea rows="6" name="bio" id="aboutme" class="form-control" placeholder="{{ $reviewer->bio }}">I am a professional book reviewer with a deep passion for literature and a keen eye for detail. With years of experience in the literary world, I offer insightful and thoughtful critiques across various genres, helping readers discover their next great read.</textarea>
-                                            </div>
-                                    </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
-                                            </div>
-                                        </form>
-                                        <!-- Form End -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        <!-- End of Edit Reviewer Modal -->
-                    </div>
-                </div> <!-- container-fluid -->
+                    </div> <!-- /.col-12 -->
+                </div> <!-- /.row -->
             </div>
 
+            <!-- Add new reviewer modal -->
+            <div class="modal fade addReviewerModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+                aria-labelledby="addReviewerModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="addReviewerModalLabel">Add New Reviewer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form method="POST" action="{{ route('addReviewer') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-body">
+                                <!-- Required field indicator -->
+                                <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
+
+                                <!-- Form start -->
+                                <p><strong>Upload Reviewer's Photo</strong></p>
+                                <div class="upload-container mb-3" id="uploadContainer">
+                                    <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="revname">Reviewer Name <span class="text-danger">*</span></label>
+                                    <input class="form-control" name="reviewer_name" type="text"
+                                        placeholder="Enter name..." id="revname" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="aboutme">About</label>
+                                    <textarea rows="6" name="bio" id="aboutme" class="form-control"
+                                        placeholder="Enter bio here..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary waves-effect"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add
+                                    Reviewer</button>
+                            </div>
+                        </form>
+                        <!-- Form end -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- Add new reviewer modal end -->
+
+            @foreach ($reviewer as $reviewers)
+                <!-- Edit reviewer modal start -->
+                <div class="modal fade" data-bs-backdrop="static" id="editReviewerModal-{{ $reviewers->id }}" tabindex="-1"
+                    aria-labelledby="editReviewerLabel-{{ $reviewers->id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="editReviewerModalLabel-{{ $reviewers->id }}">Edit
+                                    Reviewer's Information</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method="POST" action="{{ route('editReviewer') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="modal-body">
+                                    <!-- Required field indicator -->
+                                    <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
+
+                                    <!-- Hidden ID -->
+                                    <input type="hidden" name="id" value="{{ $reviewers->id }}">
+
+                                    <!-- Form start -->
+                                    <p><strong>Upload Reviewer's Photo</strong></p>
+                                    <center>
+                                        <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
+                                            width="200" alt="Reviewer's photo">
+                                    </center>
+                                    <div class="upload-container mb-3" id="uploadContainer">
+                                        <input class="form-control" type="file" name="photo" id="fileInput"
+                                            accept="image/*">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="revname-{{ $reviewers->id }}">Reviewer Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" name="reviewer_name" type="text"
+                                            value="{{ $reviewers->reviewer_name }}" id="revname-{{ $reviewers->id }}"
+                                            placeholder="Enter name..." required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="aboutme-{{ $reviewers->id }}">About</label>
+                                        <textarea rows="6" name="bio" id="aboutme-{{ $reviewers->id }}" class="form-control"
+                                            placeholder="Enter bio here...">{{ $reviewers->bio }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary waves-effect"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
+                                        changes</button>
+                                </div>
+                            </form>
+                            <!-- Form end -->
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <!-- Edit reviewer modal end -->
+            @endforeach
+
+        </div>
+    </div> <!-- /.container-fluid -->
+</div>
+
 <script>
-    document.getElementById('browseText').addEventListener('click', function() {
-    document.getElementById('fileInput').click();
-});
+    document.getElementById('browseText').addEventListener('click', function () {
+        document.getElementById('fileInput').click();
+    });
 </script>
-            
+
+@include('partials.swal-confirm-delete')
+
 @endsection

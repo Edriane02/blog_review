@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\UserProfile;
-use App\Models\User;
+use App\Models\ClientUserProfile;
+use App\Models\ClientUser;
 use Illuminate\Support\Facades\Hash;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
-class RegisterController extends Controller
+class ClientRegisterController extends Controller
 {
     public function register()
     {
@@ -24,33 +24,32 @@ class RegisterController extends Controller
             'mname' => 'nullable|string|max:255',
             'lname' => 'required|string|max:255',
             'suffix' => 'nullable|string|max:10',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:client_users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
         DB::beginTransaction();
 
         try {
-            $userId = IdGenerator::generate(['table' => 'users', 'length' => 10, 'prefix' => '09']);
+            $userId = IdGenerator::generate(['table' => 'client_users', 'field' => 'user_id','length' => 10, 'prefix' => '09']);
 
-            $user = User::create([
+            $user = ClientUser::create([
                 'user_id' => $userId,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
 
-            UserProfile::create([
+            ClientUserProfile::create([
                 'user_id' => $user->user_id,
                 'fname' => $request->fname,
                 'mname' => $request->mname,
                 'lname' => $request->lname,
-                'suffix' => $request->suffix,
-                'user_type_id' => '0',
+                'suffix' => $request->suffix
             ]);
 
             DB::commit();
 
-            return redirect()->back()->with('success', 'User registered successfully!');
+            return redirect()->route('login')->with('success', 'You have successfully registered!');
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', 'An error occurred: ' . $e->getMessage());

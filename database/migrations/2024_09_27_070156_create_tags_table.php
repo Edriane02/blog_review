@@ -16,18 +16,6 @@ return new class extends Migration
             $table->string('tag')->nullable(); // Tag name
             $table->timestamps();
         });
-
-        // Pivot table for many-to-many relationship between books and tags
-        Schema::create('book_tag', function (Blueprint $table) {
-            $table->unsignedBigInteger('book_id');
-            $table->unsignedBigInteger('tag_id');
-            $table->timestamps();
-
-            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
-
-            $table->primary(['book_id', 'tag_id']); // Composite primary key
-        });
     }
 
     /**
@@ -35,7 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_tag');
         Schema::dropIfExists('tags');
     }
 };

@@ -12,6 +12,22 @@ class Reviews extends Model
     protected $fillable = [
         'book_id',
         'reviewer',
+        'review_title',
         'review',
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Books::class, 'book_id');
+    }
+
+    public function reviewer()
+{
+    return $this->belongsTo(Reviewer::class, 'reviewer'); // The second parameter is the foreign key
+}
+
+
+
+
+
 }
