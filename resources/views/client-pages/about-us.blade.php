@@ -18,7 +18,7 @@
                 <h3 class="custom-about-us">About Us</h3>
                 <hr class="wp-block-separator is-style-wide">
                 <p class="font-large">
-                    At <strong>Literary Critical Guild Reviews</strong>, we are passionate about exploring literature and offering in-depth reviews that capture the essence of each book. Our goal is to help you discover new worlds and perspectives through thoughtful and engaging critiques.
+                    At <strong>Literary Critics Guild Reviews</strong>, we are passionate about exploring literature and offering in-depth reviews that capture the essence of each book. Our goal is to help you discover new worlds and perspectives through thoughtful and engaging critiques.
                     <br />
                     <br />
                     Enhance your marketing strategy with our expert reviews, tailored specifically for both new and established authors. Our insights are designed to get your book noticed and boost sales, providing the visibility and impact you need to succeed.

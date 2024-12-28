@@ -6,18 +6,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title') | Literary Critical Guild Reviews</title>
+    <title>@yield('title') | Literary Critics Guild Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
 
-    <meta name="description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critical guild reviews" />
-    <meta name="author" content="Literary Critical Guild Reviews" />
+    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
+    <meta name="author" content="Literary Critics Guild Reviews" />
 
-    <meta property="og:title" content="Literary Critical Guild Reviews" />
+    <meta property="og:title" content="Literary Critics Guild Reviews" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Literary Critical Guild Reviews" />
-    <meta property="og:description" content="Literary Critical Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta property="og:site_name" content="Literary Critics Guild Reviews" />
+    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- Site CSS  -->
@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-md-3 col-xs-6">
-                        <a href="{{ route('home') }}"><img class="logo" width="110" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo" width="125" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
                         <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
@@ -189,8 +189,55 @@
     <!-- Footer start -->
     <footer class="pt-50 pb-20">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="sidebar-widget wow fadeInUp animated mb-30">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">About</h5>
+                        </div>
+                        <div class="textwidget">
+                            <h6><strong>Literary Critics Guild Reviews</strong></h6>
+                            <p>
+                                <i>We believe in the power of stories to transform and connect us.</i>
+                            </p>
+                            <p><strong class="color-black">Follow us</strong><br>
+                                <ul class="header-social-network d-inline-block list-inline color-white mb-20">
+                                    <li class="list-inline-item"><a class="fb" href="javascript:void(0)" title="Facebook"><i class="elegant-icon social_facebook"></i></a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="sidebar-widget widget_categories wow fadeInUp animated mb-30" data-wow-delay="0.1s">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">Quick links</h5>
+                        </div>
+                        <ul class="font-small">
+                            <li class="cat-item cat-item-2"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="cat-item cat-item-4"><a href="{{ route('latestReviewsPage') }}">Latest Reviews</a></li>
+                            <li class="cat-item cat-item-5"><a href="{{ route('contactUs') }}">​Contact Us</a></li>
+                            <li class="cat-item cat-item-6"><a href="{{ route('aboutUs') }}">About Us</a></li>
+                            <li class="cat-item cat-item-7"><a href="{{ route('login') }}">Log in to Your Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sidebar-widget widget_newsletter wow fadeInUp animated mb-30" data-wow-delay="0.3s">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">Newsletter</h5>
+                        </div>
+                        <div class="newsletter">
+                            <p class="font-medium">Subscribe to our newsletter and get our newest updates right on your inbox.</p>
+                            <form class="input-group form-subcriber mt-30 d-flex">
+                                <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
+                                <button class="btn bg-primary text-white" type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-medium text-muted">© 2024 Literary Critical Guild Reviews</p>
+                <p class="float-md-left font-small text-muted">© 2024 Literary Critics Guild Reviews</p>
             </div>
         </div>
     </footer>
