@@ -190,13 +190,13 @@
     <footer class="pt-50 pb-20">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="sidebar-widget wow fadeInUp animated mb-30">
                         <div class="widget-header-2 position-relative mb-30">
                             <h5 class="mt-5 mb-30">About</h5>
                         </div>
                         <div class="textwidget">
-                            <h6><strong>Literary Critics Guild Reviews</strong></h6>
+                            <h5><strong>Literary Critics Guild Reviews</strong></h5>
                             <p>
                                 <i>We believe in the power of stories to transform and connect us.</i>
                             </p>
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="sidebar-widget widget_categories wow fadeInUp animated mb-30" data-wow-delay="0.1s">
                         <div class="widget-header-2 position-relative mb-30">
                             <h5 class="mt-5 mb-30">Quick links</h5>

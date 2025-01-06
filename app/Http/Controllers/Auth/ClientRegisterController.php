@@ -14,7 +14,8 @@ class ClientRegisterController extends Controller
 {
     public function register()
     {
-        return view('auth.register');
+        // return view('auth.register');
+        return view('client-pages.maintenance');
     }
 
     public function registerUser(Request $request)
