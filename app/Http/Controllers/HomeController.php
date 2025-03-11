@@ -82,7 +82,7 @@ class HomeController extends Controller
         return view('client-pages.about-us', compact('tags'));
     }
 
-    public function maintenancePage()
+    public function maintenanceClientPage()
     {
         // For search: tag suggestion
         $tags = Tags::all();

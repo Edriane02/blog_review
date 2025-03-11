@@ -17,7 +17,7 @@
         </div>
         <div class="container single-content">
             <div class="entry-wraper mt-50">
-                <p class="font-large">We are <strong>Stories Inc.</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
+                <p class="font-large">We are <strong>Literary Critics Guild Reviews</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
                 <br />
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
@@ -42,7 +42,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="email"><strong>Email <span class="text-danger">*</span></strong></label>
-                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="" required>
+                                <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="" autocomplete="on" required>
                                 @error('email')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror

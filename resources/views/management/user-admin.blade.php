@@ -18,7 +18,7 @@
                         <div class="col-sm-6">
                             <div class="float-end d-sm-block">
                                 <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
-                                    data-bs-target=".newAdminModal">Add New Admin</button>
+                                    data-bs-target=".newAdminModal">Add New User</button>
                             </div>
                         </div>
                      </div>
@@ -36,6 +36,7 @@
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>ID</th>
                                                     <th>Name & Email</th>
                                                     <th>Role</th>
@@ -47,6 +48,7 @@
                                              @if($admin->count() > 0)
                                                 @foreach($admin as $admins)
                                                 <tr>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         {{ $admins->user_id }}
                                                     </td>

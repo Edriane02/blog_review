@@ -15,12 +15,12 @@
                             <form method="POST" action="{{ route('clientChangePwdAction') }}">
                                 @csrf
                                 <div class="form-group">
-                                <label for="current_password"><strong>Enter Your Current Password</strong></label>
+                                <label for="current_password"><strong>Enter Your Current Password <span class="text-danger">*</span></strong></label>
                                     <input class="form-control" type="password" name="current_password" placeholder="Current password" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="new_password"><strong>Create a New Password</strong></label>
+                                    <label for="new_password"><strong>Create a New Password <span class="text-danger">*</span></strong></label>
                                     <div class="input-group">
                                         <input class="form-control" type="password" name="new_password" placeholder="New password" id="new_password" minlength="8" required>
                                         <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()"><i id="togglePasswordIcon" class="bi bi-eye-slash"></i></button>
@@ -29,7 +29,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="new_password_confirmation"><strong>Confirm New Password</strong></label>
+                                    <label for="new_password_confirmation"><strong>Confirm New Password <span class="text-danger">*</span></strong></label>
                                     <input class="form-control" id="new_password_confirmation" type="password" name="new_password_confirmation" placeholder="Confirm new password" required>
                                 </div>
                                 

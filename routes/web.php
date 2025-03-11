@@ -32,7 +32,7 @@ Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
 Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 Route::get('about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
-Route::get('maintenance', [HomeController::class, 'maintenancePage'])->name('maintenancePage');
+Route::get('/maintenance', [HomeController::class, 'maintenanceClientPage'])->name('maintenanceClientPage');
 Route::get('latest-reviews', [HomeController::class, 'latestReviewsPage'])->name('latestReviewsPage');
 Route::get('/reviewer/{id}/reviews', [HomeController::class, 'reviewerReviews'])->name('reviewerReviews');
 
@@ -86,6 +86,8 @@ Route::middleware(['auth:admin', 'isAdmin'])->group(function() {
         Route::post('admin/update-profile', 'updateProfile')->name('updateProfile');
         Route::get('admin/change-password', 'changePasswordPage')->name('changePasswordPage');
         Route::post('admin/change-password', 'changePassword')->name('changePassword');
+
+        Route::get('admin/maintenance', 'maintenancePage')->name('maintenancePage');
 
     });
 
