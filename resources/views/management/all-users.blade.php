@@ -12,6 +12,7 @@
                         <div class="col-sm-6">
                             <div class="page-title">
                                 <h1 class="page-title-custom">All Users</h1>
+                                <p>This page shows the combined list of admins and clients.</p>
                             </div>
                         </div>
                      </div>
@@ -29,6 +30,7 @@
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>ID</th>
                                                         <th>Name & Email</th>
                                                         <th>Role</th>
@@ -40,6 +42,7 @@
                                                     @if($users->count() > 0)
                                                         @foreach($users as $user)
                                                             <tr>
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $user['user_id'] }}</td>
                                                                 <td>
                                                                     <strong>{{ $user['name'] }}</strong><br />

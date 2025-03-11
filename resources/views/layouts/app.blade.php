@@ -6,19 +6,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title') | Professional Book Review</title>
+    <title>@yield('title') | Literary Critics Guild Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
 
-    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
-    <meta name="author" content="Professional Book Review" />
+    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
+    <meta name="author" content="Literary Critics Guild Reviews" />
 
-    <meta property="og:title" content="Professional Book Review" />
+    <meta property="og:title" content="Literary Critics Guild Reviews" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Professional Book Review Service" />
-    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
+    <meta property="og:site_name" content="Literary Critics Guild Reviews" />
+    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- Site CSS  -->
     <link rel="stylesheet" href="{{ asset('guestAssets/css/style.css') }}">
@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-md-3 col-xs-6">
-                        <a href="{{ route('home') }}"><img class="logo" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo" width="125" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
                         <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
@@ -75,17 +75,17 @@
                     <nav>
                         <!-- Desktop menu -->
                         <ul class="main-menu d-none d-lg-inline font-small float-left">
-                            <li> <a class="nav-links-color-desktop" href="{{ route('home') }}">Home</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="{{ route('contactUs') }}">Contact Us</a> </li>
-                            <li> <a class="nav-links-color-desktop" href="{{ route('aboutUs') }}">About Us</a> </li>
+                            <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('home') }}">Home</a> </li>
+                            <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('contactUs') }}">Contact Us</a> </li>
+                            <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('aboutUs') }}">About Us</a> </li>
                             
                         </ul>
                         <ul class="main-menu d-none d-lg-inline font-small float-right">
                             @auth('client')
                                 <!-- If the user is logged in -->
                                 <li class="menu-item-has-children">
-                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('clientProfile') }}">
+                                    <a class="nav-links-color-desktop custom-hover d-flex align-items-center" href="{{ route('clientProfile') }}">
                                         <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
                                         {{ session('client_fname') . ' ' . session('client_lname') }}
                                     </a>
@@ -96,7 +96,7 @@
                             @else
                                 <!-- If the user is not logged in -->
                                 <li>
-                                    <a class="nav-links-color-desktop d-flex align-items-center" href="{{ route('login') }}">
+                                    <a class="nav-links-color-desktop custom-hover d-flex align-items-center" href="{{ route('login') }}">
                                         <img src="{{ asset('guestAssets/imgs/static/default_photo_resized.jpg') }}" alt="Profile Image" class="profile-image mr-2" />
                                         Log in to Your Account <i class="bi bi-box-arrow-in-right ml-1"></i>
                                     </a>
@@ -189,8 +189,55 @@
     <!-- Footer start -->
     <footer class="pt-50 pb-20">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sidebar-widget wow fadeInUp animated mb-30">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">About</h5>
+                        </div>
+                        <div class="textwidget">
+                            <h5><strong>Literary Critics Guild Reviews</strong></h5>
+                            <p>
+                                <i>We believe in the power of stories to transform and connect us.</i>
+                            </p>
+                            <p><strong class="color-black">Follow us</strong><br>
+                                <ul class="header-social-network d-inline-block list-inline color-white mb-20">
+                                    <li class="list-inline-item"><a class="fb" href="javascript:void(0)" title="Facebook"><i class="elegant-icon social_facebook"></i></a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="sidebar-widget widget_categories wow fadeInUp animated mb-30" data-wow-delay="0.1s">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">Quick links</h5>
+                        </div>
+                        <ul class="font-small">
+                            <li class="cat-item cat-item-2"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="cat-item cat-item-4"><a href="{{ route('latestReviewsPage') }}">Latest Reviews</a></li>
+                            <li class="cat-item cat-item-5"><a href="{{ route('contactUs') }}">​Contact Us</a></li>
+                            <li class="cat-item cat-item-6"><a href="{{ route('aboutUs') }}">About Us</a></li>
+                            <li class="cat-item cat-item-7"><a href="{{ route('login') }}">Log in to Your Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sidebar-widget widget_newsletter wow fadeInUp animated mb-30" data-wow-delay="0.3s">
+                        <div class="widget-header-2 position-relative mb-30">
+                            <h5 class="mt-5 mb-30">Newsletter</h5>
+                        </div>
+                        <div class="newsletter">
+                            <p class="font-medium">Subscribe to our newsletter and get our newest updates right on your inbox.</p>
+                            <form class="input-group form-subcriber mt-30 d-flex">
+                                <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
+                                <button class="btn bg-primary text-white" type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-medium text-muted">© 2024 Professional Book Review</p>
+                <p class="float-md-left font-small text-muted">© 2024 Literary Critics Guild Reviews</p>
             </div>
         </div>
     </footer>
@@ -198,12 +245,12 @@
     <div class="dark-mark"></div>
 
     <!-- Custom JS -->
-    <script>
+    <!-- <script>
         document.getElementById('agreeCheckbox').addEventListener('change', function () {
             var button = document.getElementById('registerButton');
             button.disabled = !this.checked;
         });
-    </script>
+    </script> -->
 
     <!-- Vendor JS -->
     <script src="{{ asset('guestAssets/js/vendor/modernizr-3.6.0.min.js') }}"></script>

@@ -20,7 +20,8 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        // return view('auth.login');
+        return view('client-pages.maintenance');
     }
 
     public function adminLogin()

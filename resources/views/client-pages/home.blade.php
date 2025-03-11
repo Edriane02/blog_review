@@ -24,11 +24,11 @@
             <p class="cta-desc text-muted text-center">We enhance credibility, increase exposure, and boost sales,
                 helping your book stand out and reach a wider audience.</p>
             <div class="button-container">
-                <a href="{{ route('contactUs') }}" class="btn btn-outline-primary btn-lg">Request a Review</a>
+                <a href="{{ route('contactUs') }}" class="btn btn-primary btn-lg">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
             </div>
         </div>
     </div>
-
+    <br />
     <div class="container">
         <div class="hot-tags pt-30 pb-30 font-small align-self-center">
             <div class="widget-header-3">
@@ -77,6 +77,7 @@
         </div>
     </div>
 
+    <div class="featured-1">
     <div class="container">
         <div class="post-module-3">
             <div class="widget-header-1 position-relative mb-30">
@@ -133,9 +134,11 @@
                 &nbsp;
             @endif
         </div>
+        </div>
+    </div>
 
         <br /><br />
-        <div class="">
+        <div class="container">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
                     <h5 class="mt-5 mb-30">Discover Books</h5>
@@ -153,7 +156,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </main>
 
 @endsection

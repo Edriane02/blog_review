@@ -5,18 +5,18 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title') | Professional Book Review CMS</title>
+    <title>@yield('title') | Literary Critics Guild Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations" />
-    <meta name="author" content="Professional Book Review" />
+    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
+    <meta name="author" content="Literary Critics Guild Reviews" />
 
-    <meta property="og:title" content="Professional Book Review"/>
+    <meta property="og:title" content="Literary Critics Guild Reviews"/>
     <meta property="og:type" content="website"/>
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Professional Book Review Service"/>
-    <meta property="og:description" content="Professional book review service offering in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
-    <!-- <meta property="og:image" content="https://www.yoursite.com/images/book-review.png"/> -->
+    <meta property="og:site_name" content="Literary Critics Guild Reviews"/>
+    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
@@ -205,7 +205,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         ©
-                        <script>document.write(new Date().getFullYear())</script> Professional Book Review CMS
+                        <script>document.write(new Date().getFullYear())</script> Literary Critics Guild Reviews
                     </div>
                 </div>
             </div>
