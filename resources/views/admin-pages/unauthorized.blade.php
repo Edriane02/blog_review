@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Unauthorized | Literary Critics Guild Reviews CMS</title>
+    <title>Unauthorized | The Eastern Review CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
-    <meta name="author" content="Literary Critics Guild Reviews" />
+    <meta name="description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
+    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors" />
+    <meta name="author" content="The Eastern Review" />
 
-    <meta property="og:title" content="Literary Critics Guild Reviews"/>
+    <meta property="og:title" content="The Eastern Review"/>
     <meta property="og:type" content="website"/>
     <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Literary Critics Guild Reviews"/>
-    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:site_name" content="The Eastern Review"/>
+    <meta property="og:description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales."/>
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center text-white">
-                            <p>© <script>document.write(new Date().getFullYear())</script> Literary Critics Guild Reviews CMS</p>
+                            <p>© <script>document.write(new Date().getFullYear())</script> The Eastern Review CMS</p>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@
         </div>
         <div class="container single-content">
             <div class="entry-wraper mt-50">
-                <p class="font-large">We are <strong>Literary Critics Guild Reviews</strong>, passionate about exploring literature, offering in-depth reviews that capture the essence of each book, helping you discover new worlds and perspectives. Enhance your marketing with our expert reviews, tailored for both new and established authors, to get your book noticed and boost sales instantly.</p>
+                <p class="font-large">At <b>The Eastern Review</b>, we are passionate about literature, providing insightful reviews that truly capture each book's essence. Our in-depth analyses help readers explore new ideas and perspectives. Whether you're a new or seasoned author, our expert reviews can elevate your book's visibility and drive sales effectively.</p>
                 <br />
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>

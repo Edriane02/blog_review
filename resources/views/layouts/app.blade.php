@@ -6,18 +6,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title') | Literary Critics Guild Reviews</title>
+    <title>@yield('title') | The Eastern Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('guestAssets/imgs/theme/favicon.png') }}">
 
-    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
-    <meta name="author" content="Literary Critics Guild Reviews" />
+    <meta name="description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
+    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors" />
+    <meta name="author" content="The Eastern Review" />
 
-    <meta property="og:title" content="Literary Critics Guild Reviews" />
+    <meta property="og:title" content="The Eastern Review" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Literary Critics Guild Reviews" />
-    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
+    <meta property="og:site_name" content="The Eastern Review" />
+    <meta property="og:description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- Site CSS  -->
@@ -77,6 +77,7 @@
                         <ul class="main-menu d-none d-lg-inline font-small float-left">
                             <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('home') }}">Home</a> </li>
                             <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a class="nav-links-color-desktop custom-hover" href="#">Featured Authors</a> </li>
                             <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('contactUs') }}">Contact Us</a> </li>
                             <li> <a class="nav-links-color-desktop custom-hover" href="{{ route('aboutUs') }}">About Us</a> </li>
                             
@@ -108,6 +109,7 @@
                         <ul id="mobile-menu" class="d-block d-lg-none text-muted">
                             <li> <a href="{{ route('home') }}">Home</a> </li>
                             <li> <a href="{{ route('latestReviewsPage') }}">Latest Reviews</a> </li>
+                            <li> <a href="#">Featured Authors</a> </li>
                             <li> <a href="{{ route('contactUs') }}">Contact Us</a> </li>
                             <li> <a href="{{ route('aboutUs') }}">About Us</a> </li>
 
@@ -196,14 +198,15 @@
                             <h5 class="mt-5 mb-30">About</h5>
                         </div>
                         <div class="textwidget">
-                            <h5><strong>Literary Critics Guild Reviews</strong></h5>
-                            <p>
-                                <i>We believe in the power of stories to transform and connect us.</i>
+                            <h5><strong>The Eastern Review</strong></h5>
+                            <p style="font-size: 15px;">
+                                <i>Where literature transcends boundaries and every book finds its voice.</i>
                             </p>
-                            <p><strong class="color-black">Follow us</strong><br>
+                            <!-- <p><strong class="color-black">Follow us</strong><br>
                                 <ul class="header-social-network d-inline-block list-inline color-white mb-20">
                                     <li class="list-inline-item"><a class="fb" href="javascript:void(0)" title="Facebook"><i class="elegant-icon social_facebook"></i></a></li>
                                 </ul>
+                                </p> -->
                         </div>
                     </div>
                 </div>
@@ -215,6 +218,7 @@
                         <ul class="font-small">
                             <li class="cat-item cat-item-2"><a href="{{ route('home') }}">Home</a></li>
                             <li class="cat-item cat-item-4"><a href="{{ route('latestReviewsPage') }}">Latest Reviews</a></li>
+                            <li class="cat-item cat-item-4"><a href="#">Featured Authors</a></li>
                             <li class="cat-item cat-item-5"><a href="{{ route('contactUs') }}">​Contact Us</a></li>
                             <li class="cat-item cat-item-6"><a href="{{ route('aboutUs') }}">About Us</a></li>
                             <li class="cat-item cat-item-7"><a href="{{ route('login') }}">Log in to Your Account</a></li>
@@ -230,14 +234,14 @@
                             <p class="font-medium">Subscribe to our newsletter and get our newest updates right on your inbox.</p>
                             <form class="input-group form-subcriber mt-30 d-flex">
                                 <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                                <button class="btn bg-primary text-white" type="submit">Subscribe</button>
+                                <button class="btn bg-primary text-white" type="submit" disabled>Subscribe</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-small text-muted">© 2024 Literary Critics Guild Reviews</p>
+                <p class="float-md-left font-small text-muted">© 2024 The Eastern Review</p>
             </div>
         </div>
     </footer>

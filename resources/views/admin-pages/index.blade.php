@@ -13,7 +13,7 @@
             <div class="row align-items-center">
                 <div class="">
                     <div class="page-title">
-                        <h2 class="page-title-custom">Literary Critics Guild Reviews | Content Management System</h2>
+                        <h2 class="page-title-custom">The Eastern Review | Content Management System</h2>
                         <p class="page-title-custom">Dashboard</p>
                     </div>
                 </div>

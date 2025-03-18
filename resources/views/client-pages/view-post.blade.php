@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', $book->title)
+{{-- @section('title', $book->title . ' by ' . $book->book_author) --}}
 
 @section('contents')
 
