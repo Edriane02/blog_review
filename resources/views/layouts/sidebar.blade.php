@@ -142,6 +142,13 @@
                         </li>
 
                         <li>
+                            <a href="{{ route('featured_authors.index') }}" class="waves-effect">
+                                <i class="dripicons-list"></i>
+                                <span>Featured Author</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="{{ route('newPost') }}" class="waves-effect">
                                 <i class="dripicons-article"></i>
                                 <span>Add New Post</span>

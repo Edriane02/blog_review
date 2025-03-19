@@ -45,16 +45,32 @@
                                                     <img class="mb-3" style="border-radius: 10px;" src="{{ asset('storage/' . $books->banner) }}" width="350">
                                                     <div class="upload-container mb-3" id="uploadContainer">
                                                         <input class="form-control" type="file" name="banner" id="fileInput" accept="image/*">
+                                                        <small class="text-muted">Leave empty to keep the current image</small>
                                                     </div>
 
                                                     <div class="mb-4">
                                                         <div class="alert alert-info" role="alert">
-                                                        <strong><i class="bi bi-info-circle"></i>&nbsp;&nbsp;Recommended image size in pixels (WxH):</strong> 1000x600.
+                                                        <strong><i class="bi bi-info-circle"></i>&nbsp;&nbsp;Recommended image size in pixels (WxH):</strong> 1000x600 or <strong>Aspect ratio:</strong> 16:9
                                                         </div>
                                                     </div>
 
+                                                    <!-- REVIEW TYPE -->
+                                                    <span class="badge bg-primary mb-2">STEP 2</span>
+                                                    <h4 class="mb-3">Review Type <span class="text-danger">*</span></h4>
+                                                    <div class="mb-4">
+                                                        @foreach($books->reviews as $review)
+                                                            <select class="form-control" name="review_type" required>
+                                                                <option>Select Reviewer...</option>
+                                                                <option value="Book Review" {{ $review->review_type == 'Book Review' ? 'selected' : '' }}>Book Review</option>
+                                                                <option value="Magazine Review" {{ $review->review_type == 'Magazine Review' ? 'selected' : '' }}>Magazine Review</option>
+                                                                <option value="Screenplay Review" {{ $review->review_type == 'Screenplay Review' ? 'selected' : '' }}>Screenplay Review</option>
+                                                            </select>
+                                                        @endforeach
+                                                    </div>
+
+
                                                     <div class="mb-3">
-                                                        <span class="badge bg-primary mb-3">STEP 2</span>
+                                                        <span class="badge bg-primary mb-3">STEP 3</span>
                                                         <h4>Add Review Title or Headline <span class="text-danger">*</span></h4>
                                                         <p class="text-muted">This will appear at the top of the post page.</p>
                                                         <div class="mb-3">
@@ -64,7 +80,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <span class="badge bg-primary mb-2">STEP 3</span>
+                                                    <span class="badge bg-primary mb-2">STEP 4</span>
                                                     <h4 class="mb-3">Write Your Review <span class="text-danger">*</span></h4>
                                                     <div class="mb-4">
                                                     @foreach($books->reviews as $review)
@@ -72,7 +88,7 @@
                                                     @endforeach
                                                     </div>
 
-                                                    <span class="badge bg-primary mb-2">STEP 4</span>
+                                                    <span class="badge bg-primary mb-2">STEP 5</span>
                                                     <h4 class="mb-3">Add Reviewer <span class="text-danger">*</span></h4>
                                                     @foreach($books->reviews as $review)
                                                         <div class="mb-4">
@@ -88,7 +104,7 @@
                                                     @endforeach
 
                                                     <div class="mb-4">
-                                                        <span class="badge bg-primary mb-2">STEP 5</span>
+                                                        <span class="badge bg-primary mb-2">STEP 6</span>
                                                         <h4>Add Tags <span class="text-danger">*</span></h4>
                                                         <p class="text-muted">(You can select multiple tags, like Fiction, Mystery, and more...)</p>
                                                         <select class="select2 form-control select2-multiple" name="book_tag[]" multiple="multiple" data-placeholder="Choose tags..." required>
@@ -101,7 +117,7 @@
                                                         </select>
                                                     </div>
 
-                                                    <span class="badge bg-primary mb-2">STEP 6</span>
+                                                    <span class="badge bg-primary mb-2">STEP 7</span>
                                                     <h4 class="mb-3">Input Book Information</h4>
                                                     <div class="row">
                                                         <div class="col-md-4">
@@ -148,7 +164,7 @@
                                                     </div>
 
                                                     <div class="mb-3">
-                                                        <span class="badge bg-primary mb-2">STEP 7</span>
+                                                        <span class="badge bg-primary mb-2">STEP 8</span>
                                                         <h4 class="mb-3">Add Online Store Links of the Book</h4>
                                                         <div class="mb-3">
                                                             <label for="amazon-s-link">Amazon Link</label>

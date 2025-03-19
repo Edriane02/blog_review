@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Books;
 use App\Models\Tags;
 use App\Models\Contact;
+use App\Models\FeaturedAuthor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
@@ -33,7 +34,10 @@ class HomeController extends Controller
         // Get the latest 3 books with their reviews and reviewers
         $latestBooks = Books::latest()->take(3)->with(['bookTag', 'reviews.reviewer'])->get();
 
-        return view('client-pages.home', compact('featuredBooks', 'latestBooks', 'tags'));
+        // Get featured author (if any)
+        $featuredAuthor = FeaturedAuthor::where('status', 'Featured')->latest()->first();
+        
+        return view('client-pages.home', compact('featuredBooks', 'latestBooks', 'tags', 'featuredAuthor'));
     }
 
     public function viewPost($id)
@@ -45,6 +49,13 @@ class HomeController extends Controller
         $book = Books::with(['bookTag', 'reviews.reviewer'])->findOrFail($id); // Load reviews with their reviewer
 
         return view('client-pages.view-post', compact('book', 'tags'));
+    }
+
+    public function viewFeaturedAuthor($id)
+    {
+        $author = FeaturedAuthor::findOrFail($id);
+        
+        return view('client-pages.view-featured-author', compact('author'));
     }
 
     public function reviewerReviews($reviewerId)

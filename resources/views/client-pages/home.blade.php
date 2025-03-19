@@ -4,26 +4,33 @@
 @section('contents')
 
 <main>
+
     <!-- Featured Author section -->
+    @if(isset($featuredAuthor) && $featuredAuthor)
     <div class="author-featured-section py-5">
         <div class="container">
+            
             <div class="row">
                 <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
                     <div class="author-image-container">
-                        <img src="{{ asset('guestAssets/imgs/sample-book-1.jpg')}}" alt="Author with book" class="img-fluid rounded shadow-sm">
+                        <img src="{{ asset('storage/' . $featuredAuthor->img_banner) }}" alt="Author with book" class="img-fluid rounded shadow-sm">
                     </div>
                 </div>
+
+                
                 <div class="col-lg-7 col-md-6 align-self-center">
                     <p class="mb-2"><span class="badge badge-primary"><i class="bi bi-star-fill"></i>&nbsp;<b>FEATURED AUTHOR</b></span></p>
-                    <h2 class="section-title mb-3">Robert McGuiness</h2>
+                    <h2 class="section-title mb-3">{{ $featuredAuthor->author_name }}</h2>
                     <!-- Headline -->
-                    <h5 class="author-subtitle mb-3">Discover the stories behind the storyteller</h5>
-                    <p class="author-description text-muted mb-4">Robert McGuiness’ The Attenuating Puritan is a profound exploration of faith, resilience, and the human condition, presented through the lens of an altruistic hero whose journey is as much spiritual as it is physical.</p>
-                    <a href="" class="btn btn-sm btn-primary">Read More&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></a>
+                    <h5 class="author-subtitle mb-3">{{ $featuredAuthor->headline }}</h5>
+                    <div class="author-description text-muted mb-4">{!! Str::limit($featuredAuthor->body_text, 250) !!}</div>
+                    <a href="{{ route('featured.author', $featuredAuthor->id) }}" class="btn btn-sm btn-primary">Read More&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></a>
                 </div>
+                
             </div>
         </div>
     </div>
+    @endif
     <!-- End of Featured Author section -->
 
     <div class="featured-1">
@@ -80,7 +87,9 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
+                                        @foreach($book->reviews as $review)
+                                            <span class="post-on">{{ $review->review_type }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ $book->created_at->format('M d, Y') }}</span>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +138,9 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
+                                        @foreach($book->reviews as $review)
+                                            <span class="post-on">{{ $review->review_type }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ $book->created_at->format('M d, Y') }}</span>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +172,7 @@
         <div class="container">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
-                    <h5 class="mt-5 mb-30">Discover Books</h5>
+                    <h5 class="mt-5 mb-30">Discover</h5>
                 </div>
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)
