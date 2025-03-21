@@ -13,18 +13,18 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
                     <div class="author-image-container">
-                        <img src="{{ asset('storage/' . $featuredAuthor->img_banner) }}" alt="Author with book" class="img-fluid rounded shadow-sm">
+                        <img src="{{ asset('storage/' . $featuredAuthor->img_banner) }}" alt="Featured Author Photo" class="img-fluid rounded shadow-sm">
                     </div>
                 </div>
 
                 
                 <div class="col-lg-7 col-md-6 align-self-center">
-                    <p class="mb-2"><span class="badge badge-primary"><i class="bi bi-star-fill"></i>&nbsp;<b>FEATURED AUTHOR</b></span></p>
-                    <h2 class="section-title mb-3">{{ $featuredAuthor->author_name }}</h2>
+                    <p style="color: #189ad3; letter-spacing: 1px;" class="mb-2"><b><i class="bi bi-star-fill"></i>&nbsp;FEATURED AUTHOR</b></p>
+                    <h2 class="section-title-name mb-3">{{ $featuredAuthor->author_name }}</h2>
                     <!-- Headline -->
                     <h5 class="author-subtitle mb-3">{{ $featuredAuthor->headline }}</h5>
                     <div class="author-description text-muted mb-4">{!! Str::limit($featuredAuthor->body_text, 250) !!}</div>
-                    <a href="{{ route('featured.author', $featuredAuthor->id) }}" class="btn btn-sm btn-primary">Read More&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></a>
+                    <a href="{{ route('featured.author', $featuredAuthor->id) }}" class="btn btn-sm btn-primary">Read more&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></a>
                 </div>
                 
             </div>
@@ -34,27 +34,26 @@
     <!-- End of Featured Author section -->
 
     <div class="featured-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <p class="heading-text-home">The Home for</p>
-                    <br />
-                    <p class="heading-text-home-sub"><span class="fancy-underline">Passionate Readers</span></p>
-                    <p class="description-home text-muted">Books are more than just stories—they’re conversations that transcend cultures and time. Our reviews offer different approaches, from concise overviews to deeper critiques, helping readers and writers connect with literature meaningfully.<br/><br/>
-                    Though our name hints at an Eastern influence, our passion for books knows no borders. We celebrate stories from around the world, inviting everyone to engage in the dialogue of great writing.</p>
-                    <a href="{{ route('contactUs') }}" class="btn btn-primary">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
-                </div>
-                <div class="col-lg-6 text-right d-none d-lg-block">
-                    <img src="{{ asset('guestAssets/imgs/static/reading.png') }}" alt="People reading">
-                </div>
+    <div class="container h-100 position-relative">
+        <div class="row h-100">
+            <div class="col-lg-6 align-self-center feat-content-area">
+                <p class="heading-text-home mb-3">Uncovering world’s stories, one book at a time.</p>
+                <p class="description-home text-muted">Books are more than just stories—they're conversations that transcend cultures and time. Our reviews offer different approaches, from concise overviews to deeper critiques, helping readers and writers connect with literature meaningfully.<br/><br/>
+                Though our name hints at an Eastern influence, our passion for books knows no borders. We celebrate stories from around the world, inviting everyone to engage in the dialogue of great writing.</p>
+                <a href="{{ route('contactUs') }}" class="btn btn-primary btn-request-review">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
             </div>
-            <!-- <p class="cta text-center">Interested in a Professional Review of Your Book?</p>
-            <p class="cta-desc text-muted text-center">We work to build your book's reputation, make it more visible, and generate increased sales, ensuring it captures attention and reaches a broader audience.</p>
-            <div class="button-container">
-                <a href="{{ route('contactUs') }}" class="btn btn-primary btn-lg">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
-            </div> -->
+            <div class="col-lg-6">
+                <!-- Empty placeholder to maintain grid structure -->
+            </div>
         </div>
     </div>
+
+    <div class="home-image-wrapper">
+        <div class="hero-fade-effect"></div>
+        <img src="{{ asset('guestAssets/imgs/static/sunrise.png') }}" alt="Background image" class="sect-background-image">
+    </div>
+
+</div>
     <br />
     <div class="container">
         <div class="hot-tags pt-30 pb-30 font-small align-self-center">
@@ -189,56 +188,5 @@
         </div>
     
 </main>
-
-<style>
-    .author-featured-section {
-        /* background-color: #f1f2f3; */
-        margin-bottom: 30px;
-    }
-    
-    .author-image-container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .author-image-container img {
-        max-height: 400px;
-        object-fit: cover;
-    }
-    
-    .section-title {
-        font-weight: 700;
-        color: #333;
-        position: relative;
-    }
-    
-    .section-title:after {
-        content: '';
-        display: block;
-        width: 70px;
-        height: 3px;
-        background: #007bff;
-        margin-top: 10px;
-    }
-
-    .author-subtitle {
-        font-weight: 400;
-        font-style: italic;
-        color: #696969;
-    }
-    
-    .author-description {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-    
-    @media (max-width: 768px) {
-        .author-image-container img {
-            max-height: 300px;
-        }
-    }
-</style>
 
 @endsection

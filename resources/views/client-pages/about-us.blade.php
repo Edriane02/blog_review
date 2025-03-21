@@ -7,7 +7,7 @@
         <div class="container">
             <br /><br /><br />
             <h1 class="about-us-title text-center mb-50">
-                <span class="fancy-underline">Maximize Your Book's Reach</span>
+                <span class="fancy-underline">Connect with More Readers</span>
             </h1>
 
             <figure class="image mb-30 m-auto text-center border-radius-10">
@@ -16,6 +16,7 @@
 
             <article class="entry-wraper">
                 <h3 class="custom-about-us text-center">The Eastern Review</h3>
+                <p class="text-center" style="font-size: 16px; font-style: italic;"><b>Uncovering world’s stories, one book at a time.</b></p>
                 <hr class="wp-block-separator is-style-wide">
                 <h4 class="mb-3"><b>About Us</b></h4>
                 <p class="font-large">

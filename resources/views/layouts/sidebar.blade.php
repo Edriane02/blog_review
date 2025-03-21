@@ -8,7 +8,7 @@
     <title>@yield('title') | The Eastern Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
-    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors" />
+    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors,new authors,featured authors" />
     <meta name="author" content="The Eastern Review" />
 
     <meta property="og:title" content="The Eastern Review"/>
@@ -142,16 +142,16 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('featured_authors.index') }}" class="waves-effect">
-                                <i class="dripicons-list"></i>
-                                <span>Featured Author</span>
+                            <a href="{{ route('newPost') }}" class="waves-effect">
+                                <i class="dripicons-article"></i>
+                                <span>Add New Post</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{ route('newPost') }}" class="waves-effect">
-                                <i class="dripicons-article"></i>
-                                <span>Add New Post</span>
+                            <a href="{{ route('featured_authors.index') }}" class="waves-effect">
+                                <i class="dripicons-list"></i>
+                                <span>Featured Author</span>
                             </a>
                         </li>
 

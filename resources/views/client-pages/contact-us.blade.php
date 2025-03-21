@@ -9,10 +9,10 @@
         <div class="mb-50">
             <div class="container">
                 <br /><br /><br />
-                <h1 class="contact-us-title text-center mb-50">
+                <h1 class="contact-us-title text-center">
                     Contact Us
                 </h1>
-                <center><img src="{{ asset('guestAssets/imgs/static/woman-reading-comp.png') }}" width="500" alt=""></center>
+                <center><img src="{{ asset('guestAssets/imgs/static/reading_book_comp.png') }}" width="320" alt=""></center>
             </div>
         </div>
         <div class="container single-content">
@@ -22,13 +22,24 @@
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
                 <hr class="wp-block-separator is-style-wide">
-                <p class="font-medium-custom">You can contact us directly at: <a style="color: #4379F2;" href="mailto:sales@professionalreview.com">sales@professionalreview.com</a></p>
+                <p class="font-medium-custom">You can contact us at: <a style="color: #4379F2;" href="mailto:contact@example.com">contact@example.com</a></p>
 
                 <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
                 <hr class="wp-block-separator is-style-wide">
 
-                <form class="form-contact comment_form" action="{{ route('contact.submit') }}" method="POST" id="contact-form">
+                <form class="form-contact comment_form" action="{{ route('contact.submit') }}" method="POST" id="contact-form" novalidate>
                     @csrf
+                    <label for="website_url" style="display:none;">Your Website (optional)</label>
+                    <input type="email" name="website_url" id="website_url" style="display:none;" autocomplete="off">
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var weirdcatcher = document.getElementById("website_url");
+                            if (weirdcatcher) {
+                                weirdcatcher.value = "";
+                            }
+                        });
+                    </script>
+
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -51,7 +62,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="phone_number"><strong>Phone number <span class="text-danger">*</span></strong></label>
-                                <input class="form-control" name="phone_number" value="{{ old('phone_number') }}" id="phone_number" type="number" placeholder="" required>
+                                <input class="form-control" name="phone_number" value="{{ old('phone_number') }}" id="phone_number" type="tel" placeholder="" required>
                                 @error('phone_number')
                                     <p style="color: red;">{{ $message }}</p>
                                 @enderror

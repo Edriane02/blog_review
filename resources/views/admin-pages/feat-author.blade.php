@@ -38,7 +38,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Date Posted</th>
-                                                    <th>Author Name</th>
+                                                    <th>Author's Name</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>

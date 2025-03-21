@@ -66,15 +66,20 @@
 
                                                     <div class="mb-3">
                                                         <span class="badge bg-primary mb-3">STEP 3</span>
-                                                        <h4>Add Review Title or Headline <span class="text-danger">*</span></h4>
-                                                        <p class="text-muted">This will appear at the top of the post page.</p>
+                                                        <h4>Add Review Headline <span class="text-danger">*</span></h4>
+                                                        <p class="text-muted">Enter a short and compelling headline for the review. This will appear at the top of the page and should grab readers' attention.</p>
                                                         <div class="mb-3">  
                                                             <input class="form-control" name="review_title" type="text" id="book-review-title" required>
                                                         </div>
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 4</span>
-                                                    <h4 class="mb-3">Write Your Review <span class="text-danger">*</span></h4>
+                                                    <h4 class="mb-2">Write Your Review <span class="text-danger">*</span></h4>
+                                                    <!-- How to add links modal button -->
+                                                    <button type="button" class="text-primary text-decoration-underline bg-transparent border-0 p-0 mb-4" data-bs-toggle="modal"
+                                                            data-bs-target=".howToAddLink"><i class="bi bi-question-circle"></i> Learn how to add links below
+                                                        </button>
+
                                                     <div class="mb-4">
                                                         <textarea id="elm1" name="review[]"></textarea>
                                                     </div>
@@ -163,7 +168,11 @@
                                                     <br/>
                                                     <div>
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light mb-3">Publish</button>
-                                                    </div>           
+                                                    </div>
+                                                    
+                                                    <!-- Include how to add links modal -->
+                                                    @include('modals.how-to-add-link')
+
                                         </div> <!-- /.card-body -->
                                 </form> <!-- Form end -->
                             </div> <!-- /.col-xl-10 -->

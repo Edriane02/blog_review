@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/featured-authors', [HomeController::class, 'featuredAuthorsPage'])->name('featured.authors');
 Route::get('/post/featured-author/{id}', [HomeController::class, 'viewFeaturedAuthor'])->name('featured.author');
 Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
 Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');

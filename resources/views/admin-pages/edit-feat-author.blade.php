@@ -62,7 +62,7 @@
                                                     
                                                     <div class="mb-3">
                                                         <span class="badge bg-primary mb-3">STEP 2</span>
-                                                        <h4>Author Name <span class="text-danger">*</span></h4>
+                                                        <h4>Author's Name <span class="text-danger">*</span></h4>
                                                         <p class="text-muted">This will appear at the top of the post page.</p>
                                                         <div class="mb-3">  
                                                             <input class="form-control" name="author_name" type="text" id="book-review-title" value="{{ $featuredAuthor->author_name }}" required>
@@ -72,13 +72,21 @@
                                                     <div class="mb-3">
                                                         <span class="badge bg-primary mb-3">STEP 3</span>
                                                         <h4>Add Headline <span class="text-danger">*</span></h4>
+                                                        <p class="text-muted">Enter a short and compelling headline for the author. This will appear at the top of the page and should grab readers' attention.</p>
                                                         <div class="mb-3">  
                                                             <input class="form-control" name="headline" type="text" id="book-review-title" value="{{ $featuredAuthor->headline }}" required>
                                                         </div>
                                                     </div>
 
                                                     <span class="badge bg-primary mb-2">STEP 4</span>
-                                                    <h4 class="mb-3">About The Author <span class="text-danger">*</span></h4>
+                                                    <h4>About the Author <span class="text-danger">*</span></h4>
+                                                    <p class="text-muted mb-0">You can also highlight the author's background and style by describing them through their work(s).</p>
+
+                                                    <!-- How to add links modal button -->
+                                                    <button type="button" class="text-primary text-decoration-underline bg-transparent border-0 p-0 mb-4" data-bs-toggle="modal"
+                                                            data-bs-target=".howToAddLink"><i class="bi bi-question-circle"></i> Learn how to add links below
+                                                        </button>
+
                                                     <div class="mb-4">
                                                         @if(is_array($featuredAuthor->body_text))
                                                             @foreach($featuredAuthor->body_text as $index => $text)
@@ -100,7 +108,7 @@
                                                         <select class="form-control" name="status" required>
                                                             <option>Select Visibility...</option>
                                                             <option value="Featured" {{ $featuredAuthor->status == 'Featured' ? 'selected' : '' }}>Featured</option>
-                                                            <option value="Archived" {{ $featuredAuthor->status == 'Archived' ? 'selected' : '' }}>Archived</option>
+                                                            <option value="Listed" {{ $featuredAuthor->status == 'Listed' ? 'selected' : '' }}>Listed</option>
                                                             <option value="Hidden" {{ $featuredAuthor->status == 'Hidden' ? 'selected' : '' }}>Hidden</option>
                                                         </select>
                                                     </div>
@@ -108,7 +116,11 @@
                                                     <br/>
                                                     <div>
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light mb-3">Update</button>
-                                                    </div>           
+                                                    </div>
+                                                    
+                                                    <!-- Include how to add links modal -->
+                                                    @include('modals.how-to-add-link')
+
                                         </div> <!-- /.card-body -->
                                 </form> <!-- Form end -->
                             </div> <!-- /.col-xl-10 -->

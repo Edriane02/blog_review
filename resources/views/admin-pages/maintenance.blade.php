@@ -6,7 +6,7 @@
     <title>Maintenance | The Eastern Review CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
-    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors" />
+    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors,new authors,featured authors" />
     <meta name="author" content="The Eastern Review" />
 
     <meta property="og:title" content="The Eastern Review"/>

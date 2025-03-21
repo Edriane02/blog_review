@@ -13,11 +13,6 @@ use Illuminate\Validation\ValidationException;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     public function home()
     {
         // For "Browse by Tags" section
@@ -54,8 +49,10 @@ class HomeController extends Controller
     public function viewFeaturedAuthor($id)
     {
         $author = FeaturedAuthor::findOrFail($id);
+
+        $tags = Tags::all();
         
-        return view('client-pages.view-featured-author', compact('author'));
+        return view('client-pages.view-featured-author', compact('author', 'tags'));
     }
 
     public function reviewerReviews($reviewerId)
@@ -138,10 +135,10 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $searchQuery = $request->input('query'); // Get the search query from the form
-        $tags = Tags::all(); // Fetch all available tags for suggestions
+        $searchQuery = trim($request->input('query')); // Sanitize input
+        $tags = Tags::all(); // Fetch all available tags
 
-        // Check if the search query is empty
+        // Check if search query is empty
         if (empty($searchQuery)) {
             return view('client-pages.search-results', [
                 'errorMessage' => 'It looks like the search box was empty. Try entering a keyword.',
@@ -151,13 +148,27 @@ class HomeController extends Controller
             ]);
         }
 
-        // Search for books by title or author name and paginate the results (10 per page)
+        // Limit query length to prevent abuse
+        if (strlen($searchQuery) > 100) {
+            return view('client-pages.search-results', [
+                'errorMessage' => 'Search query is too long. Please enter a shorter keyword.',
+                'books' => Books::whereRaw('0=1')->paginate(10),
+                'tags' => $tags,
+                'searchQuery' => $searchQuery
+            ]);
+        }
+
+        // Escape special characters for LIKE search
+        $searchQuery = addcslashes($searchQuery, '%_');
+
+        // Perform the search safely
         $books = Books::where('title', 'LIKE', "%{$searchQuery}%")
-                        ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
-                        ->paginate(10); // Fetch 10 results per page
+            ->orWhere('book_author', 'LIKE', "%{$searchQuery}%")
+            ->paginate(10);
 
         return view('client-pages.search-results', compact('books', 'tags', 'searchQuery'));
     }
+
 
     public function categorySearch($tagId)
     {
@@ -178,11 +189,17 @@ class HomeController extends Controller
 
     public function submitContactForm(Request $request)
     {
+        // Check Honeypot: If filled, reject the request
+        if (!empty($request->website_url)) {
+            return back()->withErrors(['message' => 'Spam detected.']);
+        }
+
         // Validate the request data
         $request->validate([
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone_number' => 'required|string|max:20',
+            // 'phone_number' => 'required|string|max:20',
+            'phone_number' => ['required', 'regex:/^\+?[0-9]{7,15}$/'],
             'message' => 'required|string|max:1024',
         ]);
 
@@ -204,10 +221,19 @@ class HomeController extends Controller
                 'phone_number' => $request->phone_number,
                 'message' => $request->message,
             ]);
-        });
+        });        
 
         return back()->with('success', 'Your message has been sent successfully.');
     }
+
+    public function featuredAuthorsPage()
+    {
+        $featuredAuthors = FeaturedAuthor::orderBy('id', 'desc')->paginate(10);
+
+        // Return view with data
+        return view('client-pages.featured-authors', compact('featuredAuthors'));
+    }
+
 
 
 
