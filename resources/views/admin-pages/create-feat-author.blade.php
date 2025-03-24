@@ -19,7 +19,7 @@
 
                              <div class="col-sm-6">
                                 <div class="float-end d-sm-block">
-                                    <a href="{{ route('featured_authors.index') }}" type="button" class="btn btn-success waves-effect waves-light"><i class="bi bi-arrow-left"></i>&nbsp;Back to Featured Authors</a>
+                                    <a href="{{ route('featured_authors.index') }}" type="button" class="btn btn-primary waves-effect waves-light"><i class="bi bi-arrow-left"></i>&nbsp;Back to Featured Authors</a>
                                 </div>
                             </div>
                          </div>

@@ -18,7 +18,7 @@
 
                          <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <a href="{{ route('newPost') }}" type="button" class="btn btn-success waves-effect waves-light">Add New Post</a>
+                                <a href="{{ route('newPost') }}" type="button" class="btn btn-primary waves-effect waves-light">Add New Post</a>
                             </div>
                         </div>
                      </div>

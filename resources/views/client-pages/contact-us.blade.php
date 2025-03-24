@@ -12,7 +12,7 @@
                 <h1 class="contact-us-title text-center">
                     Contact Us
                 </h1>
-                <center><img src="{{ asset('guestAssets/imgs/static/reading_book_comp.png') }}" width="320" alt=""></center>
+                <center><img class="img-filter-brown" src="{{ asset('guestAssets/imgs/static/reading_book_comp.png') }}" width="320" alt=""></center>
             </div>
         </div>
         <div class="container single-content">

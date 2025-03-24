@@ -7,7 +7,7 @@
         <div class="archive-header pt-50">
             <div class="container">
                 <span style="color: #6e6e6e;"><strong>Browse by Tag</strong></span><br />
-                <h2 class="font-weight-900">{{ $tag->tag }}</h2>
+                <h2 class="fancy-font">{{ $tag->tag }}</h2>
                 <div class="breadcrumb">
                 Showing {{ $books->total() }} results</strong>
                 </div>

@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end d-sm-block">
-                        <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                             data-bs-target=".addReviewerModal">Add New Reviewer</button>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                                 <p style="font-size: 12px;" class="mb-2"><span class="text-danger">*</span> Indicates required field.</p>
 
                                 <!-- Form start -->
-                                <p><strong>Upload Reviewer's Photo</strong></p>
+                                <p><strong>Upload Reviewer's Photo (optional)</strong></p>
                                 <div class="upload-container mb-3" id="uploadContainer">
                                     <input class="form-control" type="file" name="photo" id="fileInput" accept="image/*">
                                 </div>
@@ -168,7 +168,7 @@
                                     <input type="hidden" name="id" value="{{ $reviewers->id }}">
 
                                     <!-- Form start -->
-                                    <p><strong>Upload Reviewer's Photo</strong></p>
+                                    <p><strong>Upload Reviewer's Photo (optional)</strong></p>
                                     <center>
                                         <img class="rounded-circle mb-3" src="{{ asset('storage/' . ($reviewers->photo ?? 'static/default_photo.jpg')) }}"
                                             width="200" alt="Reviewer's photo">

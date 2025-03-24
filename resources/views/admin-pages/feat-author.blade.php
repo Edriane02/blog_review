@@ -18,7 +18,7 @@
 
                          <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <a href="{{ route('featured_authors.create') }}" type="button" class="btn btn-success waves-effect waves-light">Add Featured Author</a>
+                                <a href="{{ route('featured_authors.create') }}" type="button" class="btn btn-primary waves-effect waves-light">Add Featured Author</a>
                             </div>
                         </div>
                      </div>

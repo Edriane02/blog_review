@@ -17,7 +17,7 @@
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.png') }}">
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />

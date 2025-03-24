@@ -57,13 +57,13 @@
     <header class="main-header header-style-1 font-heading">
         <div class="header-top">
             <div class="container">
-                <div class="row pt-20 pb-20">
+                <div style="padding-bottom: 12px !important; padding-top: 12px !important;" class="row">
                     <div class="col-md-3 col-xs-6">
-                        <a href="{{ route('home') }}"><img class="logo" width="125" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo" width="114" src="{{ asset('guestAssets/imgs/theme/logo.png') }}" alt=""></a>
                     </div>
                     <div class="col-md-9 col-xs-6 text-right header-top-right ">
                         <button class="search-icon d-md-inline"><span class="mr-15 text-muted"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
-                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="{{ route('contactUs') }}">Contact Us Today!</a>
+                        <a class="btn btn-radius bg-primary text-white ml-15 font-small box-shadow" href="{{ route('contactUs') }}">Contact Us Today</a>
                     </div>
                 </div>
             </div>
@@ -241,7 +241,7 @@
                 </div>
             </div>
             <div class="footer-copy-right pt-30 mt-20 wow fadeInUp animated">
-                <p class="float-md-left font-small text-muted">© 2024 The Eastern Review</p>
+                <p class="float-md-left font-small text-muted">© 2025 The Eastern Review</p>
             </div>
         </div>
     </footer>

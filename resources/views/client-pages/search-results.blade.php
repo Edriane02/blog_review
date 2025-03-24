@@ -7,7 +7,7 @@
         <!-- Archive header -->
         <div class="archive-header pt-50">
             <div class="container">
-                <h2 class="font-weight-900">Search</h2>
+                <h2 class="fancy-font">Search</h2>
                 <div class="breadcrumb">
                     Showing {{ $books->total() }} results for <strong>"{{ e($searchQuery) }}"</strong>
                 </div>

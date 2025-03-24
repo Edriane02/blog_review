@@ -8,11 +8,11 @@
             <div class="entry-header entry-header-style-1 mb-50 pt-50">
                 <p class="custom-small-heading text-muted text-center"><b>Featured Author</b></p>
 
-                <h1 class="entry-title font-weight-900 entry-title-custom-font text-center">
+                <h1 class="entry-title fancy-font entry-title-custom-font text-center">
                     {{ $author->author_name }}
                 </h1>
-                <hr>
-                <h2 class="font-weight-900 text-center mb-15"><i>{{ $author->headline }}</i></h2>
+                <hr style="border: 1.5px solid #B3876E;">
+                <h2 class="fancy-font text-center mb-15">{{ $author->headline }}</h2>
 
                 <center>
                     <div class="entry-meta align-items-center meta-2 font-small color-muted">

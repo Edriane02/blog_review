@@ -19,7 +19,7 @@
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.png') }}">
 
     <link href="{{ asset('adminAssets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -71,19 +71,19 @@
                  <div class="navbar-brand-box">
                     <a href="{{ route('dashboard') }}" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="22">
+                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" alt="Site logo" height="35">
+                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" alt="Site logo" height="60">
                         </span>
                     </a>
 
                     <a href="{{ route('dashboard') }}" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="22">
+                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('adminAssets/images/logo-light.png') }}" alt="Site logo" height="20">
+                            <img src="{{ asset('adminAssets/images/logo-light.png') }}" alt="Site logo" height="60">
                         </span>
                     </a>
                 </div>
@@ -207,16 +207,19 @@
 
     @yield('contents')
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        ©
-                        <script>document.write(new Date().getFullYear())</script> The Eastern Review
-                    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    © 2025 The Eastern Review CMS
+                </div>
+                <div class="col-sm-6 text-sm-end">
+                    Designed & Developed by CUBE International Production Team
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
+
         </div>
         <!-- End main content -->
 

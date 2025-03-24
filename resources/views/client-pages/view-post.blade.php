@@ -10,12 +10,13 @@
                 @foreach($book->reviews as $review)
                     <p class="custom-small-heading text-muted text-center"><b>{{ $review->review_type }}</b></p>
                 @endforeach
-                <h1 class="entry-title font-weight-900 entry-title-custom-font text-center">
+                <h1 class="entry-title fancy-font entry-title-custom-font text-center">
                     {{ $book->title }}
                 </h1>
                 <p class="text-center text-muted">by {{ $book->book_author }}</p>
+                <hr style="border: 1.5px solid #B3876E;">
                     @foreach($book->reviews as $review)
-                        <h2 class="font-weight-900 text-center"><i>{{ $review->review_title }}</i></h2>
+                        <h2 class="fancy-font text-center">{{ $review->review_title }}</h2>
                     @endforeach
                     <center>
                         <div class="entry-meta align-items-center meta-2 font-small color-muted">

@@ -19,7 +19,7 @@
 
                 
                 <div class="col-lg-7 col-md-6 align-self-center">
-                    <p style="color: #189ad3; letter-spacing: 1px;" class="mb-2"><b><i class="bi bi-star-fill"></i>&nbsp;FEATURED AUTHOR</b></p>
+                    <p style="color: #B3876E; letter-spacing: 1px;" class="mb-2"><b><i class="bi bi-star-fill"></i>&nbsp;FEATURED AUTHOR</b></p>
                     <h2 class="section-title-name mb-3">{{ $featuredAuthor->author_name }}</h2>
                     <!-- Headline -->
                     <h5 class="author-subtitle mb-3">{{ $featuredAuthor->headline }}</h5>
@@ -98,7 +98,7 @@
                 </div>
             @else
             <center>
-                <img class="mb-3" src="{{ asset('guestAssets/imgs/static/featured.svg') }}" width="300">
+                <img class="mb-3 img-filter-bw" src="{{ asset('guestAssets/imgs/static/featured.svg') }}" width="300">
                 <h5 class="text-muted">No featured reviews — yet.</h5>
             </center>
             @endif
@@ -148,7 +148,7 @@
                     @endforeach
                 @else
                 <center>
-                    <img class="mb-3" src="{{ asset('guestAssets/imgs/static/latest.svg') }}" width="300">
+                    <img class="mb-3 img-filter-bw" src="{{ asset('guestAssets/imgs/static/latest.svg') }}" width="300">
                     <h5 class="text-muted">No latest reviews — yet.</h5>
                 </center>
                     <br /><br /><br />

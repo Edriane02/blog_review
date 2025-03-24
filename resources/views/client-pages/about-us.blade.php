@@ -11,7 +11,7 @@
             </h1>
 
             <figure class="image mb-30 m-auto text-center border-radius-10">
-                <img class="border-radius-10" src="{{ asset('guestAssets/imgs/static/banner-with-logo.png') }}" alt="" />
+                <img class="border-radius-10" src="{{ asset('guestAssets/imgs/static/banner-with-logo.jpg') }}" alt="" />
             </figure>
 
             <article class="entry-wraper">
