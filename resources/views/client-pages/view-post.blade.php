@@ -13,7 +13,7 @@
                 <h1 class="entry-title fancy-font entry-title-custom-font text-center">
                     {{ $book->title }}
                 </h1>
-                <p class="text-center text-muted">by {{ $book->book_author }}</p>
+                <p class="text-center text-muted"><b>by {{ $book->book_author }}</b></p>
                 <hr style="border: 1.5px solid #B3876E;">
                     @foreach($book->reviews as $review)
                         <h2 class="fancy-font text-center">{{ $review->review_title }}</h2>

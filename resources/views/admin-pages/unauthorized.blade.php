@@ -11,7 +11,7 @@
 
     <meta property="og:title" content="The Eastern Review"/>
     <meta property="og:type" content="website"/>
-    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
+    <meta property="og:url" content="https://theeasternreview.com"/>
     <meta property="og:site_name" content="The Eastern Review"/>
     <meta property="og:description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales."/>
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>

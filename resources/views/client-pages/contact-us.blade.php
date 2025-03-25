@@ -22,7 +22,7 @@
 
                 <h3 class="mt-30"><i class="bi bi-envelope"></i>&nbsp;&nbsp;Email us</h3>
                 <hr class="wp-block-separator is-style-wide">
-                <p class="font-medium-custom">You can contact us at: <a style="color: #4379F2;" href="mailto:contact@example.com">contact@example.com</a></p>
+                <p class="font-medium-custom">You can contact us at: <a style="color: #4379F2;" href="mailto:info@theeasternreview.com">info@theeasternreview.com</a></p>
 
                 <h3 class="mt-45"><i class="bi bi-send"></i>&nbsp;&nbsp;Or send us a message</h3>
                 <hr class="wp-block-separator is-style-wide">

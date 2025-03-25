@@ -11,7 +11,7 @@
 
     <meta property="og:title" content="The Eastern Review"/>
     <meta property="og:type" content="website"/>
-    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
+    <meta property="og:url" content="https://theeasternreview.com"/>
     <meta property="og:site_name" content="The Eastern Review"/>
     <meta property="og:description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales."/>
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
@@ -29,8 +29,19 @@
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <style>
+        .auth-page-bg {
+            --bs-bg-opacity: 1;
+            background-color: #B3876E;
+        }
+
+        .auth-welcome-text {
+            color: #B3876E;
+        }
+    </style>
+
 </head>
-<body class="authentication-bg bg-primary">
+<body class="authentication-bg auth-page-bg">
 @include('partials.sweetalert')
 
     <div class="home-center">
@@ -43,9 +54,9 @@
                                 <div class="px-2 py-3">
                                     <div class="text-center">
                                         <a href="index.html">
-                                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" height="40" alt="logo">
+                                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" height="70" alt="logo">
                                         </a>
-                                        <h5 class="text-primary mb-2 mt-4">Welcome to The Eastern Review CMS!</h5>
+                                        <h5 class="auth-welcome-text mb-2 mt-4">Welcome to The Eastern Review CMS!</h5>
                                         <p class="text-muted">Sign in to continue</p>
                                     </div>
 
@@ -64,17 +75,13 @@
                                         </div>
                                         <div class="mb-3">
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="customControlInline">
-                                                <label class="form-label" for="customControlInline">Remember me</label>
+                                                <!-- <input type="checkbox" class="form-check-input" id="customControlInline">
+                                                <label class="form-label" for="customControlInline">Remember me</label> -->
                                             </div>
                                         </div>
 
                                         <div>
                                             <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
-                                        </div>
-
-                                        <div class="mt-4 text-center">
-                                            <a href="auth-recoverpw.html" class="text-muted">Forgot password?</a>
                                         </div>
                                     </form>
                                     <!-- Form end -->
@@ -83,7 +90,6 @@
                         </div>
 
                         <div class="mt-5 text-center text-white">
-                            <!-- <p>Don't have an account?<a href="#" class="fw-bold text-white"> Register</a> </p> -->
                             <p>© <script>document.write(new Date().getFullYear())</script> The Eastern Review CMS</p>
                         </div>
                     </div>
