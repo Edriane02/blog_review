@@ -12,6 +12,7 @@ class Reviews extends Model
     protected $fillable = [
         'book_id',
         'reviewer',
+        'review_type',
         'review_title',
         'review',
     ];

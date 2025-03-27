@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                                     data-bs-target=".newAdminModal">Add New User</button>
                             </div>
                         </div>

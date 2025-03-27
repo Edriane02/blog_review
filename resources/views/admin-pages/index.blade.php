@@ -13,7 +13,7 @@
             <div class="row align-items-center">
                 <div class="">
                     <div class="page-title">
-                        <h2 class="page-title-custom">Literary Critics Guild Reviews | Content Management System</h2>
+                        <h2 class="page-title-custom">The Eastern Review | Content Management System</h2>
                         <p class="page-title-custom">Dashboard</p>
                     </div>
                 </div>
@@ -26,9 +26,9 @@
         <div class="page-content-wrapper">
             <br /><br /><br />
             <center>
-                <img class="image-responsive mt-5" src="{{ asset('adminAssets/images/dashboard_reading.svg') }}" width="400" alt="People reading">
+                <img class="image-responsive mt-5" src="{{ asset('adminAssets/images/logo-light.png') }}" width="400" alt="People reading">
                 <br /><br />
-                <p style="font-family: 'Libre Baskerville', serif; font-size: 17px;">A book is a dream that you hold in your hand.</p>
+                <p style="font-family: 'Libre Baskerville', serif; font-size: 17px;">Uncovering world’s stories, one book at a time.</p>
             </center>
         </div>
     </div> <!-- /.container-fluid -->

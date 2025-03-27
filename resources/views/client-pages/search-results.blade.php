@@ -7,7 +7,7 @@
         <!-- Archive header -->
         <div class="archive-header pt-50">
             <div class="container">
-                <h2 class="font-weight-900">Search</h2>
+                <h2 class="fancy-font">Search</h2>
                 <div class="breadcrumb">
                     Showing {{ $books->total() }} results for <strong>"{{ e($searchQuery) }}"</strong>
                 </div>
@@ -50,7 +50,9 @@
                                                     <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                                 </h5>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
+                                                @foreach($book->reviews as $review)
+                                                    <span class="post-on">{{ $review->review_type }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ $book->created_at->format('M d, Y') }}</span>
+                                                @endforeach
                                                 </div>
                                             </div>
                                         </div>

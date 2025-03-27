@@ -30,7 +30,6 @@ class AdminController extends Controller
         return view('admin-pages.newPost', compact('reviewers', 'tags'));
     }
 
-    // ===== WORKING/TESTED ===== //
     public function uploadPost(Request $request)
     {
         // Validate incoming request
@@ -44,6 +43,7 @@ class AdminController extends Controller
             'publisher' => 'nullable|string|max:255',
             'amazon_link' => 'nullable|string',
             'barnes_noble_link' => 'nullable|string',
+            'review_type' => 'required|string|max:255',
             'review_title' => 'nullable|string|max:255',
             'review' => 'nullable|array',
             'review.*' => 'nullable|string',
@@ -80,6 +80,7 @@ class AdminController extends Controller
                     Reviews::create([
                         'book_id' => $book->id,
                         'reviewer' => $reviewer, // Assuming 'reviewer_id' is the foreign key in Reviews table
+                        'review_type' => $request->review_type,
                         'review_title' => $request->review_title,
                         'review' => $request->review[$index],
                     ]);
@@ -109,10 +110,8 @@ class AdminController extends Controller
         $tags = Tags::all();
 
         return view('admin-pages.editPost', compact('books', 'reviewers', 'tags'));
-    } 
-    
+    }
 
-    // ===== WORKING/TESTED ===== //
     public function updatePost(Request $request, $id)
 {
     // Validate incoming request
@@ -126,6 +125,7 @@ class AdminController extends Controller
         'publisher' => 'nullable|string|max:255',
         'amazon_link' => 'nullable|string',
         'barnes_noble_link' => 'nullable|string',
+        'review_type' => 'required|string|max:255',
         'review_title' => 'nullable|string|max:255',
         'review' => 'nullable|array',
         'review.*' => 'nullable|string',
@@ -171,6 +171,7 @@ class AdminController extends Controller
                 Reviews::create([
                     'book_id' => $book->id,
                     'reviewer' => $reviewer,
+                    'review_type' => $request->review_type,
                     'review_title' => $request->review_title,
                     'review' => $request->review[$index],
                 ]);

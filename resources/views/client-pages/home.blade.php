@@ -4,30 +4,56 @@
 @section('contents')
 
 <main>
-    <div class="featured-1">
+
+    <!-- Featured Author section -->
+    @if(isset($featuredAuthor) && $featuredAuthor)
+    <div class="author-featured-section py-5">
         <div class="container">
+            
             <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <p class="heading-text-home">Dedicated to the</p>
-                    <br />
-                    <p class="heading-text-home-sub"><span class="fancy-underline">Art of Reading</span></p>
-                    <p class="description-home text-muted">We are passionate about exploring literature, offering
-                        in-depth reviews that capture the essence of each book, helping you discover new worlds and
-                        perspectives. Enhance your marketing with our expert reviews, tailored for both new and
-                        established authors, to get your book noticed and boost sales instantly.</p>
+                <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+                    <div class="author-image-container">
+                        <img src="{{ asset('storage/' . $featuredAuthor->img_banner) }}" alt="Featured Author Photo" class="img-fluid rounded shadow-sm">
+                    </div>
                 </div>
-                <div class="col-lg-6 text-right d-none d-lg-block">
-                    <img src="{{ asset('guestAssets/imgs/static/reading.png') }}" alt="People reading">
+
+                
+                <div class="col-lg-7 col-md-6 align-self-center">
+                    <p style="color: #B3876E; letter-spacing: 1px;" class="mb-2"><b><i class="bi bi-star-fill"></i>&nbsp;FEATURED AUTHOR</b></p>
+                    <h2 class="section-title-name mb-3">{{ $featuredAuthor->author_name }}</h2>
+                    <!-- Headline -->
+                    <h5 class="author-subtitle mb-3">{{ $featuredAuthor->headline }}</h5>
+                    <div class="author-description text-muted mb-4">{!! Str::limit($featuredAuthor->body_text, 250) !!}</div>
+                    <a href="{{ route('featured.author', $featuredAuthor->id) }}" class="btn btn-sm btn-primary">Read more&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></a>
                 </div>
-            </div>
-            <p class="cta text-center">Interested in a Professional Review of Your Book?</p>
-            <p class="cta-desc text-muted text-center">We enhance credibility, increase exposure, and boost sales,
-                helping your book stand out and reach a wider audience.</p>
-            <div class="button-container">
-                <a href="{{ route('contactUs') }}" class="btn btn-primary btn-lg">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
+                
             </div>
         </div>
     </div>
+    @endif
+    <!-- End of Featured Author section -->
+
+    <div class="featured-1">
+    <div class="container h-100 position-relative">
+        <div class="row h-100">
+            <div class="col-lg-6 align-self-center feat-content-area">
+                <p class="heading-text-home mb-3">Uncovering world’s stories, one book at a time.</p>
+                <p class="description-home text-muted">Books are more than just stories—they're conversations that transcend cultures and time. Our reviews offer different approaches, from concise overviews to deeper critiques, helping readers and writers connect with literature meaningfully.<br/><br/>
+                Though our name hints at an Eastern influence, our passion for books knows no borders. We celebrate stories from around the world, inviting everyone to engage in the dialogue of great writing.</p>
+                <a href="{{ route('contactUs') }}" class="btn btn-primary btn-request-review">Request a Review&nbsp;&nbsp;<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+            <div class="col-lg-6">
+                <!-- Empty placeholder to maintain grid structure -->
+            </div>
+        </div>
+    </div>
+
+    <div class="home-image-wrapper">
+        <div class="hero-fade-effect"></div>
+        <img src="{{ asset('guestAssets/imgs/static/sunrise.png') }}" alt="Background image" class="sect-background-image">
+    </div>
+
+</div>
     <br />
     <div class="container">
         <div class="hot-tags pt-30 pb-30 font-small align-self-center">
@@ -60,7 +86,9 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
+                                        @foreach($book->reviews as $review)
+                                            <span class="post-on">{{ $review->review_type }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ $book->created_at->format('M d, Y') }}</span>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +98,7 @@
                 </div>
             @else
             <center>
-                <img class="mb-3" src="{{ asset('guestAssets/imgs/static/featured.svg') }}" width="300">
+                <img class="mb-3 img-filter-bw" src="{{ asset('guestAssets/imgs/static/featured.svg') }}" width="300">
                 <h5 class="text-muted">No featured reviews — yet.</h5>
             </center>
             @endif
@@ -109,7 +137,9 @@
                                             <span style="font-size: 13px;">Authored by {{ $book->book_author }}</span>
                                         </h5>
                                         <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                            <span class="post-on">{{ $book->created_at->format('M d, Y') }}</span>
+                                        @foreach($book->reviews as $review)
+                                            <span class="post-on">{{ $review->review_type }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ $book->created_at->format('M d, Y') }}</span>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +148,7 @@
                     @endforeach
                 @else
                 <center>
-                    <img class="mb-3" src="{{ asset('guestAssets/imgs/static/latest.svg') }}" width="300">
+                    <img class="mb-3 img-filter-bw" src="{{ asset('guestAssets/imgs/static/latest.svg') }}" width="300">
                     <h5 class="text-muted">No latest reviews — yet.</h5>
                 </center>
                     <br /><br /><br />
@@ -141,7 +171,7 @@
         <div class="container">
             <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                 <div class="widget-header-2 position-relative mb-30">
-                    <h5 class="mt-5 mb-30">Discover Books</h5>
+                    <h5 class="mt-5 mb-30">Discover</h5>
                 </div>
                 <div class="tagcloud mt-50">
                     @if($tags->count() > 0)

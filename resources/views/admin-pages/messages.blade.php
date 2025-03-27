@@ -79,7 +79,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="3" class="text-center">
+                                                <td colspan="6" class="text-center">
                                                     <div class="alert alert-info" role="alert">
                                                         No messages found.
                                                     </div>

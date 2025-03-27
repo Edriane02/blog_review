@@ -1,5 +1,5 @@
 @extends('layouts.sidebar')
-@section('title', 'All Posts')
+@section('title', 'Featured Author')
 
 @section('contents')
 
@@ -12,13 +12,13 @@
                      <div class="row align-items-center">
                          <div class="col-sm-6">
                              <div class="page-title">
-                                <h1 class="page-title-custom">All Posts</h1>
+                                <h1 class="page-title-custom">Featured Author</h1>
                              </div>
                          </div>
 
                          <div class="col-sm-6">
                             <div class="float-end d-sm-block">
-                                <a href="{{ route('newPost') }}" type="button" class="btn btn-primary waves-effect waves-light">Add New Post</a>
+                                <a href="{{ route('featured_authors.create') }}" type="button" class="btn btn-primary waves-effect waves-light">Add Featured Author</a>
                             </div>
                         </div>
                      </div>
@@ -38,41 +38,36 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Date Posted</th>
-                                                    <th>Book Title</th>
-                                                    <th>Reviewed by</th>
+                                                    <th>Author's Name</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @if($posts->count() > 0)
-                                                        @foreach($posts as $post)
+                                                    @if($authors->count() > 0)
+                                                        @foreach ($authors as $author)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td class="align-middle">{{ $post->book->created_at->format('M d, Y') }}</td>
+                                                                <td class="align-middle">{{ $author->created_at->format('M d, Y') }}</td>
                                                                 <td class="align-middle">
-                                                                    <strong>{{ optional($post->book)->title ?? 'Unknown Title' }}</strong><br />
-                                                                    <span class="text-muted" style="font-size: 12px;">Authored by {{ optional($post->book)->book_author ?? 'Unknown Author' }}</span>
+                                                                    <strong>{{ $author->author_name }}</strong>
                                                                 </td>
                                                                 <td class="align-middle">
-                                                                    @php
-                                                                        $reviewer = $post->reviewer;
-                                                                        $actualReviewer = \App\Models\Reviewer::find($reviewer);
-                                                                    @endphp
-                                                                    {{ optional($actualReviewer)->reviewer_name ?? 'Unknown Reviewer' }}
+                                                                {{ $author->status }}
                                                                 </td>
                                                                 <td class="align-middle">
                                                                     <div class="d-flex">
                                                                         <!-- Edit button -->
-                                                                        <a href="{{ route('editPost', $post->book_id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
+                                                                        <a href="{{ route('featured_authors.edit', $author->id) }}" type="button" class="btn btn-primary btn-sm waves-effect waves-light">
                                                                             <i class="bi bi-pencil-square"></i>
                                                                         </a>&nbsp;
                                                                         <!-- Delete button -->
-                                                                        <form id="delete-form-{{ $post->id }}"
-                                                                            action="{{ route('deletePost', $post->id) }}" method="POST">
+                                                                        <form id="delete-form-{{ $author->id }}"
+                                                                            action="{{ route('featured_authors.destroy', $author->id) }}" method="POST">
                                                                             @csrf
                                                                             @method('DELETE')
                                                                             <button type="button" class="btn btn-sm btn-danger"
-                                                                                onclick="confirmDelete({{ $post->id }})">
+                                                                                onclick="confirmDelete({{ $author->id }})">
                                                                                 <i class="bi bi-trash"></i>
                                                                             </button>
                                                                         </form>
@@ -82,9 +77,9 @@
                                                         @endforeach
                                                     @else
                                                         <tr>
-                                                            <td colspan="4" class="text-center">
+                                                            <td colspan="5" class="text-center">
                                                                 <div class="alert alert-info" role="alert">
-                                                                    No posts found.
+                                                                    No authors found.
                                                                 </div>
                                                             </td>
                                                         </tr>

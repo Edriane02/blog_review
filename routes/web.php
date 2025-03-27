@@ -12,6 +12,7 @@ use App\Http\Controllers\ReviewerController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\FeaturedAuthorController;
 use App\Models\Reviewer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/featured-authors', [HomeController::class, 'featuredAuthorsPage'])->name('featured.authors');
+Route::get('/post/featured-author/{id}', [HomeController::class, 'viewFeaturedAuthor'])->name('featured.author');
 Route::get('/post/{id}', [HomeController::class, 'viewPost'])->name('viewPost');
 Route::get('contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
@@ -137,4 +140,13 @@ Route::controller(UserManagementController::class)->group(function(){
     Route::delete('management/client-users/destroy/{id}', 'deleteClientUser')->middleware('auth:admin')->name('deleteClientUser');
     Route::delete('management/admin-users/destroy/{id}', 'deleteAdminUser')->middleware('auth:admin')->name('deleteAdminUser');
     Route::delete('management/all-users/destroy/{id}', 'deleteUser')->middleware('auth:admin')->name('deleteUser');
+});
+
+Route::controller(FeaturedAuthorController::class)->group(function () {
+    Route::get('admin/featured-authors', 'index')->middleware('auth:admin', 'isAdmin')->name('featured_authors.index');
+    Route::get('admin/featured-authors/create', 'create')->middleware('auth:admin', 'isAdmin')->name('featured_authors.create');
+    Route::post('admin/featured-authors', 'store')->middleware('auth:admin', 'isAdmin')->name('featured_authors.store');
+    Route::get('admin/featured-authors/{featuredAuthor}/edit', 'edit')->middleware('auth:admin', 'isAdmin')->name('featured_authors.edit');
+    Route::put('admin/featured-authors/{featuredAuthor}', 'update')->middleware('auth:admin', 'isAdmin')->name('featured_authors.update');
+    Route::delete('admin/featured-authors/{featuredAuthor}', 'destroy')->middleware('auth:admin')->name('featured_authors.destroy');
 });

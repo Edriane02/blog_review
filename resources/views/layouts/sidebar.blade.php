@@ -5,21 +5,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title') | Literary Critics Guild Reviews</title>
+    <title>@yield('title') | The Eastern Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books." />
-    <meta name="keywords" content="book reviews,professional book review service,literature,book marketing,author visibility,sales boost,new books,established authors,literary reviews,book discovery,in-depth book analysis,reading,book recommendations,literary critics guild reviews" />
-    <meta name="author" content="Literary Critics Guild Reviews" />
+    <meta name="description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales." />
+    <meta name="keywords" content="professional book review service,book recommendations,book discovery,reading,author visibility,literature,in-depth book analysis,sales boost,the eastern review,book marketing,new books,book reviews,established authors,new authors,featured authors" />
+    <meta name="author" content="The Eastern Review" />
 
-    <meta property="og:title" content="Literary Critics Guild Reviews"/>
+    <meta property="og:title" content="The Eastern Review"/>
     <meta property="og:type" content="website"/>
-    <!-- <meta property="og:url" content="https://www.yoursite.com/"/> -->
-    <meta property="og:site_name" content="Literary Critics Guild Reviews"/>
-    <meta property="og:description" content="Literary Critics Guild Reviews offers in-depth reviews that explore literature's worlds and perspectives. Boost visibility and sales for both new and established books."/>
+    <meta property="og:url" content="https://theeasternreview.com"/>
+    <meta property="og:site_name" content="The Eastern Review"/>
+    <meta property="og:description" content="The Eastern Review explores books in depth, helping both new and established titles gain more visibility and sales."/>
     <meta property="og:image" content="{{ asset('guestAssets/imgs/theme/og_banner.png') }}"/>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('adminAssets/images/favicon.png') }}">
 
     <link href="{{ asset('adminAssets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -71,19 +71,19 @@
                  <div class="navbar-brand-box">
                     <a href="{{ route('dashboard') }}" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="22">
+                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" alt="Site logo" height="35">
+                            <img src="{{ asset('adminAssets/images/logo-dark.png') }}" alt="Site logo" height="60">
                         </span>
                     </a>
 
                     <a href="{{ route('dashboard') }}" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="22">
+                            <img src="{{ asset('adminAssets/images/logo-sm.png') }}" alt="Site logo" height="30">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('adminAssets/images/logo-light.png') }}" alt="Site logo" height="20">
+                            <img src="{{ asset('adminAssets/images/logo-light.png') }}" alt="Site logo" height="60">
                         </span>
                     </a>
                 </div>
@@ -149,6 +149,13 @@
                         </li>
 
                         <li>
+                            <a href="{{ route('featured_authors.index') }}" class="waves-effect">
+                                <i class="dripicons-list"></i>
+                                <span>Featured Author</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="{{ route('tags') }}" class="waves-effect">
                                 <i class="dripicons-tag"></i>
                                 <span>Tags</span>
@@ -200,16 +207,19 @@
 
     @yield('contents')
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        ©
-                        <script>document.write(new Date().getFullYear())</script> Literary Critics Guild Reviews
-                    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    © 2025 The Eastern Review CMS
+                </div>
+                <div class="col-sm-6 text-sm-end">
+                    Designed & Developed by CUBE International Production Team
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
+
         </div>
         <!-- End main content -->
 
