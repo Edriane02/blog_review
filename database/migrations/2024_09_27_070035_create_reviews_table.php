@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('book_id')->nullable(); // Foreign key to books
-            $table->string('reviewer')->nullable();
+            $table->unsignedBigInteger('reviewer')->nullable();
+            $table->string('review_type')->nullable();
+            $table->string('review_title')->nullable();
             $table->text('review')->nullable();
             $table->timestamps();
 
