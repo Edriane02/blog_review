@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('banner')->nullable(); // Banner (picture)
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
+            $table->string('book_author')->nullable();
             $table->string('genre')->nullable();
             $table->integer('pages')->nullable();
             $table->string('publisher')->nullable();
